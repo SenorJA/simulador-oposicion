@@ -144,6 +144,13 @@ function setupEventListeners() {
     document.getElementById('btn-back-exams')
         .addEventListener('click', () => UI.goBack());
     // Exámenes específicos
+    const btn2026PincheOrd = document.getElementById('btn-topic-ope_2026_pinche_ord');
+    if (btn2026PincheOrd) btn2026PincheOrd.addEventListener('click', () => {
+        const qs = state.allQuestions.filter(q => q.origen === 'OPE SESCAM Pinche Ordinario 2026');
+        if (!qs.length) return alert('Examen no cargado.');
+        Topics.prepareModeSelection('Examen OPE 2026 (Pinche Ordinario)', () => qs, 'ope_2026_pinche_ord');
+    });
+
     const btn2026Cocinero = document.getElementById('btn-topic-ope_2026_cocinero');
     if (btn2026Cocinero) btn2026Cocinero.addEventListener('click', () => {
         const qs = state.allQuestions.filter(q => q.origen === 'OPE SESCAM Cocinero 2026');

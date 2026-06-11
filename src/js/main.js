@@ -171,6 +171,13 @@ function setupEventListeners() {
         Topics.prepareModeSelection('Examen OPE 2026 (Celador/a)', () => qs, 'ope_2026_celador');
     });
 
+    const btn2026CeladorExtra = document.getElementById('btn-topic-ope_2026_celador_extra');
+    if (btn2026CeladorExtra) btn2026CeladorExtra.addEventListener('click', () => {
+        const qs = state.allQuestions.filter(q => q.tema === 'Examen Oficial Celador/a Extraordinario SESCAM 2026');
+        if (!qs.length) return alert('Examen no cargado.');
+        Topics.prepareModeSelection('Examen OPE 2026 (Celador/a Extraordinario)', () => qs, 'ope_2026_celador_extra');
+    });
+
     const btn2024 = document.getElementById('btn-topic-ope_2024_cel');
     if (btn2024) btn2024.addEventListener('click', () => {
         const qs = state.allQuestions.filter(q => q.tema === 'Examen Oficial Celador/a SESCAM 2024');

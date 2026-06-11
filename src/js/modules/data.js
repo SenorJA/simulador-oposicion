@@ -73,7 +73,7 @@ export async function loadAllData() {
         console.log("Fetching question data...");
 
         const bust = `?v=${Date.now()}`;
-        const [resMad, resCsif, resAcad1, resAcad2, resAcad3, resAcad4, resAcad5, resAcad8, resAcad9, resAcad10, resCel2024, resCocinero2026, resCel2026, resPinche2026Ord, resPinche2026Extra] = await Promise.all([
+        const [resMad, resCsif, resAcad1, resAcad2, resAcad3, resAcad4, resAcad5, resAcad8, resAcad9, resAcad10, resCel2024, resCocinero2026, resCel2026, resPinche2026Ord, resPinche2026Extra, resCel2026Extra] = await Promise.all([
             fetch(`data/preguntas.json${bust}`),
             fetch(`data/csif_questions.json${bust}`),
             fetch(`data/academia_tema1.json${bust}`),
@@ -88,7 +88,8 @@ export async function loadAllData() {
             fetch(`data/sescam_2026_cocinero.json${bust}`),
             fetch(`data/sescam_2026_celador.json${bust}`),
             fetch(`data/sescam_2026_pinche_ord.json${bust}`),
-            fetch(`data/sescam_2026_pinche_extra.json${bust}`)
+            fetch(`data/sescam_2026_pinche_extra.json${bust}`),
+            fetch(`data/sescam_2026_celador_extra.json${bust}`)
         ]);
 
         if (!resMad.ok) throw new Error(`HTTP ${resMad.status} al cargar preguntas.json`);
@@ -108,6 +109,7 @@ export async function loadAllData() {
         const textCel2026 = resCel2026.ok ? await resCel2026.text() : '[]';
         const textPinche2026Ord = resPinche2026Ord.ok ? await resPinche2026Ord.text() : '[]';
         const textPinche2026Extra = resPinche2026Extra.ok ? await resPinche2026Extra.text() : '[]';
+        const textCel2026Extra = resCel2026Extra.ok ? await resCel2026Extra.text() : '[]';
 
         // Sanitize BOM (Byte Order Mark) that corrupts JSON.parse()
         const sanitize = (str) => str.replace(/^\uFEFF/, '').trim();
@@ -127,6 +129,7 @@ export async function loadAllData() {
         const cel2026Data = JSON.parse(sanitize(textCel2026));
         const pinche2026OrdData = JSON.parse(sanitize(textPinche2026Ord));
         const pinche2026ExtraData = JSON.parse(sanitize(textPinche2026Extra));
+        const cel2026ExtraData = JSON.parse(sanitize(textCel2026Extra));
 
         // Tag standard format sources
         const madWithSource = madData.map(q => ({ ...q, source: q.origen || 'MAD', origen: q.origen || 'MAD' }));
@@ -149,9 +152,10 @@ export async function loadAllData() {
         const cel2026WithSource = cel2026Data.map(q => ({ ...q, source: 'Histo', origen: 'OPE SESCAM Celador 2026' }));
         const pinche2026OrdWithSource = pinche2026OrdData.map(q => ({ ...q, source: 'Histo', origen: 'OPE SESCAM Pinche Ordinario 2026' }));
         const pinche2026ExtraWithSource = pinche2026ExtraData.map(q => ({ ...q, source: 'Histo', origen: 'OPE SESCAM Pinche Extraordinario 2026' }));
+        const cel2026ExtraWithSource = cel2026ExtraData.map(q => ({ ...q, source: 'Histo', origen: 'Examen Oficial Celador/a Extraordinario SESCAM 2026' }));
 
-        state.allQuestions = [...madWithSource, ...csifWithSource, ...acadNormalized, ...cel2024WithSource, ...cocinero2026WithSource, ...cel2026WithSource, ...pinche2026OrdWithSource, ...pinche2026ExtraWithSource];
-        console.log(`Loaded ${state.allQuestions.length} questions. (MAD: ${madWithSource.length}, CSIF: ${csifWithSource.length}, Academia: ${acadNormalized.length}, Celador 2024: ${cel2024WithSource.length}, Cocinero 2026: ${cocinero2026WithSource.length}, Celador 2026: ${cel2026WithSource.length}, Pinche Ordinario 2026: ${pinche2026OrdWithSource.length}, Pinche Extraordinario 2026: ${pinche2026ExtraWithSource.length})`);
+        state.allQuestions = [...madWithSource, ...csifWithSource, ...acadNormalized, ...cel2024WithSource, ...cocinero2026WithSource, ...cel2026WithSource, ...pinche2026OrdWithSource, ...pinche2026ExtraWithSource, ...cel2026ExtraWithSource];
+        console.log(`Loaded ${state.allQuestions.length} questions. (MAD: ${madWithSource.length}, CSIF: ${csifWithSource.length}, Academia: ${acadNormalized.length}, Celador 2024: ${cel2024WithSource.length}, Cocinero 2026: ${cocinero2026WithSource.length}, Celador 2026: ${cel2026WithSource.length}, Pinche Ordinario 2026: ${pinche2026OrdWithSource.length}, Pinche Extraordinario 2026: ${pinche2026ExtraWithSource.length}, Celador Extra 2026: ${cel2026ExtraWithSource.length})`);
         return state.allQuestions;
 
     } catch (err) {

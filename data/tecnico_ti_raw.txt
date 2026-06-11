@@ -1,0 +1,701 @@
+TÍTULO: Cuestionario Definitivo - Técnico de Gestión de Tecnologías de la Información (SESCAM 2026)
+
+1. La Constitución Española, respecto a la extradición, establece lo siguiente:
+a) La extradición sólo se concederá en cumplimiento de un tratado o de la ley, atendiendo al principio de reciprocidad.
+b) Los delitos políticos se consideran incluidos en la extradición.
+c) La extradición se concederá únicamente cuando una ley así lo reconozca.
+d) Quedan excluidos de la extradición los delitos políticos, considerándose como tales los actos de terrorismo.
+Respuesta correcta: a
+
+2. En el marco de la Ley Orgánica 1/2004, de 28 de diciembre, de Medidas de Protección Integral contra la Violencia de Género, las medidas de protección integral tienen por finalidad:
+a) Prevenir, sancionar y erradicar la violencia de género y prestar asistencia a las mujeres, a sus hijos menores y a los menores sujetos a su tutela, o guardia y custodia, víctimas de esta violencia.
+b) Prevenir y erradicar la violencia de género y prestar asistencia a las mujeres y a sus hijos menores.
+c) Sancionar a la persona que cause violencia de género a las mujeres, a sus hijos menores y a los menores sujetos a su tutela, o guardia y custodia, víctimas de esta violencia.
+d) Prevenir, sancionar y erradicar la violencia de género y prestar asistencia a las mujeres y a sus hijos menores.
+Respuesta correcta: a
+
+3. La Ley 16/2003, de 28 de mayo, de cohesión y calidad del Sistema Nacional de Salud, establece respecto a las distintas prestaciones del Sistema Nacional de Salud, que la prestación de urgencia:
+a) Se dispensará únicamente en centros sanitarios.
+b) Se dispensará tanto en centros sanitarios como fuera de ellos, sin posibilidad de acudir al domicilio del paciente.
+c) Se dispensará tanto en centros sanitarios como fuera de ellos, incluyendo el domicilio del paciente, durante las 24 horas del día, mediante la atención médica y de enfermería.
+d) Se dispensará tanto en centros sanitarios como fuera de ellos, no incluyendo la asistencia al domicilio del paciente, durante las 24 horas del día, mediante la atención médica y de enfermería.
+Respuesta correcta: c
+
+4. En el ejercicio de la libre elección recogido en la Ley 3/2014, de 21 de julio, de garantía de la atención sanitaria y del ejercicio de la libre elección en las prestaciones del Servicio de Salud de Castilla-La Mancha:
+a) Será posible la elección simultánea de varios centros.
+b) La citada Ley no recoge la elección de centros.
+c) Los pacientes tendrán derecho a elegir el centro para ser atendidos dentro de la red sanitaria del Servicio de Salud.
+d) Los centros para ser atendidos serán impuestos por Las Zonas Básicas de Salud.
+Respuesta correcta: c
+
+5. Son causas de extinción de la condición de personal estatutario fijo:
+a) La sanción disciplinaria firme de separación del servicio.
+b) La excedencia voluntaria por interés particular.
+c) Cuando se es nombrado en servicios especiales
+d) Todas son correctas.
+Respuesta correcta: a
+
+6. Que denominación le da el artículo 25 de la Ley sobre derechos y deberes en salud pública, al conjunto de documentos que contienen los datos, valoraciones e informaciones de cualquier índole sobre la situación y evolución clínica de un paciente a lo largo de sus procesos asistenciales:
+a) Libro de reclamaciones del paciente.
+b) Libro sanitario del paciente.
+c) Historia clínica.
+d) Libro de evolución del paciente.
+Respuesta correcta: c
+
+7. ¿De qué fecha es el decreto por el que se crean en el ámbito del Servicio de Salud de Castilla La Mancha la categoría de Técnico de Gestión de Tecnologías de la Información?:
+a) 31 de octubre de 2014
+b) 30 de abril de 2017
+c) 31 de octubre de 2017
+d) 30 de abril de 2014
+Respuesta correcta: c
+
+8. ¿Cuál de las siguientes funciones es propia de la categoría de Técnico de Gestión de Tecnologías de la Información?:
+a) Responsabilizarse de las auditorías informáticas, del control de calidad y la seguridad informática.
+b) Operación y explotación de los sistemas informáticos de los centros del SESCAM.
+c) Analizar y coordinar los Proyectos de Tecnologías de la Información y las Comunicaciones.
+d) Análisis, diseño, desarrollo, implementación, puesta en producción, mantenimiento y operación de los Proyectos y Servicios de Tecnologías de la Información y de las Comunicaciones en coordinación con las directrices dictadas por los respectivos órganos de dirección del SESCAM.
+Respuesta correcta: d
+
+9. ¿Dónde se establece la sede institucional de la Agencia de Transformación Digital de Castilla-La Mancha?
+a) Toledo
+b) Ciudad Real
+c) Talavera de la Reina
+d) Albacete
+Respuesta correcta: c
+
+10. ¿Qué naturaleza jurídica tiene la Agencia de Transformación Digital de Castilla-La Mancha?
+a) Sociedad mercantil regional
+b) Fundación pública
+c) Organismo autónomo
+d) Consorcio interadministrativo
+Respuesta correcta: c
+
+11. ¿Qué capa del modelo OSI garantiza la entrega correcta de los datos?
+a) Capa de red
+b) Capa de transporte
+c) Capa de enlace de datos
+d) Capa de aplicación
+Respuesta correcta: b
+
+12. ¿Qué dispositivo opera en la capa de red del modelo OSI?
+a) Switch
+b) Router
+c) Hub
+d) Repetidor
+Respuesta correcta: b
+
+13. ¿Cuál de las siguientes características es una diferencia clave entre TCP y UDP en la Capa de Transporte?
+a) TCP es un protocolo sin conexión, mientras que UDP es un protocolo orientado a conexión.
+b) TCP garantiza la entrega y el orden de los datos, mientras que UDP no lo hace.
+c) UDP es más lento que TCP.
+d) TCP y UDP no son protocolos de capa de transporte.
+Respuesta correcta: b
+
+14. ¿Cuál es la finalidad principal de la segmentación de redes desde el punto de vista de la seguridad?
+a) Mejorar la velocidad de transmisión de datos.
+b) Reducir la superficie de ataque y limitar accesos no autorizados.
+c) Sustituir el uso de firewalls.
+d) Eliminar la necesidad de autenticación.
+Respuesta correcta: b
+
+15. Un hospital usa switches gestionables para crear varias VLAN, pero no impone reglas de filtrado. ¿Qué riesgo persiste?
+a) Pérdida de disponibilidad.
+b) Movimientos laterales entre VLAN.
+c) Acceso no controlado si se enruta el tráfico.
+d) Saturación de la red Wi-Fi.
+Respuesta correcta: c
+
+16. En un entorno hospitalario con dispositivos loT médicos que usan WiFi, ¿qué mecanismo de ahorro de energía del estándar 802.11ax es más beneficioso para prolongar la batería de estos dispositivos?
+a) MU-MIMO
+b) OFDMA
+c) Target Wake Time (TWT)
+d) 1024-QAM
+Respuesta correcta: c
+
+17. ¿Cuál es la principal ventaja de la banda de 5 GHz frente a la de 2.4 GHz en una red WiFi?
+a) Tiene mayor alcance y atraviesa mejor las paredes.
+b) Sufre menos interferencias y permite mayores velocidades.
+c) Es compatible con dispositivos mucho más antiguos.
+d) No requiere el uso de antenas en el router.
+Respuesta correcta: b
+
+18. En SNMP, ¿qué tipo de mensaje es enviado de forma asíncrona por un agente (agent) al gestor (manager) para notificar un evento significativo, sin confirmación de recepción?
+a) GET Request
+b) SET Request
+c) TRAP
+d) INFORM Request
+Respuesta correcta: c
+
+19. ¿En qué puerto UDP por defecto escucha el agente SNMP para recibir peticiones del administrador (NMS)?
+a) 80
+b) 443
+c) 161
+d) 21
+Respuesta correcta: c
+
+20. En el contexto del protocolo IPSec, ¿qué modo de operación cifra y autentica todo el paquete IP original, encapsulándolo como carga útil de un nuevo paquete IP?
+a) Modo Transporte (Transport Mode)
+b) Modo Túnel (Tunnel Mode)
+c) Modo Pasarela (Gateway Mode)
+d) Modo Confidencial (Confidentiality Mode)
+Respuesta correcta: b
+
+21. ¿Cuál es la función principal de una VPN (Virtual Private Network)?
+a) Aumentar la velocidad de descarga de archivos.
+b) Crear un túnel seguro y cifrado para transmitir datos a través de una red pública como Internet.
+c) Limpiar físicamente los virus del disco duro.
+d) Permitir que el ordenador funcione sin necesidad de batería.
+Respuesta correcta: b
+
+22. En virtualización, ¿qué componente software es responsable de crear, ejecutar y gestionar máquinas virtuales, proporcionando una abstracción del hardware subyacente?
+a) Sistema Operativo Invitado (Guest OS)
+b) Hipervisor o Monitor de Máquina Virtual (VMM)
+c) Contenedor (Container)
+d) Emulador (Emulator)
+Respuesta correcta: b
+
+23. En virtualización, ¿cómo se denomina al sistema operativo que se instala "dentro" de una máquina virtual?
+a) Host (Anfitrión).
+b) Guest (Invitado).
+c) Master (Maestro).
+d) Root (Raíz).
+Respuesta correcta: b
+
+24. ¿Cuál es la característica principal de un servicio laas según el ENS (Esquema Nacional de Seguridad)?
+a) Proporcionar solo aplicaciones finales listas para el usuario.
+b) Ofrecer infraestructura virtualizada como almacenamiento, servidores y redes.
+c) Garantizar anonimización de datos por defecto.
+d) Gestionar únicamente la seguridad del software.
+Respuesta correcta: b
+
+25. ¿Cuál es la ventaja principal de la nube pública según ENS (Esquema Nacional de Seguridad)?
+a) Control exclusivo del cliente sobre infraestructura
+b) Escalabilidad y acceso compartido de recursos
+c) Garantía de privacidad total
+d) Requiere certificación ISO para cada cliente
+Respuesta correcta: b
+
+26. Un hospital quiere implementar un sistema de teleconsulta con los pacientes que incluya historial clínico y videollamadas en tiempo real. Los datos deben ser confidenciales y el servicio debe ser altamente disponible (se requiere elasticidad para picos de demanda). ¿Cuál es el modelo de nube más adecuado?
+a) Nube pública
+b) Nube privada
+c) Nube híbrida
+d) laas
+Respuesta correcta: c
+
+27. En el ámbito de Tecnologías de la información, RMAN es:
+a) Una especificación de monitorización remota de IETF.
+b) Una invocación de métodos remotos utilizada en Java.
+c) Una herramienta de Oracle que permite hacer backups online de bases de datos.
+d) Una herramienta de IBM que permite realizar administración remota de bases de datos.
+Respuesta correcta: c
+
+28. En el contexto de copias de seguridad o respaldo, un TMS es acrónimo de:
+a) Tape Management System
+b) Transaction Multiplexing System
+c) Tape Mapping System
+d) Transaction Management System
+Respuesta correcta: a
+
+29. Del siguiente listado, ¿cuál no es un software de copias de seguridad?:
+a) Crowstrike
+b) Veeam Backup & Replication
+c) Commvault
+d) Veritas Backup Exec
+Respuesta correcta: a
+
+30. En gestión unificada de usuarios: ¿A qué se denomina Single Sign-on (SSO)?
+a) Procedimiento de cifrado para autenticar a un usuario
+b) Procedimiento asociado al cifrado en Secure Socket Layers (SSL).
+c) Es un procedimiento de autentificación que habilita al usuario para acceder a varios sistemas con una única autenticación inicial.
+d) Permite el acceso de los usuarios a servicios web a través del protocolo HTTPS.
+Respuesta correcta: c
+
+31. En el esquema de árbol de dominios en Active Directory, ¿qué relación existe entre un dominio raíz y un dominio hijo?
+a) El dominio hijo hereda el esquema y catálogo global del dominio raíz, formando una estructura jerárquica con confianza transitiva bidireccional.
+b) Los dominios hijo operan de forma completamente independiente sin herencia.
+c) Solo el dominio hijo puede delegar administración al dominio raíz.
+d) Requiere configuración manual de confianza unidireccional.
+Respuesta correcta: a
+
+32. ¿Cuál es el orden predeterminado de procesamiento de las Directivas de Grupo (GPO) en la herencia de Active Directory?
+a) Sitio, Dominio, Unidades Organizativas (OU) de superior a inferior, con OU más cercanas sobrescribiendo las superiores.
+b) Solo desde las OU inferiores hacia el sitio.
+c) Aleatorio según prioridad numérica de GPO.
+d) Exclusivamente desde el dominio hacia las OU.
+Respuesta correcta: a
+
+33. ¿Qué estructura jerárquica se observa en el panel izquierdo de la GPMC para organizar políticas?
+a) Bosques, dominios y unidades organizativas en forma de árbol, reflejando la jerarquía de Active Directory.
+b) Un listado plano de todos los usuarios del dominio.
+c) Únicamente los sitios de Active Directory sin dominios.
+d) Un listado de grupos locales de cada equipo.
+Respuesta correcta: a
+
+34. ¿Cuál de los siguientes es un operador derivado de algebra relacional?
+a) Intersección
+b) Unión
+c) Proyección
+d) Selección
+Respuesta correcta: a
+
+35. En una base de datos relacional en la que se tiene información guardada en una tabla de provincias y además se dispone de una tabla de localidades donde parte de la clave es la provincia, ¿se puede actualizar una clave de la tabla de provincias manteniendo la integridad del sistema?
+a) Sí, si las localidades se crearon con anterioridad.
+b) Si, aunque no podría dar de alta nuevas localidades de esa provincia.
+c) No, la tabla de provincias no puede cambiar ya que son un elemento estable.
+d) Sólo si no hay ninguna localidad perteneciente a esa provincia o se modifica la clave en la tabla provincias y su parte de la clave en la tabla localidades.
+Respuesta correcta: d
+
+36. Según Codd en el modelo relacional normalizado, una entidad en la que todos los atributos tienen dependencia funcional completa de la clave está, al menos, en:
+a) Primera forma normal (1FN)
+b) Segunda forma normal (2FN)
+c) Tercera forma normal (3FN)
+d) Cuarta forma normal (4FN)
+Respuesta correcta: b
+
+37. En el modelo relacional normalizado, siendo ID# la clave primaria, la tabla EMPLEADO_PUBLICO (ID#, Nombre, Apellido 1, Apellido 2, ID_Servicio, Nombre_Servicio):
+a) No está en primera forma normal.
+b) Está en primera forma normal pero no en segunda forma normal.
+c) Está en segunda forma normal pero no en tercera forma normal.
+d) Está en tercera forma normal pero no en forma normal de Boyce Codd.
+Respuesta correcta: c
+
+38. En SQL, el lenguaje DDL especifica:
+a) Un lenguaje de consultas interactivo
+b) Un lenguaje de SQL inmerso
+c) Órdenes para declarar y mantener las estructuras y restricciones de integridad.
+d) El formato de la sentencia SELECT
+Respuesta correcta: c
+
+39. En SQL, la sentencia SELECT:
+a) Permite definir la estructura de una tabla.
+b) Define permisos sobre estructuras en una base de datos relacional.
+c) Realiza una consulta exclusivamente sobre una única tabla, especificando expresiones de columna, condiciones de filtrado, agrupamiento y ordenamiento, produciendo un conjunto de resultados (result set).
+d) Recupera datos de una o más tablas, vistas o derivados de consultas, especificando expresiones de columna, condiciones de filtrado, agrupamiento y ordenamiento, produciendo un conjunto de resultados (result set).
+Respuesta correcta: d
+
+40. En el SGBDR Oracle, la funcionalidad de DATABASE LINK
+a) Sirve para enlazar objetos Java en la base de datos para ser invocados desde PL/SQL.
+b) Permite integrar enlaces web en los campos de la base de datos.
+c) Permite acceder a datos disponibles en otras bases de datos.
+d) Ninguna de las anteriores.
+Respuesta correcta: c
+
+41. El usuario DBA de Oracle tiene permisos para:
+a) Realizar operaciones DML sobre el diccionario de la Base de Datos.
+b) Realizar directamente operaciones DML sobre las tablas internas del diccionario de datos.
+c) Tiene acceso sin restricciones a cualquier dato de la Base de Datos.
+d) No existe el usuario predefinido DBA, sino que se trata de un rol de sistema.
+Respuesta correcta: a
+
+42. ¿Cuál es el comando que se utiliza en GitLab para enviar los cambios locales a un repositorio remoto?
+a) git push
+b) git pull
+c) git commit
+d) git status
+Respuesta correcta: a
+
+43. ¿En qué tipo de sistema de control de versiones cada usuario tiene una copia completa del repositorio, incluyendo su historial completo de cambios?
+a) Centralizado
+b) Distribuido
+c) Solo administradores
+d) Ninguno
+Respuesta correcta: b
+
+44. En una arquitectura basada en contenedores, ¿qué componente se utiliza normalmente para almacenar y distribuir las imágenes de las aplicaciones?
+a) Control plane
+b) Registry de contenedores
+c) Service mesh
+d) Pod de Kubernetes
+Respuesta correcta: b
+
+45. ¿Qué función principal aporta un orquestador como Kubernetes en la implantación de servicios contenerizados?
+a) Compilar el código fuente de las aplicaciones.
+b) Gestionar el ciclo de vida de contenedores, incluyendo despliegue, escalado y recuperación.
+c) Sustituir al sistema operativo del host.
+d) Proporcionar un sistema de archivos distribuido sin intervención del administrador.
+Respuesta correcta: b
+
+46. ¿Cuál es el objetivo principal de las metodologías ágiles?
+a) Cumplir estrictamente un plan sin cambios.
+b) Entregar valor al cliente de forma rápida y continua.
+c) Documentar exhaustivamente antes de comenzar el desarrollo.
+d) Evitar la interacción con el cliente durante el proyecto.
+Respuesta correcta: b
+
+47. ¿Cuál de los siguientes marcos pertenece a las metodologías ágiles?
+a) Waterfall
+b) Scrum
+c) PMBOK
+d) Prince2
+Respuesta correcta: b
+
+48. ¿Cuál es la principal diferencia entre Scrum y Kanban?
+a) Scrum usa iteraciones fijas, Kanban flujo continuo.
+b) Kanban tiene roles definidos, Scrum no.
+c) Scrum no permite cambios, Kanban sí.
+d) Kanban requiere retrospectivas obligatorias.
+Respuesta correcta: a
+
+49. En programación orientada a objetos, ¿cuál de las siguientes afirmaciones sobre sus ventajas es incorrecta?
+a) Facilita el mantenimiento y extensión (extensibilidad) de las aplicaciones.
+b) Minimiza la modularidad y la encapsulación.
+c) Los diseños serán más proclives a tener un acoplamiento bajo y una cohesión alta.
+d) Reutilización de código (reusabilidad).
+Respuesta correcta: b
+
+50. En programación orientada a objetos, el mecanismo por el que se establecen distintos niveles de visibilidad para los componentes de una clase se llama:
+a) Encapsulamiento
+b) Abstracción
+c) Polimorfismo
+d) Acoplamiento
+Respuesta correcta: a
+
+51. En el lenguaje de programación Java. ¿Qué clase no es implementadora de la interfaz Map:
+a) HashTable
+b) TreeSet
+c) TreeMap
+d) HashMap
+Respuesta correcta: b
+
+52. En Java, el contenido de un bloque finally:
+a) Sólo se ejecuta cuando la excepción ha sido previamente capturada y procesada.
+b) Se ejecuta únicamente cuando la excepción lanzada no ha sido procesada por un bloque catch.
+c) No se ejecuta si existe un bloque catch que capture la excepción que se ha producido.
+d) Se ejecuta independientemente de que las excepciones sean o no capturadas.
+Respuesta correcta: d
+
+53. ¿Cuál es el código correcto para un párrafo en XHTML?:
+a) Un Mi texto en negrita y cursiva y además párrafo
+b) Un Mi texto en negrita y cursiva ay además párrafo
+c) Un Mi texto en negrita y cursiva ay además párrafo
+d) Un Mi texto en negrita y cursiva 1y además párrafo
+Respuesta correcta: a
+
+54. En el estándar XML, ¿cuál de las siguientes afirmaciones es incorrecta?
+a) Un DTD es un documento escrito en XML para definir el contenido y estructura de documentos XML.
+b) Los XML Schemas y los DTD permiten validar documentos XML.
+c) Los XML Schemas soportan herencia entre tipos de datos.
+d) Los DTD no están basados en el uso de "namespaces".
+Respuesta correcta: d
+
+55. ¿Cuál de las siguientes es una aplicación común de la IA en el sector de la salud?
+a) Diagnóstico médico automatizado utilizando aprendizaje automático.
+b) Mejora de la velocidad de internet en dispositivos móviles.
+c) Gestión de redes sociales.
+d) Mejora de la eficiencia energética de los edificios.
+Respuesta correcta: a
+
+56. En inteligencia artificial, ¿qué caracteriza principalmente a la IA explicativa?
+a) Realiza tareas sin intervención humana.
+b) Proporciona explicaciones sobre cómo llega a sus decisiones o conclusiones.
+c) Requiere grandes volúmenes de datos no etiquetados.
+d) Se centra solo en la simulación de procesos cognitivos humanos.
+Respuesta correcta: b
+
+57. (Pregunta sustituida por reserva 101) ¿En qué estándar de servicios de directorio está basado LDAP?
+a) Protocolo X.500
+b) OpenID.
+c) Protocolo X.600
+d) PAPI v.1
+Respuesta correcta: a
+
+58. ¿Qué significa el término interoperabilidad semántica en el contexto de la salud?
+a) La capacidad de los sistemas para enviar y recibir datos sin errores.
+b) La capacidad de los sistemas para compartir datos utilizando el mismo formato.
+c) La capacidad de los sistemas para entender y dar contexto a los datos que intercambian, asegurando que la información tenga el mismo significado para todos los usuarios.
+d) La capacidad de los sistemas para funcionar en diferentes plataformas tecnológicas.
+Respuesta correcta: c
+
+59. En HL7, ¿qué mensaje se utiliza para notificar la admisión de un paciente en un hospital?
+a) ADT_A01
+b) ORU_R01
+c) ORM_001
+d) DFT_P03
+Respuesta correcta: a
+
+60. (Pregunta sustituida por reserva 102) Un técnico informático de una empresa externa que administra servidores de historias clínicas por cuenta de la organización sanitaria actúa como:
+a) Responsable del tratamiento
+b) Corresponsable
+c) Encargado del tratamiento
+d) Interesado
+Respuesta correcta: c
+
+61. (Pregunta sustituida por reserva 103) Según el artículo 7 de la Orden de 14 de noviembre de 2013 del SESCAM, las plazas existentes en las plantillas orgánicas se podrán clasificar, en función de las competencias y responsabilidades asignadas, en:
+a) Cargos directivos y plazas básicas.
+b) Cargos directivos, cargos intermedios y plazas básicas.
+c) Las que desarrollan sus labores en el ámbito hospitalario o en atención primaria.
+d) Jefes de servicio, de sección, de grupo y de equipo.
+Respuesta correcta: b
+
+62. ¿Cuántos niveles de seguridad contempla el Esquema Nacional de Seguridad (ENS)?
+a) 3 niveles
+b) 4 niveles
+c) 5 niveles
+d) 6 niveles
+Respuesta correcta: a
+
+63. ¿Según el Esquema Nacional de Seguridad (ENS), ¿qué se considera un "incidente de seguridad"?
+a) Un evento que no afecta a la seguridad de los sistemas.
+b) Un evento que compromete la confidencialidad, integridad o disponibilidad de la información.
+c) Un accidente sin importancia relacionado con el hardware.
+d) Un fallo en la red que afecta a la velocidad de conexión.
+Respuesta correcta: b
+
+64. En el ciclo de vida de un certificado digital X.509, ¿qué acción realizada por la Autoridad de Certificación (CA) hace que un certificado deje de ser válido antes de su fecha de expiración natural?
+a) Renovación (Renewal)
+b) Revocación (Revocation)
+c) Suspensión (Suspension)
+d) Publicación (Publication)
+Respuesta correcta: b
+
+65. ¿Qué elemento de una PKI (Infraestructura de Clave Pública) contiene la clave pública de una entidad, junto con su identidad y otros atributos, todo ello firmado digitalmente por una Autoridad Certificadora (CA)?
+a) Clave privada (Private Key)
+b) Certificado digital (Digital Certificate)
+c) Lista de revocación de certificados (CRL)
+d) Solicitud de firma de certificado (CSR)
+Respuesta correcta: b
+
+66. En un sistema de firma electrónica, ¿para qué sirve la "Clave Pública" contenida en un certificado digital?
+a) Para que el autor pueda firmar sus propios documentos de forma secreta.
+b) Para que cualquier receptor pueda verificar la validez de la firma realizada por el autor.
+c) Para cifrar mensajes que solo el propietario del certificado pueda leer.
+d) Para recuperar la contraseña del correo electrónico si se olvida.
+Respuesta correcta: b
+
+67. Para firmar digitalmente un documento y asegurar su autoría, ¿qué tipo de clave se utiliza?
+a) La clave pública del destinatario
+b) La clave privada del autor
+c) La clave del WiFi
+d) Una clave compartida por todos los empleados
+Respuesta correcta: b
+
+68. Dentro de la LOPDGDD, ¿qué función tienen los derechos digitales reconocidos por la ley?
+a) Son recomendaciones no vinculantes para empresas tecnológicas.
+b) Constituyen un bloque de derechos que la ley reconoce y garantiza junto con la protección de datos personales.
+c) Sustituyen a los derechos fundamentales clásicos.
+d) Solo se aplican a usuarios de redes sociales.
+Respuesta correcta: b
+
+69. ¿Cuál es el objetivo principal de la Ley Orgánica 3/2018 (LOPDGDD) en materia de protección de datos y derechos digitales?
+a) Adaptar el ordenamiento jurídico español al Reglamento (UE) 2016/679 y completar sus disposiciones, garantizando además los derechos digitales.
+b) Sustituir íntegramente al Reglamento (UE) 2016/679.
+c) Regular únicamente la videovigilancia en espacios públicos.
+d) Crear una nueva autoridad europea de control de datos.
+Respuesta correcta: a
+
+70. ¿Tienen los médicos residentes de primer año derecho a acceder a las historias clínicas de los pacientes?
+a) No, nunca
+b) Sí, si es necesario para su práctica sanitaria
+c) Solo con consentimiento
+d) Solo si son mayores de 24 años
+Respuesta correcta: b
+
+71. ¿Puede el paciente oponerse libremente a todo tratamiento de su historia clínica?
+a) Si, siempre
+b) No, debido a prevalencia de finalidad sanitaria legítima
+c) Solo si presenta reclamación judicial
+d) Solo si tiene abogado
+Respuesta correcta: b
+
+72. Un paciente solicita por correo electrónico acceso a su historia clínica en un hospital público. ¿Cómo debe actuar el hospital?
+a) Exigir siempre solicitud presencial.
+b) Rechazar la solicitud por no usar formulario oficial.
+c) Tramitar la solicitud y verificar la identidad si es necesario.
+d) Ignorarla hasta que acuda al hospital.
+Respuesta correcta: c
+
+73. ¿Cuál es la función principal de la Agencia Española de Protección de Datos (AEPD)?
+a) Gestionar los registros civiles.
+b) Supervisar la aplicación del RGPD y la LOPDGDD para proteger los derechos y libertades de las personas en relación con el tratamiento de sus datos personales.
+c) Regular los servicios de telecomunicaciones.
+d) Emitir sentencias judiciales en materia de privacidad.
+Respuesta correcta: b
+
+74. ¿Qué órgano ocupa la cúspide de la estructura orgánica de la AEPD según el Real Decreto 389/2021?
+a) La Subdirección General de Inspección de Datos
+b) La División de Innovación Tecnológica
+c) La Presidencia de la Agencia
+d) El Consejo de Transparencia y Buen Gobierno
+Respuesta correcta: c
+
+75. ¿Qué significa el acrónimo DICOM utilizado en imágenes médicas?
+a) Digital Imaging and Communication in Medicine
+b) Data Integration for Clinical Operations Management
+c) Digital Information for Clinical Object Management
+d) Diagnostic Imaging and Control of Medicine
+Respuesta correcta: a
+
+76. ¿Qué tipo de información se almacena en un archivo DICOM además de la imagen?
+a) Solo datos de compresión
+b) Metadatos como datos del paciente y parámetros de adquisición
+c) Información de color únicamente
+d) Ninguna, solo la imagen
+Respuesta correcta: b
+
+77. ¿Qué significa el acrónimo PACS utilizado en radiología e imágenes médicas?
+a) Picture Archiving and Communication System
+b) Patient Analysis and Control System
+c) Protocol for Archiving Clinical Scans
+d) Picture Acquisition and Compression System
+Respuesta correcta: a
+
+78. ¿Cuál es el puerto estándar normalmente utilizado por el protocolo DICOM para el servicio de Storage?
+a) 80
+b) 104
+c) 443
+d) 21
+Respuesta correcta: b
+
+79. La Tarjeta Sanitaria Individual tiene como finalidad principal:
+a) Acreditar la identidad legal del ciudadano ante cualquier administración pública.
+b) Permitir el acceso a las prestaciones del Sistema Nacional de Salud mediante la identificación sanitaria del usuario.
+c) Sustituir al documento nacional de identidad en el ámbito sanitario.
+d) Identificar exclusivamente a los pacientes empadronados en una comunidad autónoma.
+Respuesta correcta: b
+
+80. ¿Qué ocurre cuando la tarjeta sanitaria deja de cumplir requisitos de validez?
+a) Pierde validez y debe renovarse
+b) Sigue siendo válida indefinidamente
+c) Se transforma en tarjeta de desplazado
+d) Solo sirve para recetas
+Respuesta correcta: a
+
+81. (Pregunta sustituida por reserva 104) Según el Reglamento del Espacio Europeo de Datos Sanitarios (EHDS), ¿qué elemento se crea para facilitar el acceso controlado a datos?
+a) Tribunal de arbitraje
+b) Plataforma HealthData@EU
+c) Agencia de migración
+d) Registro de patentes
+Respuesta correcta: b
+
+82. Si una persona empadronada en CLM no tiene derecho reconocido por el INSS, la Tarjeta Sanitaria Individual (TSI):
+a) Se emite igual
+b) Solo se emite si tiene trabajo
+c) No se emite hasta tener derecho reconocido
+d) Se emite con formato temporal
+Respuesta correcta: c
+
+83. ¿Qué es el Triaje en urgencias?
+a) Un sistema para asignar camas
+b) Un método para clasificar pacientes según gravedad
+c) Un protocolo para la cirugía ambulatoria
+d) Un indicador de calidad asistencial
+Respuesta correcta: b
+
+84. ¿Qué unidad realiza la asistencia en el hospital durante unas horas, ya sea para diagnósticos, investigaciones clínicas y/o exploraciones múltiples, así como para tratamientos que no pueden hacerse en la consulta externa, pero que no justifican la estancia completa en hospital?
+a) Bloque Quirúrgico
+b) Hospital de Día Médico
+c) Unidad de Observación
+d) Servicio de Admisión
+Respuesta correcta: b
+
+85. ¿Qué indicador mide la proporción de estancias reales frente a las posibles en hospitalización en un año?
+a) Índice de rotación
+b) Índice de ocupación
+c) Estancia media
+d) Porcentaje de reingresos
+Respuesta correcta: b
+
+86. ¿Qué tipo de información clínica es imprescindible que el sistema de gestión de hostelería reciba para generar menús seguros?
+a) Diagnóstico exacto en CIE 10
+b) Datos de alergias, intolerancias, restricciones religiosas y tipo de dieta prescrita
+c) Historial laboral del paciente
+d) Resultado de todas las pruebas de laboratorio
+Respuesta correcta: b
+
+87. ¿Qué rol principal desempeña el servicio de enfermería en el sistema de información de gestión de dietas hospitalarias del SESCAM?
+a) Elaborar los menús diarios en cocina..
+b) Registrar la prescripción dietética del médico y comunicar altas, bajas y cambios de dieta a cocina.
+c) Realizar la compra de materias primas alimentarias.
+d) Gestionar la contabilidad del servicio de hostelería.
+Respuesta correcta: b
+
+88. ¿Qué es un ciclo en el sistema de información de gestión de hostelería hospitalaria y nutrición?
+a) Numero de semanas determinado, sobre el que se crean definiciones de menús.
+b) Conjunto de ingestas de un día (Desayuno, comida, merienda y cena).
+c) Corresponde con cada una de las estaciones del año.
+d) Todos los platos asignados a una misma ingesta y cocina.
+Respuesta correcta: a
+
+89. ¿Qué significa el acrónimo HIS-GEA?
+a) Health Interesting Solution - Gestión Económico Administrativa
+b) High Information System - Gestión Económico Administrativa
+c) Health Interesting System - Gestión Económico Administrativa
+d) Health Information System - Gestión Económico Administrativa
+Respuesta correcta: d
+
+90. En HIS-GEA, el módulo de Almacén
+a) Pertenece al área de Infraestructura
+b) Pertenece al área de Suministros
+c) Pertenece al área de Catálogo
+d) Ninguna de las anteriores
+Respuesta correcta: b
+
+91. La versión actual de la herramienta Saint en el SESCAM es:
+a) Saint versión 8
+b) Saint versión 6.
+c) Saint versión 7
+d) Saint XXI
+Respuesta correcta: a
+
+92. En el marco del Espacio Europeo de Datos Sanitarios (EHDS), ¿cuál es un objetivo del "uso secundario" de datos de salud?
+a) Marketing farmacéutico
+b) Investigación sanitaria y políticas de salud
+c) Explotación de datos para publicidad
+d) Gestión de impuestos
+Respuesta correcta: b
+
+93. En el marco del Espacio Europeo de Datos Sanitarios (EHDS), el concepto de "uso primario" de los datos de salud se refiere principalmente a:
+a) El tratamiento de datos con fines estadísticos por autoridades públicas.
+b) El acceso y uso de datos para la prestación directa de asistencia sanitaria
+c) La reutilización de datos anonimizados por terceros.
+d) El tratamiento automatizado para entrenamiento de modelos de IA.
+Respuesta correcta: b
+
+94. RECAS permite hacer:
+a) Recetas manuscritas, informatizadas y electrónicas.
+b) Recetas electrónicas e informatizadas.
+c) Recetas para hospitales públicos y privados.
+d) Recetas para medicamentos de uso hospitalario que se dispensan en las farmacias de los hospitales.
+Respuesta correcta: b
+
+95. RECAS envía a la farmacia:
+a) El diagnóstico, instrucciones para el enfermero y para el farmacéutico.
+b) El diagnóstico, instrucciones para el paciente e instrucciones para el farmacéutico.
+c) Instrucciones para el paciente e instrucciones para el farmacéutico.
+d) Solo envía las instrucciones para el farmacéutico.
+Respuesta correcta: c
+
+96. La receta electrónica interoperable permite:
+a) La prescripción exclusiva en hospitales.
+b) La dispensación de medicamentos en cualquier CCAA.
+c) Sustituir la historia clínica electrónica.
+d) Eliminar la validación farmacéutica.
+Respuesta correcta: b
+
+97. En el contexto del Sistema Nacional de Salud, el Sistema de Información de Atención Primaria (SIAP) se caracteriza principalmente por:
+a) Registrar únicamente la actividad asistencial y las recetas electrónicas.
+b) Contener información sobre población adscrita, recursos y actividad asistencial en atención primaria.
+c) Limitarse a almacenar datos de recetas electrónicas.
+d) Ser un sistema exclusivo de cada comunidad autónoma sin criterios comunes.
+Respuesta correcta: b
+
+98. Desde los sistemas de información de Atención Primaria se alimentan principalmente los sistemas de:
+a) Facturación hospitalaria
+b) Gestión de personal
+c) Vigilancia epidemiológica
+d) Logística farmacéutica
+Respuesta correcta: c
+
+99. ¿Qué clasificación corresponde específicamente a diagnósticos de enfermería?
+a) NIC
+b) NOC
+c) NANDA
+d) CIE
+Respuesta correcta: c
+
+100. Según el artículo 4.2 del Decreto 24/2011, de 12 de abril, de la documentación sanitaria en Castilla-La Mancha, ¿cuál de las siguientes opciones describe correctamente las características mínimas que debe garantizar el soporte utilizado para la historia clínica?
+a) Disponibilidad, confidencialidad, integridad y no repudio
+b) Persistencia, trazabilidad de cambios, autenticidad, integridad y legibilidad
+c) Portabilidad, escalabilidad, alta disponibilidad y seguridad de nivel medio
+d) Conservación, recuperación, Identificación y firma electrónica obligatoria
+Respuesta correcta: b

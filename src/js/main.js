@@ -164,6 +164,13 @@ function setupEventListeners() {
         Topics.prepareModeSelection('Examen OPE 2026 (Cocinero/a)', () => qs, 'ope_2026_cocinero');
     });
 
+    const btn2026TecnicoTi = document.getElementById('btn-topic-ope_2026_tecnico_ti');
+    if (btn2026TecnicoTi) btn2026TecnicoTi.addEventListener('click', () => {
+        const qs = state.allQuestions.filter(q => q.tema === 'Examen Oficial Técnico de Gestión de TI SESCAM 2026');
+        if (!qs.length) return alert('Examen no cargado.');
+        Topics.prepareModeSelection('Examen OPE 2026 (Técnico Gestión TI)', () => qs, 'ope_2026_tecnico_ti');
+    });
+
     const btn2026Celador = document.getElementById('btn-topic-ope_2026_celador');
     if (btn2026Celador) btn2026Celador.addEventListener('click', () => {
         const qs = state.allQuestions.filter(q => q.origen === 'OPE SESCAM Celador 2026');

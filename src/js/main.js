@@ -83,8 +83,15 @@ function setupEventListeners() {
             console.log('Pinche button clicked');
             state.currentRole = 'pinche';
             Storage.setRole('pinche');
+            
+            // Vaciar memoria local de fallos y estado al cambiar
+            state.userAnswers = {};
+            state.currentQuestions = [];
+            
             const menuTitle = document.querySelector('#view-menu h1');
             if (menuTitle) menuTitle.innerText = 'Simulador OPE Pinche';
+            
+            // Forzar actualización reactiva
             UI.updateFailureBadge(Storage.getFailedIds().length);
             UI.renderizarRecordsMenu();
             UI.renderizarProgresoGlobal();
@@ -99,8 +106,15 @@ function setupEventListeners() {
             console.log('Celador button clicked');
             state.currentRole = 'celador';
             Storage.setRole('celador');
+            
+            // Vaciar memoria local de fallos y estado al cambiar
+            state.userAnswers = {};
+            state.currentQuestions = [];
+            
             const menuTitle = document.querySelector('#view-menu h1');
             if (menuTitle) menuTitle.innerText = 'Simulador OPE Celador';
+            
+            // Forzar actualización reactiva
             UI.updateFailureBadge(Storage.getFailedIds().length);
             UI.renderizarRecordsMenu();
             UI.renderizarProgresoGlobal();

@@ -30,13 +30,16 @@ export function setRole(role) {
 }
 
 function updatePrefix() {
-    if (!currentUser) { currentPrefix = ''; return; }
-    // Clean userId to be storage-safe
-    const cleanId = currentUser.trim().toLowerCase().replace(/[^a-z0-9]/g, '');
+    // Si no hay usuario definido, usamos un prefijo seguro por defecto para local
+    const cleanId = currentUser ? currentUser.trim().toLowerCase().replace(/[^a-z0-9]/g, '') : 'localdev';
+    
     if (currentRole === 'celador') {
+        // Prefijo exclusivo para celador
         currentPrefix = `u_${cleanId}_celador_`;
     } else {
-        currentPrefix = `u_${cleanId}_`;
+        // Prefijo original de Pinche
+        // Se añade un "_" extra si cleanId existe para mantener compatibilidad
+        currentPrefix = currentUser ? `u_${cleanId}_` : `u_localdev_`;
     }
 }
 
@@ -50,7 +53,15 @@ function pk(key) {
 // ── Failures ─────────────────────────────────────────────────────────────────
 
 export function getFailedIds() {
-    try { return JSON.parse(localStorage.getItem(pk(KEYS.FAILED_IDS))) || []; }
+    try {
+        const key = pk(KEYS.FAILED_IDS);
+        // Aislamiento explícito para evitar que Pinche lea fallos de Celador 
+        // en caso de problemas con el prefijo o keys compartidas
+        if (currentRole === 'pinche' && key.includes('_celador_')) {
+            return [];
+        }
+        return JSON.parse(localStorage.getItem(key)) || [];
+    }
     catch { return []; }
 }
 

@@ -6,6 +6,7 @@ export const state = {
     userAnswers: {},
     currentMode: 'training', // 'training', 'exam', 'failures', 'review'
     originalMode: 'training',
+    currentRole: 'pinche',
     currentSource: null,
     currentCategory: null,
     currentTopicName: "",

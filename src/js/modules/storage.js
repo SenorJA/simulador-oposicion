@@ -16,11 +16,28 @@ const KEYS = {
 };
 
 let currentPrefix = '';
+let currentUser = '';
+let currentRole = 'pinche';
 
 export function setPrefix(userId) {
-    if (!userId) { currentPrefix = ''; return; }
+    currentUser = userId;
+    updatePrefix();
+}
+
+export function setRole(role) {
+    currentRole = role;
+    updatePrefix();
+}
+
+function updatePrefix() {
+    if (!currentUser) { currentPrefix = ''; return; }
     // Clean userId to be storage-safe
-    currentPrefix = `u_${userId.trim().toLowerCase().replace(/[^a-z0-9]/g, '')}_`;
+    const cleanId = currentUser.trim().toLowerCase().replace(/[^a-z0-9]/g, '');
+    if (currentRole === 'celador') {
+        currentPrefix = `u_${cleanId}_celador_`;
+    } else {
+        currentPrefix = `u_${cleanId}_`;
+    }
 }
 
 function pk(key) {
@@ -123,7 +140,8 @@ export function clearSuspendedSession() {
  */
 export function getRecords() {
     try {
-        return JSON.parse(localStorage.getItem(KEYS.RECORDS)) || {};
+        const key = currentRole === 'celador' ? KEYS.RECORDS + '_celador' : KEYS.RECORDS;
+        return JSON.parse(localStorage.getItem(key)) || {};
     } catch {
         return {};
     }
@@ -141,7 +159,8 @@ export function saveRecord(testId, score) {
 
     if (score > currentRecord) {
         records[testId] = parseFloat(score.toFixed(2));
-        localStorage.setItem(KEYS.RECORDS, JSON.stringify(records));
+        const key = currentRole === 'celador' ? KEYS.RECORDS + '_celador' : KEYS.RECORDS;
+        localStorage.setItem(key, JSON.stringify(records));
         return true; // Récord actualizado
     }
     return false;
@@ -151,5 +170,6 @@ export function saveRecord(testId, score) {
  * Borra todos los récords de localStorage.
  */
 export function clearRecords() {
-    localStorage.removeItem(KEYS.RECORDS);
+    const key = currentRole === 'celador' ? KEYS.RECORDS + '_celador' : KEYS.RECORDS;
+    localStorage.removeItem(key);
 }

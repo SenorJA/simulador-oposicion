@@ -8,10 +8,41 @@ import { showView, renderizarRecordsMenu, slugify, renderizarProgresoGlobal, ren
 
 // ── Public API ────────────────────────────────────────────────────────────────
 
+export function isGeneralTopic(q) {
+    if (q.categoria) return q.categoria.toLowerCase() === 'general';
+    const m = q.tema && q.tema.match(/tema\s+(\d+)/i);
+    if (m) {
+        const num = parseInt(m[1]);
+        return num >= 1 && num <= 6;
+    }
+    return false; // Default
+}
+
+export function isSpecificTopic(q) {
+    if (q.categoria) return q.categoria.toLowerCase() === 'especifica';
+    const m = q.tema && q.tema.match(/tema\s+(\d+)/i);
+    if (m) {
+        const num = parseInt(m[1]);
+        return num >= 7 && num <= 16;
+    }
+    return false; // Default
+}
+
 export function showParts(source) {
     state.currentSource = source;
     const titleEl = document.getElementById('parts-title');
     if (titleEl) titleEl.innerText = `Fuente: ${source}`;
+    
+    // UX Improvement: Ocultar Parte Específica para MAD/CSIF si es Celador
+    const btnEsp = document.getElementById('btn-part-especifica');
+    if (btnEsp) {
+        if (state.currentRole === 'celador' && (source === 'MAD' || source === 'CSIF')) {
+            btnEsp.style.display = 'none';
+        } else {
+            btnEsp.style.display = '';
+        }
+    }
+    
     renderizarProgresoGlobal();
     showView('parts');
 }
@@ -35,15 +66,9 @@ export function showTopics(part) {
 
     let relevantQ = [];
     if (part === 'GENERAL') {
-        relevantQ = sourceQ.filter(q => {
-            const m = q.tema && q.tema.match(/tema\s+(\d+)/i);
-            return m && parseInt(m[1]) >= 1 && parseInt(m[1]) <= 6;
-        });
+        relevantQ = sourceQ.filter(isGeneralTopic);
     } else if (part === 'ESPECIFICA') {
-        relevantQ = sourceQ.filter(q => {
-            const m = q.tema && q.tema.match(/tema\s+(\d+)/i);
-            return m && parseInt(m[1]) >= 7 && parseInt(m[1]) <= 16;
-        });
+        relevantQ = sourceQ.filter(isSpecificTopic);
     } else if (part === 'HISTORICO') {
         relevantQ = sourceQ.filter(q => q.tema && !q.tema.includes('Otras Comunidades') && !q.tema.includes('Examen 2020'));
     } else if (part === 'CCAA') {
@@ -73,14 +98,8 @@ export function showTopics(part) {
     // Inyectar progreso en botones de filtro (Nivel 2)
     const btnGen = document.getElementById('btn-part-general');
     const btnEsp = document.getElementById('btn-part-especifica');
-    if (btnGen) renderizarProgresoEnCard(btnGen, q => {
-        const m = q.tema && q.tema.match(/tema\s+(\d+)/i);
-        return m && parseInt(m[1]) >= 1 && parseInt(m[1]) <= 6;
-    });
-    if (btnEsp) renderizarProgresoEnCard(btnEsp, q => {
-        const m = q.tema && q.tema.match(/tema\s+(\d+)/i);
-        return m && parseInt(m[1]) >= 7 && parseInt(m[1]) <= 16;
-    });
+    if (btnGen) renderizarProgresoEnCard(btnGen, isGeneralTopic);
+    if (btnEsp) renderizarProgresoEnCard(btnEsp, isSpecificTopic);
 
     renderizarRecordsMenu();
     showView('topics');

@@ -81,13 +81,32 @@ function setupEventListeners() {
     if (btnPinche) {
         btnPinche.addEventListener('click', (e) => {
             console.log('Pinche button clicked');
+            state.currentRole = 'pinche';
+            Storage.setRole('pinche');
+            const menuTitle = document.querySelector('#view-menu h1');
+            if (menuTitle) menuTitle.innerText = 'Simulador OPE Pinche';
+            UI.updateFailureBadge(Storage.getFailedIds().length);
+            UI.renderizarRecordsMenu();
+            UI.renderizarProgresoGlobal();
+            UI.renderizarProgresoExamenes();
             UI.showView('menu');
         });
     }
 
     const btnCelador = document.getElementById('btn-role-celador');
     if (btnCelador) {
-        btnCelador.addEventListener('click', () => alert('🚧 Celador: ¡Próximamente!'));
+        btnCelador.addEventListener('click', () => {
+            console.log('Celador button clicked');
+            state.currentRole = 'celador';
+            Storage.setRole('celador');
+            const menuTitle = document.querySelector('#view-menu h1');
+            if (menuTitle) menuTitle.innerText = 'Simulador OPE Celador';
+            UI.updateFailureBadge(Storage.getFailedIds().length);
+            UI.renderizarRecordsMenu();
+            UI.renderizarProgresoGlobal();
+            UI.renderizarProgresoExamenes();
+            UI.showView('menu');
+        });
     }
 
     // ── Admin ──
@@ -108,6 +127,25 @@ function setupEventListeners() {
     document.getElementById('btn-source-examenes')
         .addEventListener('click', () => {
             UI.renderizarProgresoExamenes();
+            
+            // Reset Limpio para Pinche, ocultar para Celador
+            const isCelador = state.currentRole === 'celador';
+            const display = isCelador ? 'none' : '';
+            
+            const btnIds = [
+                'btn-topic-ope_2026_pinche_ord',
+                'btn-topic-ope_2026_pinche_extra',
+                'btn-topic-ope_2026_cocinero',
+                'btn-topic-ope_2026_tecnico_ti',
+                'btn-topic-ope_2020_ord',
+                'btn-topic-ope_2020_extra'
+            ];
+            
+            btnIds.forEach(id => {
+                const el = document.getElementById(id);
+                if (el) el.style.display = display;
+            });
+            
             UI.showView('examsMenu');
         });
 
@@ -398,24 +436,39 @@ function startRandom() {
 
     let pool = state.allQuestions;
 
-    // Filtrar por fuentes
-    if (activeSources.length > 0) {
-        pool = pool.filter(q => activeSources.includes(q.origen));
+    if (state.currentRole === 'celador') {
+        pool = pool.filter(q => {
+            const isMAD = q.origen === 'MAD' || q.source === 'MAD';
+            const isCSIF = q.origen === 'CSIF' || q.source === 'CSIF';
+            const isAcademia = q.origen === 'Academia' || q.source === 'Academia';
+            const isHisto = q.source === 'Histo' || q.source === 'Historico' || String(q.origen).includes('Examen') || String(q.origen).includes('OPE');
+            
+            if (isMAD || isCSIF) {
+                return Topics.isGeneralTopic(q);
+            }
+            if (isAcademia) return true;
+            if (isHisto) {
+                return (q.origen || '').toLowerCase().includes('celador') || (q.tema || '').toLowerCase().includes('celador');
+            }
+            return false;
+        });
     }
 
-    // Filtrar por temario (si q.categoria existe o derivado del Tema)
+    // Filtrar por fuentes
+    if (activeSources.length > 0) {
+        pool = pool.filter(q => {
+            if (activeSources.includes(q.origen)) return true;
+            // Legacy / Histo fix
+            if (activeSources.includes('Historico') && (q.source === 'Histo' || q.source === 'Historico')) return true;
+            return false;
+        });
+    }
+
+    // Filtrar por temario
     if (scope !== 'mix') {
         pool = pool.filter(q => {
-            // Priority 1: Explicit categoria
-            if (q.categoria) return q.categoria.toLowerCase() === scope;
-            
-            // Priority 2: Derive from Tema title (Tema X)
-            const m = q.tema && q.tema.match(/tema\s+(\d+)/i);
-            if (m) {
-                const num = parseInt(m[1]);
-                if (scope === 'general') return num >= 1 && num <= 6;
-                if (scope === 'especifica') return num >= 7 && num <= 16;
-            }
+            if (scope === 'general') return Topics.isGeneralTopic(q);
+            if (scope === 'especifica') return Topics.isSpecificTopic(q);
             return true; // No pudimos clasificarla, la mantenemos
         });
     }

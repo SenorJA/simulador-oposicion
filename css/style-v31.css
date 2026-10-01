@@ -8,6 +8,9 @@
 
 /* ── 1. TOKENS ─────────────────────────────────────────────────────────── */
 :root {
+    /* Controles nativos (inputs, scrollbars) en modo claro coherente */
+    color-scheme: light;
+
     /* Marca */
     --primary: #00897B;
     --primary-dark: #00695C;

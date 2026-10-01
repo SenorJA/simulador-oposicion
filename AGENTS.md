@@ -47,6 +47,13 @@ This file provides high-signal context for future OpenCode/AI agent sessions to 
 - Accessibility floor (must keep): `:focus-visible` styles for keyboard, `@media (prefers-reduced-motion: reduce)` to calm animations, and **no global `user-select: none`**.
 - The stylesheet is cache-busted as `css/style-v31.css?v=<version>` in `index.html`; bump it with `CONFIG.APP_VERSION`.
 
+## ♿ HTML & Accessibility Conventions
+- No presentational inline `style=""` on new markup; use classes. Some legacy inline styles remain on one-off buttons and banners and are migrated progressively.
+- Every class used in `index.html` must exist in the stylesheet; a missing rule is a bug.
+- Decorative icons/SVGs get `aria-hidden="true" focusable="false"`. Icon-only buttons get `aria-label`.
+- Overlays and modals use `role="dialog"`, `aria-modal="true"` and `aria-labelledby` pointing to their title.
+- Dynamic counters (score, question number, timer) use `aria-live="polite"`; the data-failure banner uses `role="alert"`.
+
 ## 🧪 Verification Scripts (run before committing)
 There is no build step, so correctness is checked with these Node scripts (from the repo root):
 - `node scripts/verify_refs.js` — static checks: dead exports, `getElementById` targets present in `index.html`, orphan HTML ids, broken paths, resolved imports, forbidden `?v=` on imports, JSON validity, global ID uniqueness, mojibake, version consistency, that local `data/*.json` match `BANKS`, and CSS health (duplicate selectors, undefined/unused tokens, literal escape garbage, reduced-motion and focus-visible present).

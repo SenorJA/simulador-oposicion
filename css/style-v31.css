@@ -126,6 +126,13 @@ h1 {
     color: var(--primary-dark);
 }
 
+.subtitle {
+    text-align: center;
+    color: var(--text-light);
+    margin: 0 0 1.5rem;
+    font-size: 1rem;
+}
+
 /* ── 5. LAYOUT DE REJILLA ──────────────────────────────────────────────── */
 .menu-grid,
 .topics-wrapper,
@@ -227,6 +234,15 @@ h1 {
     font-weight: 600;
 }
 
+.badge-score {
+    background: rgba(0, 0, 0, 0.05);
+    padding: 6px 10px;
+    border-radius: 10px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
 .btn-menu.special .badge {
     background: rgba(255, 255, 255, 0.2);
 }
@@ -324,6 +340,17 @@ h1 {
     background: var(--primary);
     color: white;
     box-shadow: 0 4px 12px rgba(var(--primary-rgb), 0.3);
+}
+
+.setting-row {
+    margin-top: 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: var(--radius-md);
 }
 
 .timer-config-wrapper {
@@ -460,6 +487,23 @@ h1 {
     margin-bottom: 20px;
 }
 
+.counters {
+    display: flex;
+    align-items: center;
+}
+
+.controls {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+/* El botón "Siguiente" ocupa el espacio restante junto a "Anterior" */
+.controls .btn-primary {
+    width: auto;
+    flex: 1;
+}
+
 .game-timer {
     background: linear-gradient(135deg, #e53935, #b71c1c);
     color: #fff;
@@ -501,8 +545,8 @@ h1 {
     flex-grow: 1;
     margin: 0 15px;
     background: var(--border);
-    height: 8px;
-    border-radius: 4px;
+    height: 10px;
+    border-radius: 5px;
     overflow: hidden;
 }
 
@@ -537,6 +581,12 @@ h1 {
 .card p {
     color: var(--text-light);
     line-height: 1.6;
+}
+
+.card-header {
+    display: flex;
+    align-items: center;
+    gap: 5px;
 }
 
 .question-card {

@@ -33,8 +33,14 @@ const htmlIds = [...html.matchAll(/\sid="([^"]+)"/g)].map(m => m[1]);
 const allJs = jsFiles.map(f => r(f)).join('\n');
 // Contenedores puramente decorativos: sus hijos sí se usan
 const decorative = new Set(['resultado-motivacional']);
+// IDs referenciados desde el propio HTML (aria-labelledby, aria-describedby, label for)
+const ariaRefs = new Set();
+for (const m of html.matchAll(/(?:aria-labelledby|aria-describedby|for)="([^"]+)"/g)) {
+    m[1].split(/\s+/).forEach(x => x && ariaRefs.add(x));
+}
 const unusedHtml = htmlIds.filter(id =>
-    !allJs.includes(`'${id}'`) && !allJs.includes(`"${id}"`) && !allJs.includes('#' + id) && !decorative.has(id));
+    !allJs.includes(`'${id}'`) && !allJs.includes(`"${id}"`) && !allJs.includes('#' + id) &&
+    !decorative.has(id) && !ariaRefs.has(id));
 ok(unusedHtml.length === 0, 'sin elementos huérfanos' + (unusedHtml.length ? ': ' + unusedHtml.join(', ') : ''));
 
 console.log('=== 4. Referencias a archivos inexistentes ===');

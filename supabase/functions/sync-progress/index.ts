@@ -101,7 +101,7 @@ Deno.serve(async (req: Request) => {
     if (req.method === 'OPTIONS') return new Response('ok', { headers: CORS });
     if (req.method !== 'POST') return json({ error: 'Método no permitido' }, 405);
 
-    let body: { token?: unknown; data?: unknown };
+    let body: { token?: unknown; data?: unknown; replace?: unknown };
     try {
         body = await req.json();
     } catch {
@@ -114,7 +114,17 @@ Deno.serve(async (req: Request) => {
     try {
         const guardado = await leer(user);
         if (body.data && typeof body.data === 'object') {
-            const fusion = mergeAll(guardado, body.data as Record<string, string>);
+            const incoming = body.data as Record<string, string>;
+            // `replace` (p. ej. tras borrar el progreso) SOBRESCRIBE en vez de fusionar
+            let fusion: Record<string, string>;
+            if (body.replace === true) {
+                fusion = {};
+                for (const [k, v] of Object.entries(incoming)) {
+                    if (typeof v === 'string' && !esDeSesion(k)) fusion[k] = v;
+                }
+            } else {
+                fusion = mergeAll(guardado, incoming);
+            }
             await guardar(user, fusion);
             return json({ ok: true, data: fusion });
         }

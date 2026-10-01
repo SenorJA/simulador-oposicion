@@ -5,6 +5,16 @@ formato de [Keep a Changelog](https://keepachangelog.com/es/1.0.0/) y versionado
 semántico (`MAJOR.MINOR.PATCH`). La fuente única de la versión es
 `CONFIG.APP_VERSION` en `src/js/modules/config.js`.
 
+## [1.33.0] — 2026-10-01
+### Corregido
+- **Borrar todo el progreso ahora se propaga al servidor** (nuevo modo
+  `replace` en `sync-progress`). Antes se borraba en local pero la
+  sincronización lo **restauraba** desde el servidor (por eso seguían los fallos,
+  respondidas y racha).
+- **Solapamiento del badge de récord**: ya no usa `position:absolute`; se apila
+  en flujo debajo del contenido, así **no pisa la barra de progreso** en ninguna
+  tarjeta (Partes, temas, exámenes…).
+
 ## [1.32.0] — 2026-10-01
 ### Añadido
 - **Buscador de preguntas** (por texto en el banco) con opción de **empezar un

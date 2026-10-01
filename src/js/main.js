@@ -81,8 +81,9 @@ function initTheme() {
     document.documentElement.dataset.theme = prefiereClaro ? 'light' : 'dark';
 }
 
-/** Sincroniza el progreso con el servidor (la fusión la hace el servidor). */
-async function syncProgress() {
+/** Sincroniza el progreso con el servidor (la fusión la hace el servidor).
+ *  Con `replace = true` SOBRESCRIBE (se usa tras borrar el progreso). */
+async function syncProgress(replace = false) {
     const token = Storage.getToken();
     if (!token) return;
     try {
@@ -93,7 +94,7 @@ async function syncProgress() {
                 apikey: CONFIG.SUPABASE_KEY,
                 Authorization: `Bearer ${CONFIG.SUPABASE_KEY}`
             },
-            body: JSON.stringify({ token, data: Storage.exportUserData() })
+            body: JSON.stringify({ token, data: Storage.exportUserData(), replace })
         });
         const j = await res.json().catch(() => ({}));
         if (!res.ok || j.ok !== true || !j.data) return;
@@ -678,8 +679,10 @@ function setupEventListeners() {
     on('btn-clear-records', 'click', () => {
         if (confirm('¿Borrar TODO tu progreso de esta categoría (fallos, dudosas, récords, historial y estadísticas)? Esta acción no se puede deshacer.')) {
             Storage.clearAllProgress();
+            syncProgress(true); // propaga el borrado al servidor (si no, se restaura)
             UI.updateFailureBadge(0);
             updateDudosasBadge();
+            updateStreakChip();
             UI.renderizarRecordsMenu();
             showProgress();
             showToast('Progreso borrado ✓');

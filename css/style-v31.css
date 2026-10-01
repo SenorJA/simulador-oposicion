@@ -1068,9 +1068,10 @@ h1 {
 
 /* ── 18. RÉCORDS ───────────────────────────────────────────────────────── */
 .badge-record {
-    position: absolute;
-    bottom: 8px;
-    right: 12px;
+    /* En flujo (no absolute): se apila debajo del contenido y nunca pisa la barra */
+    position: static;
+    align-self: flex-end;
+    margin-top: 8px;
     background: rgba(34, 197, 94, 0.20);
     color: #bbf7d0;
     font-size: 0.75rem;
@@ -1078,12 +1079,10 @@ h1 {
     padding: 4px 10px;
     border-radius: var(--radius-sm);
     pointer-events: none;
-    z-index: 10;
     border: 1px solid rgba(34, 197, 94, 0.4);
     display: flex;
     align-items: center;
     gap: 4px;
-    backdrop-filter: blur(4px);
     animation: badgeAppear 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     white-space: nowrap;
 }
@@ -1102,7 +1101,6 @@ h1 {
 
 .card-has-record {
     border-left: 5px solid var(--success) !important;
-    padding-bottom: 30px !important;
     transition: border-left 0.3s ease;
 }
 

@@ -26,7 +26,7 @@ const src = fs.readFileSync(path.join(ROOT, 'src/js/modules/storage.js'), 'utf8'
 const mod = new vm.SourceTextModule(src, {
     identifier: 'storage.js',
     initializeImportMeta: (m) => { m.export = null; },
-    context: vm.createContext({ localStorage, console, JSON, String, Object, Array, parseInt })
+    context: vm.createContext({ localStorage, sessionStorage: localStorage, console, JSON, String, Object, Array, parseInt, Date })
 });
 let fails = 0;
 const ok = (c, msg, extra = '') => {
@@ -130,6 +130,24 @@ async function main() {
     S.setPrefix('BETA');
     const nBeta = S.importUserData(backup); // backup es de ALFA (u_alfa_)
     ok(nBeta === 0 && S.getFailedIds().length === 0, 'BETA no importa datos de ALFA (prefijo distinto)');
+
+    console.log('=== H. Dudosas y estadísticas aisladas por usuario+rol ===');
+    store.clear();
+    S.setPrefix('ALFA'); S.setRole('pinche');
+    ok(S.toggleDudosa('q1') === true, 'marca una pregunta como dudosa');
+    ok(S.isDudosa('q1') === true, 'isDudosa la reconoce');
+    S.incrementAnswered(3);
+    ok(S.getAnsweredTotal() === 3, 'cuenta 3 respondidas', String(S.getAnsweredTotal()));
+    S.touchStreak();
+    ok(S.getStreak() === 1, 'la racha empieza en 1', String(S.getStreak()));
+    S.setRole('celador');
+    ok(S.getDudosas().length === 0, 'celador no ve las dudosas de pinche');
+    ok(S.getAnsweredTotal() === 0, 'celador no ve las respondidas de pinche');
+    S.setRole('pinche');
+    ok(S.getDudosas().join() === 'q1', 'pinche conserva sus dudosas');
+    ok(S.toggleDudosa('q1') === false && S.getDudosas().length === 0, 'toggleDudosa desmarca');
+    // La racha no se duplica el mismo día
+    ok(S.touchStreak() === 1, 'la racha no sube dos veces el mismo día');
 
     console.log('\n' + (fails === 0 ? '✅ AISLAMIENTO CORRECTO' : `❌ ${fails} FALLOS`));
     process.exit(fails ? 1 : 0);

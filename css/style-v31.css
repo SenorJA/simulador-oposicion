@@ -1428,6 +1428,28 @@ h1 {
     font-size: 0.8rem;
 }
 
+.admin-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.admin-btn {
+    background: rgba(255, 255, 255, 0.10);
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 5px 9px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.admin-btn:hover {
+    background: rgba(255, 255, 255, 0.18);
+}
+
 .exam-breakdown {
     background: rgba(255, 255, 255, 0.04);
     padding: 15px;

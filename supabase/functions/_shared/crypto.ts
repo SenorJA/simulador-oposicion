@@ -50,6 +50,13 @@ export async function verifyPassword(password: string, stored: string): Promise<
     return igualdadSegura(hash, p[3]);
 }
 
+/** Genera un hash PBKDF2 nuevo (para crear/restablecer contraseñas). */
+export async function hashPassword(password: string, iterations = 100000): Promise<string> {
+    const salt = crypto.getRandomValues(new Uint8Array(16));
+    const hash = await pbkdf2(password, salt, iterations);
+    return `pbkdf2$${iterations}$${bytesToB64Url(salt)}$${bytesToB64Url(hash)}`;
+}
+
 async function hmacKey(secret: string): Promise<CryptoKey> {
     return crypto.subtle.importKey(
         'raw', encoder.encode(secret), { name: 'HMAC', hash: 'SHA-256' }, false, ['sign', 'verify']

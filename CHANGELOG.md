@@ -5,6 +5,13 @@ formato de [Keep a Changelog](https://keepachangelog.com/es/1.0.0/) y versionado
 semántico (`MAJOR.MINOR.PATCH`). La fuente única de la versión es
 `CONFIG.APP_VERSION` en `src/js/modules/config.js`.
 
+## [1.23.0] — 2026-10-01
+### Añadido
+- **Panel de administración completo** (Edge Function `admin-logs` ampliada +
+  botones en la app): **bloquear/desbloquear** usuarios, **resetear contraseña**
+  y **liberar dispositivos** (resetea el contador). Todo server-side y solo para
+  `es_admin = true`. Probado por HTTP.
+
 ## [1.22.0] — 2026-10-01
 ### Añadido
 - **RLS activo** en `usuarios_acceso`, `access_logs` y `dispositivos` (sin

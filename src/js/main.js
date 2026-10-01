@@ -354,6 +354,7 @@ function setupEventListeners() {
 
     // ── Admin ──
     on('btn-admin-panel', 'click', loadAdminLogs);
+    setupAdminActions();
     on('btn-close-admin', 'click', () => UI.toggleEl('admin-modal', false));
     on('btn-close-onboarding', 'click', closeOnboarding);
     on('btn-onboarding-ok', 'click', closeOnboarding);
@@ -862,42 +863,90 @@ function importProgressFile(file) {
 
 // ── Admin panel ────────────────────────────────────────────────────────────
 
+/** Llama a la Edge Function admin-logs (leer o ejecutar una acción). */
+async function callAdmin(payload) {
+    const res = await fetch(`${CONFIG.SUPABASE_URL}/functions/v1/admin-logs`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            apikey: CONFIG.SUPABASE_KEY,
+            Authorization: `Bearer ${CONFIG.SUPABASE_KEY}`
+        },
+        body: JSON.stringify({ token: Storage.getToken(), ...payload })
+    });
+    const j = await res.json().catch(() => ({}));
+    if (!res.ok || j.ok !== true) throw new Error(j.error || `HTTP ${res.status}`);
+    return j;
+}
+
+/** Pinta la tabla del panel de administración. */
+function renderAdminTable(j) {
+    const tbody = document.getElementById('admin-table-body');
+    if (!tbody) return;
+    const lics = j.licenses || [];
+    const logs = j.logs || [];
+
+    let html = '<tr class="admin-sep"><td colspan="3">Estado de Licencias</td></tr>';
+    html += lics.map(l => `<tr>
+        <td><strong>${escapeHtml(l.nombre || '')}</strong><br><small>${escapeHtml(l.id_acceso)} ${l.bloqueado ? '🚫 Bloqueado' : ''}</small></td>
+        <td class="admin-count ${l.dispositivos_usados >= 2 ? 'score-bad' : 'score-good'}">${l.dispositivos_usados} / 2</td>
+        <td class="admin-actions">
+            <button class="admin-btn" data-action="${l.bloqueado ? 'unblock' : 'block'}" data-id="${escapeHtml(l.id_acceso)}">${l.bloqueado ? 'Desbloquear' : 'Bloquear'}</button>
+            <button class="admin-btn" data-action="reset_password" data-id="${escapeHtml(l.id_acceso)}">Contraseña</button>
+            <button class="admin-btn" data-action="reset_devices" data-id="${escapeHtml(l.id_acceso)}">Dispositivos</button>
+        </td></tr>`).join('');
+    html += '<tr class="admin-sep"><td colspan="3">Últimas Conexiones</td></tr>';
+    html += logs.map(l => `<tr><td colspan="2">${new Date(l.created_at).toLocaleString('es-ES')}</td>
+        <td class="admin-log">${escapeHtml((l.device_info || '').replace(/\([^)]+\)/, '(***)'))}</td></tr>`).join('');
+    tbody.innerHTML = html;
+}
+
 async function loadAdminLogs() {
     const tbody = document.getElementById('admin-table-body');
     if (!tbody) return;
-    tbody.innerHTML = '<tr><td colspan="2" style="text-align:center">Cargando...</td></tr>';
+    tbody.innerHTML = '<tr><td colspan="3" style="text-align:center">Cargando...</td></tr>';
     UI.toggleEl('admin-modal', true);
     try {
-        // Con RLS activo, la autorización (es_admin) se comprueba en el servidor.
-        const res = await fetch(`${CONFIG.SUPABASE_URL}/functions/v1/admin-logs`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                apikey: CONFIG.SUPABASE_KEY,
-                Authorization: `Bearer ${CONFIG.SUPABASE_KEY}`
-            },
-            body: JSON.stringify({ token: Storage.getToken() })
-        });
-        const j = await res.json().catch(() => ({}));
-        if (!res.ok || j.ok !== true) {
-            tbody.innerHTML = `<tr><td colspan="2" style="text-align:center;color:var(--error)">No autorizado: ${escapeHtml(j.error || 'HTTP ' + res.status)}</td></tr>`;
-            return;
-        }
-        const lics = j.licenses || [];
-        const logs = j.logs || [];
-
-        let html = '<tr class="admin-sep"><td colspan="2">Estado de Licencias</td></tr>';
-        html += lics.map(l => `<tr>
-            <td><strong>${escapeHtml(l.nombre || '')}</strong><br><small>ID: *** ${l.bloqueado ? '🚫 Bloqueado' : ''}</small></td>
-            <td class="admin-count ${l.dispositivos_usados >= 2 ? 'score-bad' : 'score-good'}">${l.dispositivos_usados} / 2</td></tr>`).join('');
-        html += '<tr class="admin-sep"><td colspan="2">Últimas Conexiones</td></tr>';
-        html += logs.map(l => `<tr>
-            <td>${new Date(l.created_at).toLocaleString('es-ES')}</td>
-            <td class="admin-log">${escapeHtml((l.device_info || '').replace(/\([^)]+\)/, '(***)'))}</td></tr>`).join('');
-        tbody.innerHTML = html;
+        renderAdminTable(await callAdmin({}));
     } catch (e) {
-        tbody.innerHTML = `<tr><td colspan="2" style="text-align:center;color:var(--error)">Error: ${escapeHtml(e.message)}</td></tr>`;
+        tbody.innerHTML = `<tr><td colspan="3" style="text-align:center;color:var(--error)">No autorizado: ${escapeHtml(e.message)}</td></tr>`;
     }
+}
+
+/** Acciones del panel (delegación en el tbody). */
+function setupAdminActions() {
+    const tbody = document.getElementById('admin-table-body');
+    if (!tbody) return;
+    tbody.addEventListener('click', async (e) => {
+        const btn = e.target.closest('.admin-btn');
+        if (!btn) return;
+        const action = btn.dataset.action;
+        const id = btn.dataset.id;
+        const payload = { action, id_acceso: id };
+
+        if (action === 'reset_password') {
+            const p = prompt(`Nueva contraseña para ${id} (mínimo 6):`);
+            if (!p) return;
+            if (p.length < 6) { alert('La contraseña debe tener al menos 6 caracteres.'); return; }
+            payload.password = p;
+        } else {
+            const msgs = {
+                block: `¿Bloquear a ${id}? No podrá entrar.`,
+                unblock: `¿Desbloquear a ${id}?`,
+                reset_devices: `¿Liberar los dispositivos de ${id}? Podrá entrar desde 2 dispositivos nuevos.`
+            };
+            if (!confirm(msgs[action] || '¿Continuar?')) return;
+        }
+
+        btn.disabled = true;
+        try {
+            renderAdminTable(await callAdmin(payload));
+            showToast('Hecho ✓');
+        } catch (err) {
+            alert('Error: ' + err.message);
+            btn.disabled = false;
+        }
+    });
 }
 
 export function checkAndInjectSessionButton() {

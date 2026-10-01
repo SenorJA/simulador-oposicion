@@ -5,6 +5,12 @@ formato de [Keep a Changelog](https://keepachangelog.com/es/1.0.0/) y versionado
 semántico (`MAJOR.MINOR.PATCH`). La fuente única de la versión es
 `CONFIG.APP_VERSION` en `src/js/modules/config.js`.
 
+## [1.26.0] — 2026-10-01
+### Añadido
+- **Límite de intentos de login** (anti fuerza bruta): tras 5 contraseñas
+  fallidas, la cuenta se bloquea 15 minutos. Probado por HTTP.
+  (La “recuperación de contraseña” se hace desde el panel de admin.)
+
 ## [1.25.0] — 2026-10-01
 ### Añadido
 - **Estadísticas de actividad** en “Mi Progreso”: preguntas respondidas, **racha

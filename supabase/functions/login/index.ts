@@ -18,6 +18,8 @@ const SUPABASE_URL = Deno.env.get('SUPABASE_URL')!;
 const SERVICE_KEY = Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')!;
 const TOKEN_SECRET = SERVICE_KEY; // clave de firma; nunca sale del servidor
 const MAX_DEVICES = 2;
+const MAX_INTENTOS = 5;
+const BLOQUEO_MS = 15 * 60 * 1000;
 
 const CORS = {
     'Access-Control-Allow-Origin': '*',
@@ -39,13 +41,24 @@ const escapeLike = (u: string) => u.replace(/[\\%_]/g, (m) => '\\' + m);
 async function fetchUser(user: string) {
     const q = new URLSearchParams({
         id_acceso: `ilike.${escapeLike(user)}`,
-        select: 'id_acceso,nombre,bloqueado,dispositivos_usados,password_hash',
+        select: 'id_acceso,nombre,bloqueado,dispositivos_usados,password_hash,intentos_fallidos,bloqueado_hasta',
         limit: '1'
     });
     const res = await fetch(`${SUPABASE_URL}/rest/v1/usuarios_acceso?${q}`, { headers });
     if (!res.ok) return { error: 'db' as const };
     const rows = await res.json();
     return { row: Array.isArray(rows) && rows[0] ? rows[0] : null };
+}
+
+/** Actualiza campos de un usuario (uso interno, service_role). */
+async function patchUser(id: string, patch: Record<string, unknown>) {
+    try {
+        await fetch(`${SUPABASE_URL}/rest/v1/usuarios_acceso?id_acceso=eq.${encodeURIComponent(id)}`, {
+            method: 'PATCH',
+            headers: { ...headers, 'Content-Type': 'application/json', Prefer: 'return=minimal' },
+            body: JSON.stringify(patch)
+        });
+    } catch { /* no bloquear el login por no poder actualizar el contador */ }
 }
 
 /** Registro atómico del dispositivo (límite 2) en el servidor. */
@@ -113,10 +126,30 @@ Deno.serve(async (req: Request) => {
     if (error) return json({ error: 'Error consultando la licencia' }, 502);
     if (!row) return json({ ok: false, error: 'Usuario o contraseña incorrectos' }, 403);
     if (row.bloqueado === true) return json({ ok: false, error: 'Licencia bloqueada' }, 403);
+
+    // Límite de intentos (anti fuerza bruta)
+    if (row.bloqueado_hasta && Date.now() < new Date(row.bloqueado_hasta).getTime()) {
+        const min = Math.ceil((new Date(row.bloqueado_hasta).getTime() - Date.now()) / 60000);
+        return json({ ok: false, error: `Demasiados intentos fallidos. Prueba de nuevo en ${min} min.` }, 429);
+    }
+
     if (!row.password_hash) return json({ ok: false, error: 'Usuario sin contraseña configurada' }, 403);
 
     const okPw = await verifyPassword(password, row.password_hash);
-    if (!okPw) return json({ ok: false, error: 'Usuario o contraseña incorrectos' }, 403);
+    if (!okPw) {
+        const intentos = (row.intentos_fallidos || 0) + 1;
+        const patch: Record<string, unknown> = intentos >= MAX_INTENTOS
+            ? { intentos_fallidos: 0, bloqueado_hasta: new Date(Date.now() + BLOQUEO_MS).toISOString() }
+            : { intentos_fallidos: intentos };
+        await patchUser(row.id_acceso, patch);
+        const msg = intentos >= MAX_INTENTOS
+            ? 'Demasiados intentos fallidos. Cuenta bloqueada 15 minutos.'
+            : 'Usuario o contraseña incorrectos';
+        return json({ ok: false, error: msg }, 403);
+    }
+
+    // Éxito: limpia el contador de intentos
+    if (row.intentos_fallidos) await patchUser(row.id_acceso, { intentos_fallidos: 0 });
 
     const reg = await registrarDispositivo(row.id_acceso, deviceId || 'sin_device');
     if (!reg.ok) return json({ ok: false, error: motivoTexto(reg.motivo) }, 403);

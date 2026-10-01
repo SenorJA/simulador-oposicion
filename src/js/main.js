@@ -946,7 +946,7 @@ function renderStatsSummary() {
             <div class="stat"><span class="stat-num">${fallos}</span><span class="stat-lbl">fallos pendientes</span></div>
             <div class="stat"><span class="stat-num">${dudosas}</span><span class="stat-lbl">dudosas</span></div>
         </div>
-        ${history.length ? `<div class="stat-chart">${barras}</div><p class="setting-hint">Evolución de los últimos ${history.length} tests</p>` : ''}`;
+        ${history.length ? `<div class="stat-chart">${barras}</div><p class="setting-hint">Evolución de los últimos ${history.length} test${history.length === 1 ? '' : 's'}</p>` : ''}`;
 }
 
 /** Descarga el progreso del usuario actual como archivo JSON. */

@@ -1,16 +1,16 @@
-# 🩺 Simulador Oposiciones SESCAM (v1.18.x)
+# 🩺 Simulador Oposiciones SESCAM (v1.19.x)
 
 Aplicación web avanzada y gamificada para preparar las oposiciones del **SESCAM**
 (Ayudante de Cocina / Pinche, Celador y otras categorías). Diseño *Mobile-First*
-con estética *Sanidad Teal*, modo oscuro automático y un motor de evaluación en
-tiempo real.
+de **alto contraste** (fondo oscuro y tarjetas blancas) y un motor de evaluación
+en tiempo real.
 
 ---
 
 ## ✨ Características
 
-- **Estética "Sanatorio Teal"** con glassmorphism, sombras dinámicas y diseño
-  100% responsivo. **Modo oscuro** automático según el sistema.
+- **Diseño de alto contraste**: fondo oscuro (slate) con **tarjetas blancas
+  sólidas** y texto oscuro; 100% responsivo. Colores vivos para aciertos/errores.
 - **Sistema de progreso en cascada**: barras y nota media en 3 niveles
   (Fuentes > Bloques > Temas) sin colisión de datos.
 - **Estadísticas por tema** y **lista de fallos** repasables en "Mi Progreso".

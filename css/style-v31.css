@@ -563,6 +563,7 @@ h1 {
 /* ── 11. TARJETAS Y PREGUNTA ───────────────────────────────────────────── */
 .card {
     background: var(--card-bg);
+    color: var(--text);
     border-radius: var(--radius);
     padding: 32px;
     box-shadow: var(--shadow-card);
@@ -957,6 +958,7 @@ h1 {
 
 .full-view-question-card {
     background: var(--card-bg);
+    color: var(--text);
     border-radius: var(--radius);
     padding: 16px;
     border: 1px solid var(--border);

@@ -315,9 +315,13 @@ function renderQuestion(focusQuestion = false) {
         optContainer.appendChild(btn);
     });
 
-    // Exam / review / already answered / paused restoration: check visibility
+    // Visibilidad del botón Siguiente/Finalizar:
+    // - examen y revisión: siempre
+    // - training/fallos: al responder
+    // - última pregunta: SIEMPRE (para poder finalizar aunque quede en blanco)
     const alreadyAnswered = state.userAnswers && state.userAnswers[state.currentIndex];
-    if (mode === 'exam' || mode === 'review' || alreadyAnswered) {
+    const isLast = state.currentIndex === state.currentQuestions.length - 1;
+    if (mode === 'exam' || mode === 'review' || alreadyAnswered || isLast) {
         btnNext.classList.remove('hidden');
         btnNext.innerHTML = buildNextButtonLabel();
     }
@@ -485,7 +489,7 @@ function finishGame() {
               <ul>
                 <li class="eb-ok">✅ <strong>Aciertos:</strong> ${aciertos}</li>
                 <li class="eb-err">❌ <strong>Errores:</strong> ${fallos} <span>(-0.33 c/u)</span></li>
-                <li class="eb-blank">⚪ <strong>Blancas:</strong> ${blancos}</li>
+                <li class="eb-blank">○ <strong>Blancas:</strong> ${blancos}</li>
                 <li class="eb-total"><strong>Puntuación neta:</strong> ${aciertos} - ${(fallos / 3).toFixed(2)} = <strong>${finalScore.toFixed(2)}</strong></li>
                 <li class="eb-final"><strong>Nota Final (0–10): ${notaNumerica.toFixed(2)}</strong></li>
               </ul>

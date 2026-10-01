@@ -218,6 +218,14 @@ async function main() {
         ok(!ui.views.includes('game'), 'no navega a juego con pool vacío');
     }
 
+    console.log('=== 8. Última pregunta: botón Finalizar siempre visible ===');
+    {
+        const { G, elements } = await loadGame();
+        G.startGame([QUESTIONS()[0]], 'training', 'Un test');
+        ok(!elements['btn-next'].classList.contains('hidden'), 'aparece Finalizar sin responder la última');
+        ok(/Finalizar/.test(elements['btn-next'].innerHTML), 'el texto dice Finalizar', elements['btn-next'].innerHTML);
+    }
+
     console.log('\n' + (fails === 0 ? '✅ FLUJO DE TEST CORRECTO' : `❌ ${fails} FALLOS`));
     process.exit(fails ? 1 : 0);
 }

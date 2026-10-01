@@ -5,6 +5,18 @@ formato de [Keep a Changelog](https://keepachangelog.com/es/1.0.0/) y versionado
 semántico (`MAJOR.MINOR.PATCH`). La fuente única de la versión es
 `CONFIG.APP_VERSION` en `src/js/modules/config.js`.
 
+## [1.19.2] — 2026-10-01
+### Corregido
+- **Texto invisible dentro de las tarjetas blancas**: al poner el color del
+  `body` en claro, las tarjetas no reseteaban el color, así que el texto sin
+  color explícito (como las líneas del desglose) heredaba el claro y no se veía.
+  Ahora `.card` y las tarjetas de la vista completa fijan `color: #111827`.
+- **Icono “Blancas”**: el emoji ⚪ (círculo blanco) era invisible sobre blanco;
+  se usa `○`, que toma el color del texto.
+- **No se podía finalizar en la última pregunta** si estaba sin responder (el
+  botón “Siguiente” estaba oculto): ahora el botón **Finalizar** aparece siempre
+  en la última pregunta, en todos los modos. Cubierto con test de regresión.
+
 ## [1.19.1] — 2026-10-01
 ### Cambiado
 - **Desglose de puntuación del examen con cada línea coloreada y legible**:

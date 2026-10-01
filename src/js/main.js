@@ -450,6 +450,14 @@ function setupEventListeners() {
             showToast('Dudosas vaciadas ✓');
         }
     });
+    on('btn-clear-failures-progress', 'click', () => {
+        if (confirm('¿Vaciar todas las preguntas falladas?')) {
+            Storage.clearFailures();
+            UI.updateFailureBadge(0);
+            showProgress(); // re-render inmediato de las listas y stats
+            showToast('Fallos vaciados ✓');
+        }
+    });
     on('btn-admin-new', 'click', async () => {
         const id = (prompt('Código de usuario (letras/números, sin espacios):') || '').trim();
         if (!id) return;
@@ -773,12 +781,20 @@ function clearFailuresAndRefresh(goToMenu) {
     }
 
     UI.updateFailureBadge(0);
-    updateStreakChip();
+    UI.renderizarRecordsMenu();
+    UI.renderizarProgresoGlobal();
+    UI.renderizarProgresoExamenes();
     if (!goToMenu) {
         UI.toggleEl('btn-review-failed', false);
         UI.toggleEl('btn-clear-failures', false);
     }
     checkAndInjectSessionButton();
+
+    // Refresco reactivo: si el usuario está viendo Mi Progreso, vaciar sus listas
+    // (fallos, acierto por fuente) al instante, sin recargar.
+    if (document.getElementById('view-progress')?.classList.contains('active')) {
+        showProgress();
+    }
 
     if (goToMenu) {
         // Quitar la partida de fallos del historial: si no, "Atrás" volvería a
@@ -977,6 +993,8 @@ function renderFailuresList() {
     if (!cont) return;
     const failed = new Set(Storage.getFailedIds());
     const items = state.allQuestions.filter(q => failed.has(q.id));
+    const btn = document.getElementById('btn-clear-failures-progress');
+    if (btn) btn.classList.toggle('hidden', items.length === 0);
     if (items.length === 0) {
         cont.innerHTML = '<p class="setting-hint">No tienes fallos pendientes. 🏆</p>';
         return;

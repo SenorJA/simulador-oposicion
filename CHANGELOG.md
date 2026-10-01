@@ -5,6 +5,15 @@ formato de [Keep a Changelog](https://keepachangelog.com/es/1.0.0/) y versionado
 semántico (`MAJOR.MINOR.PATCH`). La fuente única de la versión es
 `CONFIG.APP_VERSION` en `src/js/modules/config.js`.
 
+## [1.34.1] — 2026-10-01
+### Corregido
+- **Reactividad al vaciar los fallos**: ahora el borrado refresca **al instante**
+  el contador, los récords, las barras de progreso y —si estás en “Mi
+  Progreso”— las listas de “Preguntas falladas” y “Acierto por fuente”, **sin
+  recargar** la página.
+### Añadido
+- Botón **“Vaciar fallos”** en “Mi Progreso” (refresco inmediato).
+
 ## [1.34.0] — 2026-10-01
 ### Corregido
 - **La “Media” de las tarjetas de temas/partes ya no se queda atascada** en el

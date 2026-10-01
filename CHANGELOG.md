@@ -5,6 +5,13 @@ formato de [Keep a Changelog](https://keepachangelog.com/es/1.0.0/) y versionado
 semántico (`MAJOR.MINOR.PATCH`). La fuente única de la versión es
 `CONFIG.APP_VERSION` en `src/js/modules/config.js`.
 
+## [1.32.0] — 2026-10-01
+### Añadido
+- **Buscador de preguntas** (por texto en el banco) con opción de **empezar un
+  test con los resultados**.
+- **Racha visible** en el menú principal (chip 🔥 N días).
+- **Tema por defecto = el del sistema** si no has elegido uno con “🌓 Tema”.
+
 ## [1.31.1] — 2026-10-01
 ### Añadido
 - Botón **“Vaciar dudosas”** en Mi Progreso (además de quitar las dudosas de una

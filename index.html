@@ -7,12 +7,12 @@
     <meta name="theme-color" content="#00897B">
     <meta name="description"
         content="Simulador de tests para las oposiciones del SESCAM (Ayudante de Cocina/Pinche, Celador y más): entrenamiento con corrección inmediata, simulacros de examen y repaso de fallos.">
-    <title>Simulador Oposiciones SESCAM - v1.31.1</title>
+    <title>Simulador Oposiciones SESCAM - v1.32.0</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://ictintjdebutsjkbexpc.supabase.co" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style-v31.css?v=1.31.1">
+    <link rel="stylesheet" href="css/style-v31.css?v=1.32.0">
     <link rel="manifest" href="manifest.webmanifest">
     <link rel="apple-touch-icon" href="icons/icon-192.png">
     <meta name="mobile-web-app-capable" content="yes">
@@ -113,7 +113,7 @@
             </div>
             <button id="btn-admin-panel" class="btn-secondary">Ver Conexiones (Admin)</button>
             <p class="footer-note">
-                v1.31.1 - Más categorías en desarrollo<br>
+                v1.32.0 - Más categorías en desarrollo<br>
                 <span id="licencia-activa">✓ Conectado</span>
                 <button id="btn-logout" class="btn-action-link hidden">Cambiar de usuario</button>
                 <button id="btn-theme" class="btn-action-link" aria-label="Cambiar tema claro/oscuro">🌓 Tema</button>
@@ -130,6 +130,7 @@
                     </svg>
                 </button>
                 <h1 class="m-0">Simulador OPE Pinche</h1>
+                <span id="streak-chip" class="streak-chip hidden" title="Días seguidos estudiando">🔥 <span id="streak-days">0</span></span>
             </header>
             <p class="subtitle">Selecciona una fuente de estudio</p>
 
@@ -165,6 +166,10 @@
                 <button id="btn-progress" class="btn-menu">
                     <strong>📊 Mi Progreso</strong>
                     <span class="badge">Estadísticas</span>
+                </button>
+                <button id="btn-search" class="btn-menu">
+                    <strong>🔎 Buscar preguntas</strong>
+                    <span class="badge">Buscador</span>
                 </button>
             </div>
             <p class="footnote">Más funciones próximamente...
@@ -485,6 +490,25 @@
             </div>
         </div>
 
+        <!-- VISTA: BUSCADOR -->
+        <div id="view-search" class="view hidden">
+            <header class="view-header">
+                <button id="btn-back-search" class="btn-icon" aria-label="Volver"><svg aria-hidden="true" focusable="false" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M19 12H5M12 19l-7-7 7-7" />
+                    </svg></button>
+                <h2>Buscar preguntas</h2>
+            </header>
+
+            <div class="card">
+                <input type="search" id="search-input" class="form-control-premium"
+                    placeholder="Escribe una palabra (mínimo 2 letras)…" aria-label="Buscar preguntas">
+                <div id="search-results" class="search-results"></div>
+                <button id="btn-search-start" class="btn-primary mt-40 hidden">Empezar test con los resultados</button>
+            </div>
+        </div>
+
         <!-- VISTA: JUEGO (SIMULADOR) -->
         <div id="view-game" class="view hidden">
             <header class="game-header">
@@ -599,7 +623,7 @@
 
     </main>
 
-    <script src="src/js/main.js?v=1.31.1" type="module"></script>
+    <script src="src/js/main.js?v=1.32.0" type="module"></script>
 </body>
 
 </html>

@@ -53,6 +53,16 @@ function updateDudosasBadge() {
     if (el) el.textContent = Storage.getDudosas().length;
 }
 
+/** Muestra la racha de días en el menú. */
+function updateStreakChip() {
+    const chip = document.getElementById('streak-chip');
+    const days = document.getElementById('streak-days');
+    if (!chip || !days) return;
+    const n = Storage.getStreak();
+    days.textContent = n;
+    chip.classList.toggle('hidden', n < 1);
+}
+
 /** Aplica y recuerda el tema (claro/oscuro). */
 function applyTheme(theme) {
     document.documentElement.dataset.theme = theme;
@@ -62,7 +72,13 @@ function applyTheme(theme) {
 function initTheme() {
     let saved = null;
     try { saved = localStorage.getItem('ope_theme'); } catch { /* ignore */ }
-    document.documentElement.dataset.theme = saved === 'light' ? 'light' : 'dark';
+    if (saved === 'light' || saved === 'dark') {
+        document.documentElement.dataset.theme = saved;
+        return;
+    }
+    // Sin preferencia guardada: seguimos el tema del sistema
+    const prefiereClaro = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
+    document.documentElement.dataset.theme = prefiereClaro ? 'light' : 'dark';
 }
 
 /** Sincroniza el progreso con el servidor (la fusión la hace el servidor). */
@@ -84,6 +100,7 @@ async function syncProgress() {
         Storage.importUserData(j.data);
         UI.updateFailureBadge(Storage.getFailedIds().length);
         updateDudosasBadge();
+        updateStreakChip();
         UI.renderizarRecordsMenu();
     } catch { /* offline: se reintentará */ }
 }
@@ -148,6 +165,7 @@ function handleAuthSuccess(_userData, _currentDevices, _maxDevices) {
 
         UI.updateFailureBadge(Storage.getFailedIds().length);
         updateDudosasBadge();
+        updateStreakChip();
         UI.renderizarRecordsMenu();
         UI.renderizarProgresoGlobal();
         UI.renderizarProgresoExamenes();
@@ -366,6 +384,7 @@ function selectRole(role) {
     // Forzar actualización reactiva (cada rol tiene sus propios datos aislados)
     UI.updateFailureBadge(Storage.getFailedIds().length);
     updateDudosasBadge();
+    updateStreakChip();
     UI.renderizarRecordsMenu();
     UI.renderizarProgresoGlobal();
     UI.renderizarProgresoExamenes();
@@ -526,6 +545,15 @@ function setupEventListeners() {
 
     // ── Progress ──
     on('btn-progress', 'click', showProgress);
+
+    // ── Buscador ──
+    on('btn-search', 'click', showSearch);
+    on('btn-back-search', 'click', () => UI.goBack());
+    on('search-input', 'input', (e) => renderSearchResults(e.target.value));
+    on('btn-search-start', 'click', () => {
+        if (!searchMatches.length) return;
+        Game.startGame(searchMatches.slice(), 'training', 'Resultados de búsqueda');
+    });
 
     // ── Parts ──
     on('btn-back-parts', 'click', () => UI.goBack());
@@ -1052,6 +1080,50 @@ function exportResultsPdf() {
     w.document.close();
     w.focus();
     setTimeout(() => w.print(), 300);
+}
+
+// ── Buscador de preguntas ────────────────────────────────────────────────────
+
+let searchMatches = [];
+
+function showSearch() {
+    UI.showView('search');
+    const input = document.getElementById('search-input');
+    if (input) { input.value = ''; input.focus(); }
+    renderSearchResults('');
+}
+
+function renderSearchResults(query) {
+    const cont = document.getElementById('search-results');
+    const start = document.getElementById('btn-search-start');
+    if (!cont) return;
+
+    const term = String(query || '').trim().toLowerCase();
+    if (term.length < 2) {
+        searchMatches = [];
+        cont.innerHTML = '<p class="setting-hint">Escribe al menos 2 letras para buscar.</p>';
+        if (start) start.classList.add('hidden');
+        return;
+    }
+
+    searchMatches = state.allQuestions.filter(item => {
+        const texto = `${item.pregunta} ${Object.values(item.opciones || {}).join(' ')}`.toLowerCase();
+        return texto.includes(term);
+    }).slice(0, 30);
+
+    if (start) start.classList.toggle('hidden', searchMatches.length === 0);
+
+    cont.innerHTML = searchMatches.length === 0
+        ? '<p class="setting-hint">Sin resultados.</p>'
+        : searchMatches.map(item => `
+            <div class="search-item">
+                <div class="fi-meta">${escapeHtml(item.origen || '')} · ${escapeHtml(item.tema || '')}</div>
+                <div>${escapeHtml(item.pregunta)}</div>
+                <div class="search-opts">
+                    ${Object.entries(item.opciones || {}).map(([k, v]) =>
+                        `<span class="search-opt${k === item.correcta ? ' ok' : ''}">${escapeHtml(k.toUpperCase())}) ${escapeHtml(v)}</span>`).join('')}
+                </div>
+            </div>`).join('');
 }
 
 // ── Admin panel ────────────────────────────────────────────────────────────

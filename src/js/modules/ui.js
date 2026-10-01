@@ -15,6 +15,7 @@ const VIEW_IDS = {
     examsMenu: 'view-exams-menu',
     modeSelection: 'view-mode-selection',
     progress: 'view-progress',
+    search: 'view-search',
     game: 'view-game',
     results: 'view-results'
 };

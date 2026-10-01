@@ -880,8 +880,7 @@ function renderTopicStats() {
     const failed = new Set(Storage.getFailedIds());
     const grupos = {};
     for (const q of state.allQuestions) {
-        const m = String(q.tema || '').match(/Tema\s+\d+/i);
-        const nombre = m ? m[0].replace(/Tema\s+/i, 'Tema ') : (q.origen || 'Otros');
+        const nombre = q.origen || q.source || 'Otros';
         const g = grupos[nombre] || (grupos[nombre] = { total: 0, fallidas: 0 });
         g.total++;
         if (failed.has(q.id)) g.fallidas++;

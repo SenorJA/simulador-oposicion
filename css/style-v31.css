@@ -1342,8 +1342,10 @@ h1 {
 }
 
 .topic-stat .ts-name {
-    flex: 0 0 96px;
+    flex: 0 0 150px;
     font-weight: 600;
+    font-size: 0.8rem;
+    line-height: 1.2;
 }
 
 .topic-stat .ts-bar-bg {

@@ -5,6 +5,12 @@ formato de [Keep a Changelog](https://keepachangelog.com/es/1.0.0/) y versionado
 semántico (`MAJOR.MINOR.PATCH`). La fuente única de la versión es
 `CONFIG.APP_VERSION` en `src/js/modules/config.js`.
 
+## [1.29.2] — 2026-10-01
+### Cambiado
+- **“Acierto por fuente”** en lugar de “Acierto por tema”: agrupa por **MAD,
+  CSIF, Academia y exámenes** (usa el campo `origen`), que es más útil. Sigue
+  mostrando solo las fuentes con fallos pendientes.
+
 ## [1.29.1] — 2026-10-01
 ### Corregido
 - **“Acierto por tema”** ahora muestra **solo los temas con fallos pendientes**

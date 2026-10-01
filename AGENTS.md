@@ -52,9 +52,9 @@ evitar regresiones, saltos de seguridad y corrupción de estado.
   ```javascript
   import { state } from './state.js';
   ```
-- **Los bancos se piden con `POST /functions/v1/get-bank`** con `{ bank, user }`.
-  El código de licencia viaja en el cuerpo, nunca en la URL. `data.js` es el
-  único módulo autorizado a llamar a `get-bank`.
+- **Los bancos se piden con `POST /functions/v1/get-bank`** con `{ bank, token }`
+  (token de sesión emitido por `login`). El token viaja en el **cuerpo**, nunca en
+  la URL. `data.js` es el único módulo autorizado a llamar a `get-bank`.
 - Si añades un banco: pon el JSON en `data/`, regístralo en el array `BANKS` y
   ejecuta `node scripts/upload_banks.js` para subirlo al bucket privado.
   `verify_refs.js` falla si un JSON local no está registrado.
@@ -95,10 +95,21 @@ evitar regresiones, saltos de seguridad y corrupción de estado.
 - `currentPrefix` es `u_{id}_` para pinche y `u_{id}_celador_` para celador.
   Solo `storage.js` construye estos prefijos, mediante `pk(key)`.
 - **TODAS las claves de datos de usuario DEBEN pasar por `pk()`**: fallos,
-  progreso, récords y la sesión suspendida. Nunca escribas un
+  dudosas (`DUDOSAS`), intentos (`ATTEMPTS`), progreso, récords, respondidas
+  (`ANSWERED`) y la sesión suspendida. Nunca escribas un
   `localStorage.setItem('simulador_sescam_records', ...)` o
   `'estado_test_suspendido'` a pelo: esos datos estarían compartidos entre
   usuarios del mismo navegador.
+- **Claves por USUARIO (sin rol):** la racha (`ope_streak`), su fecha, el
+  contador diario (`ope_daily`) y `last_role`, construidas con `userPrefix()`.
+- **Sincronización (`sync-progress`):** el progreso se sube/fusiona por usuario.
+  Reglas del merge: fallos y dudosas = **gana el último estado** (para poder
+  borrar); historial = unión; récords/respondidas/racha = máximo; intentos = la
+  lista más larga. **`last_role` y la sesión suspendida son LOCALES** y NO se
+  sincronizan (si se hiciera, la categoría saltaría al recargar).
+- La **Media** se calcula de los intentos (`addAttempt`/`getTestAverage`),
+  independiente del récord (mejor nota). El color del sello de nota está en la
+  clase base `.badge-record` (`.pass` verde / `.fail` rojo).
 - Al añadir una clave nueva por usuario: agrégala a `KEYS`, inclúyela en `pk()`
   y migra cualquier clave legacy sin prefijo de forma perezosa dentro de su
   getter (adopta el valor antiguo en la clave con prefijo y borra la vieja).

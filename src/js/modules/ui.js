@@ -173,7 +173,7 @@ export function renderizarRecordsMenu() {
             
             // Inyectar badge discreto (Sello Premium)
             const badge = document.createElement('span');
-            badge.className = 'badge-record';
+            badge.className = 'badge-record ' + (score >= 5 ? 'pass' : 'fail');
             badge.innerHTML = getRecordBadgeHTML(score);
             btn.appendChild(badge);
         }
@@ -267,9 +267,11 @@ export function renderizarProgresoEnCard(element, questionsFilter) {
 
     // ── REGLA 1: TEST ATÓMICO (Sin herencia, sin prefijos laxos) ──
     if (!isAggregate && testId) {
-        // En botones de nivel 3 (Partes/Bloques), buscamos EXACTAMENTE la clave.
         const score = records[testId];
-        if (score !== undefined) {
+        const avg = Storage.getTestAverage(testId);
+        if (avg !== null) {
+            injectProgressHTML(element, 100, avg.toFixed(1)); // media real de intentos
+        } else if (score !== undefined) {
             injectProgressHTML(element, 100, score.toFixed(1));
         }
         return;
@@ -286,43 +288,45 @@ export function renderizarProgresoEnCard(element, questionsFilter) {
     };
 
     const sourcePrefix = prefixMap[element.id];
-    
+
     // Si no es un botón de nivel 1/2 y no tiene testId, abortamos
     if (!sourcePrefix && !testId && !questionsFilter) return;
 
-    // Obtener todos los récords para calcular la media
+    // Media: preferimos la de los INTENTOS; si no, la de los récords.
     const allRecords = Storage.getRecords();
-    let scores = [];
+    let avg = null;
 
     if (sourcePrefix && sourcePrefix.endsWith('_')) {
-        // Filtrado por prefijo de storage (MAD, CSIF, etc.)
-        scores = Object.keys(allRecords)
-            .filter(k => k.startsWith(sourcePrefix))
-            .map(k => allRecords[k]);
+        avg = Storage.getAverageFor(id => id.startsWith(sourcePrefix));
     } else if (element.id === 'btn-part-general' || element.id === 'btn-part-especifica') {
         const isGeneral = element.id === 'btn-part-general';
-        // Para bloques General/Específica, filtramos temas 1-6 o 7-16
-        scores = Object.keys(allRecords).filter(k => {
-            const m = k.match(/tema_(\d+)/i);
+        avg = Storage.getAverageFor(id => {
+            const m = id.match(/tema_(\d+)/i);
             if (!m) return false;
             const n = parseInt(m[1]);
             return isGeneral ? (n >= 1 && n <= 6) : (n >= 7 && n <= 16);
-        }).map(k => allRecords[k]);
-    } else if (questionsFilter) {
-        // Fallback para filtros manuales si los hay
-        const targetQs = allQuestions.filter(questionsFilter);
-        if (targetQs.length === 0) return;
-        // En este caso, si no hay prefijo claro, el cálculo es más complejo.
-        // Pero para Nivel 1 y 2, los casos anteriores cubren el 99%.
+        });
     }
 
-    if (scores.length > 0) {
-        const avg = (scores.reduce((a, b) => a + b, 0) / scores.length).toFixed(1);
-        // Para el % de progreso, podemos estimar basado en los completados vs total esperado
-        // O simplemente mostrar la nota media si es un nivel muy alto.
-        // El usuario pidió "pinta las barras de nuevo", así que calculamos un % de "completitud" 
-        // respecto a un total aproximado si es posible, o simplemente 100% si hay datos.
-        injectProgressHTML(element, 100, avg); 
+    if (avg === null) {
+        // Fallback: media de los récords del grupo
+        let scores = [];
+        if (sourcePrefix && sourcePrefix.endsWith('_')) {
+            scores = Object.keys(allRecords).filter(k => k.startsWith(sourcePrefix)).map(k => allRecords[k]);
+        } else if (element.id === 'btn-part-general' || element.id === 'btn-part-especifica') {
+            const isGeneral = element.id === 'btn-part-general';
+            scores = Object.keys(allRecords).filter(k => {
+                const m = k.match(/tema_(\d+)/i);
+                if (!m) return false;
+                const n = parseInt(m[1]);
+                return isGeneral ? (n >= 1 && n <= 6) : (n >= 7 && n <= 16);
+            }).map(k => allRecords[k]);
+        }
+        if (scores.length > 0) avg = scores.reduce((a, b) => a + b, 0) / scores.length;
+    }
+
+    if (avg !== null) {
+        injectProgressHTML(element, 100, avg.toFixed(1));
     }
 }
 

@@ -149,6 +149,18 @@ async function main() {
     // La racha no se duplica el mismo día
     ok(S.touchStreak() === 1, 'la racha no sube dos veces el mismo día');
 
+    console.log('=== I. Media de intentos (independiente del récord) ===');
+    store.clear();
+    S.setPrefix('ALFA'); S.setRole('pinche');
+    S.saveRecord('t1', 8);
+    S.addAttempt('t1', 8); S.addAttempt('t1', 4); S.addAttempt('t1', 6);
+    ok(S.getRecords()['t1'] === 8, 'el récord se queda en la mejor (8)', String(S.getRecords()['t1']));
+    ok(Math.abs(S.getTestAverage('t1') - 6) < 0.001, 'la media de intentos es 6', String(S.getTestAverage('t1')));
+    ok(S.saveRecord('t1', 3) === false, 'una nota peor no cambia el récord');
+    S.addAttempt('t1', 3);
+    ok(Math.abs(S.getTestAverage('t1') - 5.25) < 0.001, 'la media baja a 5.25 tras el 3', String(S.getTestAverage('t1')));
+    ok(S.getAverageFor(id => id === 't1') !== null, 'getAverageFor agrega por filtro');
+
     console.log('\n' + (fails === 0 ? '✅ AISLAMIENTO CORRECTO' : `❌ ${fails} FALLOS`));
     process.exit(fails ? 1 : 0);
 }

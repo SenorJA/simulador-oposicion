@@ -1094,6 +1094,18 @@ h1 {
 .texto-aviso-naranja { color: var(--warning); }
 .texto-peligro-rojo { color: var(--error); }
 
+.badge-record.pass {
+    background: rgba(34, 197, 94, 0.20);
+    color: #bbf7d0;
+    border-color: rgba(34, 197, 94, 0.4);
+}
+
+.badge-record.fail {
+    background: rgba(239, 68, 68, 0.20);
+    color: #fecaca;
+    border-color: rgba(239, 68, 68, 0.4);
+}
+
 @keyframes badgeAppear {
     from { opacity: 0; transform: scale(0.8) translateY(5px); }
     to   { opacity: 1; transform: scale(1) translateY(0); }
@@ -1886,6 +1898,18 @@ input:focus-visible,
     background: #dcfce7;
     color: #166534;
     border-color: #86efac;
+}
+
+:root[data-theme="light"] .badge-record.pass {
+    background: #dcfce7;
+    color: #166534;
+    border-color: #86efac;
+}
+
+:root[data-theme="light"] .badge-record.fail {
+    background: #fee2e2;
+    color: #991b1b;
+    border-color: #fca5a5;
 }
 
 :root[data-theme="light"] .exams-subtitle {

@@ -5,6 +5,16 @@ formato de [Keep a Changelog](https://keepachangelog.com/es/1.0.0/) y versionado
 semántico (`MAJOR.MINOR.PATCH`). La fuente única de la versión es
 `CONFIG.APP_VERSION` en `src/js/modules/config.js`.
 
+## [1.34.0] — 2026-10-01
+### Corregido
+- **La “Media” de las tarjetas de temas/partes ya no se queda atascada** en el
+  primer intento: ahora se guardan **todos los intentos** (`ope_attempts`) y la
+  media se recalcula (suma / nº de intentos), independiente del **récord** (que
+  sigue siendo la mejor nota). Los botones padre/fuente calculan la media global
+  de intentos.
+- **Color del sello de nota**: “Suspenso” (< 5) ahora sale en **rojo**; verde
+  solo para aprobado (≥ 5). Antes todo era verde.
+
 ## [1.33.1] — 2026-10-01
 ### Corregido
 - **Navegación al vaciar los fallos** desde “Repasar Fallos”: ya no empuja el

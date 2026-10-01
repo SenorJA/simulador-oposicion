@@ -59,6 +59,15 @@ function mergeValue(key: string, a: string, b: string): string {
         uniq.sort((x, y) => String(y?.date || '').localeCompare(String(x?.date || '')));
         return JSON.stringify(uniq.slice(0, 50));
     }
+    if (key.endsWith('ope_attempts')) {
+        const out: Record<string, unknown[]> = { ...(A || {}) };
+        for (const [t, arr] of Object.entries(B || {})) {
+            const a = Array.isArray(out[t]) ? out[t] : [];
+            const b = Array.isArray(arr) ? arr : [];
+            out[t] = a.length >= b.length ? a : b;
+        }
+        return JSON.stringify(out);
+    }
     if (key.endsWith('ope_answered') || key.endsWith('ope_streak')) {
         return String(Math.max(numero(A), numero(B)));
     }

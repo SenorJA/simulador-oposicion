@@ -539,6 +539,8 @@ function finishGame() {
 
     if (state.currentTestId && state.currentMode !== 'review') {
         const isNewRecord = Storage.saveRecord(state.currentTestId, score0to10);
+        // Guardar el intento (para la MEDIA), aunque no sea récord
+        Storage.addAttempt(state.currentTestId, score0to10);
         if (isNewRecord) {
             console.log(`¡Nuevo récord para ${state.currentTestId}: ${score0to10.toFixed(2)}!`);
         }

@@ -7,6 +7,7 @@ const KEYS = {
     DUDOSAS: 'ope_dudosas',
     PROGRESS: 'ope_progress',
     ANSWERED: 'ope_answered',
+    ATTEMPTS: 'ope_attempts',
     USER_ACCESS: 'ope_user_access',
     TOKEN: 'ope_token',
     DEVICE_ID: 'ope_device_id',
@@ -47,7 +48,8 @@ function updatePrefix() {
 function pk(key) {
     // Aislamiento por usuario+rol: fallos, dudosas, historial, récords, sesión
     if (key === KEYS.FAILED_IDS || key === KEYS.DUDOSAS || key === KEYS.PROGRESS ||
-        key === KEYS.RECORDS || key === KEYS.SESSION || key === KEYS.ANSWERED) {
+        key === KEYS.RECORDS || key === KEYS.SESSION || key === KEYS.ANSWERED ||
+        key === KEYS.ATTEMPTS) {
         return currentPrefix + key;
     }
     return key;
@@ -307,13 +309,48 @@ export function saveRecord(testId, score) {
     return false;
 }
 
+// ── Intentos (para la MEDIA, independiente del récord) ───────────────────────
+
+function getAttempts() {
+    try { return JSON.parse(localStorage.getItem(pk(KEYS.ATTEMPTS))) || {}; }
+    catch { return {}; }
+}
+
+/** Registra una nota de un intento (se guardan los últimos 20 por test). */
+export function addAttempt(testId, score) {
+    if (!testId || !Number.isFinite(score)) return;
+    const all = getAttempts();
+    const arr = Array.isArray(all[testId]) ? all[testId] : [];
+    arr.push(parseFloat(Number(score).toFixed(2)));
+    all[testId] = arr.slice(-20);
+    localStorage.setItem(pk(KEYS.ATTEMPTS), JSON.stringify(all));
+}
+
+/** Media de todos los intentos de un test (null si no hay intentos). */
+export function getTestAverage(testId) {
+    const arr = getAttempts()[testId];
+    if (!Array.isArray(arr) || arr.length === 0) return null;
+    return arr.reduce((a, b) => a + b, 0) / arr.length;
+}
+
+/** Media global de los intentos cuyos testId cumplan `match`. */
+export function getAverageFor(match) {
+    const attempts = getAttempts();
+    let sum = 0, n = 0;
+    for (const [id, arr] of Object.entries(attempts)) {
+        if (!match(id) || !Array.isArray(arr)) continue;
+        for (const v of arr) { sum += Number(v) || 0; n++; }
+    }
+    return n > 0 ? sum / n : null;
+}
+
 /**
  * Borra todos los récords de localStorage (del usuario y rol actuales).
  */
 /** Borra el progreso del usuario+rol: fallos, dudosas, historial, récords y
  *  respondidas. NO toca la racha (independiente) ni la sesión de licencia. */
 export function clearAllProgress() {
-    [KEYS.FAILED_IDS, KEYS.DUDOSAS, KEYS.PROGRESS, KEYS.RECORDS, KEYS.ANSWERED]
+    [KEYS.FAILED_IDS, KEYS.DUDOSAS, KEYS.PROGRESS, KEYS.RECORDS, KEYS.ANSWERED, KEYS.ATTEMPTS]
         .forEach(k => localStorage.removeItem(pk(k)));
 }
 

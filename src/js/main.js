@@ -773,12 +773,20 @@ function clearFailuresAndRefresh(goToMenu) {
     }
 
     UI.updateFailureBadge(0);
+    updateStreakChip();
     if (!goToMenu) {
         UI.toggleEl('btn-review-failed', false);
         UI.toggleEl('btn-clear-failures', false);
     }
     checkAndInjectSessionButton();
-    if (goToMenu) UI.showView('menu');
+
+    if (goToMenu) {
+        // Quitar la partida de fallos del historial: si no, "Atrás" volvería a
+        // ese test (ya vacío) en lugar de a la selección. Y no la re-empujamos.
+        state.viewHistory = state.viewHistory.filter(v => v !== 'view-game');
+        UI.showView('menu', false);
+        history.replaceState({ view: 'menu' }, '');
+    }
 }
 
 // ── Feature helpers ────────────────────────────────────────────────────────

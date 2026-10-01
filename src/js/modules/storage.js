@@ -142,7 +142,9 @@ export function removeFailedId(id) {
 }
 
 export function clearFailures() {
-    localStorage.removeItem(pk(KEYS.FAILED_IDS));
+    // Guarda un array vacío (no se borra la clave) para que la lectura nunca
+    // devuelva null/undefined y otras vistas no se rompan.
+    localStorage.setItem(pk(KEYS.FAILED_IDS), '[]');
 }
 
 // ── Progress History ──────────────────────────────────────────────────────────
@@ -308,13 +310,11 @@ export function saveRecord(testId, score) {
 /**
  * Borra todos los récords de localStorage (del usuario y rol actuales).
  */
-/** Borra TODO el progreso del usuario+rol: fallos, dudosas, historial,
- *  récords, estadísticas y la racha. No toca la sesión de licencia. */
+/** Borra el progreso del usuario+rol: fallos, dudosas, historial, récords y
+ *  respondidas. NO toca la racha (independiente) ni la sesión de licencia. */
 export function clearAllProgress() {
     [KEYS.FAILED_IDS, KEYS.DUDOSAS, KEYS.PROGRESS, KEYS.RECORDS, KEYS.ANSWERED]
         .forEach(k => localStorage.removeItem(pk(k)));
-    localStorage.removeItem(streakKey());
-    localStorage.removeItem(streakDateKey());
 }
 
 // ── Backup: exportar / importar los datos del usuario ─────────────────────

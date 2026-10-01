@@ -5,6 +5,17 @@ formato de [Keep a Changelog](https://keepachangelog.com/es/1.0.0/) y versionado
 semántico (`MAJOR.MINOR.PATCH`). La fuente única de la versión es
 `CONFIG.APP_VERSION` en `src/js/modules/config.js`.
 
+## [1.33.1] — 2026-10-01
+### Corregido
+- **Navegación al vaciar los fallos** desde “Repasar Fallos”: ya no empuja el
+  test al historial, así **“Atrás” vuelve a la selección** (antes iba al test ya
+  vacío). `clearFailures()` guarda `[]` en vez de borrar la clave, para que la
+  lectura nunca devuelva `null`.
+- **Cabecera del menú (UI)**: la flecha y el título van ahora en un contenedor
+  flex (`.header-left`, `gap: 12px`); ya no se solapan.
+- La **racha (🔥)** es **independiente** del progreso y los fallos: “Borrar todo
+  el progreso” ya no la resetea.
+
 ## [1.33.0] — 2026-10-01
 ### Corregido
 - **Borrar todo el progreso ahora se propaga al servidor** (nuevo modo

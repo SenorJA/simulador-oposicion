@@ -1191,11 +1191,20 @@ h1 {
 
 .view-header-flat {
     position: relative;
-    justify-content: center;
+    justify-content: space-between;
+    gap: 12px;
     margin-bottom: 5px;
     border: none;
     padding-bottom: 0;
     min-height: 50px;
+}
+
+/* Flecha + título en una fila que respeta espacios (nunca se pisan) */
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-width: 0;
 }
 
 .setting-title {
@@ -1710,7 +1719,7 @@ h1 {
 #admin-modal-title { margin: 0; font-size: 1.5rem; color: var(--primary); }
 #btn-admin-panel { margin-top: 40px; width: 100%; font-size: 0.9rem; opacity: 0.8; }
 #btn-failures { grid-column: 1 / -1; }
-#btn-back-menu { position: absolute; left: 0; top: 50%; transform: translateY(-50%); }
+#btn-back-menu { flex-shrink: 0; }
 #btn-clear-history { margin-top: 15px; background: #ffeba7; color: #555; }
 #btn-clear-records { margin-top: 15px; background: #ffcdd2; color: #c62828; }
 #btn-show-grid { margin-right: 6px; padding: 2px 8px; font-size: 1.2rem; }

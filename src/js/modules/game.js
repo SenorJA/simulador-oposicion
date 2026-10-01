@@ -339,8 +339,6 @@ function createOptionButton(q, letter) {
         if (answered && state.currentMode === 'exam') {
             // Pre-highlight stored selection without locking
             if (letter === answered) {
-                btn.style.border = '2px solid var(--primary)';
-                btn.style.background = 'rgba(79,70,229,0.12)';
                 btn.classList.add('selected');
             }
         }
@@ -354,8 +352,6 @@ function applyAnswerStyle(btn, letter, correcta, chosen, mode) {
     btn.disabled = true;
     if (mode === 'exam') {
         if (letter === chosen) {
-            btn.style.border = '2px solid var(--primary)';
-            btn.style.background = '#eef';
             btn.classList.add('selected');
         }
     } else {

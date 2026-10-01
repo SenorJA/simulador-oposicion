@@ -210,6 +210,14 @@ ok(noUsadas.length === 0, 'sin tokens definidos y muertos' + (noUsadas.length ? 
 
 ok(!/\\n/.test(cssTexto), 'sin la secuencia literal \\n suelta');
 ok(!/[ÃÂâ]/.test(cssTexto), 'CSS sin mojibake');
+
+// Clases definidas en el CSS que no aparecen ni en el HTML ni en el JS
+const cssClasses = new Set([...cssTexto.matchAll(/\.([a-zA-Z][\w-]*)/g)].map(m => m[1]));
+const consumidores = html + '\n' + allJs;
+const clasesMuertas = [...cssClasses].filter(c =>
+    !new RegExp('(^|[^A-Za-z0-9_-])' + c + '([^A-Za-z0-9_-]|$)').test(consumidores));
+ok(clasesMuertas.length === 0, 'sin clases CSS muertas' + (clasesMuertas.length ? ': ' + clasesMuertas.join(', ') : ''));
+
 ok(/prefers-reduced-motion/.test(cssTexto), 'respeta prefers-reduced-motion');
 ok(/:focus-visible/.test(cssTexto), 'foco visible para teclado');
 ok(!/user-select:\s*none/.test(cssTexto), 'no bloquea la selección de texto');

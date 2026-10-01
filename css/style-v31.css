@@ -35,6 +35,7 @@
     --success: #10b981;
     --error: #ef4444;
     --error-dark: #b91c1c;
+    --warning: #f59e0b;
 
     /* Neutrales */
     --border-soft: #eee;
@@ -297,12 +298,6 @@ h1 {
     border: none;
     font-size: 1.5rem;
     cursor: pointer;
-}
-
-.topics-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 15px;
 }
 
 /* ── 8. CONFIGURACIÓN (modo aleatorio) ─────────────────────────────────── */
@@ -674,6 +669,13 @@ h1 {
     font-weight: 700;
 }
 
+/* Opción marcada en modo examen (la alterna game.js) */
+.btn-option.selected {
+    border: 2px solid var(--primary);
+    background: rgba(var(--accent-rgb), 0.12);
+    font-weight: 700;
+}
+
 .feedback {
     margin-top: 20px;
     padding: 15px;
@@ -817,13 +819,6 @@ h1 {
 
 .login-box input:focus {
     border-color: var(--primary);
-}
-
-.error-text {
-    color: var(--error);
-    margin-top: 15px;
-    font-weight: bold;
-    font-size: 0.9rem;
 }
 
 /* ── 16. MODAL Y NAVEGADOR DE PREGUNTAS ────────────────────────────────── */
@@ -1074,10 +1069,11 @@ h1 {
     white-space: nowrap;
 }
 
-.badge-record.teal {
-    background: linear-gradient(135deg, #2dd4bf 0%, #0d9488 100%);
-    box-shadow: 0 4px 10px rgba(13, 148, 136, 0.3);
-}
+/* Colores del feedback motivacional (los aplica game.js por clase) */
+.texto-exito-teal { color: var(--success); }
+.texto-bien-teal { color: var(--primary); }
+.texto-aviso-naranja { color: var(--warning); }
+.texto-peligro-rojo { color: var(--error); }
 
 @keyframes badgeAppear {
     from { opacity: 0; transform: scale(0.8) translateY(5px); }
@@ -1258,8 +1254,8 @@ input:checked + .slider:before {
 #btn-close-grid { margin-top: 20px; }
 #mode-tag { background: #e8f5e9; color: #2e7d32; }
 #resultado-motivacional { margin: 20px 0; padding: 15px; border-radius: 10px; background: #f4f6f8; }
-#resultado-porcentaje { font-size: 2.5rem; color: var(--primary); margin: 0; }
-#resultado-texto { font-size: 1.1rem; font-weight: bold; margin-top: 10px; color: var(--text); }
+#resultado-porcentaje { font-size: 2.5rem; margin: 0; }
+#resultado-texto { font-size: 1.1rem; font-weight: bold; margin-top: 10px; }
 #exam-feedback-container { text-align: left; margin-top: 20px; }
 
 #btn-clear-failures-header {
@@ -1290,8 +1286,7 @@ input:checked + .slider:before {
 }
 
 @media (min-width: 768px) {
-    .menu-grid,
-    .topics-grid {
+    .menu-grid {
         grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
         gap: 20px;
     }

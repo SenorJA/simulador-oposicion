@@ -5,6 +5,17 @@ formato de [Keep a Changelog](https://keepachangelog.com/es/1.0.0/) y versionado
 semántico (`MAJOR.MINOR.PATCH`). La fuente única de la versión es
 `CONFIG.APP_VERSION` en `src/js/modules/config.js`.
 
+## [1.19.0] — 2026-10-01
+### Cambiado
+- **Nueva paleta de alto contraste**: fondo general oscuro (slate) con
+  **tarjetas blancas sólidas (`#FFFFFF`)** y texto oscuro (`#111827`) dentro de
+  ellas. Sustituye el cristal translúcido anterior.
+- Colores de estado **vivos** (verde `#16a34a`, rojo `#dc2626`, ámbar `#b45309`)
+  para que aciertos y errores resalten sobre el blanco.
+- Se elimina el bloque de modo oscuro automático: el tema base ya es oscuro con
+  tarjetas blancas.
+- La configuración del test aleatorio se envuelve en una tarjeta blanca.
+
 ## [1.18.3] — 2026-10-01
 ### Corregido
 - **Contraste y legibilidad de colores**:

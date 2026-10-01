@@ -21,26 +21,27 @@
     --primary-rgb: 0, 137, 123;
     --accent-rgb: 79, 70, 229;
 
-    /* Fondo y superficies */
-    --bg-gradient: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%);
-    --glass-bg: rgba(255, 255, 255, 0.82);
-    --surface: var(--glass-bg);
+    /* Fondo oscuro de la app + texto sobre él */
+    --bg-gradient: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+    --app-text: #f1f5f9;
+    --app-text-light: #cbd5e1;
 
-    /* Texto */
-    --text: #1e293b;
-    --text-light: #475569;
-    --text-muted: #999;
+    /* Tarjetas blancas sólidas + texto dentro de ellas */
+    --card-bg: #ffffff;
+    --text: #111827;
+    --text-light: #374151;
+    --text-muted: #4b5563;
 
-    /* Estado */
-    --success: #10b981;
-    --error: #ef4444;
+    /* Estado (colores vivos que resaltan sobre blanco) */
+    --success: #16a34a;
+    --error: #dc2626;
     --error-dark: #b91c1c;
-    --warning: #f59e0b;
+    --warning: #b45309;
 
-    /* Neutrales */
-    --border-soft: #eee;
-    --border: #ddd;
-    --border-strong: #ccc;
+    /* Bordes sobre las tarjetas blancas */
+    --border-soft: #e5e7eb;
+    --border: #d1d5db;
+    --border-strong: #9ca3af;
 
     /* Radios */
     --radius: 20px;
@@ -50,8 +51,8 @@
     --radius-pill: 999px;
 
     /* Sombras y elevación */
-    --shadow-card: 0 8px 32px 0 rgba(31, 38, 135, 0.15), inset 1px 1px 2px rgba(255, 255, 255, 0.8), inset -1px -1px 2px rgba(0, 0, 0, 0.05);
-    --shadow-overlay: 0 10px 30px rgba(0, 0, 0, 0.2);
+    --shadow-card: 0 10px 30px rgba(0, 0, 0, 0.28);
+    --shadow-overlay: 0 10px 30px rgba(0, 0, 0, 0.35);
 }
 
 /* ── 2. RESET Y BASE ───────────────────────────────────────────────────── */
@@ -74,7 +75,7 @@ body {
     background: var(--bg-gradient);
     background-attachment: fixed;
     background-size: cover;
-    color: var(--text);
+    color: var(--app-text);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -132,7 +133,7 @@ h1 {
 
 .subtitle {
     text-align: center;
-    color: var(--text-light);
+    color: var(--app-text-light);
     margin: 0 0 1.5rem;
     font-size: 1rem;
 }
@@ -153,9 +154,7 @@ h1 {
 .btn-topic,
 .btn-mode {
     position: relative;
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(255, 255, 255, 0.4);
+    border: 1px solid var(--border);
     border-radius: var(--radius);
     text-align: left;
     cursor: pointer;
@@ -165,7 +164,7 @@ h1 {
     color: var(--text);
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     box-shadow: var(--shadow-card);
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.1) 100%);
+    background: var(--card-bg);
     overflow: visible;
 }
 
@@ -214,9 +213,9 @@ h1 {
 .btn-topic:hover,
 .btn-mode:hover {
     transform: translateY(-5px);
-    border-color: rgba(255, 255, 255, 0.8);
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0.2) 100%);
-    box-shadow: 0 15px 30px rgba(var(--accent-rgb), 0.25), inset 1px 1px 3px rgba(255, 255, 255, 1);
+    border-color: var(--border-strong);
+    background: #f3f4f6;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
 }
 
 .btn-topic:hover {
@@ -240,7 +239,8 @@ h1 {
 }
 
 .badge-score {
-    background: rgba(0, 0, 0, 0.05);
+    background: rgba(255, 255, 255, 0.15);
+    color: #ffffff;
     padding: 6px 10px;
     border-radius: 10px;
     font-size: 0.8rem;
@@ -287,7 +287,7 @@ h1 {
 }
 
 .view-header h2 {
-    color: var(--primary-dark);
+    color: var(--app-text);
     font-size: 1.6rem;
     font-weight: 800;
     margin: 0;
@@ -302,7 +302,7 @@ h1 {
 
 /* ── 8. CONFIGURACIÓN (modo aleatorio) ─────────────────────────────────── */
 .config-container-premium {
-    padding: 10px;
+    padding: 0;
     display: flex;
     flex-direction: column;
     gap: 30px;
@@ -348,7 +348,7 @@ h1 {
     align-items: center;
     gap: 15px;
     padding: 15px;
-    background: rgba(255, 255, 255, 0.3);
+    background: #f3f4f6;
     border-radius: var(--radius-md);
 }
 
@@ -363,6 +363,8 @@ h1 {
     padding: 12px;
     border-radius: var(--radius-md);
     border: 2px solid var(--primary-light);
+    background: var(--card-bg);
+    color: var(--text);
     font-size: 1rem;
     font-weight: 600;
 }
@@ -375,6 +377,7 @@ h1 {
 
 .source-card {
     background: white;
+    color: var(--text);
     padding: 15px;
     border-radius: var(--radius-lg);
     display: flex;
@@ -451,6 +454,7 @@ h1 {
 
 .btn-small {
     background: var(--border-soft);
+    color: var(--text);
     border: none;
     padding: 5px 10px;
     border-radius: var(--radius-sm);
@@ -468,7 +472,7 @@ h1 {
     border: none;
     font-size: 1.8rem;
     cursor: pointer;
-    color: var(--text);
+    color: var(--app-text);
     padding: 0 10px;
     transition: transform 0.2s;
 }
@@ -543,7 +547,7 @@ h1 {
 .progress-container {
     flex-grow: 1;
     margin: 0 15px;
-    background: var(--border);
+    background: rgba(255, 255, 255, 0.2);
     height: 10px;
     border-radius: 5px;
     overflow: hidden;
@@ -558,14 +562,12 @@ h1 {
 
 /* ── 11. TARJETAS Y PREGUNTA ───────────────────────────────────────────── */
 .card {
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0.15) 100%);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+    background: var(--card-bg);
     border-radius: var(--radius);
     padding: 32px;
     box-shadow: var(--shadow-card);
     margin-bottom: 24px;
-    border: 1px solid rgba(255, 255, 255, 0.5);
+    border: 1px solid var(--border);
     border-top: 5px solid var(--accent);
     position: relative;
     overflow: hidden;
@@ -615,10 +617,8 @@ h1 {
 }
 
 .btn-option {
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.2) 100%);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(255, 255, 255, 0.5);
+    background: var(--card-bg);
+    border: 1px solid var(--border);
     padding: 18px 24px;
     border-radius: 14px;
     text-align: left;
@@ -628,16 +628,16 @@ h1 {
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     color: var(--text);
     width: 100%;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05), inset 1px 1px 2px rgba(255, 255, 255, 0.8), inset -1px -1px 2px rgba(0, 0, 0, 0.02);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
     position: relative;
     overflow: hidden;
 }
 
 .btn-option:hover {
-    border-color: rgba(255, 255, 255, 0.8);
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0.4) 100%);
+    border-color: var(--border-strong);
+    background: #f3f4f6;
     transform: translateY(-4px);
-    box-shadow: 0 12px 25px rgba(var(--accent-rgb), 0.25), inset 1px 1px 3px rgba(255, 255, 255, 1);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.18);
 }
 
 .btn-option:disabled {
@@ -757,8 +757,8 @@ h1 {
     border-bottom: none;
 }
 
-.score-good { color: #047857; font-weight: bold; }
-.score-bad  { color: var(--error-dark); font-weight: bold; }
+.score-good { color: var(--success); font-weight: bold; }
+.score-bad  { color: var(--error);   font-weight: bold; }
 
 /* ── 14. PROGRESO GLOBAL ───────────────────────────────────────────────── */
 .global-progress-wrapper {
@@ -807,7 +807,8 @@ h1 {
 }
 
 .login-box {
-    background: var(--surface);
+    background: var(--card-bg);
+    color: var(--text);
     padding: 30px;
     border-radius: var(--radius);
     box-shadow: var(--shadow-overlay);
@@ -821,6 +822,8 @@ h1 {
     padding: 12px;
     margin: 20px 0;
     font-size: 1.1rem;
+    color: var(--text);
+    background: var(--card-bg);
     border: 2px solid var(--border);
     border-radius: var(--radius-sm);
     outline: none;
@@ -847,7 +850,8 @@ h1 {
 }
 
 .modal-content {
-    background: var(--surface);
+    background: var(--card-bg);
+    color: var(--text);
     border-radius: var(--radius);
     padding: 20px;
     width: 100%;
@@ -889,7 +893,8 @@ h1 {
 }
 
 .grid-content {
-    background: var(--surface);
+    background: var(--card-bg);
+    color: var(--text);
     padding: 25px;
     border-radius: var(--radius);
     max-width: 500px;
@@ -911,6 +916,7 @@ h1 {
     aspect-ratio: 1/1;
     border: 2px solid var(--border);
     background: white;
+    color: var(--text);
     border-radius: var(--radius-sm);
     font-weight: bold;
     cursor: pointer;
@@ -950,17 +956,13 @@ h1 {
 }
 
 .full-view-question-card {
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0.15) 100%);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+    background: var(--card-bg);
     border-radius: var(--radius);
     padding: 16px;
-    border: 1px solid rgba(255, 255, 255, 0.5);
+    border: 1px solid var(--border);
     border-left: 5px solid var(--primary);
     border-top: 4px solid var(--accent);
-    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.12),
-                inset 1px 1px 2px rgba(255, 255, 255, 0.8),
-                inset -1px -1px 2px rgba(0, 0, 0, 0.04);
+    box-shadow: var(--shadow-card);
     position: relative;
     overflow: hidden;
     width: 100%;
@@ -1080,11 +1082,11 @@ h1 {
 }
 
 /* Colores del feedback motivacional (los aplica game.js por clase).
-   Tonos oscurecidos para que se lean sobre el fondo claro. */
-.texto-exito-teal { color: #047857; }
-.texto-bien-teal { color: var(--primary-dark); }
-.texto-aviso-naranja { color: #b45309; }
-.texto-peligro-rojo { color: var(--error-dark); }
+   Tonos vivos para que resalten sobre la tarjeta blanca. */
+.texto-exito-teal { color: var(--success); }
+.texto-bien-teal { color: var(--primary); }
+.texto-aviso-naranja { color: var(--warning); }
+.texto-peligro-rojo { color: var(--error); }
 
 @keyframes badgeAppear {
     from { opacity: 0; transform: scale(0.8) translateY(5px); }
@@ -1113,22 +1115,22 @@ h1 {
 .footer-note {
     text-align: center;
     margin-top: 15px;
-    color: #aaa;
+    color: var(--app-text-light);
     font-size: 0.8rem;
 }
 
 .footnote {
     text-align: center;
-    color: var(--text-muted);
+    color: var(--app-text-light);
     margin-top: 20px;
     font-size: 0.8rem;
 }
 
 .exams-subtitle {
     text-align: center;
-    color: var(--primary-dark);
+    color: var(--app-text);
     margin-top: 20px;
-    border-bottom: 2px solid var(--border-soft);
+    border-bottom: 2px solid rgba(255, 255, 255, 0.15);
     padding-bottom: 10px;
 }
 
@@ -1172,14 +1174,14 @@ h1 {
 
 .kbd-hint {
     text-align: center;
-    color: var(--text-light);
+    color: var(--app-text-light);
     font-size: 0.8rem;
     margin-top: 1rem;
 }
 
 .kbd-hint kbd {
-    background: rgba(0, 0, 0, 0.06);
-    border: 1px solid var(--border);
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.25);
     border-radius: 4px;
     padding: 0 5px;
     font-family: inherit;
@@ -1302,7 +1304,7 @@ h1 {
 }
 
 .exam-breakdown {
-    background: #f9f9f9;
+    background: var(--card-bg);
     padding: 15px;
     border-radius: var(--radius-sm);
     border: 1px solid var(--border);
@@ -1399,7 +1401,7 @@ h1 {
 #btn-show-grid { margin-right: 6px; padding: 2px 8px; font-size: 1.2rem; }
 #btn-close-grid { margin-top: 20px; }
 #mode-tag { background: #e8f5e9; color: #2e7d32; }
-#resultado-motivacional { margin: 20px 0; padding: 15px; border-radius: 10px; background: #f4f6f8; }
+#resultado-motivacional { margin: 20px 0; padding: 15px; border-radius: 10px; background: var(--card-bg); border: 1px solid var(--border-soft); }
 #resultado-porcentaje { font-size: 2.5rem; margin: 0; }
 #resultado-texto { font-size: 1.1rem; font-weight: bold; margin-top: 10px; }
 #exam-feedback-container { text-align: left; margin-top: 20px; }
@@ -1490,104 +1492,5 @@ input:focus-visible,
     .game-timer.warning,
     .game-timer.urgent {
         animation: none;
-    }
-}
-
-/* ── 23. MODO OSCURO (según la preferencia del sistema) ────────────────── */
-@media (prefers-color-scheme: dark) {
-    :root {
-        color-scheme: dark;
-        --bg-gradient: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-        --glass-bg: rgba(22, 30, 46, 0.82);
-        --text: #e2e8f0;
-        --text-light: #94a3b8;
-        --text-muted: #64748b;
-        --border-soft: rgba(255, 255, 255, 0.12);
-        --border: rgba(255, 255, 255, 0.18);
-        --border-strong: rgba(255, 255, 255, 0.28);
-        --shadow-card: 0 8px 32px 0 rgba(0, 0, 0, 0.45),
-            inset 1px 1px 2px rgba(255, 255, 255, 0.06),
-            inset -1px -1px 2px rgba(0, 0, 0, 0.30);
-        --shadow-overlay: 0 10px 30px rgba(0, 0, 0, 0.5);
-    }
-
-    /* Superficies de cristal: menos brillo para no deslumbrar */
-    .card,
-    .btn-menu,
-    .btn-topic,
-    .btn-mode,
-    .btn-option,
-    .full-view-question-card {
-        background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.02) 100%);
-        border-color: rgba(255, 255, 255, 0.14);
-    }
-
-    .card::before,
-    .btn-menu::before,
-    .btn-topic::before,
-    .btn-mode::before,
-    .btn-option::before,
-    .full-view-question-card::before {
-        background: linear-gradient(135deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0) 50%);
-    }
-
-    .source-card,
-    .btn-grid-number {
-        background: rgba(255, 255, 255, 0.06);
-    }
-
-    .badge,
-    .badge-score,
-    .segmented-control,
-    .global-progress-bar-bg,
-    .topic-stat .ts-bar-bg {
-        background: rgba(255, 255, 255, 0.08);
-    }
-
-    .feedback {
-        background: rgba(245, 158, 11, 0.15);
-        border-left-color: var(--warning);
-    }
-
-    /* Feedback de respuesta y textos de color: tonos claros sobre fondo oscuro */
-    .feedback.correct {
-        background: rgba(16, 185, 129, 0.15);
-        border-left-color: var(--success);
-    }
-
-    .feedback.incorrect {
-        background: rgba(239, 68, 68, 0.15);
-        border-left-color: var(--error);
-    }
-
-    .texto-exito-teal { color: #34d399; }
-    .texto-bien-teal { color: var(--primary-light); }
-    .texto-aviso-naranja { color: #fbbf24; }
-    .texto-peligro-rojo { color: #f87171; }
-
-    .score-good { color: #34d399; }
-    .score-bad { color: #f87171; }
-
-    #resultado-motivacional {
-        background: rgba(255, 255, 255, 0.06);
-    }
-
-    .exam-breakdown {
-        background: rgba(255, 255, 255, 0.06);
-    }
-
-    .exam-breakdown .eb-final {
-        color: var(--primary-light);
-    }
-
-    /* Textos en teal: en oscuro se aclaran para mantener contraste */
-    .btn-topic small,
-    .btn-mode strong,
-    .progress-table th,
-    .exams-subtitle,
-    .setting-title,
-    #access-title,
-    #admin-modal-title {
-        color: var(--primary-light);
     }
 }

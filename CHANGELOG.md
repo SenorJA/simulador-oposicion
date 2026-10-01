@@ -5,6 +5,17 @@ formato de [Keep a Changelog](https://keepachangelog.com/es/1.0.0/) y versionado
 semántico (`MAJOR.MINOR.PATCH`). La fuente única de la versión es
 `CONFIG.APP_VERSION` en `src/js/modules/config.js`.
 
+## [1.20.2] — 2026-10-01
+### Añadido
+- **Formulario de login por código en la propia app**: campo “Código de acceso” +
+  botón **Entrar**, sin necesidad de abrir la URL con `?user=`. Se mantiene el
+  soporte de `?user=` en la URL.
+- Se muestra **“✓ Conectado como \<código\>”** y un enlace **“Cambiar de usuario”**
+  que olvida el usuario guardado y vuelve al login.
+### Cambiado
+- Cuando no hay código, el overlay muestra un **login neutro** (“Inicia sesión”)
+  en vez de “Acceso Denegado”.
+
 ## [1.20.1] — 2026-10-01
 ### Cambiado
 - **Jerarquía visual estricta en los botones de resultados**:

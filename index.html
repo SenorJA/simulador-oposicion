@@ -7,13 +7,13 @@
     <meta name="theme-color" content="#00897B">
     <meta name="description"
         content="Simulador de tests para las oposiciones del SESCAM (Ayudante de Cocina/Pinche, Celador y más): entrenamiento con corrección inmediata, simulacros de examen y repaso de fallos.">
-    <title>Simulador Oposiciones SESCAM - v1.20.1</title>
+    <title>Simulador Oposiciones SESCAM - v1.20.2</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://ictintjdebutsjkbexpc.supabase.co" crossorigin>
     <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style-v31.css?v=1.20.1">
+    <link rel="stylesheet" href="css/style-v31.css?v=1.20.2">
     <link rel="manifest" href="manifest.webmanifest">
     <link rel="apple-touch-icon" href="icons/icon-192.png">
     <meta name="mobile-web-app-capable" content="yes">
@@ -29,18 +29,15 @@
     <!-- Overlay de acceso: solo se oculta cuando Auth.checkAuth devuelve onSuccess -->
     <div id="access-overlay" class="login-overlay" role="dialog" aria-modal="true" aria-labelledby="access-title">
         <div class="login-box">
-            <h2 id="access-title">Verificando Acceso</h2>
-            <p id="access-msg" aria-live="polite">Por favor espere...</p>
+            <h2 id="access-title">Inicia sesión</h2>
+            <p id="access-msg" aria-live="polite">Introduce tu código de acceso.</p>
             <div id="access-spinner" class="spinner" aria-hidden="true"></div>
-            <!-- Reintento con el código de usuario (visible solo tras un Acceso Denegado) -->
-            <div id="access-retry" class="hidden">
-                <label for="access-code-input" class="field-label">
-                    Introduce tu código de usuario para reintentar:
-                </label>
+            <div id="access-retry">
+                <label for="access-code-input" class="field-label">Código de acceso</label>
                 <div class="retry-row">
-                    <input type="text" id="access-code-input" placeholder="TU_CODIGO" autocomplete="off"
+                    <input type="text" id="access-code-input" placeholder="TU_CÓDIGO" autocomplete="off"
                         autocapitalize="off" spellcheck="false" />
-                    <button id="btn-access-retry" class="btn-primary">Reintentar</button>
+                    <button id="btn-access-retry" class="btn-action-primary">Entrar</button>
                 </div>
             </div>
         </div>
@@ -103,9 +100,9 @@
             </div>
             <button id="btn-admin-panel" class="btn-secondary">Ver Conexiones (Admin)</button>
             <p class="footer-note">
-                v1.20.1 - Más categorías en desarrollo<br>
-                <span id="licencia-activa">✓
-                    Licencia activa</span>
+                v1.20.2 - Más categorías en desarrollo<br>
+                <span id="licencia-activa">✓ Conectado</span>
+                <button id="btn-logout" class="btn-action-link hidden">Cambiar de usuario</button>
             </p>
         </div>
 
@@ -574,7 +571,7 @@
 
     </main>
 
-    <script src="src/js/main.js?v=1.20.1" type="module"></script>
+    <script src="src/js/main.js?v=1.20.2" type="module"></script>
 </body>
 
 </html>

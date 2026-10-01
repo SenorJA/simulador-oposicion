@@ -105,6 +105,8 @@ export function clearHistory() {
 
 export function getSavedUser() { return localStorage.getItem(KEYS.USER_ACCESS); }
 export function saveUser(id) { localStorage.setItem(KEYS.USER_ACCESS, id); }
+/** Olvida el usuario guardado (para "Cambiar de usuario") sin tocar el device id. */
+export function forgetUser() { localStorage.removeItem(KEYS.USER_ACCESS); }
 export function clearUser() {
     localStorage.removeItem(KEYS.USER_ACCESS);
     localStorage.removeItem(KEYS.DEVICE_ID);

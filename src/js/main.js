@@ -27,16 +27,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
     Auth.checkAuth({
         onDenied: (msg) => {
-            const titleEl = document.getElementById('access-title');
-            const msgEl = document.getElementById('access-msg');
             const overlay = document.getElementById('access-overlay');
-            if (overlay) overlay.classList.remove('hidden'); // Ensure it's visible on denial
-            if (titleEl) { titleEl.innerText = 'Acceso Denegado'; titleEl.style.color = 'red'; }
-            if (msgEl) msgEl.innerText = msg;
+            if (overlay) overlay.classList.remove('hidden');
             const spinner = document.getElementById('access-spinner');
             if (spinner) spinner.classList.add('hidden');
-            const retryBox = document.getElementById('access-retry');
-            if (retryBox) retryBox.classList.remove('hidden');
+
+            // Sin código (primer acceso) → login neutro; con código fallido → motivo
+            const sinCodigo = /Introduce tu código en la URL/i.test(msg || '');
+            const titleEl = document.getElementById('access-title');
+            const msgEl = document.getElementById('access-msg');
+            if (titleEl) {
+                titleEl.innerText = sinCodigo ? 'Inicia sesión' : 'Acceso Denegado';
+                titleEl.style.color = sinCodigo ? '' : 'red';
+            }
+            if (msgEl) msgEl.innerText = sinCodigo ? 'Introduce tu código de acceso.' : msg;
+
+            const input = document.getElementById('access-code-input');
+            if (input) input.focus();
         },
         onSuccess: (_userData, _currentDevices, _maxDevices) => {
             // El overlay se mantiene visible (con el spinner) hasta que los bancos
@@ -50,7 +57,12 @@ document.addEventListener('DOMContentLoaded', () => {
             console.log(`[AUTH] User: ${_userData.id_acceso} | Admin: ${isAdmin}`);
 
             const licEl = document.getElementById('licencia-activa');
-            if (licEl) licEl.style.display = 'inline-block';
+            if (licEl) {
+                licEl.textContent = '✓ Conectado como ' + _userData.id_acceso;
+                licEl.style.display = 'inline-block';
+            }
+            const logoutBtn = document.getElementById('btn-logout');
+            if (logoutBtn) logoutBtn.classList.remove('hidden');
 
             Data.loadAllData().then(questions => {
                 if (questions.length === 0) {
@@ -310,6 +322,16 @@ function setupEventListeners() {
     on('btn-close-admin', 'click', () => UI.toggleEl('admin-modal', false));
     on('btn-close-onboarding', 'click', closeOnboarding);
     on('btn-onboarding-ok', 'click', closeOnboarding);
+
+    // ── Cambiar de usuario (cerrar sesión) ──
+    on('btn-logout', 'click', () => {
+        if (confirm('¿Cambiar de usuario? Se cerrará la sesión actual.')) {
+            Storage.forgetUser();
+            const url = new URL(window.location.href);
+            url.searchParams.delete('user');
+            window.location.href = url.toString();
+        }
+    });
 
     // ── Main menu ──
     on('btn-back-menu', 'click', () => UI.goBack());

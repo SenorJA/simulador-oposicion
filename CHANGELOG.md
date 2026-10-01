@@ -5,6 +5,11 @@ formato de [Keep a Changelog](https://keepachangelog.com/es/1.0.0/) y versionado
 semántico (`MAJOR.MINOR.PATCH`). La fuente única de la versión es
 `CONFIG.APP_VERSION` en `src/js/modules/config.js`.
 
+## [1.27.0] — 2026-10-01
+### Añadido
+- **Botón de tema claro/oscuro** (🌓 Tema) en la pantalla de inicio, con paleta
+  clara completa. Se recuerda en el navegador.
+
 ## [1.26.0] — 2026-10-01
 ### Añadido
 - **Límite de intentos de login** (anti fuerza bruta): tras 5 contraseñas

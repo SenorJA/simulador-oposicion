@@ -1718,3 +1718,92 @@ input:focus-visible,
         animation: none;
     }
 }
+
+/* ── 24. TEMA CLARO (opcional, botón "🌓 Tema") ────────────────────────── */
+:root[data-theme="light"] {
+    color-scheme: light;
+    --primary: #0369a1;
+    --primary-light: #38bdf8;
+    --secondary: #0284c7;
+    --accent: #0369a1;
+    --primary-rgb: 3, 105, 161;
+    --accent-rgb: 3, 105, 161;
+
+    --bg-gradient: linear-gradient(135deg, #eef2f7 0%, #dbe4ee 100%);
+    --app-text: #0f172a;
+    --app-text-light: #475569;
+
+    --card-bg: #ffffff;
+    --text: #111827;
+    --text-light: #374151;
+    --text-muted: #6b7280;
+
+    --success: #16a34a;
+    --error: #dc2626;
+    --error-dark: #b91c1c;
+    --warning: #b45309;
+
+    --border-soft: #e5e7eb;
+    --border: #d1d5db;
+    --border-strong: #9ca3af;
+
+    --shadow-card: 0 10px 30px rgba(2, 8, 20, 0.12);
+    --shadow-overlay: 0 10px 30px rgba(2, 8, 20, 0.18);
+}
+
+/* Superficies que en oscuro usan blanco translúcido → gris claro en modo claro */
+:root[data-theme="light"] .tag {
+    background: #e0f2fe;
+    color: #0369a1;
+}
+
+:root[data-theme="light"] .badge,
+:root[data-theme="light"] .badge-score {
+    background: rgba(0, 0, 0, 0.06);
+    color: #111827;
+}
+
+:root[data-theme="light"] .segmented-control,
+:root[data-theme="light"] .setting-row,
+:root[data-theme="light"] .stat,
+:root[data-theme="light"] .exam-breakdown,
+:root[data-theme="light"] #resultado-motivacional,
+:root[data-theme="light"] .topic-stat .ts-bar-bg,
+:root[data-theme="light"] .global-progress-bar-bg,
+:root[data-theme="light"] .progress-container,
+:root[data-theme="light"] .admin-sep td {
+    background: rgba(0, 0, 0, 0.05);
+}
+
+:root[data-theme="light"] .btn-small,
+:root[data-theme="light"] .admin-btn {
+    background: #eef2f7;
+    color: #111827;
+    border-color: #d1d5db;
+}
+
+:root[data-theme="light"] .kbd-hint kbd {
+    background: rgba(0, 0, 0, 0.06);
+    border-color: #d1d5db;
+}
+
+:root[data-theme="light"] .badge-record {
+    background: #dcfce7;
+    color: #166534;
+    border-color: #86efac;
+}
+
+:root[data-theme="light"] .exams-subtitle {
+    border-bottom-color: rgba(0, 0, 0, 0.1);
+}
+
+:root[data-theme="light"] .feedback { background: #fff7e6; }
+:root[data-theme="light"] .feedback.correct { background: #e8f5e9; }
+:root[data-theme="light"] .feedback.incorrect { background: #fdecea; }
+
+:root[data-theme="light"] .texto-exito-teal,
+:root[data-theme="light"] .eb-ok { color: #15803d; }
+:root[data-theme="light"] .texto-bien-teal { color: #0369a1; }
+:root[data-theme="light"] .texto-aviso-naranja { color: #b45309; }
+:root[data-theme="light"] .texto-peligro-rojo,
+:root[data-theme="light"] .eb-err { color: #dc2626; }

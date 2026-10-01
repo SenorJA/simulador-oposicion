@@ -12,6 +12,9 @@ import { state } from './modules/state.js';
 import { CONFIG } from './modules/config.js';
 
 document.addEventListener('DOMContentLoaded', () => {
+    // ── Tema (claro/oscuro) recordado en el navegador ──────────────────────
+    initTheme();
+
     // ── Diálogos accesibles: Escape cierra, Tab queda atrapado dentro ──────
     setupDialogA11y();
 
@@ -42,6 +45,18 @@ document.addEventListener('DOMContentLoaded', () => {
 function updateDudosasBadge() {
     const el = document.getElementById('badge-dudosas');
     if (el) el.textContent = Storage.getDudosas().length;
+}
+
+/** Aplica y recuerda el tema (claro/oscuro). */
+function applyTheme(theme) {
+    document.documentElement.dataset.theme = theme;
+    try { localStorage.setItem('ope_theme', theme); } catch { /* ignore */ }
+}
+
+function initTheme() {
+    let saved = null;
+    try { saved = localStorage.getItem('ope_theme'); } catch { /* ignore */ }
+    document.documentElement.dataset.theme = saved === 'light' ? 'light' : 'dark';
 }
 
 /**
@@ -376,6 +391,11 @@ function setupEventListeners() {
             url.searchParams.delete('user');
             window.location.href = url.toString();
         }
+    });
+
+    // ── Tema claro/oscuro ──
+    on('btn-theme', 'click', () => {
+        applyTheme(document.documentElement.dataset.theme === 'light' ? 'dark' : 'light');
     });
 
     // ── Main menu ──

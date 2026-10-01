@@ -64,6 +64,7 @@ There is no build step, so correctness is checked with these Node scripts (from 
 - `node scripts/dataset_fingerprint.js` — prints a canonical SHA-256 of the whole dataset. Use it before/after any change to `data/` to prove the content did not shift.
 - `node scripts/generate_icons.js` — regenerates the PWA PNG icons in `icons/` (no deps; writes `manifest.webmanifest` assets). Run it if the brand mark changes.
 - `node scripts/upload_banks.js [--check]` — pushes `data/*.json` to the private bucket (needs `SUPABASE_URL` + `SUPABASE_SERVICE_ROLE_KEY` in `.env`).
+- `node scripts/deploy_backend.js` — does the whole backend in one go: uploads the banks and deploys the `get-bank` function (`--no-verify-jwt`). Needs the Supabase CLI (or `npx`) and `supabase login` / `SUPABASE_ACCESS_TOKEN`.
 - `node scripts/download_banks.js [--check]` — restores `data/*.json` from the bucket (clean clone / backup).
 - Data repair scripts accept `--check` to validate without writing: `node scripts/fix_duplicate_ids.js --check`, `node scripts/fix_csif_encoding.js --check`.
 - Any `data/*.json` change must keep every JSON parseable and every `correcta` value present in that question's `opciones`.

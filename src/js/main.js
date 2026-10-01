@@ -79,6 +79,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 } else {
                     UI.showView('roleSelection', false);
                 }
+
+                // Bienvenida solo la primera vez en este navegador
+                if (!Storage.hasSeenOnboarding()) {
+                    UI.toggleEl('onboarding-modal', true);
+                }
             });
         }
     });
@@ -99,7 +104,7 @@ document.addEventListener('DOMContentLoaded', () => {
  * Escape cierra el diálogo visible usando su propio botón de cierre.
  */
 function setupDialogA11y() {
-    const DIALOGS = ['admin-modal', 'nav-grid-overlay'];
+    const DIALOGS = ['admin-modal', 'nav-grid-overlay', 'onboarding-modal'];
     const FOCALIZABLES = 'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])';
     const focoPrevio = new WeakMap();
 
@@ -130,7 +135,7 @@ function setupDialogA11y() {
 
         if (e.key === 'Escape') {
             e.preventDefault();
-            const cerrar = dlg.querySelector('#btn-close-admin, #btn-close-grid');
+            const cerrar = dlg.querySelector('#btn-close-admin, #btn-close-grid, #btn-close-onboarding');
             if (cerrar) cerrar.click();
             return;
         }
@@ -168,6 +173,14 @@ function showToast(msg) {
     t.classList.add('show');
     clearTimeout(t._timer);
     t._timer = setTimeout(() => t.classList.remove('show'), 2200);
+}
+
+/**
+ * Cierra la bienvenida y recuerda que ya se ha visto.
+ */
+function closeOnboarding() {
+    Storage.markOnboardingSeen();
+    UI.toggleEl('onboarding-modal', false);
 }
 
 /**
@@ -288,6 +301,8 @@ function setupEventListeners() {
     // ── Admin ──
     on('btn-admin-panel', 'click', loadAdminLogs);
     on('btn-close-admin', 'click', () => UI.toggleEl('admin-modal', false));
+    on('btn-close-onboarding', 'click', closeOnboarding);
+    on('btn-onboarding-ok', 'click', closeOnboarding);
 
     // ── Main menu ──
     on('btn-back-menu', 'click', () => UI.goBack());

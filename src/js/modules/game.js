@@ -597,6 +597,26 @@ function finishGame() {
     const btnClearFail = document.getElementById('btn-clear-failures');
     if (btnClearFail) toggleEl('btn-clear-failures', Storage.getFailedIds().length > 0);
 
+    // ── Desglose de aciertos por tema ──
+    const porTema = {};
+    state.currentQuestions.forEach((q, i) => {
+        const m = String(q.tema || '').match(/Tema\s+\d+/i);
+        const nombre = m ? m[0].replace(/Tema\s+/i, 'Tema ') : (q.origen || 'General');
+        const g = porTema[nombre] || (porTema[nombre] = { ok: 0, total: 0 });
+        g.total++;
+        if (state.userAnswers[i] === q.correcta) g.ok++;
+    });
+    const bd = document.getElementById('results-breakdown');
+    if (bd) {
+        const filas = Object.entries(porTema).sort((a, b) => (a[1].ok / a[1].total) - (b[1].ok / b[1].total));
+        bd.innerHTML = filas.length <= 1 ? '' :
+            '<h4>Desglose por tema</h4>' + filas.map(([n, g]) => {
+                const pct = Math.round((g.ok / g.total) * 100);
+                const cls = pct >= 70 ? 'score-good' : (pct < 50 ? 'score-bad' : '');
+                return `<div class="rb-row"><span class="rb-name">${n}</span><span class="${cls}">${g.ok}/${g.total} (${pct}%)</span></div>`;
+            }).join('');
+    }
+
     updateFailureBadge(Storage.getFailedIds().length);
     showView('results');
 }

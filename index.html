@@ -7,13 +7,13 @@
     <meta name="theme-color" content="#00897B">
     <meta name="description"
         content="Simulador de tests para las oposiciones del SESCAM (Ayudante de Cocina/Pinche, Celador y más): entrenamiento con corrección inmediata, simulacros de examen y repaso de fallos.">
-    <title>Simulador Oposiciones SESCAM - v1.18.0</title>
+    <title>Simulador Oposiciones SESCAM - v1.18.1</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://ictintjdebutsjkbexpc.supabase.co" crossorigin>
     <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style-v31.css?v=1.18.0">
+    <link rel="stylesheet" href="css/style-v31.css?v=1.18.1">
     <link rel="manifest" href="manifest.webmanifest">
     <link rel="apple-touch-icon" href="icons/icon-192.png">
     <meta name="mobile-web-app-capable" content="yes">
@@ -66,6 +66,25 @@
         </div>
     </div>
 
+    <!-- BIENVENIDA (solo la primera vez) -->
+    <div id="onboarding-modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="onboarding-title">
+        <div class="modal-content">
+            <header class="modal-header">
+                <h2 id="onboarding-title" class="m-0">Bienvenido 👋</h2>
+                <button id="btn-close-onboarding" class="btn-icon" aria-label="Cerrar bienvenida">✖</button>
+            </header>
+            <p>Cómo funciona el simulador:</p>
+            <ul class="onboarding-list">
+                <li><strong>Entrenamiento</strong>: corrección inmediata. Ideal para estudiar.</li>
+                <li><strong>Simulacro Examen</strong>: sin corrección hasta el final, con nota real.</li>
+                <li><strong>Repasar Fallos</strong>: vuelve a las preguntas que has fallado.</li>
+                <li><strong>Mi Progreso</strong>: acierto por tema, récords y estadísticas.</li>
+                <li>Atajos: <kbd>1</kbd>–<kbd>4</kbd> responder · <kbd>←</kbd>/<kbd>→</kbd> navegar.</li>
+            </ul>
+            <button id="btn-onboarding-ok" class="btn-primary">Entendido</button>
+        </div>
+    </div>
+
     <main class="container">
         <!-- VISTA: SELECCIÓN DE ROL (Inicio) -->
         <div id="view-role-selection" class="view active">
@@ -84,7 +103,7 @@
             </div>
             <button id="btn-admin-panel" class="btn-secondary">Ver Conexiones (Admin)</button>
             <p class="footer-note">
-                v1.18.0 - Más categorías en desarrollo<br>
+                v1.18.1 - Más categorías en desarrollo<br>
                 <span id="licencia-activa">✓
                     Licencia activa</span>
             </p>
@@ -528,8 +547,10 @@
                 </div>
 
                 <div id="exam-feedback-container" class="hidden">
-                    <!-- Aquí iría el desglose si quisiéramos, por ahora simple -->
+                    <!-- Desglose de puntuación del examen -->
                 </div>
+
+                <div id="results-breakdown" class="results-breakdown"></div>
 
                 <div class="results-actions">
                     <button id="btn-review-exam" class="btn-primary hidden">🔍 Todo</button>
@@ -546,7 +567,7 @@
 
     </main>
 
-    <script src="src/js/main.js?v=1.18.0" type="module"></script>
+    <script src="src/js/main.js?v=1.18.1" type="module"></script>
 </body>
 
 </html>

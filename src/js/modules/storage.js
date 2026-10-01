@@ -124,6 +124,12 @@ export function setLastRole(role) {
     if (role === 'pinche' || role === 'celador') localStorage.setItem(roleKey(), role);
 }
 
+// ── Bienvenida (por navegador, no por usuario) ───────────────────────────────
+
+const ONBOARDING_KEY = 'ope_onboarding_v1';
+export function hasSeenOnboarding() { return localStorage.getItem(ONBOARDING_KEY) === '1'; }
+export function markOnboardingSeen() { localStorage.setItem(ONBOARDING_KEY, '1'); }
+
 export function getOrCreateDeviceId() {
     let id = localStorage.getItem(KEYS.DEVICE_ID);
     if (!id) {

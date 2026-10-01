@@ -1450,6 +1450,26 @@ h1 {
     background: rgba(255, 255, 255, 0.18);
 }
 
+/* Botón "marcar como dudosa" en la tarjeta de pregunta */
+.dudosa-btn {
+    margin-left: auto;
+    background: transparent;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-pill);
+    color: var(--text-light);
+    font-size: 0.78rem;
+    font-weight: 600;
+    padding: 3px 10px;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.dudosa-btn.marked {
+    background: rgba(250, 204, 21, 0.20);
+    border-color: var(--warning);
+    color: #fde68a;
+}
+
 .exam-breakdown {
     background: rgba(255, 255, 255, 0.04);
     padding: 15px;

@@ -326,6 +326,15 @@ function renderQuestion(focusQuestion = false) {
         btnNext.innerHTML = buildNextButtonLabel();
     }
 
+    // Botón "marcar como dudosa"
+    const dudosaBtn = document.getElementById('btn-dudosa');
+    if (dudosaBtn) {
+        const marcada = Storage.isDudosa(q.id);
+        dudosaBtn.classList.toggle('marked', marcada);
+        dudosaBtn.setAttribute('aria-pressed', String(marcada));
+        dudosaBtn.textContent = marcada ? '🔖 Marcada' : '☆ Marcar dudosa';
+    }
+
     // Al navegar (next/prev/rejilla), llevar el foco al enunciado para lectores
     // de pantalla y teclado. No se hace en el render inicial para no robar foco.
     if (focusQuestion) {

@@ -7,12 +7,12 @@
     <meta name="theme-color" content="#00897B">
     <meta name="description"
         content="Simulador de tests para las oposiciones del SESCAM (Ayudante de Cocina/Pinche, Celador y más): entrenamiento con corrección inmediata, simulacros de examen y repaso de fallos.">
-    <title>Simulador Oposiciones SESCAM - v1.23.0</title>
+    <title>Simulador Oposiciones SESCAM - v1.24.0</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://ictintjdebutsjkbexpc.supabase.co" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style-v31.css?v=1.23.0">
+    <link rel="stylesheet" href="css/style-v31.css?v=1.24.0">
     <link rel="manifest" href="manifest.webmanifest">
     <link rel="apple-touch-icon" href="icons/icon-192.png">
     <meta name="mobile-web-app-capable" content="yes">
@@ -109,7 +109,7 @@
             </div>
             <button id="btn-admin-panel" class="btn-secondary">Ver Conexiones (Admin)</button>
             <p class="footer-note">
-                v1.23.0 - Más categorías en desarrollo<br>
+                v1.24.0 - Más categorías en desarrollo<br>
                 <span id="licencia-activa">✓ Conectado</span>
                 <button id="btn-logout" class="btn-action-link hidden">Cambiar de usuario</button>
             </p>
@@ -148,6 +148,10 @@
                 <button id="btn-failures" class="btn-menu special-red">
                     <strong>🧠 Repasar Fallos</strong>
                     <span class="badge" id="badge-failures">0</span>
+                </button>
+                <button id="btn-dudosas" class="btn-menu">
+                    <strong>🔖 Repasar dudosas</strong>
+                    <span class="badge" id="badge-dudosas">0</span>
                 </button>
                 <button id="btn-random" class="btn-menu">
                     <strong>🎲 Modo Aleatorio</strong>
@@ -515,6 +519,7 @@
                 <div class="card-header">
                     <span id="tema-tag" class="tag">Tema</span>
                     <span id="mode-tag" class="tag">Modo</span>
+                    <button id="btn-dudosa" class="dudosa-btn" aria-pressed="false">☆ Marcar dudosa</button>
                 </div>
                 <div>
                     <h2 id="pregunta-texto" tabindex="-1">Cargando...</h2>
@@ -580,7 +585,7 @@
 
     </main>
 
-    <script src="src/js/main.js?v=1.23.0" type="module"></script>
+    <script src="src/js/main.js?v=1.24.0" type="module"></script>
 </body>
 
 </html>

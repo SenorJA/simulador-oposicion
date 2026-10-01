@@ -4,6 +4,7 @@
 
 const KEYS = {
     FAILED_IDS: 'ope_failed_ids',
+    DUDOSAS: 'ope_dudosas',
     PROGRESS: 'ope_progress',
     USER_ACCESS: 'ope_user_access',
     TOKEN: 'ope_token',
@@ -43,12 +44,29 @@ function updatePrefix() {
 }
 
 function pk(key) {
-    // Aislamiento por usuario+rol: fallos, historial, récords y sesión suspendida
-    if (key === KEYS.FAILED_IDS || key === KEYS.PROGRESS ||
+    // Aislamiento por usuario+rol: fallos, dudosas, historial, récords y sesión
+    if (key === KEYS.FAILED_IDS || key === KEYS.DUDOSAS || key === KEYS.PROGRESS ||
         key === KEYS.RECORDS || key === KEYS.SESSION) {
         return currentPrefix + key;
     }
     return key;
+}
+
+// ── Preguntas marcadas como dudosas ──────────────────────────────────────────
+
+export function getDudosas() {
+    try { return JSON.parse(localStorage.getItem(pk(KEYS.DUDOSAS))) || []; }
+    catch { return []; }
+}
+
+export function isDudosa(id) { return getDudosas().includes(id); }
+
+/** Marca/desmarca una pregunta. Devuelve true si queda marcada. */
+export function toggleDudosa(id) {
+    const set = new Set(getDudosas());
+    if (set.has(id)) set.delete(id); else set.add(id);
+    localStorage.setItem(pk(KEYS.DUDOSAS), JSON.stringify([...set]));
+    return set.has(id);
 }
 
 // ── Failures ─────────────────────────────────────────────────────────────────

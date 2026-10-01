@@ -5,6 +5,11 @@ formato de [Keep a Changelog](https://keepachangelog.com/es/1.0.0/) y versionado
 semántico (`MAJOR.MINOR.PATCH`). La fuente única de la versión es
 `CONFIG.APP_VERSION` en `src/js/modules/config.js`.
 
+## [1.24.0] — 2026-10-01
+### Añadido
+- **Marcar preguntas como dudosas** (botón en la pregunta) y modo **“Repasar
+  dudosas”** en el menú. Aislado por usuario+rol e incluido en el export/import.
+
 ## [1.23.0] — 2026-10-01
 ### Añadido
 - **Panel de administración completo** (Edge Function `admin-logs` ampliada +

@@ -86,6 +86,7 @@ async function loadGame() {
         addFailedId: (id) => failed.add(id),
         removeFailedId: (id) => failed.delete(id),
         getFailedIds: () => [...failed],
+        isDudosa: () => false,
         saveSuspendedSession: () => {},
         clearSuspendedSession: () => {},
         getSuspendedSession: () => null,

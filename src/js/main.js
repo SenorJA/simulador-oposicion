@@ -38,6 +38,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // ── Helpers ────────────────────────────────────────────────────────────────
 
+/** Actualiza el contador de preguntas marcadas como dudosas. */
+function updateDudosasBadge() {
+    const el = document.getElementById('badge-dudosas');
+    if (el) el.textContent = Storage.getDudosas().length;
+}
+
 /**
  * Acceso denegado: muestra el overlay con el motivo (o un login neutro).
  */
@@ -96,6 +102,7 @@ function handleAuthSuccess(_userData, _currentDevices, _maxDevices) {
         }
 
         UI.updateFailureBadge(Storage.getFailedIds().length);
+        updateDudosasBadge();
         UI.renderizarRecordsMenu();
         UI.renderizarProgresoGlobal();
         UI.renderizarProgresoExamenes();
@@ -311,6 +318,7 @@ function selectRole(role) {
 
     // Forzar actualización reactiva (cada rol tiene sus propios datos aislados)
     UI.updateFailureBadge(Storage.getFailedIds().length);
+    updateDudosasBadge();
     UI.renderizarRecordsMenu();
     UI.renderizarProgresoGlobal();
     UI.renderizarProgresoExamenes();
@@ -404,6 +412,27 @@ function setupEventListeners() {
         const qs = state.allQuestions.filter(q => ids.includes(q.id));
         if (qs.length === 0) { alert('¡No tienes fallos registrados!'); return; }
         Game.startGame(qs, 'failures', 'Repaso de Fallos');
+    });
+
+    // ── Dudosas (marcar y repasar) ──
+    on('btn-dudosa', 'click', () => {
+        const q = state.currentQuestions[state.currentIndex];
+        if (!q) return;
+        const marcada = Storage.toggleDudosa(q.id);
+        const btn = document.getElementById('btn-dudosa');
+        if (btn) {
+            btn.classList.toggle('marked', marcada);
+            btn.setAttribute('aria-pressed', String(marcada));
+            btn.textContent = marcada ? '🔖 Marcada' : '☆ Marcar dudosa';
+        }
+        updateDudosasBadge();
+        showToast(marcada ? 'Marcada como dudosa 🔖' : 'Desmarcada');
+    });
+    on('btn-dudosas', 'click', () => {
+        const ids = new Set(Storage.getDudosas());
+        const qs = state.allQuestions.filter(q => ids.has(q.id));
+        if (qs.length === 0) { alert('No tienes preguntas marcadas como dudosas.'); return; }
+        Game.startGame(qs, 'training', 'Repaso de dudosas');
     });
 
     // ── Random ──

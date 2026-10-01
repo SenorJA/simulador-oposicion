@@ -245,3 +245,55 @@ resetear, comparar con la columna `device_info` de `access_logs`.
    cualquier `if` en `auth.js` son solo UX.
 4. **Los JSON de `data/` no están protegidos** por la licencia: son estáticos y
    públicos. El licensing controla el acceso a la app, no la copia del contenido.
+
+---
+
+## 8. Inventario de claves y rotación
+
+**El repo es público**, así que las claves han estado y estarán en el historial.
+Reescribirlo no las borra de verdad (hay clones y cachés de GitHub). La solución
+es **rotar o dar de baja los proyectos**, no el force-push.
+
+### Qué se filtró realmente
+
+| Proyecto | Tipo de clave | Rol | Estado |
+|---|---|---|---|
+| `ictintjdebutsjkbexpc` | `sb_publishable_…` | publishable | **en uso** |
+| `eykwcwgplldapzjnxuym` | JWT | anon | antiguo |
+| `fthltpsnuhwghclzvexi` | JWT | anon | antiguo |
+
+- **Nunca se filtró una `service_role` ni una `sb_secret_`.** Verificado sobre
+  todo el historial con `git log --all -p | grep sb_secret_`.
+- Las claves `anon` y `publishable` están **diseñadas para ir en el navegador**:
+  son públicas a propósito. Rotarlas aporta poco por sí solo; lo que cierra el
+  agujero es **RLS** (§4, riesgo 3).
+
+### Pasos de rotación
+
+**A) Proyectos antiguos (lo más rentable).** Dashboard → Project Settings →
+General → *Pause* o *Delete project*. Eso inutiliza todas sus claves de golpe.
+Si no se usan, borrarlos.
+
+**B) Proyecto actual, para rotar la publishable:**
+
+1. Project Settings → **API Keys** → Publishable key → *Rotate/Create new*.
+2. Pegar la nueva en `src/js/modules/config.js` → `SUPABASE_KEY`.
+3. Subir `CONFIG.APP_VERSION` en `config.js` **y** el `?v=` del `<script>` en
+   `index.html`; si no, los navegadores siguen con la clave vieja en caché.
+4. Commit y push.
+5. Revocar la clave vieja en el panel.
+6. Verificar que la vieja ya no vale:
+   `curl -H "apikey: VIEJA" https://<ref>.supabase.co/rest/v1/` → `401`.
+
+**C) Cerrar el agujero de verdad (RLS).** Table Editor → `usuarios_acceso` y
+`access_logs` → comprobar el badge **RLS**. Si está *disabled*, cualquiera con
+la clave pública lee y modifica licencias. Activar RLS sin más **rompe la app**
+(el cliente hace `UPDATE dispositivos_usados` directo); la vía limpia es la RPC
+de §5, que exige tocar `auth.js`.
+
+### Nota operativa
+
+Los proyectos pausados no responden: la app mostrará "Error de conexión al
+validar el acceso" con botón **Reintentar**. Es el comportamiento esperado
+(§3), no un fallo de código. Reactivar el proyecto desde el panel antes de
+probar.

@@ -1,61 +1,60 @@
+/**
+ * data.js — Carga y normaliza los bancos de preguntas.
+ *
+ * Añadir un examen nuevo = añadir UNA línea al array BANKS de este archivo.
+ * (Antes había que editar 5 sitios: fetch, texto, JSON.parse, normalizar y log.)
+ */
 import { state } from './state.js';
+import { CONFIG } from './config.js';
 
-/**
- * Fixes broken Spanish characters produced when a Windows-1252/CP-850 file
- * is read as if it were UTF-8 or Latin-1. Applied to all string fields of
- * CSIF data. Does NOT modify the source file.
- */
-function fixEncoding(str) {
-    if (typeof str !== 'string') return str;
-    return str
-        .replace(/¾/g, 'ó').replace(/Ó/g, 'Ó')
-        .replace(/±/g, 'ñ').replace(/Ñ/g, 'Ñ')
-        .replace(/ß/g, 'á').replace(/Á/g, 'Á')
-        .replace(/Ý/g, 'í').replace(/Í/g, 'Í')
-        .replace(/Ú/g, 'é').replace(/É/g, 'É')
-        .replace(/·/g, 'ú').replace(/Ú/g, 'Ú')
-        .replace(/ä/g, 'ü')
-        .replace(/┐/g, '¿')
-        .replace(/┌/g, '¡')
-        .replace(/ö/g, 'ö')
-        .replace(/Ý/g, 'ï')
-        .replace(/â/g, 'à');
-}
+// ── Registro de bancos ─────────────────────────────────────────────────────
+// kind:
+//   'raw'      → ya viene normalizado; usa su propio q.origen (MAD)
+//   'csif'     → se etiqueta como CSIF
+//   'academia' → opciones es un ARRAY y la correcta es respuesta_correcta
+//   'historo'  → se etiqueta como histórico con el origen exacto del examen
+// ⚠️ El campo `origen` es la clave con la que main.js y topics.js localizan cada
+//    examen. Si lo cambias, el botón del menú deja de encontrar sus preguntas.
+const BANKS = [
+    { file: 'preguntas.json', kind: 'raw', origen: null },
 
-function fixCsifQuestion(q) {
-    const fix = fixEncoding;
-    const fixOpts = (opts) => {
-        if (!opts) return opts;
-        if (Array.isArray(opts)) return opts.map(fix);
-        const out = {};
-        Object.entries(opts).forEach(([k, v]) => { out[k] = fix(v); });
-        return out;
-    };
-    return {
-        ...q,
-        tema: fix(q.tema),
-        pregunta: fix(q.pregunta),
-        opciones: fixOpts(q.opciones),
-        correcta: fix(q.correcta),
-        origen: q.origen || 'CSIF',
-        source: 'CSIF'
-    };
-}
+    { file: 'csif_questions.json', kind: 'csif', origen: 'CSIF' },
 
-/**
- * Normalises an Academia-format question (array opciones + respuesta_correcta)
- * into the standard app format (object opciones {a,b,c,d} + correcta letter).
- */
+    { file: 'academia_tema1.json', kind: 'academia', origen: 'Academia' },
+    { file: 'academia_tema2.json', kind: 'academia', origen: 'Academia' },
+    { file: 'academia_tema3.json', kind: 'academia', origen: 'Academia' },
+    { file: 'academia_tema4.json', kind: 'academia', origen: 'Academia' },
+    { file: 'academia_tema5.json', kind: 'academia', origen: 'Academia' },
+    { file: 'academia_tema8.json', kind: 'academia', origen: 'Academia' },
+    { file: 'academia_tema9.json', kind: 'academia', origen: 'Academia' },
+    { file: 'academia_tema10.json', kind: 'academia', origen: 'Academia' },
+
+    { file: 'sescam_2024_celador.json', kind: 'historo', origen: 'Examen Oficial Celador 2024' },
+    { file: 'sescam_2026_cocinero.json', kind: 'historo', origen: 'OPE SESCAM Cocinero 2026' },
+    { file: 'sescam_2026_celador.json', kind: 'historo', origen: 'OPE SESCAM Celador 2026' },
+    { file: 'sescam_2026_pinche_ord.json', kind: 'historo', origen: 'OPE SESCAM Pinche Ordinario 2026' },
+    { file: 'sescam_2026_pinche_extra.json', kind: 'historo', origen: 'OPE SESCAM Pinche Extraordinario 2026' },
+    { file: 'sescam_2026_celador_extra.json', kind: 'historo', origen: 'Examen Oficial Celador/a Extraordinario SESCAM 2026' },
+    { file: 'sescam_2026_tecnico_ti.json', kind: 'historo', origen: 'Examen Oficial Técnico de Gestión de TI SESCAM 2026' }
+];
+
+/** Convierte el formato de Academia (opciones array + respuesta_correcta) al común. */
 function normalizeAcademiaQuestion(q, source) {
     const letters = ['a', 'b', 'c', 'd'];
     const opcionesObj = {};
-    (q.opciones || []).forEach((text, i) => {
+    // Una pregunta corrupta puede traer 'opciones' como objeto o como texto:
+    // nunca debe romper la normalización, la validar y descartarla después.
+    const crudas = Array.isArray(q.opciones) ? q.opciones : [];
+    crudas.forEach((text, i) => {
         if (letters[i]) opcionesObj[letters[i]] = text;
     });
 
-    // Find which letter corresponds to respuesta_correcta
-    const correctIdx = (q.opciones || []).indexOf(q.respuesta_correcta);
-    const correcta = correctIdx >= 0 ? letters[correctIdx] : 'a';
+    // La letra correcta es la posición de la respuesta dentro del array.
+    // Si `respuesta_correcta` no encaja con ninguna opción, NO se elige 'a' por
+    // defecto: se deja en null para que la validación la descarte y se avise.
+    // Adivinar la respuesta convertiría en silencio una pregunta malIndexerada.
+    const correctIdx = crudas.indexOf(q.respuesta_correcta);
+    const correcta = correctIdx >= 0 ? letters[correctIdx] : null;
 
     return {
         id: q.id,
@@ -68,104 +67,180 @@ function normalizeAcademiaQuestion(q, source) {
     };
 }
 
-export async function loadAllData() {
-    try {
-        console.log("Fetching question data...");
-
-        const bust = `?v=${Date.now()}`;
-        const [resMad, resCsif, resAcad1, resAcad2, resAcad3, resAcad4, resAcad5, resAcad8, resAcad9, resAcad10, resCel2024, resCocinero2026, resCel2026, resPinche2026Ord, resPinche2026Extra, resCel2026Extra, resTecnicoTi2026] = await Promise.all([
-            fetch(`data/preguntas.json${bust}`),
-            fetch(`data/csif_questions.json${bust}`),
-            fetch(`data/academia_tema1.json${bust}`),
-            fetch(`data/academia_tema2.json${bust}`),
-            fetch(`data/academia_tema3.json${bust}`),
-            fetch(`data/academia_tema4.json${bust}`),
-            fetch(`data/academia_tema5.json${bust}`),
-            fetch(`data/academia_tema8.json${bust}`),
-            fetch(`data/academia_tema9.json${bust}`),
-            fetch(`data/academia_tema10.json${bust}`),
-            fetch(`data/sescam_2024_celador.json${bust}`),
-            fetch(`data/sescam_2026_cocinero.json${bust}`),
-            fetch(`data/sescam_2026_celador.json${bust}`),
-            fetch(`data/sescam_2026_pinche_ord.json${bust}`),
-            fetch(`data/sescam_2026_pinche_extra.json${bust}`),
-            fetch(`data/sescam_2026_celador_extra.json${bust}`),
-            fetch(`data/sescam_2026_tecnico_ti.json${bust}`)
-        ]);
-
-        if (!resMad.ok) throw new Error(`HTTP ${resMad.status} al cargar preguntas.json`);
-
-        const textMad = await resMad.text();
-        const textCsif = resCsif.ok ? await resCsif.text() : '[]';
-        const textAcad1 = resAcad1.ok ? await resAcad1.text() : '[]';
-        const textAcad2 = resAcad2.ok ? await resAcad2.text() : '[]';
-        const textAcad3 = resAcad3.ok ? await resAcad3.text() : '[]';
-        const textAcad4 = resAcad4.ok ? await resAcad4.text() : '[]';
-        const textAcad5 = resAcad5.ok ? await resAcad5.text() : '[]';
-        const textAcad8 = resAcad8.ok ? await resAcad8.text() : '[]';
-        const textAcad9 = resAcad9.ok ? await resAcad9.text() : '[]';
-        const textAcad10 = resAcad10.ok ? await resAcad10.text() : '[]';
-        const textCel2024 = resCel2024.ok ? await resCel2024.text() : '[]';
-        const textCocinero2026 = resCocinero2026.ok ? await resCocinero2026.text() : '[]';
-        const textCel2026 = resCel2026.ok ? await resCel2026.text() : '[]';
-        const textPinche2026Ord = resPinche2026Ord.ok ? await resPinche2026Ord.text() : '[]';
-        const textPinche2026Extra = resPinche2026Extra.ok ? await resPinche2026Extra.text() : '[]';
-        const textCel2026Extra = resCel2026Extra.ok ? await resCel2026Extra.text() : '[]';
-        const textTecnicoTi2026 = resTecnicoTi2026.ok ? await resTecnicoTi2026.text() : '[]';
-
-        // Sanitize BOM (Byte Order Mark) that corrupts JSON.parse()
-        const sanitize = (str) => str.replace(/^\uFEFF/, '').trim();
-
-        const madData = JSON.parse(sanitize(textMad));
-        const csifData = JSON.parse(sanitize(textCsif));
-        const acadData1 = JSON.parse(sanitize(textAcad1));
-        const acadData2 = JSON.parse(sanitize(textAcad2));
-        const acadData3 = JSON.parse(sanitize(textAcad3));
-        const acadData4 = JSON.parse(sanitize(textAcad4));
-        const acadData5 = JSON.parse(sanitize(textAcad5));
-        const acadData8 = JSON.parse(sanitize(textAcad8));
-        const acadData9 = JSON.parse(sanitize(textAcad9));
-        const acadData10 = JSON.parse(sanitize(textAcad10));
-        const cel2024Data = JSON.parse(sanitize(textCel2024));
-        const cocinero2026Data = JSON.parse(sanitize(textCocinero2026));
-        const cel2026Data = JSON.parse(sanitize(textCel2026));
-        const pinche2026OrdData = JSON.parse(sanitize(textPinche2026Ord));
-        const pinche2026ExtraData = JSON.parse(sanitize(textPinche2026Extra));
-        const cel2026ExtraData = JSON.parse(sanitize(textCel2026Extra));
-        const tecnicoTi2026Data = JSON.parse(sanitize(textTecnicoTi2026));
-
-        // Tag standard format sources
-        const madWithSource = madData.map(q => ({ ...q, source: q.origen || 'MAD', origen: q.origen || 'MAD' }));
-        const csifWithSource = csifData.map(q => fixCsifQuestion(q));
-
-        // Normalize Academia format (array opciones → object, respuesta_correcta → correcta)
-        const acadNormalized = [
-            ...acadData1.map(q => normalizeAcademiaQuestion(q, 'Academia')),
-            ...acadData2.map(q => normalizeAcademiaQuestion(q, 'Academia')),
-            ...acadData3.map(q => normalizeAcademiaQuestion(q, 'Academia')),
-            ...acadData4.map(q => normalizeAcademiaQuestion(q, 'Academia')),
-            ...acadData5.map(q => normalizeAcademiaQuestion(q, 'Academia')),
-            ...acadData8.map(q => normalizeAcademiaQuestion(q, 'Academia')),
-            ...acadData9.map(q => normalizeAcademiaQuestion(q, 'Academia')),
-            ...acadData10.map(q => normalizeAcademiaQuestion(q, 'Academia'))
-        ];
-
-        const cel2024WithSource = cel2024Data.map(q => ({ ...q, source: 'Histo', origen: 'Examen Oficial Celador 2024' }));
-        const cocinero2026WithSource = cocinero2026Data.map(q => ({ ...q, source: 'Histo', origen: 'OPE SESCAM Cocinero 2026' }));
-        const cel2026WithSource = cel2026Data.map(q => ({ ...q, source: 'Histo', origen: 'OPE SESCAM Celador 2026' }));
-        const pinche2026OrdWithSource = pinche2026OrdData.map(q => ({ ...q, source: 'Histo', origen: 'OPE SESCAM Pinche Ordinario 2026' }));
-        const pinche2026ExtraWithSource = pinche2026ExtraData.map(q => ({ ...q, source: 'Histo', origen: 'OPE SESCAM Pinche Extraordinario 2026' }));
-        const cel2026ExtraWithSource = cel2026ExtraData.map(q => ({ ...q, source: 'Histo', origen: 'Examen Oficial Celador/a Extraordinario SESCAM 2026' }));
-        const tecnicoTi2026WithSource = tecnicoTi2026Data.map(q => ({ ...q, source: 'Histo', origen: 'Examen Oficial Técnico de Gestión de TI SESCAM 2026' }));
-
-        state.allQuestions = [...madWithSource, ...csifWithSource, ...acadNormalized, ...cel2024WithSource, ...cocinero2026WithSource, ...cel2026WithSource, ...pinche2026OrdWithSource, ...pinche2026ExtraWithSource, ...cel2026ExtraWithSource, ...tecnicoTi2026WithSource];
-        console.log(`Loaded ${state.allQuestions.length} questions. (MAD: ${madWithSource.length}, CSIF: ${csifWithSource.length}, Academia: ${acadNormalized.length}, Celador 2024: ${cel2024WithSource.length}, Cocinero 2026: ${cocinero2026WithSource.length}, Celador 2026: ${cel2026WithSource.length}, Pinche Ordinario 2026: ${pinche2026OrdWithSource.length}, Pinche Extraordinario 2026: ${pinche2026ExtraWithSource.length}, Celador Extra 2026: ${cel2026ExtraWithSource.length}, Tecnico TI 2026: ${tecnicoTi2026WithSource.length})`);
-        return state.allQuestions;
-
-    } catch (err) {
-        console.error("CRITICAL: Error loading questions:", err);
-        const msg = document.getElementById('access-msg');
-        if (msg) msg.innerText = `⚠️ Error al cargar datos: ${err.message}`;
-        return [];
+/** Aplica el etiquetado de origen/source según el tipo de banco. */
+function tagQuestion(q, bank) {
+    switch (bank.kind) {
+        case 'raw':
+            return { ...q, source: q.origen || 'MAD', origen: q.origen || 'MAD' };
+        case 'csif':
+            return { ...q, origen: q.origen || bank.origen, source: bank.origen };
+        case 'academia':
+            return normalizeAcademiaQuestion(q, bank.origen);
+        case 'historo':
+            return { ...q, source: 'Histo', origen: bank.origen };
+        default:
+            return q;
     }
+}
+
+/**
+ * Valida una pregunta ya normalizada.
+ * @returns {string|null} Descripción del problema, o null si está bien.
+ */
+function validateQuestion(q, file, index) {
+    const where = `${file}[${index}] id=${q?.id ?? '(sin id)'}`;
+
+    if (!q || typeof q !== 'object') return `${where}: no es un objeto`;
+    if (!q.id || typeof q.id !== 'string') return `${where}: falta "id" o no es texto`;
+    if (!q.pregunta || !String(q.pregunta).trim()) return `${where}: "pregunta" vacía`;
+    if (!q.opciones || typeof q.opciones !== 'object' || Array.isArray(q.opciones)) {
+        return `${where}: "opciones" debe ser un objeto {a,b,c,d}`;
+    }
+
+    const validas = Object.keys(q.opciones).filter(k => q.opciones[k] && String(q.opciones[k]).trim());
+    if (validas.length < 2) return `${where}: solo ${validas.length} opción(es) con texto`;
+
+    const correctas = Array.isArray(q.correcta) ? q.correcta : [q.correcta];
+    if (correctas.length === 0 || correctas.some(c => c === undefined || c === null)) {
+        return `${where}: "correcta" vacía o sin coincidencia con las opciones`;
+    }
+    for (const c of correctas) {
+        if (!(c in q.opciones)) return `${where}: "correcta" = "${c}" no existe en "opciones"`;
+    }
+    return null;
+}
+
+/**
+ * Descarga un banco. NUNCA lanza: devuelve el error para poder informarlo,
+ * porque antes un fallo silencioso dejaba una categoría simplemente vacía.
+ */
+async function fetchBank(bank, cacheKey) {
+    try {
+        const res = await fetch(`data/${bank.file}?v=${cacheKey}`);
+        if (!res.ok) return { bank, ok: false, error: `HTTP ${res.status}` };
+
+        const text = await res.text();
+        const data = JSON.parse(text.replace(/^﻿/, '').trim()); // sanea BOM
+
+        if (!Array.isArray(data)) return { bank, ok: false, error: 'la raíz del JSON no es un array' };
+        return { bank, ok: true, data };
+    } catch (e) {
+        return { bank, ok: false, error: e.message };
+    }
+}
+
+const MAX_DETALLES_EN_AVISO = 5;
+
+/** Muestra un aviso visible si algún banco no cargó o alguna pregunta es inválida. */
+function showDataWarning(bankErrors, invalidDetails) {
+    const box = document.getElementById('data-warning');
+    if (!box) return;
+
+    const totalInvalid = invalidDetails.length;
+    if (!bankErrors.length && !totalInvalid) {
+        box.classList.add('hidden');
+        box.innerHTML = '';
+        return;
+    }
+
+    const parts = [];
+    if (bankErrors.length) parts.push(`<li><strong>Bancos no cargados:</strong> ${bankErrors.join(', ')}</li>`);
+    if (totalInvalid) {
+        // Se muestran los primeros para que el aviso siga siendo legible; el resto va a la consola
+        const muestra = invalidDetails.slice(0, MAX_DETALLES_EN_AVISO);
+        const resto = totalInvalid - muestra.length;
+        parts.push(`<li><strong>Preguntas descartadas (${totalInvalid}):</strong>
+            <ul>${muestra.map(p => `<li>${p}</li>`).join('')}${resto > 0 ? `<li>… y ${resto} más</li>` : ''}</ul>
+        </li>`);
+    }
+
+    box.innerHTML = `
+        <strong>⚠️ Carga de datos incompleta.</strong>
+        <ul>${parts.join('')}</ul>
+        <small>Si falta un temario, recarga con Ctrl+F5. El detalle completo está en la consola (F12).</small>
+    `;
+    box.classList.remove('hidden');
+}
+
+// Informe de la última carga, para diagnóstico (consola, pruebas o panel admin)
+let lastLoadReport = { total: 0, banks: 0, bankErrors: [], invalidDetails: [] };
+export function getLastLoadReport() {
+    return lastLoadReport;
+}
+
+export async function loadAllData() {
+    // Clave de caché por release, no por visita: los datos se refrescan en cada
+    // versión publicada pero el navegador reutiliza la descarga entre visitas
+    // (antes `?v=Date.now()` obligaba a bajar los 2,7 MB en cada carga).
+    const cacheKey = CONFIG.APP_VERSION;
+
+    console.log('[DATA] Cargando bancos de preguntas…');
+    const results = await Promise.all(BANKS.map(b => fetchBank(b, cacheKey)));
+
+    const bankErrors = [];
+    const invalidDetails = [];
+    const allIds = new Set();          // unicidad global entre archivos
+    const questions = [];
+    const perBank = [];
+
+    for (const r of results) {
+        const file = r.bank.file;
+
+        if (!r.ok) {
+            bankErrors.push(`${file} (${r.error})`);
+            perBank.push([file, 0]);
+            console.error(`[DATA] ✗ ${file}: ${r.error}`);
+            continue;
+        }
+
+        const kept = [];
+        r.data.forEach((q, i) => {
+            let tagged = null;
+            try {
+                tagged = tagQuestion(q, r.bank);
+            } catch (e) {
+                // Red de seguridad: ni una pregunta corrupta puede tumbar la carga
+                invalidDetails.push(`${file}[${i}]: no se pudo normalizar (${e.message})`);
+                return;
+            }
+
+            const problem = validateQuestion(tagged, file, i);
+            if (problem) { invalidDetails.push(problem); return; }
+
+            if (allIds.has(tagged.id)) {
+                invalidDetails.push(`${file}[${i}]: id "${tagged.id}" repetido en otro banco`);
+                return;
+            }
+            allIds.add(tagged.id);
+            kept.push(tagged);
+        });
+
+        perBank.push([file, kept.length]);
+        questions.push(...kept);
+
+        if (kept.length !== r.data.length) {
+            console.warn(`[DATA] ⚠ ${file}: ${r.data.length - kept.length} pregunta(s) descartada(s)`);
+        }
+    }
+
+    state.allQuestions = questions;
+
+    if (bankErrors.length || invalidDetails.length) {
+        console.error('[DATA] Problemas detectados:', { bankErrors, invalidDetails });
+        invalidDetails.slice(0, 20).forEach(p => console.warn('   ·', p));
+        if (invalidDetails.length > 20) console.warn(`   … y ${invalidDetails.length - 20} más`);
+    }
+
+    showDataWarning(bankErrors, invalidDetails);
+    lastLoadReport = {
+        total: questions.length,
+        banks: results.length - bankErrors.length,
+        bankErrors,
+        invalidDetails
+    };
+
+    const resumen = perBank.map(([f, n]) => `${f.replace('.json', '')}: ${n}`).join(', ');
+    console.log(`[DATA] ${questions.length} preguntas cargadas → ${resumen}`);
+
+    return questions;
 }

@@ -624,10 +624,6 @@ h1 {
     border-left: 5px solid #ffc107;
 }
 
-.hidden {
-    display: none !important;
-}
-
 .btn-primary {
     background: linear-gradient(to right, #4f46e5, #7c3aed);
     color: white;

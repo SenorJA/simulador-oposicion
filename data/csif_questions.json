@@ -1,12 +1,12 @@
 [
   {
     "id": "csif_t1_1",
-    "tema": "Tema 1: La Constituci¾n",
-    "pregunta": "Block 1: Ley de Igualdad de Castilla-La Mancha: Contiene preguntas y respuestas sobre la Ley 12/2010, de 18 de noviembre, de Igualdad entre Mujeres y Hombres en Castilla-La Mancha.\n+1\n\n\n\n+1\n\n\n\n\nLey Orgßnica 3/2007, de 22 de marzo, para la igualdad efectiva de mujeres y hombres.\n+1\n\n\nLey Orgßnica 1/2004, de 28 de diciembre, de Medidas de Protecci¾n Integral contra la Violencia de GÚnero.\n+\n\n\n\n\n+1\n\nLa ley de igualdad entre mujeres y hombres en Castilla-La Mancha es:",
+    "tema": "Tema 1: La Constitución",
+    "pregunta": "Block 1: Ley de Igualdad de Castilla-La Mancha: Contiene preguntas y respuestas sobre la Ley 12/2010, de 18 de noviembre, de Igualdad entre Mujeres y Hombres en Castilla-La Mancha.\n+1\n\n\n\n+1\n\n\n\n\nLey Orgánica 3/2007, de 22 de marzo, para la igualdad efectiva de mujeres y hombres.\n+1\n\n\nLey Orgánica 1/2004, de 28 de diciembre, de Medidas de Protección Integral contra la Violencia de Género.\n+\n\n\n\n\n+1\n\nLa ley de igualdad entre mujeres y hombres en Castilla-La Mancha es:",
     "opciones": {
-      "a": "La Ley Orgßnica 3/2007, de 22 de marzo",
+      "a": "La Ley Orgánica 3/2007, de 22 de marzo",
       "b": "La ley 12/2010, de 18 de noviembre",
-      "c": "La ley orgßnica 12/2010, de 18 de noviembre",
+      "c": "La ley orgánica 12/2010, de 18 de noviembre",
       "d": "La ley 3/2007, de 22 de marzo"
     },
     "correcta": "b",
@@ -14,11 +14,11 @@
   },
   {
     "id": "csif_t1_2",
-    "tema": "Tema 1: La Constituci¾n",
-    "pregunta": "En Castilla-La Mancha, ┐quÚ organismo es el encargado de impulsar las actuaciones ejecutivas de la Ley de igualdad?",
+    "tema": "Tema 1: La Constitución",
+    "pregunta": "En Castilla-La Mancha, ¿qué organismo es el encargado de impulsar las actuaciones ejecutivas de la Ley de igualdad?",
     "opciones": {
       "a": "El Instituto de la Mujer de Castilla-La Mancha",
-      "b": "La ConsejerÝa de Igualdad de CLM",
+      "b": "La Consejería de Igualdad de CLM",
       "c": "El Consejo de Gobierno",
       "d": "Las Cortes CLM."
     },
@@ -27,11 +27,11 @@
   },
   {
     "id": "csif_t1_3",
-    "tema": "Tema 1: La Constituci¾n",
-    "pregunta": "Para la Ley 12/2010 se entenderß por perspectiva de gÚnero:",
+    "tema": "Tema 1: La Constitución",
+    "pregunta": "Para la Ley 12/2010 se entenderá por perspectiva de género:",
     "opciones": {
-      "a": "El anßlisis de la realidad social que surge al considerar las diferentes situaciones, condiciones, aspiraciones y necesidades de las mujeres y de los hombres, atendiendo a los distintos modos y valores en los que han sido socializados",
-      "b": "La opini¾n que cada integrante de un sexo tenga del otro",
+      "a": "El análisis de la realidad social que surge al considerar las diferentes situaciones, condiciones, aspiraciones y necesidades de las mujeres y de los hombres, atendiendo a los distintos modos y valores en los que han sido socializados",
+      "b": "La opinión que cada integrante de un sexo tenga del otro",
       "c": "La respuesta que la ley da a las situaciones de desigualdad",
       "d": "Los distintos modos de ver la realidad actual del empleo de mujeres y hombre"
     },
@@ -40,49 +40,49 @@
   },
   {
     "id": "csif_t1_4",
-    "tema": "Tema 1: La Constituci¾n",
-    "pregunta": "┐Cada cußnto tiempo debe elaborar un informe el Instituto de la Mujer de CLM sobre la aplicaci¾n de la ley auton¾mica de igualdad?",
+    "tema": "Tema 1: La Constitución",
+    "pregunta": "¿Cada cuánto tiempo debe elaborar un informe el Instituto de la Mujer de CLM sobre la aplicación de la ley autonómica de igualdad?",
     "opciones": {
-      "a": "Todos los a±os",
-      "b": "Cada dos a±os",
+      "a": "Todos los años",
+      "b": "Cada dos años",
       "c": "Semestralmente",
-      "d": "Cada tres a±os"
+      "d": "Cada tres años"
     },
     "correcta": "d",
     "origen": "CSIF"
   },
   {
     "id": "csif_t1_5",
-    "tema": "Tema 1: La Constituci¾n",
-    "pregunta": "┐QuÚ debe incluir, necesariamente, el informe que tiene que elaborar cada determinado tiempo el Instituto de la Mujer de Castilla-La Mancha sobre la aplicaci¾n de Ley auton¾mica de igualdad?",
+    "tema": "Tema 1: La Constitución",
+    "pregunta": "¿Qué debe incluir, necesariamente, el informe que tiene que elaborar cada determinado tiempo el Instituto de la Mujer de Castilla-La Mancha sobre la aplicación de Ley autonómica de igualdad?",
     "opciones": {
       "a": "Las propuestas sobre medidas y actuaciones necesarias para conseguir la igualdad real",
       "b": "Los casos en que se haya detectado desigualdad entre hombre y mujeres",
-      "c": "Los datos estadÝsticos referentes a la violencia de gÚnero, agrupados por a±os",
-      "d": "El n·mero de casos en que se ha producido denuncia por violencia de gÚnero"
+      "c": "Los datos estadísticos referentes a la violencia de género, agrupados por años",
+      "d": "El número de casos en que se ha producido denuncia por violencia de género"
     },
     "correcta": "a",
     "origen": "CSIF"
   },
   {
     "id": "csif_t1_6",
-    "tema": "Tema 1: La Constituci¾n",
-    "pregunta": "┐En quÚ ¾rgano/s de la Administraci¾n de CLM debe existir una Unidad de Igualdad de GÚnero seg·n la ley 12/2010?",
+    "tema": "Tema 1: La Constitución",
+    "pregunta": "¿En qué órgano/s de la Administración de CLM debe existir una Unidad de Igualdad de Género según la ley 12/2010?",
     "opciones": {
       "a": "En las Cortes de Castilla-La Mancha",
       "b": "En la Presidencia de la Junta de Comunidades",
-      "c": "En cada Delegaci¾n provincial de la Junta de Comunidades",
-      "d": "En cada ConsejerÝa"
+      "c": "En cada Delegación provincial de la Junta de Comunidades",
+      "d": "En cada Consejería"
     },
     "correcta": "d",
     "origen": "CSIF"
   },
   {
     "id": "csif_t1_7",
-    "tema": "Tema 1: La Constituci¾n",
-    "pregunta": "Seg·n la ley 12/2010 ┐de quÚ ¾rgano depende la Comisi¾n de Igualdad?",
+    "tema": "Tema 1: La Constitución",
+    "pregunta": "Según la ley 12/2010 ¿de qué órgano depende la Comisión de Igualdad?",
     "opciones": {
-      "a": "De la ConsejerÝa con competencias en materia de EconomÝa y Hacienda",
+      "a": "De la Consejería con competencias en materia de Economía y Hacienda",
       "b": "Del Presidente de la Junta",
       "c": "Del Vicepresidente de la Junta",
       "d": "De las Cortes de CLM"
@@ -92,38 +92,38 @@
   },
   {
     "id": "csif_t1_8",
-    "tema": "Tema 1: La Constituci¾n",
-    "pregunta": "De acuerdo con la ley 12/2010 ┐cußl es el instrumento del que se valdrßn las Administraciones p·blicas de CLM para alcanzar el objetivo de igualdad efectiva de mujeres y hombres y la eliminaci¾n de la discriminaci¾n por raz¾n de sexo?",
+    "tema": "Tema 1: La Constitución",
+    "pregunta": "De acuerdo con la ley 12/2010 ¿cuál es el instrumento del que se valdrán las Administraciones públicas de CLM para alcanzar el objetivo de igualdad efectiva de mujeres y hombres y la eliminación de la discriminación por razón de sexo?",
     "opciones": {
-      "a": "El Estatuto de AutonomÝa",
+      "a": "El Estatuto de Autonomía",
       "b": "La propia ley 12/2010",
       "c": "Los planes de igualdad",
-      "d": "El Plan EstratÚgico para la Igualdad de Oportunidades"
+      "d": "El Plan Estratégico para la Igualdad de Oportunidades"
     },
     "correcta": "d",
     "origen": "CSIF"
   },
   {
     "id": "csif_t1_9",
-    "tema": "Tema 1: La Constituci¾n",
-    "pregunta": "┐A quiÚn le corresponde aprobar el Plan EstratÚgico para la Igualdad de Oportunidades de CLM?",
+    "tema": "Tema 1: La Constitución",
+    "pregunta": "¿A quién le corresponde aprobar el Plan Estratégico para la Igualdad de Oportunidades de CLM?",
     "opciones": {
       "a": "Al Consejo de Gobierno.",
       "b": "A las Cortes de CLM",
-      "c": "Al Presidente del Consejo de Gobierno a propuesta del Consejero de EconomÝa y Hacienda",
-      "d": "A la ConsejerÝa a la que se encuentra adscrita el Instituto de la Mujer de CLM"
+      "c": "Al Presidente del Consejo de Gobierno a propuesta del Consejero de Economía y Hacienda",
+      "d": "A la Consejería a la que se encuentra adscrita el Instituto de la Mujer de CLM"
     },
     "correcta": "a",
     "origen": "CSIF"
   },
   {
     "id": "csif_t1_10",
-    "tema": "Tema 1: La Constituci¾n",
-    "pregunta": "A los efectos de la Ley de igualdad de CLM ┐quÚ se entiende por participaci¾n equilibrada en las Instituciones y en los ¾rganos p·blicos de la Junta de Comunidades de CLM?",
+    "tema": "Tema 1: La Constitución",
+    "pregunta": "A los efectos de la Ley de igualdad de CLM ¿qué se entiende por participación equilibrada en las Instituciones y en los órganos públicos de la Junta de Comunidades de CLM?",
     "opciones": {
       "a": "La alternancia de mujeres y hombres en las candidaturas a las Cortes Regionales",
       "b": "La presencia de mujeres y hombres de forma que, en el conjunto a que se refiera, las personas de cada sexo no superen el 60 por ciento ni sean menos del 40.",
-      "c": "La presencia de mujeres y hombres de forma que, en el conjunto a que se refiera, cada sexo estÚ representado al 50 por cientos.",
+      "c": "La presencia de mujeres y hombres de forma que, en el conjunto a que se refiera, cada sexo esté representado al 50 por cientos.",
       "d": "La presencia de mujeres y hombres de forma que, en el conjunto a que se refiera, las personas de cada sexo no superen el 70 por ciento ni sean menos del 30"
     },
     "correcta": "b",
@@ -131,11 +131,11 @@
   },
   {
     "id": "csif_t1_11",
-    "tema": "Tema 1: La Constituci¾n",
-    "pregunta": "A los efectos de la ley de igualdad de CLM ┐quÚ se entiende por representaci¾n equilibrada en las candidaturas a las Cortes Regionales?",
+    "tema": "Tema 1: La Constitución",
+    "pregunta": "A los efectos de la ley de igualdad de CLM ¿qué se entiende por representación equilibrada en las candidaturas a las Cortes Regionales?",
     "opciones": {
       "a": "La presencia de mujeres y hombres de forma que, en el conjunto las personas de cada sexo no superen el 60 por ciento ni sean menos del 40.",
-      "b": "La alternancia de mujeres y hombres que presenten los partidos polÝticos, federaciones, coaliciones o agrupaciones de electores",
+      "b": "La alternancia de mujeres y hombres que presenten los partidos políticos, federaciones, coaliciones o agrupaciones de electores",
       "c": "Ninguna es correcta",
       "d": "La presencia de mujeres y hombres de forma que, en el conjunto a que se refiera, las personas de cada sexo no superen el 70 por ciento ni sean menos del 30"
     },
@@ -144,23 +144,23 @@
   },
   {
     "id": "csif_t1_12",
-    "tema": "Tema 1: La Constituci¾n",
-    "pregunta": "┐A quÚ ¾rgano de la Junta de Comunidades de CLM se encuentra adscrito actualmente el Instituto de la Mujer de Castilla-La Mancha?",
+    "tema": "Tema 1: La Constitución",
+    "pregunta": "¿A qué órgano de la Junta de Comunidades de CLM se encuentra adscrito actualmente el Instituto de la Mujer de Castilla-La Mancha?",
     "opciones": {
       "a": "Al Consejo de Gobierno",
       "b": "Al Presidente del Consejo de Gobierno",
       "c": "A las Cortes de CLM",
-      "d": "A la ConsejerÝa de Igualdad y Portavoz"
+      "d": "A la Consejería de Igualdad y Portavoz"
     },
     "correcta": "d",
     "origen": "CSIF"
   },
   {
     "id": "csif_t1_13",
-    "tema": "Tema 1: La Constituci¾n",
-    "pregunta": "┐Cußl es el objeto de la ley 12/2010?\n\na) Promover las condiciones que hagan efectivo y real el derecho a la igualdad entre mujeres y hombres y remover los obstßculos que impiden o dificultan su plenitud \n\nb) El establecimiento de medidas dirigidas a prevenir y combatir la discriminaci¾n por raz¾n de sexo.",
+    "tema": "Tema 1: La Constitución",
+    "pregunta": "¿Cuál es el objeto de la ley 12/2010?\n\na) Promover las condiciones que hagan efectivo y real el derecho a la igualdad entre mujeres y hombres y remover los obstáculos que impiden o dificultan su plenitud \n\nb) El establecimiento de medidas dirigidas a prevenir y combatir la discriminación por razón de sexo.",
     "opciones": {
-      "a": "Regular las situaciones que se deriven de la violencia de gÚnero y de la violencia domÚstica",
+      "a": "Regular las situaciones que se deriven de la violencia de género y de la violencia doméstica",
       "b": "Respuestas",
       "c": "y",
       "d": "son correctas"
@@ -170,25 +170,25 @@
   },
   {
     "id": "csif_t1_14",
-    "tema": "Tema 1: La Constituci¾n",
-    "pregunta": "┐Cußl es el fin principal de la ley 12/2010?",
+    "tema": "Tema 1: La Constitución",
+    "pregunta": "¿Cuál es el fin principal de la ley 12/2010?",
     "opciones": {
-      "a": "Alcanzar la igualdad real entre hombres y mujeres en todos los ßmbitos de la vida.",
-      "b": "La erradicaci¾n de cualquier forma de discriminaci¾n por raz¾n de sexo, directa o indirecta,",
-      "c": "El lograr una sociedad mßs democrßtica, justa y solidaria",
-      "d": "El establecimiento de medidas dirigidas a prevenir y combatir la discriminaci¾n"
+      "a": "Alcanzar la igualdad real entre hombres y mujeres en todos los ámbitos de la vida.",
+      "b": "La erradicación de cualquier forma de discriminación por razón de sexo, directa o indirecta,",
+      "c": "El lograr una sociedad más democrática, justa y solidaria",
+      "d": "El establecimiento de medidas dirigidas a prevenir y combatir la discriminación"
     },
     "correcta": "a",
     "origen": "CSIF"
   },
   {
     "id": "csif_t1_15",
-    "tema": "Tema 1: La Constituci¾n",
-    "pregunta": "┐D¾nde serß de aplicaci¾n la ley 12/2010?",
+    "tema": "Tema 1: La Constitución",
+    "pregunta": "¿Dónde será de aplicación la ley 12/2010?",
     "opciones": {
-      "a": "En todo el territorio de la Comunidad Aut¾noma de Castilla y Le¾n",
-      "b": "En todo el territorio de la Comunidad Aut¾noma de Castilla-La Mancha.",
-      "c": "En todo el territorio del estado espa±ol siempre que se trate de ciudadanos castellano-manchegos",
+      "a": "En todo el territorio de la Comunidad Autónoma de Castilla y León",
+      "b": "En todo el territorio de la Comunidad Autónoma de Castilla-La Mancha.",
+      "c": "En todo el territorio del estado español siempre que se trate de ciudadanos castellano-manchegos",
       "d": "No hay respuestas correctas"
     },
     "correcta": "b",
@@ -196,24 +196,24 @@
   },
   {
     "id": "csif_t1_16",
-    "tema": "Tema 1: La Constituci¾n",
-    "pregunta": "Seg·n la ley 12/2010 el resultado de aplicar la perspectiva de gÚnero a una actuaci¾n normativa se denomina:",
+    "tema": "Tema 1: La Constitución",
+    "pregunta": "Según la ley 12/2010 el resultado de aplicar la perspectiva de género a una actuación normativa se denomina:",
     "opciones": {
       "a": "Informe de transparencia",
       "b": "Informe de buen gobierno",
-      "c": "Informe de acceso a la informaci¾n",
-      "d": "Informe de impacto de gÚnero."
+      "c": "Informe de acceso a la información",
+      "d": "Informe de impacto de género."
     },
     "correcta": "d",
     "origen": "CSIF"
   },
   {
     "id": "csif_t1_17",
-    "tema": "Tema 1: La Constituci¾n",
-    "pregunta": "Seg·n la ley 12/2010 el lenguaje utilizado por la Administraci¾n serß:",
+    "tema": "Tema 1: La Constitución",
+    "pregunta": "Según la ley 12/2010 el lenguaje utilizado por la Administración será:",
     "opciones": {
       "a": "Comprensible para todos los ciudadanos",
-      "b": "VerÝdico, no faltando a la verdad",
+      "b": "Verídico, no faltando a la verdad",
       "c": "Inclusivo de hombres y mujeres",
       "d": "Igualitario y estereotipado"
     },
@@ -222,10 +222,10 @@
   },
   {
     "id": "csif_t1_18",
-    "tema": "Tema 1: La Constituci¾n",
-    "pregunta": "Seg·n el artÝculo 5.2 de la ley 12/2010, se entenderß por composici¾n equilibrada la presencia de mujeres y hombres de forma que, en el conjunto a que se refiere, las personas de cada sexo...",
+    "tema": "Tema 1: La Constitución",
+    "pregunta": "Según el artículo 5.2 de la ley 12/2010, se entenderá por composición equilibrada la presencia de mujeres y hombres de forma que, en el conjunto a que se refiere, las personas de cada sexo...",
     "opciones": {
-      "a": "Sean el 50%, pudiendo alterar esa cifrar lo indispensable cuando el n·mero de miembros sea impar",
+      "a": "Sean el 50%, pudiendo alterar esa cifrar lo indispensable cuando el número de miembros sea impar",
       "b": "No superen el 55% ni sean menos del 45%",
       "c": "No superen el 60% ni sean menos del 40%",
       "d": "No superen el 70% ni sean menos del 30%"
@@ -235,38 +235,38 @@
   },
   {
     "id": "csif_t1_19",
-    "tema": "Tema 1: La Constituci¾n",
-    "pregunta": "Seg·n la ley 12/2010 en la comunicaci¾n institucional las Administraciones p·blicas de Castilla-La Mancha velarßn:",
+    "tema": "Tema 1: La Constitución",
+    "pregunta": "Según la ley 12/2010 en la comunicación institucional las Administraciones públicas de Castilla-La Mancha velarán:",
     "opciones": {
-      "a": "Porque no se usen imßgenes discriminatorios de la mujer",
-      "b": "Porque no se utilicen imßgenes vejatorias para la mujer",
-      "c": "Por la transmisi¾n de una imagen igualitaria, plural y no estereotipada de mujeres y hombres en la sociedad",
-      "d": "Por la utilizaci¾n de un lenguaje adecuado y sexista"
+      "a": "Porque no se usen imágenes discriminatorios de la mujer",
+      "b": "Porque no se utilicen imágenes vejatorias para la mujer",
+      "c": "Por la transmisión de una imagen igualitaria, plural y no estereotipada de mujeres y hombres en la sociedad",
+      "d": "Por la utilización de un lenguaje adecuado y sexista"
     },
     "correcta": "c",
     "origen": "CSIF"
   },
   {
     "id": "csif_t1_20",
-    "tema": "Tema 1: La Constituci¾n",
+    "tema": "Tema 1: La Constitución",
     "pregunta": "El Instituto de la Mujer de Castilla-La Mancha para realizar sus funciones y alcanzar los fines previstos se estructura en:",
     "opciones": {
       "a": "Servicios centrales y direcciones provinciales",
-      "b": "Ërganos superiores y ¾rganos perifÚricos",
+      "b": "Ërganos superiores y órganos periféricos",
       "c": "Servicios de orden y servicios de respuesta inmediata",
-      "d": "Ërganos de consulta y ¾rganos de ejecuci¾n"
+      "d": "Ërganos de consulta y órganos de ejecución"
     },
     "correcta": "a",
     "origen": "CSIF"
   },
   {
     "id": "csif_t1_21",
-    "tema": "Tema 1: La Constituci¾n",
-    "pregunta": "+1\n\nSolo uno de los siguientes derechos estß protegido por la posibilidad de interponer en su defensa recurso de amparo ante el Tribunal Constitucional:",
+    "tema": "Tema 1: La Constitución",
+    "pregunta": "+1\n\nSolo uno de los siguientes derechos está protegido por la posibilidad de interponer en su defensa recurso de amparo ante el Tribunal Constitucional:",
     "opciones": {
-      "a": "El derecho a defender a Espa±a.",
+      "a": "El derecho a defender a España.",
       "b": "El derecho a la propiedad privada.",
-      "c": "El derecho a entrar y salir libremente de Espa±a.",
+      "c": "El derecho a entrar y salir libremente de España.",
       "d": "El derecho al trabajo"
     },
     "correcta": "c",
@@ -274,8 +274,8 @@
   },
   {
     "id": "csif_t1_22",
-    "tema": "Tema 1: La Constituci¾n",
-    "pregunta": "┐Cußntas Disposiciones Adicionales tiene la Constituci¾n espa±ola de 1978?",
+    "tema": "Tema 1: La Constitución",
+    "pregunta": "¿Cuántas Disposiciones Adicionales tiene la Constitución española de 1978?",
     "opciones": {
       "a": "Nueve.",
       "b": "Cinco.",
@@ -287,21 +287,21 @@
   },
   {
     "id": "csif_t1_23",
-    "tema": "Tema 1: La Constituci¾n",
-    "pregunta": "┐C¾mo se estructura la Constituci¾n espa±ola?:",
+    "tema": "Tema 1: La Constitución",
+    "pregunta": "¿Cómo se estructura la Constitución española?:",
     "opciones": {
-      "a": "Preßmbulo, TÝtulo preliminar, 10 tÝtulos, 4 disposiciones adicionales, 9 transitorias, una derogatoria y una final",
-      "b": "Preßmbulo, 10 tÝtulos, 4 disposiciones adicionales, 9 transitorias, una derogatoria y una final",
-      "c": "TÝtulo preliminar, 10 tÝtulos, 4 disposiciones adicionales, 9 transitorias, una derogatoria y una final",
-      "d": "TÝtulo Preliminar y 10 TÝtulos numerados del 1 al 10"
+      "a": "Preámbulo, Título preliminar, 10 títulos, 4 disposiciones adicionales, 9 transitorias, una derogatoria y una final",
+      "b": "Preámbulo, 10 títulos, 4 disposiciones adicionales, 9 transitorias, una derogatoria y una final",
+      "c": "Título preliminar, 10 títulos, 4 disposiciones adicionales, 9 transitorias, una derogatoria y una final",
+      "d": "Título Preliminar y 10 Títulos numerados del 1 al 10"
     },
     "correcta": "a",
     "origen": "CSIF"
   },
   {
     "id": "csif_t1_24",
-    "tema": "Tema 1: La Constituci¾n",
-    "pregunta": "El Defensor del Pueblo act·a como alto comisionado:",
+    "tema": "Tema 1: La Constitución",
+    "pregunta": "El Defensor del Pueblo actúa como alto comisionado:",
     "opciones": {
       "a": "Del pueblo.",
       "b": "Del Senado.",
@@ -313,25 +313,25 @@
   },
   {
     "id": "csif_t1_25",
-    "tema": "Tema 1: La Constituci¾n",
-    "pregunta": "┐Pueden interceptarse las comunicaciones postales?",
+    "tema": "Tema 1: La Constitución",
+    "pregunta": "¿Pueden interceptarse las comunicaciones postales?",
     "opciones": {
-      "a": "No, en ning·n caso.",
-      "b": "Solo mediante resoluci¾n judicial.",
-      "c": "SÝ, por medio de resoluci¾n judicial o administrativa.",
-      "d": "SÝ, mediante la correspondiente autorizaci¾n de la Audiencia Nacional"
+      "a": "No, en ningún caso.",
+      "b": "Solo mediante resolución judicial.",
+      "c": "Sí, por medio de resolución judicial o administrativa.",
+      "d": "Sí, mediante la correspondiente autorización de la Audiencia Nacional"
     },
     "correcta": "b",
     "origen": "CSIF"
   },
   {
     "id": "csif_t1_26",
-    "tema": "Tema 1: La Constituci¾n",
-    "pregunta": "┐En quÚ casos se puede obligar a un ciudadano a declarar sobre su ideologÝa?",
+    "tema": "Tema 1: La Constitución",
+    "pregunta": "¿En qué casos se puede obligar a un ciudadano a declarar sobre su ideología?",
     "opciones": {
       "a": "En cualquier caso..",
       "b": "En caso de ciudadanos extranjeros.",
-      "c": "En ning·n caso.",
+      "c": "En ningún caso.",
       "d": "En los procesos penales"
     },
     "correcta": "c",
@@ -339,34 +339,34 @@
   },
   {
     "id": "csif_t1_27",
-    "tema": "Tema 1: La Constituci¾n",
-    "pregunta": "Los derechos del detenido y asistencia letrada reconocidos en el art. 17.3 de la Constituci¾n, en quÚ supuesto puede ser suspendidos?",
+    "tema": "Tema 1: La Constitución",
+    "pregunta": "Los derechos del detenido y asistencia letrada reconocidos en el art. 17.3 de la Constitución, en qué supuesto puede ser suspendidos?",
     "opciones": {
       "a": "Cuando la autoridad judicial lo considere conveniente",
-      "b": "En los estados de excepci¾n y sitio",
-      "c": "┌nicamente en el estado de sitio",
-      "d": "Cuando asÝ lo determine el Presidente del Gobierno, salvo que estÚ en funciones"
+      "b": "En los estados de excepción y sitio",
+      "c": "¡nicamente en el estado de sitio",
+      "d": "Cuando así lo determine el Presidente del Gobierno, salvo que esté en funciones"
     },
     "correcta": "c",
     "origen": "CSIF"
   },
   {
     "id": "csif_t1_28",
-    "tema": "Tema 1: La Constituci¾n",
-    "pregunta": "┐En quÚ TÝtulo de la Constituci¾n espa±ola de 1978 encontramos regulado el Poder Judicial?",
+    "tema": "Tema 1: La Constitución",
+    "pregunta": "¿En qué Título de la Constitución española de 1978 encontramos regulado el Poder Judicial?",
     "opciones": {
-      "a": "En el TÝtulo IV.",
-      "b": "En el TÝtulo V.",
-      "c": "En el TÝtulo II",
-      "d": "En el TÝtulo VI."
+      "a": "En el Título IV.",
+      "b": "En el Título V.",
+      "c": "En el Título II",
+      "d": "En el Título VI."
     },
     "correcta": "d",
     "origen": "CSIF"
   },
   {
     "id": "csif_t1_29",
-    "tema": "Tema 1: La Constituci¾n",
-    "pregunta": "┐En quÚ fecha fue publicada la Constituci¾n espa±ola en el BoletÝn Oficial del Estado?",
+    "tema": "Tema 1: La Constitución",
+    "pregunta": "¿En qué fecha fue publicada la Constitución española en el Boletín Oficial del Estado?",
     "opciones": {
       "a": "El 29 de diciembre de 1978.",
       "b": "El 27 de diciembre de 1978.",
@@ -378,38 +378,38 @@
   },
   {
     "id": "csif_t1_30",
-    "tema": "Tema 1: La Constituci¾n",
-    "pregunta": "┐C¾mo se adquiere, se conserva y se pierde la nacionalidad espa±ola seg·n la Constituci¾n?",
+    "tema": "Tema 1: La Constitución",
+    "pregunta": "¿Cómo se adquiere, se conserva y se pierde la nacionalidad española según la Constitución?",
     "opciones": {
       "a": "De acuerdo con los Tratados internacionales.",
       "b": "De acuerdo con las normas internacionales.",
       "c": "De acuerdo con la ley.",
-      "d": "Con arreglo a los Tratados internacionales que haya firmado el Estado espa±ol con otras naciones"
+      "d": "Con arreglo a los Tratados internacionales que haya firmado el Estado español con otras naciones"
     },
     "correcta": "c",
     "origen": "CSIF"
   },
   {
     "id": "csif_t1_31",
-    "tema": "Tema 1: La Constituci¾n",
-    "pregunta": "┐De cußntos TÝtulos consta la Constituci¾n espa±ola de 1978?",
+    "tema": "Tema 1: La Constitución",
+    "pregunta": "¿De cuántos Títulos consta la Constitución española de 1978?",
     "opciones": {
-      "a": "De trece TÝtulos.",
-      "b": "De diez TÝtulos.",
-      "c": "De once TÝtulos.",
-      "d": "De doce TÝtulos"
+      "a": "De trece Títulos.",
+      "b": "De diez Títulos.",
+      "c": "De once Títulos.",
+      "d": "De doce Títulos"
     },
     "correcta": "c",
     "origen": "CSIF"
   },
   {
     "id": "csif_t1_32",
-    "tema": "Tema 1: La Constituci¾n",
-    "pregunta": "┐QuiÚn designa al Defensor del Pueblo?",
+    "tema": "Tema 1: La Constitución",
+    "pregunta": "¿Quién designa al Defensor del Pueblo?",
     "opciones": {
       "a": "El Rey.",
       "b": "Las Cortes Generales.",
-      "c": "La Comisi¾n Mixta Congreso-Senado para las relaciones con el Defensor del Pueblo",
+      "c": "La Comisión Mixta Congreso-Senado para las relaciones con el Defensor del Pueblo",
       "d": "El Presidente del Gobierno"
     },
     "correcta": "b",
@@ -417,12 +417,12 @@
   },
   {
     "id": "csif_t1_33",
-    "tema": "Tema 1: La Constituci¾n",
-    "pregunta": "┐A quÚ materia estß dedicado el TÝtulo IV de la Constituci¾n?",
+    "tema": "Tema 1: La Constitución",
+    "pregunta": "¿A qué materia está dedicado el Título IV de la Constitución?",
     "opciones": {
       "a": "Al Gobierno y a las Cortes Generales.",
       "b": "A las Cortes Generales.",
-      "c": "Al Gobierno y a la Administraci¾n.",
+      "c": "Al Gobierno y a la Administración.",
       "d": "Al Tribunal Constitucional"
     },
     "correcta": "c",
@@ -430,8 +430,8 @@
   },
   {
     "id": "csif_t1_34",
-    "tema": "Tema 1: La Constituci¾n",
-    "pregunta": "┐De cußntos artÝculos consta la Constituci¾n espa±ola de 1978?",
+    "tema": "Tema 1: La Constitución",
+    "pregunta": "¿De cuántos artículos consta la Constitución española de 1978?",
     "opciones": {
       "a": "De 169.",
       "b": "De 165.",
@@ -443,8 +443,8 @@
   },
   {
     "id": "csif_t1_35",
-    "tema": "Tema 1: La Constituci¾n",
-    "pregunta": "┐QuÚ espa±oles pueden ejercer el derecho de petici¾n solo de manera individual seg·n la Constituci¾n?",
+    "tema": "Tema 1: La Constitución",
+    "pregunta": "¿Qué españoles pueden ejercer el derecho de petición solo de manera individual según la Constitución?",
     "opciones": {
       "a": "Los miembros de las Fuerzas Armadas.",
       "b": "Los jueces y magistrados.",
@@ -456,25 +456,25 @@
   },
   {
     "id": "csif_t1_36",
-    "tema": "Tema 1: La Constituci¾n",
-    "pregunta": "Todos los siguientes derechos, menos uno, podrßn ser suspendidos en caso de que se acuerde la declaraci¾n de estado de excepci¾n:",
+    "tema": "Tema 1: La Constitución",
+    "pregunta": "Todos los siguientes derechos, menos uno, podrán ser suspendidos en caso de que se acuerde la declaración de estado de excepción:",
     "opciones": {
-      "a": "Derecho de asociaci¾n.",
-      "b": "Derecho de reuni¾n pacÝfica y sin armas.",
+      "a": "Derecho de asociación.",
+      "b": "Derecho de reunión pacífica y sin armas.",
       "c": "Derecho a la asistencia de Abogado en las diligencias policiales y judiciales.",
-      "d": "Derecho a la libertad de residencia y circulaci¾n"
+      "d": "Derecho a la libertad de residencia y circulación"
     },
     "correcta": "c",
     "origen": "CSIF"
   },
   {
     "id": "csif_t1_37",
-    "tema": "Tema 1: La Constituci¾n",
-    "pregunta": "Un sindicato convoca una manifestaci¾n:",
+    "tema": "Tema 1: La Constitución",
+    "pregunta": "Un sindicato convoca una manifestación:",
     "opciones": {
-      "a": "Es necesario autorizaci¾n previa de la Administraci¾n",
-      "b": "Habrß comunicaci¾n previa a la Administraci¾n y no podrß prohibirla en ning·n caso",
-      "c": "Para su celebraci¾n serß necesaria la autorizaci¾n judicial",
+      "a": "Es necesario autorización previa de la Administración",
+      "b": "Habrá comunicación previa a la Administración y no podrá prohibirla en ningún caso",
+      "c": "Para su celebración será necesaria la autorización judicial",
       "d": "Todas las respuestas anteriores son falsas"
     },
     "correcta": "d",
@@ -482,8 +482,8 @@
   },
   {
     "id": "csif_t1_38",
-    "tema": "Tema 1: La Constituci¾n",
-    "pregunta": "En relaci¾n con el derecho a la libertad religiosa ┐quÚ declara la Constituci¾n espa±ola?",
+    "tema": "Tema 1: La Constitución",
+    "pregunta": "En relación con el derecho a la libertad religiosa ¿qué declara la Constitución española?",
     "opciones": {
       "a": "La reconoce y la garantiza.",
       "b": "La reconoce.",
@@ -495,36 +495,36 @@
   },
   {
     "id": "csif_t1_39",
-    "tema": "Tema 1: La Constituci¾n",
-    "pregunta": "┐QuiÚn aprob¾ la Constituci¾n espa±ola de 1978?",
+    "tema": "Tema 1: La Constitución",
+    "pregunta": "¿Quién aprobó la Constitución española de 1978?",
     "opciones": {
       "a": "Las Cortes Generales.",
       "b": "El Congreso de los Diputados.",
       "c": "El Rey.",
-      "d": "El pueblo espa±ol en referÚndum"
+      "d": "El pueblo español en referéndum"
     },
     "correcta": "a",
     "origen": "CSIF"
   },
   {
     "id": "csif_t1_40",
-    "tema": "Tema 1: La Constituci¾n",
-    "pregunta": "┐QuÚ parte de la Constituci¾n espa±ola de 1978 no tiene fuerza jurÝdica para obligar a su cumplimiento?",
+    "tema": "Tema 1: La Constitución",
+    "pregunta": "¿Qué parte de la Constitución española de 1978 no tiene fuerza jurídica para obligar a su cumplimiento?",
     "opciones": {
-      "a": "El Preßmbulo.",
-      "b": "Todas las partes de la Constituci¾n tienen fuerza jurÝdica.",
-      "c": "El TÝtulo Preliminar.",
-      "d": "El TÝtulo referente a la reforma de la Constituci¾n"
+      "a": "El Preámbulo.",
+      "b": "Todas las partes de la Constitución tienen fuerza jurídica.",
+      "c": "El Título Preliminar.",
+      "d": "El Título referente a la reforma de la Constitución"
     },
     "correcta": "a",
     "origen": "CSIF"
   },
   {
     "id": "csif_t1_41",
-    "tema": "Tema 1: La Constituci¾n",
-    "pregunta": "┐QuÚ tipo de ley es necesaria para regular el desarrollo del artÝculo 21 de la Constituci¾n espa±ola de 1978?",
+    "tema": "Tema 1: La Constitución",
+    "pregunta": "¿Qué tipo de ley es necesaria para regular el desarrollo del artículo 21 de la Constitución española de 1978?",
     "opciones": {
-      "a": "Ley orgßnica.",
+      "a": "Ley orgánica.",
       "b": "Ley de bases.",
       "c": "Ley ordinaria.",
       "d": "Decreto-ley"
@@ -534,73 +534,73 @@
   },
   {
     "id": "csif_t1_42",
-    "tema": "Tema 1: La Constituci¾n",
-    "pregunta": "┐En quÚ casos podrß acordarse el secuestro de publicaciones, grabaciones y otros medios de informaci¾n?",
+    "tema": "Tema 1: La Constitución",
+    "pregunta": "¿En qué casos podrá acordarse el secuestro de publicaciones, grabaciones y otros medios de información?",
     "opciones": {
       "a": "En los casos que establezca el Gobierno",
-      "b": "En los casos que determine la Administraci¾n cuando se vulnere alg·n derecho fundamental",
-      "c": "En virtud de resoluci¾n judicial",
-      "d": "En los casos de ofensas a la MonarquÝa y asÝ lo establezca el Ministro de Justicia"
+      "b": "En los casos que determine la Administración cuando se vulnere algún derecho fundamental",
+      "c": "En virtud de resolución judicial",
+      "d": "En los casos de ofensas a la Monarquía y así lo establezca el Ministro de Justicia"
     },
     "correcta": "c",
     "origen": "CSIF"
   },
   {
     "id": "csif_t1_43",
-    "tema": "Tema 1: La Constituci¾n",
-    "pregunta": "┐QuiÚn ratific¾ la Constituci¾n espa±ola de 1978?",
+    "tema": "Tema 1: La Constitución",
+    "pregunta": "¿Quién ratificó la Constitución española de 1978?",
     "opciones": {
       "a": "Las Cortes Generales.",
       "b": "El Rey.",
       "c": "El Gobierno",
-      "d": "El pueblo espa±ol."
+      "d": "El pueblo español."
     },
     "correcta": "d",
     "origen": "CSIF"
   },
   {
     "id": "csif_t1_44",
-    "tema": "Tema 1: La Constituci¾n",
-    "pregunta": "┐QuiÚn nombra al Defensor del Pueblo? ┐QuÚ derechos le corresponde defender?",
+    "tema": "Tema 1: La Constitución",
+    "pregunta": "¿Quién nombra al Defensor del Pueblo? ¿Qué derechos le corresponde defender?",
     "opciones": {
-      "a": "El Presidente del Gobierno. Todos los reconocidos en el tÝtulo I de la Constituci¾n",
-      "b": "El Rey. Todos los reconocidos la Constituci¾n",
-      "c": "Las Cortes Generales. Todos los reconocidos en el tÝtulo I de la Constituci¾n",
-      "d": "El Tribunal Constitucional en Pleno; Todos los reconocidos en la Constituci¾n"
+      "a": "El Presidente del Gobierno. Todos los reconocidos en el título I de la Constitución",
+      "b": "El Rey. Todos los reconocidos la Constitución",
+      "c": "Las Cortes Generales. Todos los reconocidos en el título I de la Constitución",
+      "d": "El Tribunal Constitucional en Pleno; Todos los reconocidos en la Constitución"
     },
     "correcta": "c",
     "origen": "CSIF"
   },
   {
     "id": "csif_t1_45",
-    "tema": "Tema 1: La Constituci¾n",
-    "pregunta": "┐En quÚ casos se puede proceder a la entrada en un domicilio particular sin incurrir en infracci¾n penal?",
+    "tema": "Tema 1: La Constitución",
+    "pregunta": "¿En qué casos se puede proceder a la entrada en un domicilio particular sin incurrir en infracción penal?",
     "opciones": {
-      "a": "En caso de autorizaci¾n del titular o resoluci¾n judicial exclusivamente.",
-      "b": "En caso de delito flagrante o resoluci¾n judicial exclusivamente.",
-      "c": "En ning·n caso; serß siempre necesaria la autorizaci¾n del titular",
-      "d": "En caso de autorizaci¾n del titular, resoluci¾n judicial o flagrante delito."
+      "a": "En caso de autorización del titular o resolución judicial exclusivamente.",
+      "b": "En caso de delito flagrante o resolución judicial exclusivamente.",
+      "c": "En ningún caso; será siempre necesaria la autorización del titular",
+      "d": "En caso de autorización del titular, resolución judicial o flagrante delito."
     },
     "correcta": "d",
     "origen": "CSIF"
   },
   {
     "id": "csif_t1_46",
-    "tema": "Tema 1: La Constituci¾n",
-    "pregunta": "De los TÝtulos indicados a continuaci¾n. ┐cußl hace referencia a la reforma constitucional?",
+    "tema": "Tema 1: La Constitución",
+    "pregunta": "De los Títulos indicados a continuación. ¿cuál hace referencia a la reforma constitucional?",
     "opciones": {
       "a": "El Titulo VIII.",
-      "b": "El TÝtulo IX.",
-      "c": "El TÝtulo X.",
-      "d": "El TÝtulo XI"
+      "b": "El Título IX.",
+      "c": "El Título X.",
+      "d": "El Título XI"
     },
     "correcta": "c",
     "origen": "CSIF"
   },
   {
     "id": "csif_t1_47",
-    "tema": "Tema 1: La Constituci¾n",
-    "pregunta": "┐QuÚ asociaciones estßn prohibidas seg·n la Constituci¾n?",
+    "tema": "Tema 1: La Constitución",
+    "pregunta": "¿Qué asociaciones están prohibidas según la Constitución?",
     "opciones": {
       "a": "Las asociaciones ilegales y las paramilitares.",
       "b": "Las asociaciones paramilitares y las secretas.",
@@ -612,8 +612,8 @@
   },
   {
     "id": "csif_t1_48",
-    "tema": "Tema 1: La Constituci¾n",
-    "pregunta": "┐C¾mo se denomina el procedimiento judicial por el que se debe poner a un detenido a disposici¾n inmediata de la autoridad judicial?",
+    "tema": "Tema 1: La Constitución",
+    "pregunta": "¿Cómo se denomina el procedimiento judicial por el que se debe poner a un detenido a disposición inmediata de la autoridad judicial?",
     "opciones": {
       "a": "Proceso sumario.",
       "b": "Habeas Corpus.",
@@ -625,12 +625,12 @@
   },
   {
     "id": "csif_t1_49",
-    "tema": "Tema 1: La Constituci¾n",
-    "pregunta": "┐QuÚ TÝtulo de la Constituci¾n estß dedicado a la organizaci¾n territorial del Estado?",
+    "tema": "Tema 1: La Constitución",
+    "pregunta": "¿Qué Título de la Constitución está dedicado a la organización territorial del Estado?",
     "opciones": {
-      "a": "El TÝtulo IX.",
-      "b": "El TÝtulo VII.",
-      "c": "El TÝtulo X",
+      "a": "El Título IX.",
+      "b": "El Título VII.",
+      "c": "El Título X",
       "d": "El Titulo VIII."
     },
     "correcta": "d",
@@ -638,8 +638,8 @@
   },
   {
     "id": "csif_t1_50",
-    "tema": "Tema 1: La Constituci¾n",
-    "pregunta": "┐En quÚ fecha fue sancionada y promulgada la Constituci¾n espa±ola de 1978?",
+    "tema": "Tema 1: La Constitución",
+    "pregunta": "¿En qué fecha fue sancionada y promulgada la Constitución española de 1978?",
     "opciones": {
       "a": "El 27 de diciembre de 1978.",
       "b": "El 29 de diciembre de 1978.",
@@ -651,21 +651,21 @@
   },
   {
     "id": "csif_t1_51",
-    "tema": "Tema 1: La Constituci¾n",
-    "pregunta": "Seg·n la Constituci¾n ┐puede la Administraci¾n civil, imponer sanciones que impliquen privaci¾n de libertad?",
+    "tema": "Tema 1: La Constitución",
+    "pregunta": "Según la Constitución ¿puede la Administración civil, imponer sanciones que impliquen privación de libertad?",
     "opciones": {
-      "a": "SÝ, tanto de forma indirecta como directa.",
+      "a": "Sí, tanto de forma indirecta como directa.",
       "b": "No, ni de forma directa ni de forma indirecta o subsidiaria.",
-      "c": "No de forma directa, pero sÝ de forma subsidiaria.",
-      "d": "SÝ, pero solo lo puede hacer el Consejo de Ministros o el Ministro del Interior"
+      "c": "No de forma directa, pero sí de forma subsidiaria.",
+      "d": "Sí, pero solo lo puede hacer el Consejo de Ministros o el Ministro del Interior"
     },
     "correcta": "b",
     "origen": "CSIF"
   },
   {
     "id": "csif_t1_52",
-    "tema": "Tema 1: La Constituci¾n",
-    "pregunta": "┐Cußl es el tiempo mßximo de duraci¾n de la detenci¾n preventiva a tenor de lo dispuesto en la Constituci¾n?",
+    "tema": "Tema 1: La Constitución",
+    "pregunta": "¿Cuál es el tiempo máximo de duración de la detención preventiva a tenor de lo dispuesto en la Constitución?",
     "opciones": {
       "a": "48 horas.",
       "b": "24 horas.",
@@ -677,11 +677,11 @@
   },
   {
     "id": "csif_t1_53",
-    "tema": "Tema 1: La Constituci¾n",
-    "pregunta": "Solo uno de los siguientes derechos podrß ser suspendido en caso de se acuerde la declaraci¾n de estado de excepci¾n o de sitio:",
+    "tema": "Tema 1: La Constitución",
+    "pregunta": "Solo uno de los siguientes derechos podrá ser suspendido en caso de se acuerde la declaración de estado de excepción o de sitio:",
     "opciones": {
       "a": "Derecho de huelga.",
-      "b": "Derecho de petici¾n colectiva.",
+      "b": "Derecho de petición colectiva.",
       "c": "Derecho a obtener la tutela efectiva de Jueces y Tribunales.",
       "d": "Derecho a una vivienda digna"
     },
@@ -690,25 +690,25 @@
   },
   {
     "id": "csif_t1_54",
-    "tema": "Tema 1: La Constituci¾n",
-    "pregunta": "┐QuÚ debe hacerse con un detenido en el momento en que se agote el tiempo mßximo de detenci¾n preventiva?",
+    "tema": "Tema 1: La Constitución",
+    "pregunta": "¿Qué debe hacerse con un detenido en el momento en que se agote el tiempo máximo de detención preventiva?",
     "opciones": {
-      "a": "Declarar el ingreso en prisi¾n.",
-      "b": "Ponerlo a disposici¾n judicial para que declare la puesta en libertad.",
-      "c": "Ponerlo en libertad o a disposici¾n judicial.",
-      "d": "Ponerlo a disposici¾n del Ministerio Fiscal"
+      "a": "Declarar el ingreso en prisión.",
+      "b": "Ponerlo a disposición judicial para que declare la puesta en libertad.",
+      "c": "Ponerlo en libertad o a disposición judicial.",
+      "d": "Ponerlo a disposición del Ministerio Fiscal"
     },
     "correcta": "c",
     "origen": "CSIF"
   },
   {
     "id": "csif_t1_55",
-    "tema": "Tema 1: La Constituci¾n",
-    "pregunta": "De las siguientes partes, ┐cußl abre el texto de la Constituci¾n espa±ola de 1978?",
+    "tema": "Tema 1: La Constitución",
+    "pregunta": "De las siguientes partes, ¿cuál abre el texto de la Constitución española de 1978?",
     "opciones": {
-      "a": "El TÝtulo 1.",
-      "b": "El TÝtulo Preliminar.",
-      "c": "El Preßmbulo.",
+      "a": "El Título 1.",
+      "b": "El Título Preliminar.",
+      "c": "El Preámbulo.",
       "d": "No hay respuestas correctas"
     },
     "correcta": "c",
@@ -716,12 +716,12 @@
   },
   {
     "id": "csif_t1_56",
-    "tema": "Tema 1: La Constituci¾n",
-    "pregunta": "Las penas privativas de libertad ┐pueden consistir en trabajos forzados seg·n la Constituci¾n?",
+    "tema": "Tema 1: La Constitución",
+    "pregunta": "Las penas privativas de libertad ¿pueden consistir en trabajos forzados según la Constitución?",
     "opciones": {
-      "a": "En ning·n caso.",
-      "b": "Solo en caso de suspensi¾n del derecho contemplado en el artÝculo 26 de la Constituci¾n.",
-      "c": "Solo en casos excepcionalmente recogidos en la legislaci¾n vigente.",
+      "a": "En ningún caso.",
+      "b": "Solo en caso de suspensión del derecho contemplado en el artículo 26 de la Constitución.",
+      "c": "Solo en casos excepcionalmente recogidos en la legislación vigente.",
       "d": "Solo en los casos de condenas por delitos contra las personas"
     },
     "correcta": "a",
@@ -729,8 +729,8 @@
   },
   {
     "id": "csif_t1_57",
-    "tema": "Tema 1: La Constituci¾n",
-    "pregunta": "┐QuÚ dÝa entr¾ en vigor la Constituci¾n espa±ola de 1978?",
+    "tema": "Tema 1: La Constitución",
+    "pregunta": "¿Qué día entró en vigor la Constitución española de 1978?",
     "opciones": {
       "a": "El 27 de diciembre de 1978.",
       "b": "El 29 de diciembre de 1978.",
@@ -742,25 +742,25 @@
   },
   {
     "id": "csif_t1_58",
-    "tema": "Tema 1: La Constituci¾n",
-    "pregunta": "┐A quÚ derecho fundamental hace referencia el no ser sometido en ning·n caso a penas o tratos inhumanos o degradantes?",
+    "tema": "Tema 1: La Constitución",
+    "pregunta": "¿A qué derecho fundamental hace referencia el no ser sometido en ningún caso a penas o tratos inhumanos o degradantes?",
     "opciones": {
-      "a": "Derecho a la integridad fÝsica",
+      "a": "Derecho a la integridad física",
       "b": "Derecho a la vida",
       "c": "Derecho a la igualdad",
-      "d": "Derecho a la libertad de residencia y circulaci¾n"
+      "d": "Derecho a la libertad de residencia y circulación"
     },
     "correcta": "a",
     "origen": "CSIF"
   },
   {
     "id": "csif_t1_59",
-    "tema": "Tema 1: La Constituci¾n",
-    "pregunta": "┐QuÚ asociaciones son ilegales?",
+    "tema": "Tema 1: La Constitución",
+    "pregunta": "¿Qué asociaciones son ilegales?",
     "opciones": {
       "a": "Las que persigan fines o utilicen medios tipificados como delito.",
       "b": "Las asociaciones prohibidas.",
-      "c": "Las que no estÚn inscritas en el registro correspondiente del Ministerio del Interior.",
+      "c": "Las que no estén inscritas en el registro correspondiente del Ministerio del Interior.",
       "d": "Las que carezcan de Estatutos fundacionales"
     },
     "correcta": "a",
@@ -768,11 +768,11 @@
   },
   {
     "id": "csif_t1_60",
-    "tema": "Tema 1: La Constituci¾n",
-    "pregunta": "┐QuÚ tipo de delitos estßn excluidos de la extradici¾n de acuerdo con la Constituci¾n?",
+    "tema": "Tema 1: La Constitución",
+    "pregunta": "¿Qué tipo de delitos están excluidos de la extradición de acuerdo con la Constitución?",
     "opciones": {
       "a": "Los delitos de terrorismo",
-      "b": "Los delitos polÝticos.",
+      "b": "Los delitos políticos.",
       "c": "Los delitos sociales y politicos..",
       "d": "Los delitos contra la vida de las personas"
     },
@@ -781,8 +781,8 @@
   },
   {
     "id": "csif_t1_61",
-    "tema": "Tema 1: La Constituci¾n",
-    "pregunta": "En el caso de la detenci¾n preventiva ┐en quÚ trßmites estß garantizada por la Constituci¾n, la asistencia de abogado?",
+    "tema": "Tema 1: La Constitución",
+    "pregunta": "En el caso de la detención preventiva ¿en qué trámites está garantizada por la Constitución, la asistencia de abogado?",
     "opciones": {
       "a": "Solo en las diligencias judiciales.",
       "b": "En las diligencias policiales y en judiciales.",
@@ -794,21 +794,21 @@
   },
   {
     "id": "csif_t1_62",
-    "tema": "Tema 1: La Constituci¾n",
-    "pregunta": "El derecho a sindicarse libremente seg·n la Constituci¾n:",
+    "tema": "Tema 1: La Constitución",
+    "pregunta": "El derecho a sindicarse libremente según la Constitución:",
     "opciones": {
       "a": "Su ejercicio por parte de los funcionarios no presenta peculiaridad alguna.",
       "b": "Lo tienen todos los trabajadores.",
-      "c": "La Constituci¾n no recoge este derecho",
-      "d": "Podrß ser limitado, o exceptuado, a las Fuerzas Armadas."
+      "c": "La Constitución no recoge este derecho",
+      "d": "Podrá ser limitado, o exceptuado, a las Fuerzas Armadas."
     },
     "correcta": "d",
     "origen": "CSIF"
   },
   {
     "id": "csif_t1_63",
-    "tema": "Tema 1: La Constituci¾n",
-    "pregunta": "┐Ante quiÚn se presenta el recurso de amparo?",
+    "tema": "Tema 1: La Constitución",
+    "pregunta": "¿Ante quién se presenta el recurso de amparo?",
     "opciones": {
       "a": "Ante el Consejo General del Poder Judicial.",
       "b": "Ante cualquier juzgado o tribunal.",
@@ -820,23 +820,23 @@
   },
   {
     "id": "csif_t1_64",
-    "tema": "Tema 1: La Constituci¾n",
-    "pregunta": "┐QuÚ artÝculo del TÝtulo I recoge la regulaci¾n de la suspensi¾n de los derechos y libertades?",
+    "tema": "Tema 1: La Constitución",
+    "pregunta": "¿Qué artículo del Título I recoge la regulación de la suspensión de los derechos y libertades?",
     "opciones": {
-      "a": "El artÝculo 51.",
-      "b": "El artÝculo 53.",
-      "c": "El artÝculo 55.",
-      "d": "Ninguno, puesto que no es posible la suspensi¾n de los derechos y libertades"
+      "a": "El artículo 51.",
+      "b": "El artículo 53.",
+      "c": "El artículo 55.",
+      "d": "Ninguno, puesto que no es posible la suspensión de los derechos y libertades"
     },
     "correcta": "c",
     "origen": "CSIF"
   },
   {
     "id": "csif_t1_65",
-    "tema": "Tema 1: La Constituci¾n",
-    "pregunta": "┐Cußl de los siguientes derechos no se engloba en el derecho a la tutela judicial efectiva?",
+    "tema": "Tema 1: La Constitución",
+    "pregunta": "¿Cuál de los siguientes derechos no se engloba en el derecho a la tutela judicial efectiva?",
     "opciones": {
-      "a": "El derecho a obtener una decisi¾n por parte de los jueces y tribunales.",
+      "a": "El derecho a obtener una decisión por parte de los jueces y tribunales.",
       "b": "El derecho al cumplimiento de las resoluciones judiciales.",
       "c": "El derecho al juez subsidiario.",
       "d": "No hay respuestas correctas"
@@ -846,60 +846,60 @@
   },
   {
     "id": "csif_t1_66",
-    "tema": "Tema 1: La Constituci¾n",
-    "pregunta": "┐QuiÚnes tienen derecho a la tutela judicial efectiva de jueces y tribunales seg·n la Constituci¾n?",
+    "tema": "Tema 1: La Constitución",
+    "pregunta": "¿Quiénes tienen derecho a la tutela judicial efectiva de jueces y tribunales según la Constitución?",
     "opciones": {
-      "a": "Solo los ciudadanos espa±oles y los nacionales de paÝses de la Uni¾n Europea legalizados.",
+      "a": "Solo los ciudadanos españoles y los nacionales de países de la Unión Europea legalizados.",
       "b": "Todas las personas.",
-      "c": "Todos los ciudadanos de la Uni¾n Europea y los espa±oles, pero no los extranjeros ajenos a ese ßmbito.",
-      "d": "Los espa±oles"
+      "c": "Todos los ciudadanos de la Unión Europea y los españoles, pero no los extranjeros ajenos a ese ámbito.",
+      "d": "Los españoles"
     },
     "correcta": "b",
     "origen": "CSIF"
   },
   {
     "id": "csif_t1_67",
-    "tema": "Tema 1: La Constituci¾n",
-    "pregunta": "┐En quÚ ßmbito estßn prohibidos los Tribunales de Honor?",
+    "tema": "Tema 1: La Constitución",
+    "pregunta": "¿En qué ámbito están prohibidos los Tribunales de Honor?",
     "opciones": {
-      "a": "En el ßmbito de la Administraci¾n civil.",
-      "b": "En el ßmbito de la Administraci¾n civil y militar.",
-      "c": "En el ßmbito de la Administraci¾n civil y en el de las organizaciones profesionales.",
-      "d": "En ninguno, ya que no estßn prohibidos"
+      "a": "En el ámbito de la Administración civil.",
+      "b": "En el ámbito de la Administración civil y militar.",
+      "c": "En el ámbito de la Administración civil y en el de las organizaciones profesionales.",
+      "d": "En ninguno, ya que no están prohibidos"
     },
     "correcta": "c",
     "origen": "CSIF"
   },
   {
     "id": "csif_t1_68",
-    "tema": "Tema 1: La Constituci¾n",
-    "pregunta": "┐QuÚ artÝculo del TÝtulo I recoge el principio de igualdad jurÝdica de los espa±oles ante la ley?",
+    "tema": "Tema 1: La Constitución",
+    "pregunta": "¿Qué artículo del Título I recoge el principio de igualdad jurídica de los españoles ante la ley?",
     "opciones": {
-      "a": "El artÝculo 16.",
-      "b": "El artÝculo 11.",
-      "c": "El artÝculo 14.",
-      "d": "La Constituci¾n no recoge este principio de igualdad"
+      "a": "El artículo 16.",
+      "b": "El artículo 11.",
+      "c": "El artículo 14.",
+      "d": "La Constitución no recoge este principio de igualdad"
     },
     "correcta": "c",
     "origen": "CSIF"
   },
   {
     "id": "csif_t1_69",
-    "tema": "Tema 1: La Constituci¾n",
-    "pregunta": "┐QuÚ artÝculos de la Constituci¾n de 1978 han sido modificado desde su entrada en vigor?",
+    "tema": "Tema 1: La Constitución",
+    "pregunta": "¿Qué artículos de la Constitución de 1978 han sido modificado desde su entrada en vigor?",
     "opciones": {
       "a": "Ninguno",
       "b": "El art. 13 y el art. 135",
-      "c": "Solo el artÝculo referente a la abdicaci¾n del Rey",
-      "d": "El artÝculo en el que se contempla la posibilidad de declarar el estado de alarma"
+      "c": "Solo el artículo referente a la abdicación del Rey",
+      "d": "El artículo en el que se contempla la posibilidad de declarar el estado de alarma"
     },
     "correcta": "b",
     "origen": "CSIF"
   },
   {
     "id": "csif_t1_70",
-    "tema": "Tema 1: La Constituci¾n",
-    "pregunta": "┐Cußntas veces ha sido modificada la Constituci¾n de 1978 desde su entrada en vigor?",
+    "tema": "Tema 1: La Constitución",
+    "pregunta": "¿Cuántas veces ha sido modificada la Constitución de 1978 desde su entrada en vigor?",
     "opciones": {
       "a": "Ninguna",
       "b": "Una",
@@ -911,37 +911,37 @@
   },
   {
     "id": "csif_t1_71",
-    "tema": "Tema 1: La Constituci¾n",
-    "pregunta": "┐QuiÚn o quiÚnes, seg·n la Constituci¾n, tienen el derecho y el deber de defender a Espa±a?",
+    "tema": "Tema 1: La Constitución",
+    "pregunta": "¿Quién o quiénes, según la Constitución, tienen el derecho y el deber de defender a España?",
     "opciones": {
       "a": "Los miembros de las Fuerzas Armadas",
       "b": "Los integrantes de las Fuerzas y Cuerpos de Seguridad",
-      "c": "Los ciudadanos mayores de edad que residan en territorio espa±ol",
-      "d": "Los espa±oles"
+      "c": "Los ciudadanos mayores de edad que residan en territorio español",
+      "d": "Los españoles"
     },
     "correcta": "d",
     "origen": "CSIF"
   },
   {
     "id": "csif_t1_72",
-    "tema": "Tema 1: La Constituci¾n",
-    "pregunta": "Seg·n la Constituci¾n ┐quiÚnes deben contribuir al sostenimiento de los gastos p·blicos de acuerdo con su capacidad econ¾mica mediante un sistema tributario justo?",
+    "tema": "Tema 1: La Constitución",
+    "pregunta": "Según la Constitución ¿quiénes deben contribuir al sostenimiento de los gastos públicos de acuerdo con su capacidad económica mediante un sistema tributario justo?",
     "opciones": {
       "a": "Los ciudadanos",
       "b": "Todos",
-      "c": "Los espa±oles",
-      "d": "Los espa±oles mayores de edad que residan en Espa±a"
+      "c": "Los españoles",
+      "d": "Los españoles mayores de edad que residan en España"
     },
     "correcta": "b",
     "origen": "CSIF"
   },
   {
     "id": "csif_t1_73",
-    "tema": "Tema 1: La Constituci¾n",
-    "pregunta": "Seg·n la Constituci¾n solo podrßn establecerse prestaciones personales o patrimoniales de carßcter p·blico con arreglo:",
+    "tema": "Tema 1: La Constitución",
+    "pregunta": "Según la Constitución solo podrán establecerse prestaciones personales o patrimoniales de carácter público con arreglo:",
     "opciones": {
       "a": "A lo dispuesto por el Ministerio de hacienda",
-      "b": "A lo establecido en el TÝtulo VII de la misma",
+      "b": "A lo establecido en el Título VII de la misma",
       "c": "A lo que apruebe el Consejo de Ministros",
       "d": "A la Ley."
     },
@@ -950,11 +950,11 @@
   },
   {
     "id": "csif_t1_74",
-    "tema": "Tema 1: La Constituci¾n",
-    "pregunta": "De acuerdo con la Constituci¾n el hombre y la mujer tienen derecho a contraer matrimonio:",
+    "tema": "Tema 1: La Constitución",
+    "pregunta": "De acuerdo con la Constitución el hombre y la mujer tienen derecho a contraer matrimonio:",
     "opciones": {
-      "a": "Una vez cumplida la mayorÝa de edad",
-      "b": "Con plena igualdad jurÝdica.",
+      "a": "Una vez cumplida la mayoría de edad",
+      "b": "Con plena igualdad jurídica.",
       "c": "Con persona de otro sexo",
       "d": "De forma civil o religiosa"
     },
@@ -963,11 +963,11 @@
   },
   {
     "id": "csif_t1_75",
-    "tema": "Tema 1: La Constituci¾n",
-    "pregunta": "Se±ala la Constituci¾n que nadie podrß ser privado de sus bienes y derechos sino:",
+    "tema": "Tema 1: La Constitución",
+    "pregunta": "Señala la Constitución que nadie podrá ser privado de sus bienes y derechos sino:",
     "opciones": {
-      "a": "Por causa justificada de utilidad p·blica o interÚs social,",
-      "b": "Mediante la correspondiente indemnizaci¾n y de conformidad con lo dispuesto por las Leyes.",
+      "a": "Por causa justificada de utilidad pública o interés social,",
+      "b": "Mediante la correspondiente indemnización y de conformidad con lo dispuesto por las Leyes.",
       "c": "Las dos respuestas anteriores son correctas",
       "d": "No hay respuestas correctas"
     },
@@ -976,23 +976,23 @@
   },
   {
     "id": "csif_t1_76",
-    "tema": "Tema 1: La Constituci¾n",
-    "pregunta": "Dispone el art. 34 de la Constituci¾n que se reconoce el derecho de fundaci¾n para:",
+    "tema": "Tema 1: La Constitución",
+    "pregunta": "Dispone el art. 34 de la Constitución que se reconoce el derecho de fundación para:",
     "opciones": {
-      "a": "Fines de interÚs general, con arreglo a la Ley.",
-      "b": "Fines de interÚs general o particular",
-      "c": "Fines de interÚs social",
-      "d": "Fines de interÚs deportivo."
+      "a": "Fines de interés general, con arreglo a la Ley.",
+      "b": "Fines de interés general o particular",
+      "c": "Fines de interés social",
+      "d": "Fines de interés deportivo."
     },
     "correcta": "a",
     "origen": "CSIF"
   },
   {
     "id": "csif_t1_77",
-    "tema": "Tema 1: La Constituci¾n",
-    "pregunta": "Indica la respuesta que sea correcta respeto a las fundaciones de acuerdo con dispuesto en el art. 34 de Constituci¾n:\n\na) Las que persigan fines o utilicen medios tipificados como delito son ilegales. \n\nb) Solo podrßn ser disueltas o suspendidas en sus actividades en virtud de resoluci¾n judicial motivada",
+    "tema": "Tema 1: La Constitución",
+    "pregunta": "Indica la respuesta que sea correcta respeto a las fundaciones de acuerdo con dispuesto en el art. 34 de Constitución:\n\na) Las que persigan fines o utilicen medios tipificados como delito son ilegales. \n\nb) Solo podrán ser disueltas o suspendidas en sus actividades en virtud de resolución judicial motivada",
     "opciones": {
-      "a": "Podrßn ser disueltas o suspendidas en sus actividades mediante resoluci¾n administrativa",
+      "a": "Podrán ser disueltas o suspendidas en sus actividades mediante resolución administrativa",
       "b": "Las respuestas",
       "c": "y",
       "d": "son correctas"
@@ -1002,23 +1002,23 @@
   },
   {
     "id": "csif_t1_78",
-    "tema": "Tema 1: La Constituci¾n",
-    "pregunta": "Seg·n el art. 35 de la Constituci¾n todos los espa±oles tienen el deber de trabajar y el derecho al trabajo, a libre elecci¾n de profesi¾n u oficio, a la promoci¾n a travÚs del trabajo y, ademßs:",
+    "tema": "Tema 1: La Constitución",
+    "pregunta": "Según el art. 35 de la Constitución todos los españoles tienen el deber de trabajar y el derecho al trabajo, a libre elección de profesión u oficio, a la promoción a través del trabajo y, además:",
     "opciones": {
-      "a": "A una remuneraci¾n suficiente para atender sus necesidades personales",
-      "b": "A una remuneraci¾n suficiente para satisfacer sus necesidades y las de su familia, sin que en ning·n caso pueda hacerse discriminaci¾n por raz¾n de sexo.",
-      "c": "A una remuneraci¾n fijada previamente en los convenios colectivos",
-      "d": "A una remuneraci¾n acorde con su situaci¾n personal y familiar"
+      "a": "A una remuneración suficiente para atender sus necesidades personales",
+      "b": "A una remuneración suficiente para satisfacer sus necesidades y las de su familia, sin que en ningún caso pueda hacerse discriminación por razón de sexo.",
+      "c": "A una remuneración fijada previamente en los convenios colectivos",
+      "d": "A una remuneración acorde con su situación personal y familiar"
     },
     "correcta": "b",
     "origen": "CSIF"
   },
   {
     "id": "csif_t1_79",
-    "tema": "Tema 1: La Constituci¾n",
-    "pregunta": "De acuerdo con el art. 37 de la Constituci¾n ┐quiÚn garantizarß el derecho a la negociaci¾n colectiva laboral entre los representantes de los trabajadores y empresarios, asÝ como la fuerza vinculante de los convenios?",
+    "tema": "Tema 1: La Constitución",
+    "pregunta": "De acuerdo con el art. 37 de la Constitución ¿quién garantizará el derecho a la negociación colectiva laboral entre los representantes de los trabajadores y empresarios, así como la fuerza vinculante de los convenios?",
     "opciones": {
-      "a": "El Gobierno central y los Gobiernos de las Comunidades Aut¾nomas",
+      "a": "El Gobierno central y los Gobiernos de las Comunidades Autónomas",
       "b": "Los sindicatos",
       "c": "La ley",
       "d": "La patronal"
@@ -1028,8 +1028,8 @@
   },
   {
     "id": "csif_t1_80",
-    "tema": "Tema 1: La Constituci¾n",
-    "pregunta": "┐A quiÚn reconoce la Constituci¾n el derecho a adoptar medidas de conflicto colectivo?",
+    "tema": "Tema 1: La Constitución",
+    "pregunta": "¿A quién reconoce la Constitución el derecho a adoptar medidas de conflicto colectivo?",
     "opciones": {
       "a": "A los trabajadores",
       "b": "A los sindicatos",
@@ -1041,12 +1041,12 @@
   },
   {
     "id": "csif_t1_81",
-    "tema": "Tema 1: La Constituci¾n",
-    "pregunta": "El art. 38 de la Constituci¾n reconoce la libertad de empresa en el marco de:",
+    "tema": "Tema 1: La Constitución",
+    "pregunta": "El art. 38 de la Constitución reconoce la libertad de empresa en el marco de:",
     "opciones": {
-      "a": "Lo dispuesto por la Uni¾n Europea",
-      "b": "La economÝa de mercado",
-      "c": "Las directrices que disponga el Gobierno de la naci¾n",
+      "a": "Lo dispuesto por la Unión Europea",
+      "b": "La economía de mercado",
+      "c": "Las directrices que disponga el Gobierno de la nación",
       "d": "Una sociedad globalizada"
     },
     "correcta": "b",
@@ -1054,12 +1054,12 @@
   },
   {
     "id": "csif_t1_82",
-    "tema": "Tema 1: La Constituci¾n",
-    "pregunta": "┐A quiÚn encomienda la Constituci¾n, en su art. 39, asegurar la protecci¾n social, econ¾mica y jurÝdica de la familia?",
+    "tema": "Tema 1: La Constitución",
+    "pregunta": "¿A quién encomienda la Constitución, en su art. 39, asegurar la protección social, económica y jurídica de la familia?",
     "opciones": {
       "a": "Al Estado",
-      "b": "A las Comunidades Aut¾nomas",
-      "c": "A los poderes p·blicos",
+      "b": "A las Comunidades Autónomas",
+      "c": "A los poderes públicos",
       "d": "A los Ayuntamientos"
     },
     "correcta": "c",
@@ -1067,11 +1067,11 @@
   },
   {
     "id": "csif_t1_83",
-    "tema": "Tema 1: La Constituci¾n",
-    "pregunta": "Seg·n el art. 40 de la Constituci¾n ┐quiÚnes debe realizar una polÝtica especial orientada al pleno empleo?",
+    "tema": "Tema 1: La Constitución",
+    "pregunta": "Según el art. 40 de la Constitución ¿quiénes debe realizar una política especial orientada al pleno empleo?",
     "opciones": {
       "a": "Los trabajadores y los empresario",
-      "b": "Los poderes p·blicos",
+      "b": "Los poderes públicos",
       "c": "Los sindicatos",
       "d": "Las organizaciones empresariales"
     },
@@ -1080,25 +1080,25 @@
   },
   {
     "id": "csif_t1_84",
-    "tema": "Tema 1: La Constituci¾n",
-    "pregunta": "Dispone el art. 41 de la Constituci¾n que los poderes p·blicos mantendrßn un rÚgimen p·blico de Seguridad Social para:",
+    "tema": "Tema 1: La Constitución",
+    "pregunta": "Dispone el art. 41 de la Constitución que los poderes públicos mantendrán un régimen público de Seguridad Social para:",
     "opciones": {
-      "a": "Todos los espa±oles, especialmente en caso de desempleo",
+      "a": "Todos los españoles, especialmente en caso de desempleo",
       "b": "Todos los ciudadanos, que garantice la asistencia y prestaciones sociales suficientes ante situaciones de necesidad, especialmente en caso de desempleo.",
-      "c": "Todos los que desempe±en un puesto de trabajo",
-      "d": "Ese rÚgimen p·blico de Seguridad Social no estß contemplado en la Constituci¾n"
+      "c": "Todos los que desempeñen un puesto de trabajo",
+      "d": "Ese régimen público de Seguridad Social no está contemplado en la Constitución"
     },
     "correcta": "b",
     "origen": "CSIF"
   },
   {
     "id": "csif_t1_85",
-    "tema": "Tema 1: La Constituci¾n",
-    "pregunta": "Seg·n el art. 41 de la Constituci¾n la asistencia y prestaciones complementarias del rÚgimen p·blico de Seguridad social:",
+    "tema": "Tema 1: La Constitución",
+    "pregunta": "Según el art. 41 de la Constitución la asistencia y prestaciones complementarias del régimen público de Seguridad social:",
     "opciones": {
-      "a": "Serßn libres.",
-      "b": "Serßn obligatorias",
-      "c": "Deberßn ser cubiertas por las Comunidades aut¾nomas",
+      "a": "Serán libres.",
+      "b": "Serán obligatorias",
+      "c": "Deberán ser cubiertas por las Comunidades autónomas",
       "d": "No existen ya actualmente"
     },
     "correcta": "a",
@@ -1106,11 +1106,11 @@
   },
   {
     "id": "csif_t1_86",
-    "tema": "Tema 1: La Constituci¾n",
-    "pregunta": "El art. 43 reconoce el derecho a la protecci¾n de la salud y se±ala que compete a los poderes p·blicos organizar y tutelar la salud p·blica a travÚs de:",
+    "tema": "Tema 1: La Constitución",
+    "pregunta": "El art. 43 reconoce el derecho a la protección de la salud y señala que compete a los poderes públicos organizar y tutelar la salud pública a través de:",
     "opciones": {
       "a": "El Sistema Nacional de Salud",
-      "b": "La red de hospitales p·blicos y privados",
+      "b": "La red de hospitales públicos y privados",
       "c": "Vacunas y medicamentos",
       "d": "Medidas preventivas y de las prestaciones y servicios necesarios."
     },
@@ -1119,63 +1119,63 @@
   },
   {
     "id": "csif_t1_87",
-    "tema": "Tema 1: La Constituci¾n",
-    "pregunta": "Seg·n el art. 44 de la Constituci¾n quienes deben promover y tutelar el acceso a la cultura:",
+    "tema": "Tema 1: La Constitución",
+    "pregunta": "Según el art. 44 de la Constitución quienes deben promover y tutelar el acceso a la cultura:",
     "opciones": {
-      "a": "Las Comunidades Aut¾nomas",
-      "b": "El Ministerio de Cultura y las ConsejerÝas competentes",
-      "c": "Los poderes p·blicos",
-      "d": "El Gobierno central y los Gobiernos auton¾micos"
+      "a": "Las Comunidades Autónomas",
+      "b": "El Ministerio de Cultura y las Consejerías competentes",
+      "c": "Los poderes públicos",
+      "d": "El Gobierno central y los Gobiernos autonómicos"
     },
     "correcta": "c",
     "origen": "CSIF"
   },
   {
     "id": "csif_t1_88",
-    "tema": "Tema 1: La Constituci¾n",
-    "pregunta": "Conforme el art. 45 de la Constituci¾n ┐quiÚnes tienen el derecho a disfrutar de un medio ambiente adecuado para el desarrollo de la persona, asÝ como el deber de conservarlo?",
+    "tema": "Tema 1: La Constitución",
+    "pregunta": "Conforme el art. 45 de la Constitución ¿quiénes tienen el derecho a disfrutar de un medio ambiente adecuado para el desarrollo de la persona, así como el deber de conservarlo?",
     "opciones": {
       "a": "Los ciudadanos",
-      "b": "Los espa±oles y los extranjeros",
+      "b": "Los españoles y los extranjeros",
       "c": "Todos",
-      "d": "Los espa±oles"
+      "d": "Los españoles"
     },
     "correcta": "c",
     "origen": "CSIF"
   },
   {
     "id": "csif_t1_89",
-    "tema": "Tema 1: La Constituci¾n",
-    "pregunta": "Seg·n el art. 47 de la Constituci¾n ┐quiÚnes tienen derecho a disfrutar de una vivienda digna y adecuada?",
+    "tema": "Tema 1: La Constitución",
+    "pregunta": "Según el art. 47 de la Constitución ¿quiénes tienen derecho a disfrutar de una vivienda digna y adecuada?",
     "opciones": {
-      "a": "Todos los espa±oles",
+      "a": "Todos los españoles",
       "b": "Todos los ciudadanos",
-      "c": "Los espa±oles y los nacionales de Estados miembros de la UE",
-      "d": "Todas las personas mayores de edad que residan habitualmente en Espa±a"
+      "c": "Los españoles y los nacionales de Estados miembros de la UE",
+      "d": "Todas las personas mayores de edad que residan habitualmente en España"
     },
     "correcta": "a",
     "origen": "CSIF"
   },
   {
     "id": "csif_t1_90",
-    "tema": "Tema 1: La Constituci¾n",
-    "pregunta": "+1\n\nParte A: Ley Orgßnica 3/2007 (Igualdad)\n┐A quiÚn o quiÚnes serßn de aplicaci¾n las obligaciones establecidas en la LO 3/2007?",
+    "tema": "Tema 1: La Constitución",
+    "pregunta": "+1\n\nParte A: Ley Orgánica 3/2007 (Igualdad)\n¿A quién o quiénes serán de aplicación las obligaciones establecidas en la LO 3/2007?",
     "opciones": {
-      "a": "A los poderes p·blicos",
-      "b": "A las empresas que contraten trabajadores en Espa±a",
-      "c": "A toda persona fÝsica que se encuentre en Espa±a",
-      "d": "A toda persona, fÝsica o jurÝdica, que se encuentre o act·e en territorio espa±ol, cualquiera que fuese su nacionalidad."
+      "a": "A los poderes públicos",
+      "b": "A las empresas que contraten trabajadores en España",
+      "c": "A toda persona física que se encuentre en España",
+      "d": "A toda persona, física o jurídica, que se encuentre o actúe en territorio español, cualquiera que fuese su nacionalidad."
     },
     "correcta": "d",
     "origen": "CSIF"
   },
   {
     "id": "csif_t1_91",
-    "tema": "Tema 1: La Constituci¾n",
-    "pregunta": "┐Cußl es el objeto de la LO 3/2007?",
+    "tema": "Tema 1: La Constitución",
+    "pregunta": "¿Cuál es el objeto de la LO 3/2007?",
     "opciones": {
       "a": "Hacer efectivo el derecho de igualdad de trato y de oportunidades entre mujeres y hombres.",
-      "b": "Regular las situaciones que se deriven de la violencia de gÚnero",
+      "b": "Regular las situaciones que se deriven de la violencia de género",
       "c": "Hacer efectivo el derecho de igualdad ante la ley (art. 24 CE).",
       "d": "Promover el acceso a la cultura para hacer efectivo el principio de igualdad"
     },
@@ -1184,12 +1184,12 @@
   },
   {
     "id": "csif_t1_92",
-    "tema": "Tema 1: La Constituci¾n",
-    "pregunta": "Seg·n el art. 5 de la LO 3/2007, el principio de igualdad de trato y de oportunidades se garantizarß:",
+    "tema": "Tema 1: La Constitución",
+    "pregunta": "Según el art. 5 de la LO 3/2007, el principio de igualdad de trato y de oportunidades se garantizará:",
     "opciones": {
       "a": "En el acceso al empleo, incluso al trabajo por cuenta propia",
-      "b": "En la formaci¾n profesional, en la promoci¾n y condiciones de trabajo.",
-      "c": "En la afiliaci¾n y participaci¾n en organizaciones sindicales y empresariales.",
+      "b": "En la formación profesional, en la promoción y condiciones de trabajo.",
+      "c": "En la afiliación y participación en organizaciones sindicales y empresariales.",
       "d": "Todas las respuestas son correctas"
     },
     "correcta": "d",
@@ -1197,12 +1197,12 @@
   },
   {
     "id": "csif_t1_93",
-    "tema": "Tema 1: La Constituci¾n",
+    "tema": "Tema 1: La Constitución",
     "pregunta": "La ley que regula lo relativo a la igualdad entre mujeres y hombres es:",
     "opciones": {
       "a": "Una ley ordinaria",
-      "b": "Una ley orgßnica",
-      "c": "Al mismo tiempo ordinaria y orgßnica",
+      "b": "Una ley orgánica",
+      "c": "Al mismo tiempo ordinaria y orgánica",
       "d": "No hay respuesta correcta"
     },
     "correcta": "b",
@@ -1210,25 +1210,25 @@
   },
   {
     "id": "csif_t1_94",
-    "tema": "Tema 1: La Constituci¾n",
+    "tema": "Tema 1: La Constitución",
     "pregunta": "El principio de igualdad de trato supone:",
     "opciones": {
-      "a": "La ausencia de toda discriminaci¾n, directa o indirecta, por raz¾n de sexo, especialmente maternidad, obligaciones familiares y estado civil.",
-      "b": "La ausencia de toda discriminaci¾n por raza, ideologÝa o sexo",
+      "a": "La ausencia de toda discriminación, directa o indirecta, por razón de sexo, especialmente maternidad, obligaciones familiares y estado civil.",
+      "b": "La ausencia de toda discriminación por raza, ideología o sexo",
       "c": "La igualdad ante la norma proveniente de la UE",
-      "d": "La discriminaci¾n por sexo u orientaci¾n sexual"
+      "d": "La discriminación por sexo u orientación sexual"
     },
     "correcta": "a",
     "origen": "CSIF"
   },
   {
     "id": "csif_t1_95",
-    "tema": "Tema 1: La Constituci¾n",
-    "pregunta": "Se considera discriminaci¾n directa por raz¾n de sexo:",
+    "tema": "Tema 1: La Constitución",
+    "pregunta": "Se considera discriminación directa por razón de sexo:",
     "opciones": {
-      "a": "La situaci¾n en que una persona pudiera ser tratada de manera menos favorable por su orientaci¾n sexual.",
-      "b": "La situaci¾n en que una persona haya sido tratada de manera menos favorable por sexo u orientaci¾n.",
-      "c": "La situaci¾n en que una persona sea, haya sido o pudiera ser tratada, en atenci¾n a su sexo, de manera menos favorable que otra en situaci¾n comparable.",
+      "a": "La situación en que una persona pudiera ser tratada de manera menos favorable por su orientación sexual.",
+      "b": "La situación en que una persona haya sido tratada de manera menos favorable por sexo u orientación.",
+      "c": "La situación en que una persona sea, haya sido o pudiera ser tratada, en atención a su sexo, de manera menos favorable que otra en situación comparable.",
       "d": "No hay respuestas correctas"
     },
     "correcta": "c",
@@ -1236,60 +1236,60 @@
   },
   {
     "id": "csif_t1_96",
-    "tema": "Tema 1: La Constituci¾n",
-    "pregunta": "Se considera discriminaci¾n indirecta por raz¾n de sexo:",
+    "tema": "Tema 1: La Constitución",
+    "pregunta": "Se considera discriminación indirecta por razón de sexo:",
     "opciones": {
-      "a": "Una actuaci¾n administrativa pone a un sexo en desventaja.",
-      "b": "Una disposici¾n, criterio o prßctica aparentemente neutros pone a personas de un sexo en desventaja particular con respecto a personas del otro.",
+      "a": "Una actuación administrativa pone a un sexo en desventaja.",
+      "b": "Una disposición, criterio o práctica aparentemente neutros pone a personas de un sexo en desventaja particular con respecto a personas del otro.",
       "c": "Una persona es tratada de manera menos favorable por su sexo.",
-      "d": "Una persona pudiera ser tratada de manera menos favorable por orientaci¾n sexual."
+      "d": "Una persona pudiera ser tratada de manera menos favorable por orientación sexual."
     },
     "correcta": "b",
     "origen": "CSIF"
   },
   {
     "id": "csif_t1_97",
-    "tema": "Tema 1: La Constituci¾n",
+    "tema": "Tema 1: La Constitución",
     "pregunta": "Constituye acoso sexual:",
     "opciones": {
-      "a": "Cualquier acto de violencia de gÚnero o domÚstica",
-      "b": "Cualquier comportamiento delictivo realizado en funci¾n del sexo.",
-      "c": "Cualquier comportamiento, verbal o fÝsico, de naturaleza sexual que tenga el prop¾sito o produzca el efecto de atentar contra la dignidad.",
-      "d": "Toda acci¾n u omisi¾n verbal o fÝsica respecto a persona de distinto sexo"
+      "a": "Cualquier acto de violencia de género o doméstica",
+      "b": "Cualquier comportamiento delictivo realizado en función del sexo.",
+      "c": "Cualquier comportamiento, verbal o físico, de naturaleza sexual que tenga el propósito o produzca el efecto de atentar contra la dignidad.",
+      "d": "Toda acción u omisión verbal o física respecto a persona de distinto sexo"
     },
     "correcta": "c",
     "origen": "CSIF"
   },
   {
     "id": "csif_t1_98",
-    "tema": "Tema 1: La Constituci¾n",
-    "pregunta": "Constituye acoso por raz¾n de sexo:",
+    "tema": "Tema 1: La Constitución",
+    "pregunta": "Constituye acoso por razón de sexo:",
     "opciones": {
-      "a": "No existe el acoso por raz¾n de sexo.",
+      "a": "No existe el acoso por razón de sexo.",
       "b": "Cualquier comportamiento sexual de contenido delictivo.",
-      "c": "Cualquier acto constitutivo de violencia de gÚnero.",
-      "d": "Cualquier comportamiento realizado en funci¾n del sexo de una persona, con el prop¾sito o el efecto de atentar contra su dignidad y de crear un entorno intimidatorio, degradante u ofensivo."
+      "c": "Cualquier acto constitutivo de violencia de género.",
+      "d": "Cualquier comportamiento realizado en función del sexo de una persona, con el propósito o el efecto de atentar contra su dignidad y de crear un entorno intimidatorio, degradante u ofensivo."
     },
     "correcta": "d",
     "origen": "CSIF"
   },
   {
     "id": "csif_t1_99",
-    "tema": "Tema 1: La Constituci¾n",
+    "tema": "Tema 1: La Constitución",
     "pregunta": "Todo trato desfavorable relacionado con el embarazo o maternidad constituye:",
     "opciones": {
-      "a": "Discriminaci¾n directa por raz¾n de sexo",
-      "b": "Discriminaci¾n directa por raz¾n de los hijos",
-      "c": "Discriminaci¾n indirecta por raz¾n de sexo",
-      "d": "Discriminaci¾n por motivos religiosos"
+      "a": "Discriminación directa por razón de sexo",
+      "b": "Discriminación directa por razón de los hijos",
+      "c": "Discriminación indirecta por razón de sexo",
+      "d": "Discriminación por motivos religiosos"
     },
     "correcta": "a",
     "origen": "CSIF"
   },
   {
     "id": "csif_t1_100",
-    "tema": "Tema 1: La Constituci¾n",
-    "pregunta": "El trato adverso por presentar queja, denuncia o recurso contra la discriminaci¾n se considera:",
+    "tema": "Tema 1: La Constitución",
+    "pregunta": "El trato adverso por presentar queja, denuncia o recurso contra la discriminación se considera:",
     "opciones": {
       "a": "Valeroso",
       "b": "Discriminatorio",
@@ -1301,10 +1301,10 @@
   },
   {
     "id": "csif_t1_101",
-    "tema": "Tema 1: La Constituci¾n",
-    "pregunta": "Los actos que causen discriminaci¾n por raz¾n de sexo se considerarßn:",
+    "tema": "Tema 1: La Constitución",
+    "pregunta": "Los actos que causen discriminación por razón de sexo se considerarán:",
     "opciones": {
-      "a": "Nulos y sin efecto, y darßn lugar a responsabilidad a travÚs de reparaciones.",
+      "a": "Nulos y sin efecto, y darán lugar a responsabilidad a través de reparaciones.",
       "b": "Anulables y sin efecto.",
       "c": "Nulos y sin efecto.",
       "d": "Inexistentes"
@@ -1314,23 +1314,23 @@
   },
   {
     "id": "csif_t1_102",
-    "tema": "Tema 1: La Constituci¾n",
-    "pregunta": "┐A quiÚn corresponde adoptar medidas especÝficas en favor de las mujeres para corregir desigualdades de hecho?",
+    "tema": "Tema 1: La Constitución",
+    "pregunta": "¿A quién corresponde adoptar medidas específicas en favor de las mujeres para corregir desigualdades de hecho?",
     "opciones": {
-      "a": "A las personas fÝsicas",
-      "b": "A los poderes p·blicos",
-      "c": "A los Ministerios y ConsejerÝas",
-      "d": "A las personas jurÝdicas privadas"
+      "a": "A las personas físicas",
+      "b": "A los poderes públicos",
+      "c": "A los Ministerios y Consejerías",
+      "d": "A las personas jurídicas privadas"
     },
     "correcta": "b",
     "origen": "CSIF"
   },
   {
     "id": "csif_t1_103",
-    "tema": "Tema 1: La Constituci¾n",
-    "pregunta": "┐QuiÚn podrß recabar de los tribunales la tutela del derecho a la igualdad?",
+    "tema": "Tema 1: La Constitución",
+    "pregunta": "¿Quién podrá recabar de los tribunales la tutela del derecho a la igualdad?",
     "opciones": {
-      "a": "Los poderes p·blicos en general",
+      "a": "Los poderes públicos en general",
       "b": "El Ministerio Fiscal",
       "c": "El Defensor de Pueblo",
       "d": "Cualquier persona."
@@ -1340,10 +1340,10 @@
   },
   {
     "id": "csif_t1_104",
-    "tema": "Tema 1: La Constituci¾n",
-    "pregunta": "┐QuiÚn podrß recabar tutela en litigios sobre acoso sexual y acoso por raz¾n de sexo?",
+    "tema": "Tema 1: La Constitución",
+    "pregunta": "¿Quién podrá recabar tutela en litigios sobre acoso sexual y acoso por razón de sexo?",
     "opciones": {
-      "a": "Los poderes p·blicos en general",
+      "a": "Los poderes públicos en general",
       "b": "El Ministerio Fiscal",
       "c": "La persona acosada",
       "d": "Cualquier persona."
@@ -1353,8 +1353,8 @@
   },
   {
     "id": "csif_t1_105",
-    "tema": "Tema 1: La Constituci¾n",
-    "pregunta": "En alegaciones de discriminaci¾n, ┐a quiÚn corresponde probar la ausencia de la misma?",
+    "tema": "Tema 1: La Constitución",
+    "pregunta": "En alegaciones de discriminación, ¿a quién corresponde probar la ausencia de la misma?",
     "opciones": {
       "a": "A quien demande",
       "b": "A la persona demandada (excepto procesos penales)",
@@ -1366,12 +1366,12 @@
   },
   {
     "id": "csif_t1_106",
-    "tema": "Tema 1: La Constituci¾n",
-    "pregunta": "Criterios generales de actuaci¾n de los poderes p·blicos:",
+    "tema": "Tema 1: La Constitución",
+    "pregunta": "Criterios generales de actuación de los poderes públicos:",
     "opciones": {
-      "a": "Colaboraci¾n entre Administraciones.",
-      "b": "Participaci¾n equilibrada en candidaturas.",
-      "c": "Medidas de conciliaci¾n.",
+      "a": "Colaboración entre Administraciones.",
+      "b": "Participación equilibrada en candidaturas.",
+      "c": "Medidas de conciliación.",
       "d": "Todas las respuestas son correctas"
     },
     "correcta": "d",
@@ -1379,34 +1379,34 @@
   },
   {
     "id": "csif_t1_107",
-    "tema": "Tema 1: La Constituci¾n",
-    "pregunta": "┐C¾mo informarß el principio de igualdad la actuaci¾n de los Poderes P·blicos?",
+    "tema": "Tema 1: La Constitución",
+    "pregunta": "¿Cómo informará el principio de igualdad la actuación de los Poderes Públicos?",
     "opciones": {
       "a": "De forma general.",
-      "b": "Con carßcter transversal",
+      "b": "Con carácter transversal",
       "c": "No tienen competencias.",
-      "d": "Seg·n datos estadÝsticos."
+      "d": "Según datos estadísticos."
     },
     "correcta": "b",
     "origen": "CSIF"
   },
   {
     "id": "csif_t1_108",
-    "tema": "Tema 1: La Constituci¾n",
-    "pregunta": "Los Poderes P·blicos _______ atender al principio de presencia equilibrada:",
+    "tema": "Tema 1: La Constitución",
+    "pregunta": "Los Poderes Públicos _______ atender al principio de presencia equilibrada:",
     "opciones": {
-      "a": "Deberßn en ciertos casos",
-      "b": "Podrßn",
-      "c": "Procurarßn",
-      "d": "Deberßn"
+      "a": "Deberán en ciertos casos",
+      "b": "Podrán",
+      "c": "Procurarán",
+      "d": "Deberán"
     },
     "correcta": "c",
     "origen": "CSIF"
   },
   {
     "id": "csif_t1_109",
-    "tema": "Tema 1: La Constituci¾n",
-    "pregunta": "┐QuiÚn debe aprobar el Plan EstratÚgico de Igualdad de Oportunidades del Estado?",
+    "tema": "Tema 1: La Constitución",
+    "pregunta": "¿Quién debe aprobar el Plan Estratégico de Igualdad de Oportunidades del Estado?",
     "opciones": {
       "a": "El Gobierno",
       "b": "El Presidente del Gobierno",
@@ -1418,8 +1418,8 @@
   },
   {
     "id": "csif_t1_110",
-    "tema": "Tema 1: La Constituci¾n",
-    "pregunta": "┐QuiÚn elabora el informe peri¾dico sobre igualdad y a quiÚn rinde cuentas?",
+    "tema": "Tema 1: La Constitución",
+    "pregunta": "¿Quién elabora el informe periódico sobre igualdad y a quién rinde cuentas?",
     "opciones": {
       "a": "Cortes Generales al Gobierno.",
       "b": "Presidente al Gobierno.",
@@ -1431,21 +1431,21 @@
   },
   {
     "id": "csif_t1_111",
-    "tema": "Tema 1: La Constituci¾n",
+    "tema": "Tema 1: La Constitución",
     "pregunta": "Los proyectos de ley y planes deben incorporar un informe sobre:",
     "opciones": {
       "a": "Informe del Defensor del Pueblo",
-      "b": "Su impacto por raz¾n de gÚnero",
-      "c": "La violencia de gÚnero",
-      "d": "Violencia domÚstica"
+      "b": "Su impacto por razón de género",
+      "c": "La violencia de género",
+      "d": "Violencia doméstica"
     },
     "correcta": "b",
     "origen": "CSIF"
   },
   {
     "id": "csif_t1_112",
-    "tema": "Tema 1: La Constituci¾n",
-    "pregunta": "Al elaborar estudios y estadÝsticas, los poderes p·blicos deberßn:",
+    "tema": "Tema 1: La Constitución",
+    "pregunta": "Al elaborar estudios y estadísticas, los poderes públicos deberán:",
     "opciones": {
       "a": "Incluir variable de sexo.",
       "b": "Realizar muestras amplias.",
@@ -1457,62 +1457,62 @@
   },
   {
     "id": "csif_t1_113",
-    "tema": "Tema 1: La Constituci¾n",
-    "pregunta": "┐Podrß justificarse el incumplimiento de obligaciones estadÝsticas?",
+    "tema": "Tema 1: La Constitución",
+    "pregunta": "¿Podrá justificarse el incumplimiento de obligaciones estadísticas?",
     "opciones": {
       "a": "Solo excepcionalmente mediante informe motivado.",
-      "b": "En ning·n caso",
+      "b": "En ningún caso",
       "c": "Siempre",
-      "d": "En casos de violencia domÚstica"
+      "d": "En casos de violencia doméstica"
     },
     "correcta": "a",
     "origen": "CSIF"
   },
   {
     "id": "csif_t1_114",
-    "tema": "Tema 1: La Constituci¾n",
-    "pregunta": "┐QuÚ Administraciones cooperarßn para integrar el derecho de igualdad?",
+    "tema": "Tema 1: La Constitución",
+    "pregunta": "¿Qué Administraciones cooperarán para integrar el derecho de igualdad?",
     "opciones": {
       "a": "Todas",
-      "b": "Local y Auton¾micas",
+      "b": "Local y Autonómicas",
       "c": "AGE y Local",
-      "d": "AGE y Auton¾micas"
+      "d": "AGE y Autonómicas"
     },
     "correcta": "d",
     "origen": "CSIF"
   },
   {
     "id": "csif_t1_115",
-    "tema": "Tema 1: La Constituci¾n",
-    "pregunta": "┐QuiÚnes podrßn establecer Planes Municipales de organizaci¾n del tiempo?",
+    "tema": "Tema 1: La Constitución",
+    "pregunta": "¿Quiénes podrán establecer Planes Municipales de organización del tiempo?",
     "opciones": {
       "a": "Las corporaciones locales",
-      "b": "Las Comunidades Aut¾nomas",
+      "b": "Las Comunidades Autónomas",
       "c": "La AGE",
-      "d": "La administraci¾n perifÚrica"
+      "d": "La administración periférica"
     },
     "correcta": "a",
     "origen": "CSIF"
   },
   {
     "id": "csif_t1_116",
-    "tema": "Tema 1: La Constituci¾n",
-    "pregunta": "Parte B: Ley Orgßnica 1/2004 (Violencia de GÚnero)\nLa ley de Medidas de Protecci¾n Integral contra la Violencia de GÚnero es:",
+    "tema": "Tema 1: La Constitución",
+    "pregunta": "Parte B: Ley Orgánica 1/2004 (Violencia de Género)\nLa ley de Medidas de Protección Integral contra la Violencia de Género es:",
     "opciones": {
       "a": "La Ley 1/2004, de 28 de diciembre,",
-      "b": "La Ley Orgßnica 1/2004, de 28 de diciembre",
-      "c": "La Ley orgßnica 3/2007, de 22 de marzo",
-      "d": "La propia Constituci¾n espa±ola"
+      "b": "La Ley Orgánica 1/2004, de 28 de diciembre",
+      "c": "La Ley orgánica 3/2007, de 22 de marzo",
+      "d": "La propia Constitución española"
     },
     "correcta": "b",
     "origen": "CSIF"
   },
   {
     "id": "csif_t1_117",
-    "tema": "Tema 1: La Constituci¾n",
-    "pregunta": "┐Cußl es el objeto de la ley?",
+    "tema": "Tema 1: La Constitución",
+    "pregunta": "¿Cuál es el objeto de la ley?",
     "opciones": {
-      "a": "Actuar contra la violencia ejercida por c¾nyuges o relaciones de afectividad similares.",
+      "a": "Actuar contra la violencia ejercida por cónyuges o relaciones de afectividad similares.",
       "b": "Igualdad de trato y oportunidades.",
       "c": "Igualdad ante la ley (art. 24 CE).",
       "d": "Acceso a la cultura."
@@ -1522,25 +1522,25 @@
   },
   {
     "id": "csif_t1_118",
-    "tema": "Tema 1: La Constituci¾n",
-    "pregunta": "┐QuÚ comprende la violencia de gÚnero?",
+    "tema": "Tema 1: La Constitución",
+    "pregunta": "¿Qué comprende la violencia de género?",
     "opciones": {
-      "a": "Todo acto de violencia fÝsica.",
-      "b": "Todo acto de violencia fÝsica y psicol¾gica, agresiones sexuales, amenazas y coacciones.",
-      "c": "Toda acci¾n delictiva contra mujeres.",
-      "d": "Violencia fÝsica y psicol¾gica contra cualquier persona."
+      "a": "Todo acto de violencia física.",
+      "b": "Todo acto de violencia física y psicológica, agresiones sexuales, amenazas y coacciones.",
+      "c": "Toda acción delictiva contra mujeres.",
+      "d": "Violencia física y psicológica contra cualquier persona."
     },
     "correcta": "b",
     "origen": "CSIF"
   },
   {
     "id": "csif_t1_119",
-    "tema": "Tema 1: La Constituci¾n",
-    "pregunta": "┐QuÚ requisitos deben darse para que exista violencia de gÚnero?",
+    "tema": "Tema 1: La Constitución",
+    "pregunta": "¿Qué requisitos deben darse para que exista violencia de género?",
     "opciones": {
-      "a": "VÝctima mujer.",
-      "b": "Agresor hombre c¾nyuge o relaci¾n afectiva.",
-      "c": "Manifestaci¾n de discriminaci¾n y poder del hombre sobre la mujer.",
+      "a": "Víctima mujer.",
+      "b": "Agresor hombre cónyuge o relación afectiva.",
+      "c": "Manifestación de discriminación y poder del hombre sobre la mujer.",
       "d": "Todos esos requisitos deben concurrir"
     },
     "correcta": "d",
@@ -1548,12 +1548,12 @@
   },
   {
     "id": "csif_t1_120",
-    "tema": "Tema 1: La Constituci¾n",
-    "pregunta": "El sistema educativo espa±ol incluirß entre sus fines:",
+    "tema": "Tema 1: La Constitución",
+    "pregunta": "El sistema educativo español incluirá entre sus fines:",
     "opciones": {
-      "a": "Formaci¾n en respeto e igualdad.",
-      "b": "Formaci¾n en tolerancia y libertad.",
-      "c": "Eliminaci¾n de obstßculos y prevenci¾n de conflictos.",
+      "a": "Formación en respeto e igualdad.",
+      "b": "Formación en tolerancia y libertad.",
+      "c": "Eliminación de obstáculos y prevención de conflictos.",
       "d": "Todo lo anterior es correcto"
     },
     "correcta": "d",
@@ -1561,8 +1561,8 @@
   },
   {
     "id": "csif_t1_121",
-    "tema": "Tema 1: La Constituci¾n",
-    "pregunta": "Relaci¾n con la violencia de gÚnero:\n\na) Educaci¾n Infantil: aprendizaje en resoluci¾n de conflictos. \n\nb) Educaci¾n Primaria: habilidades en resoluci¾n y respeto a la igualdad. \n\nc) Respuestas a) y",
+    "tema": "Tema 1: La Constitución",
+    "pregunta": "Relación con la violencia de género:\n\na) Educación Infantil: aprendizaje en resolución de conflictos. \n\nb) Educación Primaria: habilidades en resolución y respeto a la igualdad. \n\nc) Respuestas a) y",
     "opciones": {
       "a": "son correctas",
       "b": "Respuestas",
@@ -1574,8 +1574,8 @@
   },
   {
     "id": "csif_t1_122",
-    "tema": "Tema 1: La Constituci¾n",
-    "pregunta": "┐QuiÚn debe prever la escolarizaci¾n inmediata de hijos afectados por violencia de gÚnero?",
+    "tema": "Tema 1: La Constitución",
+    "pregunta": "¿Quién debe prever la escolarización inmediata de hijos afectados por violencia de género?",
     "opciones": {
       "a": "Administraciones competentes",
       "b": "Juzgados de Menores",
@@ -1587,47 +1587,47 @@
   },
   {
     "id": "csif_t1_123",
-    "tema": "Tema 1: La Constituci¾n",
-    "pregunta": "┐QuÚ deben hacer las Administraciones educativas?",
+    "tema": "Tema 1: La Constitución",
+    "pregunta": "¿Qué deben hacer las Administraciones educativas?",
     "opciones": {
       "a": "Fomentar la igualdad.",
-      "b": "Velar por la eliminaci¾n de estereotipos en materiales educativos.",
+      "b": "Velar por la eliminación de estereotipos en materiales educativos.",
       "c": "Incentivar profesores.",
-      "d": "Hacer cursos especÝficos."
+      "d": "Hacer cursos específicos."
     },
     "correcta": "b",
     "origen": "CSIF"
   },
   {
     "id": "csif_t1_124",
-    "tema": "Tema 1: La Constituci¾n",
-    "pregunta": "┐QuiÚnes deben incluir formaci¾n especÝfica en los planes del profesorado?",
+    "tema": "Tema 1: La Constitución",
+    "pregunta": "¿Quiénes deben incluir formación específica en los planes del profesorado?",
     "opciones": {
       "a": "Administraciones educativas",
       "b": "Corporaciones Locales",
-      "c": "Comunidades Aut¾nomas",
-      "d": "Ministerio de Educaci¾n"
+      "c": "Comunidades Autónomas",
+      "d": "Ministerio de Educación"
     },
     "correcta": "a",
     "origen": "CSIF"
   },
   {
     "id": "csif_t1_125",
-    "tema": "Tema 1: La Constituci¾n",
-    "pregunta": "┐QuiÚnes deben velar por el cumplimiento de principios de igualdad en el sistema educativo?",
+    "tema": "Tema 1: La Constitución",
+    "pregunta": "¿Quiénes deben velar por el cumplimiento de principios de igualdad en el sistema educativo?",
     "opciones": {
       "a": "Directores de centros.",
-      "b": "Consejeros auton¾micos.",
+      "b": "Consejeros autonómicos.",
       "c": "Defensor del alumno.",
-      "d": "Servicios de inspecci¾n educativa"
+      "d": "Servicios de inspección educativa"
     },
     "correcta": "d",
     "origen": "CSIF"
   },
   {
     "id": "csif_t1_126",
-    "tema": "Tema 1: La Constituci¾n",
-    "pregunta": "Se considerarß ilÝcita la publicidad que utilice la imagen de la mujer con carßcter:",
+    "tema": "Tema 1: La Constitución",
+    "pregunta": "Se considerará ilícita la publicidad que utilice la imagen de la mujer con carácter:",
     "opciones": {
       "a": "Comercial",
       "b": "Vejatorio o discriminatorio",
@@ -1639,12 +1639,12 @@
   },
   {
     "id": "csif_t1_127",
-    "tema": "Tema 1: La Constituci¾n",
-    "pregunta": "Legitimados para acci¾n de cesaci¾n de publicidad ilÝcita:",
+    "tema": "Tema 1: La Constitución",
+    "pregunta": "Legitimados para acción de cesación de publicidad ilícita:",
     "opciones": {
       "a": "Ministerio Fiscal exclusivamente.",
       "b": "Asociaciones feministas.",
-      "c": "Delegaci¾n Especial del Gobierno, Instituto de la Mujer, Ministerio Fiscal y Asociaciones de defensa de la mujer.",
+      "c": "Delegación Especial del Gobierno, Instituto de la Mujer, Ministerio Fiscal y Asociaciones de defensa de la mujer.",
       "d": "No hay respuestas correctas"
     },
     "correcta": "c",
@@ -1652,12 +1652,12 @@
   },
   {
     "id": "csif_t1_128",
-    "tema": "Tema 1: La Constituci¾n",
-    "pregunta": "La difusi¾n de informaciones relativas a la violencia sobre la mujer garantizarß:",
+    "tema": "Tema 1: La Constitución",
+    "pregunta": "La difusión de informaciones relativas a la violencia sobre la mujer garantizará:",
     "opciones": {
-      "a": "Derechos humanos, libertad y dignidad de vÝctimas e hijos.",
+      "a": "Derechos humanos, libertad y dignidad de víctimas e hijos.",
       "b": "Derechos de menores.",
-      "c": "Derechos de agresor y vÝctima.",
+      "c": "Derechos de agresor y víctima.",
       "d": "Derechos fundamentales en general."
     },
     "correcta": "a",
@@ -1665,23 +1665,23 @@
   },
   {
     "id": "csif_t1_129",
-    "tema": "Tema 1: La Constituci¾n",
-    "pregunta": "┐D¾nde se impulsarß la detecci¾n precoz de la violencia de gÚnero?",
+    "tema": "Tema 1: La Constitución",
+    "pregunta": "¿Dónde se impulsará la detección precoz de la violencia de género?",
     "opciones": {
       "a": "En el Ministerio.",
-      "b": "En las ConsejerÝas.",
+      "b": "En las Consejerías.",
       "c": "En el Consejo Interterritorial del SNS.",
-      "d": "En Zonas Bßsicas de Salud."
+      "d": "En Zonas Básicas de Salud."
     },
     "correcta": "b",
     "origen": "CSIF"
   },
   {
     "id": "csif_t1_130",
-    "tema": "Tema 1: La Constituci¾n",
-    "pregunta": "┐D¾nde se contemplarß el apartado de prevenci¾n integral en violencia de gÚnero?",
+    "tema": "Tema 1: La Constitución",
+    "pregunta": "¿Dónde se contemplará el apartado de prevención integral en violencia de género?",
     "opciones": {
-      "a": "En Planes de Salud de Zonas Bßsicas.",
+      "a": "En Planes de Salud de Zonas Básicas.",
       "b": "En Planes Nacionales de Salud que procedan.",
       "c": "En leyes de CCAA.",
       "d": "En leyes del Estado y CCAA."
@@ -1691,21 +1691,21 @@
   },
   {
     "id": "csif_t1_131",
-    "tema": "Tema 1: La Constituci¾n",
-    "pregunta": "Composici¾n de la Comisi¾n contra la Violencia de GÚnero del Consejo Interterritorial:",
+    "tema": "Tema 1: La Constitución",
+    "pregunta": "Composición de la Comisión contra la Violencia de Género del Consejo Interterritorial:",
     "opciones": {
-      "a": "Personal tÚcnico del Ministerio.",
+      "a": "Personal técnico del Ministerio.",
       "b": "Representantes de todas las CCAA.",
       "c": "Representantes sindicales.",
-      "d": "Ministro y Consejeros auton¾micos."
+      "d": "Ministro y Consejeros autonómicos."
     },
     "correcta": "b",
     "origen": "CSIF"
   },
   {
     "id": "csif_t1_132",
-    "tema": "Tema 1: La Constituci¾n",
-    "pregunta": "El informe anual de la Comisi¾n se remitirß:",
+    "tema": "Tema 1: La Constitución",
+    "pregunta": "El informe anual de la Comisión se remitirá:",
     "opciones": {
       "a": "Al Congreso.",
       "b": "Al Senado.",

@@ -53,7 +53,7 @@ export function startTimer(seconds) {
         if (state.timerEnabled) {
             state.timeRemaining--;
             updateTimerUI();
-            
+
             if (state.timeRemaining <= 0) {
                 stopTimer();
                 alert('⏰ ¡Tiempo agotado! El examen se ha finalizado automáticamente.');
@@ -66,8 +66,10 @@ export function startTimer(seconds) {
             state.timeElapsed = (state.timeElapsed || 0) + 1;
             updateTimerUI();
         }
-        
-        saveCurrentSession(); // Persistir tiempo restante en cada tick
+
+        // Persistir cada 5 s (no en cada tick) para no serializar todo el test cada segundo
+        const secs = state.timerEnabled ? state.timeRemaining : state.timeElapsed;
+        if (secs % 5 === 0) saveCurrentSession();
     }, 1000);
 }
 
@@ -101,6 +103,10 @@ export function startGame(questions, mode, topicName, testId = null, customSecon
         alert('No hay preguntas para iniciar este test.');
         return;
     }
+
+    // ── Reset de la vista completa (por si el test anterior acabó con ella activa,
+    //    p.ej. al agotarse el tiempo estando en full view) ──
+    resetFullView();
 
     // ── Auto-limpieza: si había un test en pausa, se descarta al iniciar uno nuevo ──
     if (mode !== 'review') {
@@ -564,7 +570,9 @@ function finishGame() {
     }
 
     if (btnReviewFailed) {
-        if (fallos > 0 || blancos > 0) {
+        // startReviewMode(true) solo incluye respuestas falladas (no blancas),
+        // así que el botón solo se muestra cuando realmente hay fallos que revisar
+        if (fallos > 0) {
             btnReviewFailed.classList.remove('hidden');
             const newBtn = btnReviewFailed.cloneNode(true);
             newBtn.addEventListener('click', () => startReviewMode(true));
@@ -634,6 +642,22 @@ export function restoreSession(savedState) {
 
 let _fullViewActive = false;
 
+/**
+ * Deja la vista de juego en modo "pregunta individual" (estado por defecto).
+ * Se llama al arrancar cada test para no heredar una vista completa activa.
+ */
+function resetFullView() {
+    _fullViewActive = false;
+    const singleCard = document.querySelector('#view-game .question-card');
+    const controls   = document.querySelector('#view-game .controls');
+    const fullView   = document.getElementById('full-exam-view');
+    const toggleBtn  = document.getElementById('btn-toggle-fullview');
+    if (singleCard) singleCard.classList.remove('hidden');
+    if (controls)   controls.classList.remove('hidden');
+    if (fullView)   { fullView.classList.add('hidden'); fullView.innerHTML = ''; }
+    if (toggleBtn)  toggleBtn.classList.remove('active-view-btn');
+}
+
 export function toggleFullView() {
     _fullViewActive = !_fullViewActive;
 
@@ -682,44 +706,70 @@ function renderFullView(container) {
         const optsDiv = document.createElement('div');
         optsDiv.className = 'full-view-opts';
 
+        // Mapa botón → letra, para colorear sin parsear el innerHTML
+        const btnLetters = new Map();
+
+        const chosen = state.userAnswers[idx];
+        const mode = state.currentMode;
+
         ['a', 'b', 'c', 'd'].forEach(letter => {
             if (!q.opciones?.[letter]) return;
             const btn = document.createElement('button');
             btn.className = 'btn-option full-view-opt';
             btn.innerHTML = `<strong>${letter.toUpperCase()})</strong> ${q.opciones[letter]}`;
 
-            // Highlight if already answered
-            const chosen = state.userAnswers[idx];
-            if (chosen === letter) {
-                btn.classList.add('exam-selected');
-            }
-
-            btn.addEventListener('click', () => {
-                // Update global answer state
-                state.userAnswers[idx] = letter;
-
-                // Score tracking for training/failures (not exam)
-                if (state.currentMode !== 'exam') {
-                    if (letter === q.correcta) {
-                        btn.classList.add('correct');
-                    } else {
-                        btn.classList.add('incorrect');
-                        Storage.addFailedId(q.id);
-                        updateFailureBadge(Storage.getFailedIds().length);
-                    }
-                    // Lock all siblings
-                    [...optsDiv.children].forEach(b => { b.disabled = true; });
-                } else {
-                    // Exam: move highlight
+            if (mode === 'review') {
+                // Revisión: todo bloqueado, mostrando correcta y elección previa
+                btn.disabled = true;
+                if (letter === q.correcta) btn.classList.add('correct');
+                else if (letter === chosen) btn.classList.add('incorrect');
+            } else if (mode === 'exam') {
+                // Examen: solo resaltado de la selección, siempre re-clicable
+                if (chosen === letter) btn.classList.add('exam-selected');
+                btn.addEventListener('click', () => {
+                    state.userAnswers[idx] = letter;
                     [...optsDiv.children].forEach(b => b.classList.remove('exam-selected'));
                     btn.classList.add('exam-selected');
-                }
+                    saveCurrentSession();
+                });
+            } else {
+                // Entrenamiento / fallos: una sola respuesta, con corrección inmediata
+                if (chosen) {
+                    btn.disabled = true;
+                    if (letter === q.correcta) btn.classList.add('correct');
+                    else if (letter === chosen) btn.classList.add('incorrect');
+                } else {
+                    btn.addEventListener('click', () => {
+                        if (state.userAnswers[idx]) return; // ya respondida
+                        state.userAnswers[idx] = letter;
 
-                // Persist session
-                saveCurrentSession();
-            });
+                        const isCorrect = letter === q.correcta;
+                        if (isCorrect) {
+                            state.score++;
+                            Storage.removeFailedId(q.id); // auto-perdón (igual que en vista individual)
+                        } else {
+                            Storage.addFailedId(q.id);
+                        }
+                        updateFailureBadge(Storage.getFailedIds().length);
+
+                        // Bloquear y colorear todas las opciones de la pregunta
+                        btnLetters.forEach((ltr, b) => {
+                            b.disabled = true;
+                            if (ltr === q.correcta) b.classList.add('correct');
+                            else if (ltr === letter) b.classList.add('incorrect');
+                        });
+
+                        // Sincronizar el contador de aciertos del header
+                        const scoreEl = document.getElementById('score-badge');
+                        if (scoreEl) scoreEl.textContent = `Aciertos: ${state.score}`;
+
+                        saveCurrentSession();
+                    });
+                }
+            }
 
             optsDiv.appendChild(btn);
+            btnLetters.set(btn, letter);
         });
 
         card.appendChild(optsDiv);

@@ -1,6 +1,0 @@
-Simulador OPE - Deployment Verification Test
-Current Timestamp: 2026-02-28 13:05
-This file is used to verify that the GitHub Pages deployment is picking up the latest changes from the main branch.
-If you can see this, then the deployment pipeline is working and pointed at the correct root directory.
-Gradient Color Code: #e0c3fc (Should be in style.css)
-CSS Version: v=28 (Should be in index.html)

@@ -4,32 +4,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simulador OPE Pinche - v1.15.7</title>
+    <title>Simulador OPE Pinche - v1.16.5</title>
     <link rel="stylesheet" href="css/style-v31.css">
     <link rel="icon" href="data:,">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 
 <body
     style="background: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%) !important; background-attachment: fixed !important;">
     <!-- ACCESS OVERLAY -->
-    <div id="access-overlay" class="login-overlay">
-        <div class="login-box">
+    <div id="access-overlay" class="login-overlay">        <div class="login-box">
             <h2 id="access-title" style="color:var(--primary);">Verificando Acceso</h2>
             <p id="access-msg" style="font-weight: bold;">Por favor espere...</p>
+            <!-- Reintento con el código de usuario (visible solo tras un Acceso Denegado) -->
+            <div id="access-retry" class="hidden" style="margin-top:1.2rem;">
+                <label for="access-code-input" style="display:block;margin-bottom:.4rem;font-size:.85rem;">
+                    Introduce tu código de usuario para reintentar:
+                </label>
+                <div style="display:flex;gap:.5rem;flex-wrap:wrap;">
+                    <input type="text" id="access-code-input" placeholder="TU_CODIGO" autocomplete="off"
+                        autocapitalize="off" spellcheck="false" style="flex:1;min-width:140px;padding:.55rem;border-radius:8px;border:1px solid #ccc;font-size:1rem;text-align:center;" />
+                    <button id="btn-access-retry" class="btn-primary" style="padding:.55rem 1.2rem;">Reintentar</button>
+                </div>
+            </div>
         </div>
     </div>
 
-    <!-- LOGIN OVERLAY -->
-    <div id="login-overlay" class="login-overlay hidden">
-        <div class="login-box">
-            <h2 style="color:var(--primary);">Acceso Restringido</h2>
-            <p>Introduce la contraseña para acceder al simulador:</p>
-            <input type="password" id="login-password" placeholder="Contraseña..." />
-            <button id="btn-login" class="btn-primary">Acceder</button>
-            <p id="login-error" class="error-text hidden">Contraseña incorrecta.</p>
-        </div>
+    <!-- AVISO DE CARGA DE DATOS: solo visible si algún banco falla o hay preguntas inválidas -->
+    <div id="data-warning" class="hidden"
+        style="position:fixed; top:0; left:0; right:0; z-index:9000; background:#fff3cd; color:#7a4b00; border-bottom:2px solid #ffc107; padding:.75rem 1rem; font-size:.85rem; box-shadow:0 2px 8px rgba(0,0,0,.15);">
     </div>
 
     <!-- ADMIN MODAL -->
@@ -69,7 +72,7 @@
             <button id="btn-admin-panel" class="btn-secondary"
                 style="margin-top:40px; width:100%; font-size:0.9rem; opacity:0.8;">Ver Conexiones (Admin)</button>
             <p style="text-align:center; margin-top:15px; color:#aaa; font-size:0.8rem;">
-                v1.15.7 (Glassmorphism Pro) - Más categorías en desarrollo<br>
+                v1.16.5 - Más categorías en desarrollo<br>
                 <span id="licencia-activa" style="color: #4CAF50; font-weight: bold; display: none; margin-top: 5px;">✓
                     Licencia activa</span>
             </p>
@@ -497,8 +500,6 @@
                         style="font-size:1.1rem; font-weight:bold; margin-top:10px; color:var(--text);"></p>
                 </div>
 
-                <p id="final-message" class="hidden" style="font-size:1.2rem; font-weight:bold;">¡Bien hecho!</p>
-
                 <div id="exam-feedback-container" class="hidden" style="text-align:left; margin-top:20px;">
                     <!-- Aquí iría el desglose si quisiéramos, por ahora simple -->
                 </div>
@@ -520,7 +521,7 @@
 
     </div>
 
-    <script src="src/js/main.js?v=1.16.4-premium" type="module"></script>
+    <script src="src/js/main.js?v=1.16.5" type="module"></script>
 </body>
 
 </html>

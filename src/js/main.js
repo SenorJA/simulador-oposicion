@@ -19,6 +19,8 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // ── Auth flow ──────────────────────────────────────────────────────────
+    setupAccessRetry();
+
     Auth.checkAuth({
         onDenied: (msg) => {
             const titleEl = document.getElementById('access-title');
@@ -27,6 +29,8 @@ document.addEventListener('DOMContentLoaded', () => {
             if (overlay) overlay.classList.remove('hidden'); // Ensure it's visible on denial
             if (titleEl) { titleEl.innerText = 'Acceso Denegado'; titleEl.style.color = 'red'; }
             if (msgEl) msgEl.innerText = msg;
+            const retryBox = document.getElementById('access-retry');
+            if (retryBox) retryBox.classList.remove('hidden');
         },
         onSuccess: (_userData, _currentDevices, _maxDevices) => {
             const overlay = document.getElementById('access-overlay');
@@ -41,12 +45,19 @@ document.addEventListener('DOMContentLoaded', () => {
             if (licEl) licEl.style.display = 'inline-block';
 
             Data.loadAllData().then(questions => {
-                if (questions.length === 0) return;
+                if (questions.length === 0) {
+                    // Antes esto salía en silencio y el usuario se quedaba con la
+                    // pantalla en blanco. Ahora se explica qué ha pasado.
+                    showFatalDataError(Data.getLastLoadReport());
+                    return;
+                }
 
                 // One-time data migration for old IDs
-                if (Storage.getVersionData() !== 'v1_unique_ids') {
+                // v2: los Temas 11-16 de MAD tenían IDs duplicados entre temas;
+                // se renumeraron (mad_t{N}_xxx) y los fallos antiguos quedan huérfanos
+                if (Storage.getVersionData() !== 'v2_unique_ids') {
                     Storage.clearFailures();
-                    Storage.setVersionData('v1_unique_ids');
+                    Storage.setVersionData('v2_unique_ids');
                 }
 
                 UI.updateFailureBadge(Storage.getFailedIds().length);
@@ -69,77 +80,117 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // ── Helpers ────────────────────────────────────────────────────────────────
 
-// showRoleSelection borrado por redundancia con UI.showView('roleSelection')
+/**
+ * Error irrecuperable de carga: no hay ninguna pregunta con la que arrancar.
+ * Se muestra en el overlay de acceso (que sigue visible) con instrucciones
+ * accionables, en vez de dejar la pantalla en blanco.
+ */
+function showFatalDataError(report) {
+    const overlay = document.getElementById('access-overlay');
+    const titleEl = document.getElementById('access-title');
+    const msgEl = document.getElementById('access-msg');
+
+    const fallidos = report?.bankErrors || [];
+    const detalle = fallidos.length
+        ? fallidos.map(b => `<div style="font-size:.75rem;opacity:.85;margin-top:.4rem">${b}</div>`).join('')
+        : '<div style="font-size:.75rem;opacity:.85;margin-top:.4rem">Revisa la consola (F12) para más detalle.</div>';
+
+    if (overlay) overlay.classList.remove('hidden');
+    if (titleEl) { titleEl.innerText = 'Error de carga'; titleEl.style.color = '#b91c1c'; }
+    if (msgEl) {
+        msgEl.innerHTML = `No se han podido cargar las preguntas (${report?.banks ?? 0} de 17 bancos disponibles).
+            <div style="font-size:.8rem;margin-top:.6rem;font-weight:normal">
+                Comprueba tu conexión y recarga la página. Si persiste, avisa con el detalle de abajo.
+            </div>${detalle}`;
+    }
+    console.error('[MAIN] Carga de datos fallida', report);
+}
+
+/**
+ * Reintento tras un "Acceso Denegado".
+ * El código se pasa por ?user= en la URL (mismo canal que usa Auth.checkAuth).
+ * Se recarga la página para que todo el arranque vuelva a pasar por checkAuth
+ * una única vez, sin duplicar listeners ni el estado global de `state`.
+ * NO toca la lógica de autenticación: solo navegación.
+ */
+function setupAccessRetry() {
+    const retryBox = document.getElementById('access-retry');
+    const input = document.getElementById('access-code-input');
+    const btn = document.getElementById('btn-access-retry');
+    if (!retryBox || !input || !btn) return;
+
+    const retry = () => {
+        const code = input.value.trim();
+        if (!code) { input.focus(); return; }
+        const url = new URL(window.location.href);
+        url.searchParams.set('user', code);
+        window.location.href = url.toString();
+    };
+
+    btn.addEventListener('click', retry);
+    input.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') { e.preventDefault(); retry(); }
+    });
+}
+
+/**
+ * Selección de categoría (pinche | celador).
+ * La Parte General (Temas 1-6) es común a ambas categorías: se comparten
+ * las mismas preguntas, pero el progreso se almacena aislado por rol.
+ */
+function selectRole(role) {
+    state.currentRole = role;
+    Storage.setRole(role);
+
+    // Vaciar memoria local de fallos y estado al cambiar
+    state.userAnswers = {};
+    state.currentQuestions = [];
+
+    const menuTitle = document.querySelector('#view-menu h1');
+    if (menuTitle) menuTitle.innerText = role === 'celador' ? 'Simulador OPE Celador' : 'Simulador OPE Pinche';
+
+    // Forzar actualización reactiva (cada rol tiene sus propios datos aislados)
+    UI.updateFailureBadge(Storage.getFailedIds().length);
+    UI.renderizarRecordsMenu();
+    UI.renderizarProgresoGlobal();
+    UI.renderizarProgresoExamenes();
+    checkAndInjectSessionButton(); // El test en pausa es distinto por rol
+    UI.showView('menu');
+}
 
 // ── Event Listeners ────────────────────────────────────────────────────────
+
+/**
+ * Registra un listener solo si el elemento existe. Evita que un id
+ * renombrado en index.html rompa en cascada el resto de listeners
+ * (un getElementById(...).addEventListener directo lanzaría TypeError).
+ */
+function on(id, event, fn) {
+    const el = document.getElementById(id);
+    if (el) el.addEventListener(event, fn);
+    else console.warn(`[MAIN] Elemento no encontrado: #${id}`);
+}
 
 function setupEventListeners() {
     checkAndInjectSessionButton();
 
     // ── Role selection ──
     const btnPinche = document.getElementById('btn-role-pinche');
-    if (btnPinche) {
-        btnPinche.addEventListener('click', (e) => {
-            console.log('Pinche button clicked');
-            state.currentRole = 'pinche';
-            Storage.setRole('pinche');
-            
-            // Vaciar memoria local de fallos y estado al cambiar
-            state.userAnswers = {};
-            state.currentQuestions = [];
-            
-            const menuTitle = document.querySelector('#view-menu h1');
-            if (menuTitle) menuTitle.innerText = 'Simulador OPE Pinche';
-            
-            // Forzar actualización reactiva
-            UI.updateFailureBadge(Storage.getFailedIds().length);
-            UI.renderizarRecordsMenu();
-            UI.renderizarProgresoGlobal();
-            UI.renderizarProgresoExamenes();
-            UI.showView('menu');
-        });
-    }
+    if (btnPinche) btnPinche.addEventListener('click', () => selectRole('pinche'));
 
     const btnCelador = document.getElementById('btn-role-celador');
-    if (btnCelador) {
-        btnCelador.addEventListener('click', () => {
-            console.log('Celador button clicked');
-            state.currentRole = 'celador';
-            Storage.setRole('celador');
-            
-            // Vaciar memoria local de fallos y estado al cambiar
-            state.userAnswers = {};
-            state.currentQuestions = [];
-            
-            const menuTitle = document.querySelector('#view-menu h1');
-            if (menuTitle) menuTitle.innerText = 'Simulador OPE Celador';
-            
-            // Forzar actualización reactiva
-            UI.updateFailureBadge(Storage.getFailedIds().length);
-            UI.renderizarRecordsMenu();
-            UI.renderizarProgresoGlobal();
-            UI.renderizarProgresoExamenes();
-            UI.showView('menu');
-        });
-    }
+    if (btnCelador) btnCelador.addEventListener('click', () => selectRole('celador'));
 
     // ── Admin ──
-    const btnAdmin = document.getElementById('btn-admin-panel');
-    if (btnAdmin) btnAdmin.addEventListener('click', loadAdminLogs);
-    const btnCloseAdmin = document.getElementById('btn-close-admin');
-    if (btnCloseAdmin) btnCloseAdmin.addEventListener('click', () => UI.toggleEl('admin-modal', false));
+    on('btn-admin-panel', 'click', loadAdminLogs);
+    on('btn-close-admin', 'click', () => UI.toggleEl('admin-modal', false));
 
     // ── Main menu ──
-    document.getElementById('btn-back-menu')
-        .addEventListener('click', () => UI.goBack());
-    document.getElementById('btn-source-mad')
-        .addEventListener('click', () => Topics.showParts('MAD'));
-    document.getElementById('btn-source-csif')
-        .addEventListener('click', () => Topics.showParts('CSIF'));
-    const btnAcademia = document.getElementById('btn-source-academia');
-    if (btnAcademia) btnAcademia.addEventListener('click', () => Topics.showParts('Academia'));
-    document.getElementById('btn-source-examenes')
-        .addEventListener('click', () => {
+    on('btn-back-menu', 'click', () => UI.goBack());
+    on('btn-source-mad', 'click', () => Topics.showParts('MAD'));
+    on('btn-source-csif', 'click', () => Topics.showParts('CSIF'));
+    on('btn-source-academia', 'click', () => Topics.showParts('Academia'));
+    on('btn-source-examenes', 'click', () => {
             UI.renderizarProgresoExamenes();
             
             // Reset Limpio para Pinche, ocultar para Celador
@@ -164,7 +215,7 @@ function setupEventListeners() {
         });
 
     // ── Failures ──
-    document.getElementById('btn-failures').addEventListener('click', () => {
+    on('btn-failures', 'click', () => {
         const ids = Storage.getFailedIds();
         const qs = state.allQuestions.filter(q => ids.includes(q.id));
         if (qs.length === 0) { alert('¡No tienes fallos registrados!'); return; }
@@ -172,80 +223,66 @@ function setupEventListeners() {
     });
 
     // ── Random ──
-    document.getElementById('btn-random')
-        .addEventListener('click', () => { initRandomView(); UI.showView('random'); });
+    on('btn-random', 'click', () => { initRandomView(); UI.showView('random'); });
 
     // ── Progress ──
-    document.getElementById('btn-progress')
-        .addEventListener('click', showProgress);
+    on('btn-progress', 'click', showProgress);
 
     // ── Parts ──
-    document.getElementById('btn-back-parts')
-        .addEventListener('click', () => UI.goBack());
-    document.getElementById('btn-part-general')
-        .addEventListener('click', () => Topics.showTopics('GENERAL'));
-    document.getElementById('btn-part-especifica')
-        .addEventListener('click', () => Topics.showTopics('ESPECIFICA'));
+    on('btn-back-parts', 'click', () => UI.goBack());
+    on('btn-part-general', 'click', () => Topics.showTopics('GENERAL'));
+    on('btn-part-especifica', 'click', () => Topics.showTopics('ESPECIFICA'));
 
     // ── Topics ──
-    document.getElementById('btn-back-topics').addEventListener('click', () => {
+    on('btn-back-topics', 'click', () => {
         UI.goBack();
     });
 
     // ── Exams ──
-    document.getElementById('btn-back-exams')
-        .addEventListener('click', () => UI.goBack());
-    const btn2026PincheOrd = document.getElementById('btn-topic-ope_2026_pinche_ord');
-    if (btn2026PincheOrd) btn2026PincheOrd.addEventListener('click', () => {
+    on('btn-back-exams', 'click', () => UI.goBack());
+    on('btn-topic-ope_2026_pinche_ord', 'click', () => {
         const qs = state.allQuestions.filter(q => q.origen === 'OPE SESCAM Pinche Ordinario 2026');
         if (!qs.length) return alert('Examen no cargado.');
         Topics.prepareModeSelection('Examen OPE 2026 (Pinche Ordinario)', () => qs, 'ope_2026_pinche_ord');
     });
 
-    const btn2026PincheExtra = document.getElementById('btn-topic-ope_2026_pinche_extra');
-    if (btn2026PincheExtra) btn2026PincheExtra.addEventListener('click', () => {
+    on('btn-topic-ope_2026_pinche_extra', 'click', () => {
         const qs = state.allQuestions.filter(q => q.origen === 'OPE SESCAM Pinche Extraordinario 2026');
         if (!qs.length) return alert('Examen no cargado.');
         Topics.prepareModeSelection('Examen OPE 2026 (Pinche Extraordinario)', () => qs, 'ope_2026_pinche_extra');
     });
 
-    const btn2026Cocinero = document.getElementById('btn-topic-ope_2026_cocinero');
-    if (btn2026Cocinero) btn2026Cocinero.addEventListener('click', () => {
+    on('btn-topic-ope_2026_cocinero', 'click', () => {
         const qs = state.allQuestions.filter(q => q.origen === 'OPE SESCAM Cocinero 2026');
         if (!qs.length) return alert('Examen no cargado.');
         Topics.prepareModeSelection('Examen OPE 2026 (Cocinero/a)', () => qs, 'ope_2026_cocinero');
     });
 
-    const btn2026TecnicoTi = document.getElementById('btn-topic-ope_2026_tecnico_ti');
-    if (btn2026TecnicoTi) btn2026TecnicoTi.addEventListener('click', () => {
+    on('btn-topic-ope_2026_tecnico_ti', 'click', () => {
         const qs = state.allQuestions.filter(q => q.tema === 'Examen Oficial Técnico de Gestión de TI SESCAM 2026');
         if (!qs.length) return alert('Examen no cargado.');
-        Topics.prepareModeSelection('Examen OPE 2026 (Técnico Gestión TI)', () => qs, 'ope_2026_tecnico_ti');
+        Topics.prepareModeSelection('Examen OPE 2026 (Técnico Gestão TI)', () => qs, 'ope_2026_tecnico_ti');
     });
 
-    const btn2026Celador = document.getElementById('btn-topic-ope_2026_celador');
-    if (btn2026Celador) btn2026Celador.addEventListener('click', () => {
+    on('btn-topic-ope_2026_celador', 'click', () => {
         const qs = state.allQuestions.filter(q => q.origen === 'OPE SESCAM Celador 2026');
         if (!qs.length) return alert('Examen no cargado.');
         Topics.prepareModeSelection('Examen OPE 2026 (Celador/a)', () => qs, 'ope_2026_celador');
     });
 
-    const btn2026CeladorExtra = document.getElementById('btn-topic-ope_2026_celador_extra');
-    if (btn2026CeladorExtra) btn2026CeladorExtra.addEventListener('click', () => {
+    on('btn-topic-ope_2026_celador_extra', 'click', () => {
         const qs = state.allQuestions.filter(q => q.tema === 'Examen Oficial Celador/a Extraordinario SESCAM 2026');
         if (!qs.length) return alert('Examen no cargado.');
         Topics.prepareModeSelection('Examen OPE 2026 (Celador/a Extraordinario)', () => qs, 'ope_2026_celador_extra');
     });
 
-    const btn2024 = document.getElementById('btn-topic-ope_2024_cel');
-    if (btn2024) btn2024.addEventListener('click', () => {
+    on('btn-topic-ope_2024_cel', 'click', () => {
         const qs = state.allQuestions.filter(q => q.tema === 'Examen Oficial Celador/a SESCAM 2024');
         if (!qs.length) return alert('Examen no cargado.');
         Topics.prepareModeSelection('Examen Celador SESCAM 2024', () => qs, 'ope_2024_cel');
     });
 
-    const btn2020Ord = document.getElementById('btn-topic-ope_2020_ord');
-    if (btn2020Ord) btn2020Ord.addEventListener('click', () => {
+    on('btn-topic-ope_2020_ord', 'click', () => {
         const qs = state.allQuestions
             .filter(q => q.tema === 'Examen 2020 (Ordinario)')
             .sort((a, b) => (parseInt(a.id?.split('_')[1]) || 0) - (parseInt(b.id?.split('_')[1]) || 0));
@@ -253,45 +290,35 @@ function setupEventListeners() {
         Topics.prepareModeSelection('Examen OPE 2020 (Ordinario)', () => qs, 'ope_2020_ord');
     });
 
-    const btn2020Extra = document.getElementById('btn-topic-ope_2020_extra');
-    if (btn2020Extra) btn2020Extra.addEventListener('click', () => {
+    on('btn-topic-ope_2020_extra', 'click', () => {
         const qs = state.allQuestions
             .filter(q => q.tema === 'Examen 2020 (Extraordinario)')
             .sort((a, b) => (parseInt(a.id?.split('_')[1]) || 0) - (parseInt(b.id?.split('_')[1]) || 0));
         if (!qs.length) return alert('🚧 Examen aún no disponible.');
         Topics.prepareModeSelection('Examen OPE 2020 (Extraordinario)', () => qs, 'ope_2020_extra');
     });
-    const btnCCAA = document.getElementById('btn-examenes-ccaa');
-    if (btnCCAA) btnCCAA.addEventListener('click', () => {
+    on('btn-examenes-ccaa', 'click', () => {
         state.currentSource = 'Historico';
         Topics.showTopics('CCAA');
     });
-    const btnHistorico = document.getElementById('btn-examenes-historico');
-    if (btnHistorico) btnHistorico.addEventListener('click', () => {
+    on('btn-examenes-historico', 'click', () => {
         state.currentSource = 'Historico';
         Topics.showTopics('HISTORICO');
     });
 
     // ── Mode selection ──
-    document.getElementById('btn-back-mode')
-        .addEventListener('click', () => UI.goBack());
-    document.getElementById('btn-mode-training')
-        .addEventListener('click', () => triggerGameStart('training'));
-    document.getElementById('btn-mode-exam')
-        .addEventListener('click', () => triggerGameStart('exam'));
+    on('btn-back-mode', 'click', () => UI.goBack());
+    on('btn-mode-training', 'click', () => triggerGameStart('training'));
+    on('btn-mode-exam', 'click', () => triggerGameStart('exam'));
 
     // ── Timer Toggle ──
-    const toggleTimer = document.getElementById('toggle-timer');
-    if (toggleTimer) {
-        toggleTimer.addEventListener('change', (e) => {
-            state.timerEnabled = e.target.checked;
-        });
-    }
+    on('toggle-timer', 'change', (e) => {
+        state.timerEnabled = e.target.checked;
+    });
 
     // ── Random config ──
-    document.getElementById('btn-back-random')
-        .addEventListener('click', () => UI.goBack());
-    document.getElementById('btn-start-random').addEventListener('click', startRandom);
+    on('btn-back-random', 'click', () => UI.goBack());
+    on('btn-start-random', 'click', startRandom);
 
     // Click en Segmentos (Delegación)
     document.querySelectorAll('.segmented-control').forEach(container => {
@@ -318,12 +345,11 @@ function setupEventListeners() {
     });
 
     // ── Progress ──
-    document.getElementById('btn-back-progress')
-        .addEventListener('click', () => UI.goBack());
-    document.getElementById('btn-clear-history').addEventListener('click', () => {
+    on('btn-back-progress', 'click', () => UI.goBack());
+    on('btn-clear-history', 'click', () => {
         if (confirm('¿Borrar todo el historial?')) { Storage.clearHistory(); showProgress(); }
     });
-    document.getElementById('btn-clear-records').addEventListener('click', () => {
+    on('btn-clear-records', 'click', () => {
         if (confirm('¿Estás seguro de que quieres borrar todos tus récords y medallas? Esta acción no se puede deshacer.')) {
             Storage.clearRecords();
             UI.renderizarRecordsMenu();
@@ -332,76 +358,71 @@ function setupEventListeners() {
     });
 
     // ── Game controls ──
-    document.getElementById('btn-quit-game').addEventListener('click', () => {
+    on('btn-quit-game', 'click', () => {
         if (confirm('¿Salir al menú? Tu test actual quedará guardado automáticamente.')) {
             Game.stopTimer(); // Detener cronómetro (sin borrar el tiempo guardado)
-            if (typeof checkAndInjectSessionButton === 'function') checkAndInjectSessionButton(); // Refresca UI
+            checkAndInjectSessionButton(); // Refresca UI
             UI.goBack(); 
         }
     });
-    document.getElementById('btn-next').addEventListener('click', () => Game.nextQuestion());
-    document.getElementById('btn-prev').addEventListener('click', () => Game.prevQuestion());
-    document.getElementById('btn-show-grid').addEventListener('click', () => Game.showGrid());
-    document.getElementById('btn-toggle-fullview').addEventListener('click', () => Game.toggleFullView());
-    document.getElementById('btn-close-grid').addEventListener('click', () =>
-        UI.toggleEl('nav-grid-overlay', false));
+    on('btn-next', 'click', () => Game.nextQuestion());
+    on('btn-prev', 'click', () => Game.prevQuestion());
+    on('btn-show-grid', 'click', () => Game.showGrid());
+    on('btn-toggle-fullview', 'click', () => Game.toggleFullView());
+    on('btn-close-grid', 'click', () => UI.toggleEl('nav-grid-overlay', false));
 
     // ── Results ──
-    document.getElementById('btn-home-results')
-        .addEventListener('click', () => {
-            checkAndInjectSessionButton();
-            UI.renderizarRecordsMenu();
-            UI.renderizarProgresoGlobal();
-            UI.renderizarProgresoExamenes();
-            
-            // BUG FIX: Reset navigation when going home from results
-            state.viewHistory = []; 
-            UI.showView('menu', false);
-            // Replace state to avoid going back to results
-            history.replaceState({ view: 'menu' }, '');
-        });
-    document.getElementById('btn-back-selection')
-        .addEventListener('click', () => {
-            UI.renderizarRecordsMenu();
-            UI.renderizarProgresoGlobal();
-            UI.renderizarProgresoExamenes();
-            UI.showView(state.lastViewBeforeMode || 'topics');
-        });
-    document.getElementById('btn-retry').addEventListener('click', () => {
+    on('btn-home-results', 'click', () => {
+        checkAndInjectSessionButton();
+        UI.renderizarRecordsMenu();
+        UI.renderizarProgresoGlobal();
+        UI.renderizarProgresoExamenes();
+        
+        // BUG FIX: Reset navigation when going home from results
+        state.viewHistory = []; 
+        UI.showView('menu', false);
+        // Replace state to avoid going back to results
+        history.replaceState({ view: 'menu' }, '');
+    });
+    on('btn-back-selection', 'click', () => {
+        UI.renderizarRecordsMenu();
+        UI.renderizarProgresoGlobal();
+        UI.renderizarProgresoExamenes();
+        UI.showView(state.lastViewBeforeMode || 'topics');
+    });
+    on('btn-retry', 'click', () => {
         if (state.pendingGameGenerator) triggerGameStart(state.originalMode || 'training');
     });
     // btn-review-exam / btn-review-failed are bound dynamically in game.js finishGame()
 
     // ── Failure clear buttons ──
-    const btnClearHeader = document.getElementById('btn-clear-failures-header');
-    if (btnClearHeader) btnClearHeader.addEventListener('click', () => {
-        if (confirm('¿Vaciar historial de fallos?')) {
-            Storage.clearFailures();
-            // Only clear the suspended session if it was a failure recap
-            const session = Storage.getSuspendedSession();
-            if (session && session.currentMode === 'failures') {
-                Storage.clearSuspendedSession();
-            }
-            UI.updateFailureBadge(0);
-            checkAndInjectSessionButton(); // Refrescar UI
-            UI.showView('menu');
-        }
-    });
-    const btnClearRes = document.getElementById('btn-clear-failures');
-    if (btnClearRes) btnClearRes.addEventListener('click', () => {
-        if (confirm('¿Borrar todos los fallos guardados?')) {
-            Storage.clearFailures();
-            // Si la sesión actual en pausa era de fallos, la limpiamos tb
-            const session = Storage.getSuspendedSession();
-            if (session && session.currentMode === 'failures') {
-                Storage.clearSuspendedSession();
-            }
-            UI.updateFailureBadge(0);
-            UI.toggleEl('btn-review-failed', false);
-            UI.toggleEl('btn-clear-failures', false);
-            checkAndInjectSessionButton();
-        }
-    });
+    on('btn-clear-failures-header', 'click', () => clearFailuresAndRefresh(true));
+    on('btn-clear-failures', 'click', () => clearFailuresAndRefresh(false));
+}
+
+/**
+ * Vacía el historial de fallos del rol actual y refresca la UI afectada.
+ * Si el test en pausa era un repaso de fallos, también se descarta.
+ * @param {boolean} goToMenu Volver al menú tras limpiar (botón del header).
+ */
+function clearFailuresAndRefresh(goToMenu) {
+    const msg = goToMenu ? '¿Vaciar historial de fallos?' : '¿Borrar todos los fallos guardados?';
+    if (!confirm(msg)) return;
+
+    Storage.clearFailures();
+
+    const session = Storage.getSuspendedSession();
+    if (session && session.currentMode === 'failures') {
+        Storage.clearSuspendedSession();
+    }
+
+    UI.updateFailureBadge(0);
+    if (!goToMenu) {
+        UI.toggleEl('btn-review-failed', false);
+        UI.toggleEl('btn-clear-failures', false);
+    }
+    checkAndInjectSessionButton();
+    if (goToMenu) UI.showView('menu');
 }
 
 // ── Feature helpers ────────────────────────────────────────────────────────
@@ -525,15 +546,16 @@ function showProgress() {
 // ── Admin panel ────────────────────────────────────────────────────────────
 
 async function loadAdminLogs() {
-    // ── Security Check ──
-    const userId = Storage.getSavedUser();
-    if (userId !== 'PichonJefe') {
+    // ── Security Check (solo frontend: la autorización real debe hacerse con RLS) ──
+    const userId = String(Storage.getSavedUser() || '');
+    if (userId.trim().toLowerCase() !== CONFIG.ADMIN_USER.toLowerCase()) {
         alert('Acceso no autorizado.');
         return;
     }
-    
+
     if (!state.supabaseClient) return;
     const tbody = document.getElementById('admin-table-body');
+    if (!tbody) return;
     tbody.innerHTML = '<tr><td colspan="2" style="text-align:center">Cargando...</td></tr>';
     UI.toggleEl('admin-modal', true);
     try {
@@ -636,8 +658,4 @@ export function checkAndInjectSessionButton() {
         wrapper.appendChild(discardBtn);
         if (menuGrid) menuGrid.insertBefore(wrapper, menuGrid.firstChild);
     }
-}
-
-function slugify(text) {
-    return UI.slugify(text);
 }

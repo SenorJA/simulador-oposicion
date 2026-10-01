@@ -1,9 +1,6 @@
 /**
  * storage.js — LocalStorage helpers for failures and progress history.
  */
-/**
- * storage.js — LocalStorage helpers for failures and progress history.
- */
 
 const KEYS = {
     FAILED_IDS: 'ope_failed_ids',
@@ -12,10 +9,11 @@ const KEYS = {
     DEVICE_ID: 'ope_device_id',
     DEVICE_REGISTERED: 'ope_device_registered', // Legacy
     VERSION_DATA: 'ope_version_data',
-    RECORDS: 'simulador_sescam_records'
+    RECORDS: 'simulador_sescam_records',
+    SESSION: 'estado_test_suspendido'
 };
 
-let currentPrefix = '';
+let currentPrefix = 'u_localdev_';
 let currentUser = '';
 let currentRole = 'pinche';
 
@@ -44,7 +42,9 @@ function updatePrefix() {
 }
 
 function pk(key) {
-    if (key === KEYS.FAILED_IDS || key === KEYS.PROGRESS) {
+    // Aislamiento por usuario+rol: fallos, historial, récords y sesión suspendida
+    if (key === KEYS.FAILED_IDS || key === KEYS.PROGRESS ||
+        key === KEYS.RECORDS || key === KEYS.SESSION) {
         return currentPrefix + key;
     }
     return key;
@@ -111,9 +111,6 @@ export function clearUser() {
     localStorage.removeItem(KEYS.DEVICE_REGISTERED);
 }
 
-export function getDeviceRegisteredFor() { return localStorage.getItem(KEYS.DEVICE_REGISTERED); }
-export function setDeviceRegisteredFor(val) { localStorage.setItem(KEYS.DEVICE_REGISTERED, val); }
-
 export function getOrCreateDeviceId() {
     let id = localStorage.getItem(KEYS.DEVICE_ID);
     if (!id) {
@@ -127,35 +124,60 @@ export function getOrCreateDeviceId() {
 export function getVersionData() { return localStorage.getItem(KEYS.VERSION_DATA); }
 export function setVersionData(val) { localStorage.setItem(KEYS.VERSION_DATA, val); }
 
-// ── Guardado de Sesión Suspendida ──────────────────────────────────────────
+// ── Guardado de Sesión Suspendida (aislada por usuario + rol) ─────────────
 export function saveSuspendedSession(sessionData) {
-    localStorage.setItem('estado_test_suspendido', JSON.stringify(sessionData));
+    localStorage.setItem(pk(KEYS.SESSION), JSON.stringify(sessionData));
 }
 
 export function getSuspendedSession() {
-    try { 
-        return JSON.parse(localStorage.getItem('estado_test_suspendido')); 
-    } catch { 
-        return null; 
+    try {
+        const raw = localStorage.getItem(pk(KEYS.SESSION));
+        if (raw) return JSON.parse(raw);
+
+        // Migración perezosa desde la clave legacy compartida (sin prefijo)
+        const legacy = localStorage.getItem(KEYS.SESSION);
+        if (legacy) {
+            localStorage.setItem(pk(KEYS.SESSION), legacy);
+            localStorage.removeItem(KEYS.SESSION);
+            return JSON.parse(legacy);
+        }
+        return null;
+    } catch {
+        return null;
     }
 }
 
 export function clearSuspendedSession() {
-    localStorage.removeItem('estado_test_suspendido');
+    localStorage.removeItem(pk(KEYS.SESSION));
+    localStorage.removeItem(KEYS.SESSION); // Limpiar también la legacy compartida
 }
 
-// ── Récords (High Scores) ──────────────────────────────────────────────────
+// ── Récords (High Scores, aislados por usuario + rol) ─────────────────────
 
 /**
  * Obtiene el objeto de récords de localStorage.
+ * Incluye migración perezosa desde las claves legacy (sin prefijo de usuario).
  */
 export function getRecords() {
+    const key = pk(KEYS.RECORDS);
     try {
-        const key = currentRole === 'celador' ? KEYS.RECORDS + '_celador' : KEYS.RECORDS;
-        return JSON.parse(localStorage.getItem(key)) || {};
+        const raw = localStorage.getItem(key);
+        if (raw) return JSON.parse(raw) || {};
     } catch {
         return {};
     }
+
+    // Migración perezosa desde las claves antiguas compartidas entre usuarios
+    const legacyKey = currentRole === 'celador' ? KEYS.RECORDS + '_celador' : KEYS.RECORDS;
+    try {
+        const legacy = localStorage.getItem(legacyKey);
+        if (legacy) {
+            localStorage.setItem(key, legacy);
+            localStorage.removeItem(legacyKey);
+            return JSON.parse(legacy) || {};
+        }
+    } catch { /* ignore */ }
+    return {};
 }
 
 /**
@@ -170,17 +192,15 @@ export function saveRecord(testId, score) {
 
     if (score > currentRecord) {
         records[testId] = parseFloat(score.toFixed(2));
-        const key = currentRole === 'celador' ? KEYS.RECORDS + '_celador' : KEYS.RECORDS;
-        localStorage.setItem(key, JSON.stringify(records));
+        localStorage.setItem(pk(KEYS.RECORDS), JSON.stringify(records));
         return true; // Récord actualizado
     }
     return false;
 }
 
 /**
- * Borra todos los récords de localStorage.
+ * Borra todos los récords de localStorage (del usuario y rol actuales).
  */
 export function clearRecords() {
-    const key = currentRole === 'celador' ? KEYS.RECORDS + '_celador' : KEYS.RECORDS;
-    localStorage.removeItem(key);
+    localStorage.removeItem(pk(KEYS.RECORDS));
 }

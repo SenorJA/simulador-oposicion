@@ -1,8 +1,8 @@
 export const CONFIG = {
     SUPABASE_URL: 'https://ictintjdebutsjkbexpc.supabase.co',
     SUPABASE_KEY: 'sb_publishable_ZBq95C7iXJxI4wkltK5YCA_45_zGPEW',
-    VALID_HASH: "6df795bb7e73343384fb90ff03841e6f7b0a585ab9f50e2e6e7ec398b722f508",
-    APP_VERSION: 'v1.15.7 (Force)',
+    ADMIN_USER: 'PichonJefe',
+    APP_VERSION: 'v1.16.5',
     MAX_HISTORY_LENGTH: 50,
     MAX_RANDOM_QUESTIONS: 100,
     TABLE_USERS: 'usuarios_acceso',

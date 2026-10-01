@@ -3864,7 +3864,7 @@
     "origen": "MAD"
   },
   {
-    "id": 1,
+    "id": "mad_t11_1",
     "tema": "Tema 11",
     "pregunta": "¿Qué es la nutrición?",
     "opciones": {
@@ -3877,7 +3877,7 @@
     "explicacion": ""
   },
   {
-    "id": 2,
+    "id": "mad_t11_2",
     "tema": "Tema 11",
     "pregunta": "¿Qué son los nutrientes?",
     "opciones": {
@@ -3890,7 +3890,7 @@
     "explicacion": ""
   },
   {
-    "id": 3,
+    "id": "mad_t11_3",
     "tema": "Tema 11",
     "pregunta": "El valor calórico de 1 gramo de glúcidos (hidratos de carbono) es de:",
     "opciones": {
@@ -3903,7 +3903,7 @@
     "explicacion": ""
   },
   {
-    "id": 4,
+    "id": "mad_t11_4",
     "tema": "Tema 11",
     "pregunta": "El valor calórico de 1 gramo de lípidos (grasas) es de:",
     "opciones": {
@@ -3916,7 +3916,7 @@
     "explicacion": ""
   },
   {
-    "id": 5,
+    "id": "mad_t11_5",
     "tema": "Tema 11",
     "pregunta": "El valor calórico de 1 gramo de proteínas es de:",
     "opciones": {
@@ -3929,7 +3929,7 @@
     "explicacion": ""
   },
   {
-    "id": 6,
+    "id": "mad_t11_6",
     "tema": "Tema 11",
     "pregunta": "¿Cuál de los siguientes nutrientes se considera \"plástico\" o estructural?",
     "opciones": {
@@ -3942,7 +3942,7 @@
     "explicacion": ""
   },
   {
-    "id": 7,
+    "id": "mad_t11_7",
     "tema": "Tema 11",
     "pregunta": "Los glúcidos tienen una función principalmente:",
     "opciones": {
@@ -3955,7 +3955,7 @@
     "explicacion": ""
   },
   {
-    "id": 8,
+    "id": "mad_t11_8",
     "tema": "Tema 11",
     "pregunta": "Las vitaminas y los minerales cumplen una función:",
     "opciones": {
@@ -3968,7 +3968,7 @@
     "explicacion": ""
   },
   {
-    "id": 9,
+    "id": "mad_t11_9",
     "tema": "Tema 11",
     "pregunta": "¿Qué nutriente es esencial para el transporte de vitaminas liposolubles?",
     "opciones": {
@@ -3981,7 +3981,7 @@
     "explicacion": ""
   },
   {
-    "id": 10,
+    "id": "mad_t11_10",
     "tema": "Tema 11",
     "pregunta": "Los aminoácidos son las unidades básicas que forman:",
     "opciones": {
@@ -3994,7 +3994,7 @@
     "explicacion": ""
   },
   {
-    "id": 11,
+    "id": "mad_t11_11",
     "tema": "Tema 11",
     "pregunta": "¿Cuántos aminoácidos se consideran esenciales para el ser humano adulto?",
     "opciones": {
@@ -4007,7 +4007,7 @@
     "explicacion": ""
   },
   {
-    "id": 12,
+    "id": "mad_t11_12",
     "tema": "Tema 11",
     "pregunta": "El metabolismo basal es:",
     "opciones": {
@@ -4020,7 +4020,7 @@
     "explicacion": ""
   },
   {
-    "id": 13,
+    "id": "mad_t11_13",
     "tema": "Tema 11",
     "pregunta": "¿Cuál es el principal glúcido de la leche?",
     "opciones": {
@@ -4033,7 +4033,7 @@
     "explicacion": ""
   },
   {
-    "id": 14,
+    "id": "mad_t11_14",
     "tema": "Tema 11",
     "pregunta": "El almidón es un glúcido de tipo:",
     "opciones": {
@@ -4046,7 +4046,7 @@
     "explicacion": ""
   },
   {
-    "id": 15,
+    "id": "mad_t11_15",
     "tema": "Tema 11",
     "pregunta": "La fibra alimentaria se caracteriza porque:",
     "opciones": {
@@ -4059,7 +4059,7 @@
     "explicacion": ""
   },
   {
-    "id": 16,
+    "id": "mad_t11_16",
     "tema": "Tema 11",
     "pregunta": "Los ácidos grasos saturados se encuentran mayoritariamente en:",
     "opciones": {
@@ -4072,7 +4072,7 @@
     "explicacion": ""
   },
   {
-    "id": 17,
+    "id": "mad_t11_17",
     "tema": "Tema 11",
     "pregunta": "El ácido oleico es un ácido graso:",
     "opciones": {
@@ -4085,7 +4085,7 @@
     "explicacion": ""
   },
   {
-    "id": 18,
+    "id": "mad_t11_18",
     "tema": "Tema 11",
     "pregunta": "¿Qué vitamina es hidrosoluble?",
     "opciones": {
@@ -4098,7 +4098,7 @@
     "explicacion": ""
   },
   {
-    "id": 19,
+    "id": "mad_t11_19",
     "tema": "Tema 11",
     "pregunta": "Las vitaminas liposolubles son:",
     "opciones": {
@@ -4111,7 +4111,7 @@
     "explicacion": ""
   },
   {
-    "id": 20,
+    "id": "mad_t11_20",
     "tema": "Tema 11",
     "pregunta": "La falta de vitamina C puede provocar:",
     "opciones": {
@@ -4124,7 +4124,7 @@
     "explicacion": ""
   },
   {
-    "id": 21,
+    "id": "mad_t11_21",
     "tema": "Tema 11",
     "pregunta": "La vitamina D es fundamental para la absorción de:",
     "opciones": {
@@ -4137,7 +4137,7 @@
     "explicacion": ""
   },
   {
-    "id": 22,
+    "id": "mad_t11_22",
     "tema": "Tema 11",
     "pregunta": "El mineral que forma parte de la hemoglobina para transportar oxígeno es el:",
     "opciones": {
@@ -4150,7 +4150,7 @@
     "explicacion": ""
   },
   {
-    "id": 23,
+    "id": "mad_t11_23",
     "tema": "Tema 11",
     "pregunta": "¿Qué porcentaje aproximado de agua compone el cuerpo humano adulto?",
     "opciones": {
@@ -4163,7 +4163,7 @@
     "explicacion": ""
   },
   {
-    "id": 24,
+    "id": "mad_t11_24",
     "tema": "Tema 11",
     "pregunta": "El balance hídrico es:",
     "opciones": {
@@ -4176,7 +4176,7 @@
     "explicacion": ""
   },
   {
-    "id": 25,
+    "id": "mad_t11_25",
     "tema": "Tema 11",
     "pregunta": "En la rueda de los alimentos, el Grupo I (Leche y derivados) tiene función:",
     "opciones": {
@@ -4189,7 +4189,7 @@
     "explicacion": ""
   },
   {
-    "id": 26,
+    "id": "mad_t11_26",
     "tema": "Tema 11",
     "pregunta": "La carne es una fuente importante de:",
     "opciones": {
@@ -4202,7 +4202,7 @@
     "explicacion": ""
   },
   {
-    "id": 27,
+    "id": "mad_t11_27",
     "tema": "Tema 11",
     "pregunta": "¿Qué alimento tiene mayor contenido en calcio?",
     "opciones": {
@@ -4215,7 +4215,7 @@
     "explicacion": ""
   },
   {
-    "id": 28,
+    "id": "mad_t11_28",
     "tema": "Tema 11",
     "pregunta": "Los huevos se consideran un alimento:",
     "opciones": {
@@ -4228,7 +4228,7 @@
     "explicacion": ""
   },
   {
-    "id": 29,
+    "id": "mad_t11_29",
     "tema": "Tema 11",
     "pregunta": "El pescado azul se diferencia del blanco en que:",
     "opciones": {
@@ -4241,7 +4241,7 @@
     "explicacion": ""
   },
   {
-    "id": 30,
+    "id": "mad_t11_30",
     "tema": "Tema 11",
     "pregunta": "Las legumbres son ricas en:",
     "opciones": {
@@ -4254,7 +4254,7 @@
     "explicacion": ""
   },
   {
-    "id": 31,
+    "id": "mad_t11_31",
     "tema": "Tema 11",
     "pregunta": "Las hortalizas y verduras destacan por su aporte de:",
     "opciones": {
@@ -4267,7 +4267,7 @@
     "explicacion": ""
   },
   {
-    "id": 32,
+    "id": "mad_t11_32",
     "tema": "Tema 11",
     "pregunta": "¿Cuál es el componente principal de las frutas?",
     "opciones": {
@@ -4280,7 +4280,7 @@
     "explicacion": ""
   },
   {
-    "id": 33,
+    "id": "mad_t11_33",
     "tema": "Tema 11",
     "pregunta": "Los cereales aportan principalmente:",
     "opciones": {
@@ -4293,7 +4293,7 @@
     "explicacion": ""
   },
   {
-    "id": 34,
+    "id": "mad_t11_34",
     "tema": "Tema 11",
     "pregunta": "El aceite de oliva es rico en:",
     "opciones": {
@@ -4306,7 +4306,7 @@
     "explicacion": ""
   },
   {
-    "id": 35,
+    "id": "mad_t11_35",
     "tema": "Tema 11",
     "pregunta": "¿Qué es una caloría?",
     "opciones": {
@@ -4319,7 +4319,7 @@
     "explicacion": ""
   },
   {
-    "id": 36,
+    "id": "mad_t11_36",
     "tema": "Tema 11",
     "pregunta": "El índice de masa corporal (IMC) se calcula:",
     "opciones": {
@@ -4332,7 +4332,7 @@
     "explicacion": ""
   },
   {
-    "id": 37,
+    "id": "mad_t11_37",
     "tema": "Tema 11",
     "pregunta": "Un IMC entre 25 y 29,9 indica:",
     "opciones": {
@@ -4345,7 +4345,7 @@
     "explicacion": ""
   },
   {
-    "id": 38,
+    "id": "mad_t11_38",
     "tema": "Tema 11",
     "pregunta": "La dieta equilibrada debe aportar de glúcidos un:",
     "opciones": {
@@ -4358,7 +4358,7 @@
     "explicacion": ""
   },
   {
-    "id": 39,
+    "id": "mad_t11_39",
     "tema": "Tema 11",
     "pregunta": "La dieta equilibrada debe aportar de lípidos un:",
     "opciones": {
@@ -4371,7 +4371,7 @@
     "explicacion": ""
   },
   {
-    "id": 40,
+    "id": "mad_t11_40",
     "tema": "Tema 11",
     "pregunta": "La dieta equilibrada debe aportar de proteínas un:",
     "opciones": {
@@ -4384,7 +4384,7 @@
     "explicacion": ""
   },
   {
-    "id": 41,
+    "id": "mad_t11_41",
     "tema": "Tema 11",
     "pregunta": "¿Cuál es el órgano que secreta la insulina?",
     "opciones": {
@@ -4397,7 +4397,7 @@
     "explicacion": ""
   },
   {
-    "id": 42,
+    "id": "mad_t11_42",
     "tema": "Tema 11",
     "pregunta": "La absorción de la mayoría de los nutrientes ocurre en:",
     "opciones": {
@@ -4410,7 +4410,7 @@
     "explicacion": ""
   },
   {
-    "id": 43,
+    "id": "mad_t11_43",
     "tema": "Tema 11",
     "pregunta": "La bilis ayuda a la digestión de:",
     "opciones": {
@@ -4423,7 +4423,7 @@
     "explicacion": ""
   },
   {
-    "id": 44,
+    "id": "mad_t11_44",
     "tema": "Tema 11",
     "pregunta": "El glucógeno es:",
     "opciones": {
@@ -4436,7 +4436,7 @@
     "explicacion": ""
   },
   {
-    "id": 45,
+    "id": "mad_t11_45",
     "tema": "Tema 11",
     "pregunta": "¿Qué vitamina ayuda a prevenir la anemia perniciosa?",
     "opciones": {
@@ -4449,7 +4449,7 @@
     "explicacion": ""
   },
   {
-    "id": 46,
+    "id": "mad_t11_46",
     "tema": "Tema 11",
     "pregunta": "La deshidratación es especialmente peligrosa en:",
     "opciones": {
@@ -4462,7 +4462,7 @@
     "explicacion": ""
   },
   {
-    "id": 47,
+    "id": "mad_t11_47",
     "tema": "Tema 11",
     "pregunta": "El yodo es necesario para el buen funcionamiento de:",
     "opciones": {
@@ -4475,7 +4475,7 @@
     "explicacion": ""
   },
   {
-    "id": 48,
+    "id": "mad_t11_48",
     "tema": "Tema 11",
     "pregunta": "¿Qué alimento pertenece al grupo de los glúcidos complejos?",
     "opciones": {
@@ -4488,7 +4488,7 @@
     "explicacion": ""
   },
   {
-    "id": 49,
+    "id": "mad_t11_49",
     "tema": "Tema 11",
     "pregunta": "El colesterol se encuentra solo en alimentos de origen:",
     "opciones": {
@@ -4501,7 +4501,7 @@
     "explicacion": ""
   },
   {
-    "id": 50,
+    "id": "mad_t11_50",
     "tema": "Tema 11",
     "pregunta": "¿Cuál es la \"fruta\" que aporta una cantidad considerable de grasas saludables?",
     "opciones": {
@@ -4514,7 +4514,7 @@
     "explicacion": ""
   },
   {
-    "id": 51,
+    "id": "mad_t11_51",
     "tema": "Tema 11",
     "pregunta": "La pasteurización de la leche consiste en:",
     "opciones": {
@@ -4527,7 +4527,7 @@
     "explicacion": ""
   },
   {
-    "id": 52,
+    "id": "mad_t11_52",
     "tema": "Tema 11",
     "pregunta": "La leche UHT se mantiene en buen estado durante meses porque:",
     "opciones": {
@@ -4540,7 +4540,7 @@
     "explicacion": ""
   },
   {
-    "id": 53,
+    "id": "mad_t11_53",
     "tema": "Tema 11",
     "pregunta": "¿Qué parte del huevo contiene más grasa y vitaminas liposolubles?",
     "opciones": {
@@ -4553,7 +4553,7 @@
     "explicacion": ""
   },
   {
-    "id": 54,
+    "id": "mad_t11_54",
     "tema": "Tema 11",
     "pregunta": "El valor biológico de una proteína depende de:",
     "opciones": {
@@ -4566,7 +4566,7 @@
     "explicacion": ""
   },
   {
-    "id": 55,
+    "id": "mad_t11_55",
     "tema": "Tema 11",
     "pregunta": "El marasmo y el kwashiorkor son enfermedades debidas a:",
     "opciones": {
@@ -4579,7 +4579,7 @@
     "explicacion": ""
   },
   {
-    "id": 56,
+    "id": "mad_t11_56",
     "tema": "Tema 11",
     "pregunta": "¿Qué nutriente ayuda a la formación del tubo neural en el feto?",
     "opciones": {
@@ -4592,7 +4592,7 @@
     "explicacion": ""
   },
   {
-    "id": 57,
+    "id": "mad_t11_57",
     "tema": "Tema 11",
     "pregunta": "Las grasas \"trans\" se forman principalmente por:",
     "opciones": {
@@ -4605,7 +4605,7 @@
     "explicacion": ""
   },
   {
-    "id": 58,
+    "id": "mad_t11_58",
     "tema": "Tema 11",
     "pregunta": "El azúcar común se llama técnicamente:",
     "opciones": {
@@ -4618,7 +4618,7 @@
     "explicacion": ""
   },
   {
-    "id": 59,
+    "id": "mad_t11_59",
     "tema": "Tema 11",
     "pregunta": "¿Cuál de estos es un mineral \"macroelemento\"?",
     "opciones": {
@@ -4631,7 +4631,7 @@
     "explicacion": ""
   },
   {
-    "id": 60,
+    "id": "mad_t11_60",
     "tema": "Tema 11",
     "pregunta": "¿Cuál de estos es un \"oligoelemento\"?",
     "opciones": {
@@ -4644,7 +4644,7 @@
     "explicacion": ""
   },
   {
-    "id": 61,
+    "id": "mad_t11_61",
     "tema": "Tema 11",
     "pregunta": "El raquitismo en niños se debe a la carencia de:",
     "opciones": {
@@ -4657,7 +4657,7 @@
     "explicacion": ""
   },
   {
-    "id": 62,
+    "id": "mad_t11_62",
     "tema": "Tema 11",
     "pregunta": "La principal función de la Vitamina K es:",
     "opciones": {
@@ -4670,7 +4670,7 @@
     "explicacion": ""
   },
   {
-    "id": 63,
+    "id": "mad_t11_63",
     "tema": "Tema 11",
     "pregunta": "¿Qué vitamina es el Tocoferol?",
     "opciones": {
@@ -4683,7 +4683,7 @@
     "explicacion": ""
   },
   {
-    "id": 64,
+    "id": "mad_t11_64",
     "tema": "Tema 11",
     "pregunta": "La Vitamina A (Retinol) es esencial para:",
     "opciones": {
@@ -4696,7 +4696,7 @@
     "explicacion": ""
   },
   {
-    "id": 65,
+    "id": "mad_t11_65",
     "tema": "Tema 11",
     "pregunta": "El exceso de vitaminas liposolubles (hipervitaminosis) es:",
     "opciones": {
@@ -4709,7 +4709,7 @@
     "explicacion": ""
   },
   {
-    "id": 66,
+    "id": "mad_t11_66",
     "tema": "Tema 11",
     "pregunta": "Las vitaminas hidrosolubles se eliminan principalmente por:",
     "opciones": {
@@ -4722,7 +4722,7 @@
     "explicacion": ""
   },
   {
-    "id": 67,
+    "id": "mad_t11_67",
     "tema": "Tema 11",
     "pregunta": "¿Qué glúcido se encuentra en las frutas?",
     "opciones": {
@@ -4735,7 +4735,7 @@
     "explicacion": ""
   },
   {
-    "id": 68,
+    "id": "mad_t11_68",
     "tema": "Tema 11",
     "pregunta": "La celulosa es un componente de:",
     "opciones": {
@@ -4748,7 +4748,7 @@
     "explicacion": ""
   },
   {
-    "id": 69,
+    "id": "mad_t11_69",
     "tema": "Tema 11",
     "pregunta": "¿Cuál es el pH del estómago durante la digestión (ácido o básico)?",
     "opciones": {
@@ -4761,7 +4761,7 @@
     "explicacion": ""
   },
   {
-    "id": 70,
+    "id": "mad_t11_70",
     "tema": "Tema 11",
     "pregunta": "La mayor reserva energética del cuerpo se encuentra en:",
     "opciones": {
@@ -4774,7 +4774,7 @@
     "explicacion": ""
   },
   {
-    "id": 71,
+    "id": "mad_t11_71",
     "tema": "Tema 11",
     "pregunta": "Un lípido líquido a temperatura ambiente se denomina generalmente:",
     "opciones": {
@@ -4787,7 +4787,7 @@
     "explicacion": ""
   },
   {
-    "id": 72,
+    "id": "mad_t11_72",
     "tema": "Tema 11",
     "pregunta": "El pescado blanco tiene un contenido en grasa aproximado de:",
     "opciones": {
@@ -4800,7 +4800,7 @@
     "explicacion": ""
   },
   {
-    "id": 73,
+    "id": "mad_t11_73",
     "tema": "Tema 11",
     "pregunta": "El ácido linoleico es un ácido graso:",
     "opciones": {
@@ -4813,7 +4813,7 @@
     "explicacion": ""
   },
   {
-    "id": 74,
+    "id": "mad_t11_74",
     "tema": "Tema 11",
     "pregunta": "¿Qué nutriente no aporta energía pero es vital para las reacciones químicas?",
     "opciones": {
@@ -4826,7 +4826,7 @@
     "explicacion": ""
   },
   {
-    "id": 75,
+    "id": "mad_t11_75",
     "tema": "Tema 11",
     "pregunta": "La falta de hierro produce:",
     "opciones": {
@@ -4839,7 +4839,7 @@
     "explicacion": ""
   },
   {
-    "id": 76,
+    "id": "mad_t11_76",
     "tema": "Tema 11",
     "pregunta": "¿Cuál de estos cereales NO tiene gluten?",
     "opciones": {
@@ -4852,7 +4852,7 @@
     "explicacion": ""
   },
   {
-    "id": 77,
+    "id": "mad_t11_77",
     "tema": "Tema 11",
     "pregunta": "Los frutos secos son una fuente excelente de:",
     "opciones": {
@@ -4865,7 +4865,7 @@
     "explicacion": ""
   },
   {
-    "id": 78,
+    "id": "mad_t11_78",
     "tema": "Tema 11",
     "pregunta": "La OMS recomienda reducir el consumo de sal a menos de:",
     "opciones": {
@@ -4878,7 +4878,7 @@
     "explicacion": ""
   },
   {
-    "id": 79,
+    "id": "mad_t11_79",
     "tema": "Tema 11",
     "pregunta": "¿Qué vitamina es el Ácido Ascórbico?",
     "opciones": {
@@ -4891,7 +4891,7 @@
     "explicacion": ""
   },
   {
-    "id": 80,
+    "id": "mad_t11_80",
     "tema": "Tema 11",
     "pregunta": "Los aditivos alimentarios se añaden para:",
     "opciones": {
@@ -4904,7 +4904,7 @@
     "explicacion": ""
   },
   {
-    "id": 81,
+    "id": "mad_t11_81",
     "tema": "Tema 11",
     "pregunta": "¿Cómo se llama el proceso de descomposición de las grasas que produce mal olor?",
     "opciones": {
@@ -4917,7 +4917,7 @@
     "explicacion": ""
   },
   {
-    "id": 82,
+    "id": "mad_t11_82",
     "tema": "Tema 11",
     "pregunta": "Las proteínas de origen vegetal son \"incompletas\" porque:",
     "opciones": {
@@ -4930,7 +4930,7 @@
     "explicacion": ""
   },
   {
-    "id": 83,
+    "id": "mad_t11_83",
     "tema": "Tema 11",
     "pregunta": "Combinar lentejas con arroz es bueno porque:",
     "opciones": {
@@ -4943,7 +4943,7 @@
     "explicacion": ""
   },
   {
-    "id": 84,
+    "id": "mad_t11_84",
     "tema": "Tema 11",
     "pregunta": "El principal mineral de los huesos y dientes es el:",
     "opciones": {
@@ -4956,7 +4956,7 @@
     "explicacion": ""
   },
   {
-    "id": 85,
+    "id": "mad_t11_85",
     "tema": "Tema 11",
     "pregunta": "La vitamina B1 se llama también:",
     "opciones": {
@@ -4969,7 +4969,7 @@
     "explicacion": ""
   },
   {
-    "id": 86,
+    "id": "mad_t11_86",
     "tema": "Tema 11",
     "pregunta": "La pelagra es una enfermedad por falta de:",
     "opciones": {
@@ -4982,7 +4982,7 @@
     "explicacion": ""
   },
   {
-    "id": 87,
+    "id": "mad_t11_87",
     "tema": "Tema 11",
     "pregunta": "¿Qué nutriente es el componente principal de la clara de huevo?",
     "opciones": {
@@ -4995,7 +4995,7 @@
     "explicacion": ""
   },
   {
-    "id": 88,
+    "id": "mad_t11_88",
     "tema": "Tema 11",
     "pregunta": "El marisco es rico en:",
     "opciones": {
@@ -5008,7 +5008,7 @@
     "explicacion": ""
   },
   {
-    "id": 89,
+    "id": "mad_t11_89",
     "tema": "Tema 11",
     "pregunta": "El aceite de coco y de palma, aunque son vegetales, son ricos en grasas:",
     "opciones": {
@@ -5021,7 +5021,7 @@
     "explicacion": ""
   },
   {
-    "id": 90,
+    "id": "mad_t11_90",
     "tema": "Tema 11",
     "pregunta": "La sed es una señal de:",
     "opciones": {
@@ -5034,7 +5034,7 @@
     "explicacion": ""
   },
   {
-    "id": 91,
+    "id": "mad_t11_91",
     "tema": "Tema 11",
     "pregunta": "¿Qué alimento se encuentra en la base de la pirámide alimentaria tradicional (consumo diario)?",
     "opciones": {
@@ -5047,7 +5047,7 @@
     "explicacion": ""
   },
   {
-    "id": 92,
+    "id": "mad_t11_92",
     "tema": "Tema 11",
     "pregunta": "¿Cuál es el principal factor que aumenta el gasto energético de una persona?",
     "opciones": {
@@ -5060,7 +5060,7 @@
     "explicacion": ""
   },
   {
-    "id": 93,
+    "id": "mad_t11_93",
     "tema": "Tema 11",
     "pregunta": "La digestión de los glúcidos comienza en:",
     "opciones": {
@@ -5073,7 +5073,7 @@
     "explicacion": ""
   },
   {
-    "id": 94,
+    "id": "mad_t11_94",
     "tema": "Tema 11",
     "pregunta": "La función de la fibra en el intestino es:",
     "opciones": {
@@ -5086,7 +5086,7 @@
     "explicacion": ""
   },
   {
-    "id": 95,
+    "id": "mad_t11_95",
     "tema": "Tema 11",
     "pregunta": "El potasio es importante para:",
     "opciones": {
@@ -5099,7 +5099,7 @@
     "explicacion": ""
   },
   {
-    "id": 96,
+    "id": "mad_t11_96",
     "tema": "Tema 11",
     "pregunta": "¿Qué vitamina se sintetiza en la piel gracias a la luz solar?",
     "opciones": {
@@ -5112,7 +5112,7 @@
     "explicacion": ""
   },
   {
-    "id": 97,
+    "id": "mad_t11_97",
     "tema": "Tema 11",
     "pregunta": "Los lípidos de origen vegetal suelen ser:",
     "opciones": {
@@ -5125,7 +5125,7 @@
     "explicacion": ""
   },
   {
-    "id": 98,
+    "id": "mad_t11_98",
     "tema": "Tema 11",
     "pregunta": "El término \"kilocaloría\" (kcal) se usa en nutrición para medir:",
     "opciones": {
@@ -5138,7 +5138,7 @@
     "explicacion": ""
   },
   {
-    "id": 99,
+    "id": "mad_t11_99",
     "tema": "Tema 11",
     "pregunta": "El nutriente que el cerebro usa casi exclusivamente como combustible es:",
     "opciones": {
@@ -5151,7 +5151,7 @@
     "explicacion": ""
   },
   {
-    "id": 100,
+    "id": "mad_t11_100",
     "tema": "Tema 11",
     "pregunta": "Una dieta hiperproteica es aquella que:",
     "opciones": {
@@ -5164,7 +5164,7 @@
     "explicacion": ""
   },
   {
-    "id": 101,
+    "id": "mad_t11_101",
     "tema": "Tema 11",
     "pregunta": "¿Qué es la desnutrición primaria?",
     "opciones": {
@@ -5177,7 +5177,7 @@
     "explicacion": ""
   },
   {
-    "id": 102,
+    "id": "mad_t11_102",
     "tema": "Tema 11",
     "pregunta": "La desnutrición secundaria se produce cuando:",
     "opciones": {
@@ -5190,7 +5190,7 @@
     "explicacion": ""
   },
   {
-    "id": 103,
+    "id": "mad_t11_103",
     "tema": "Tema 11",
     "pregunta": "¿Cuál es el principal componente de las legumbres secas?",
     "opciones": {
@@ -5203,7 +5203,7 @@
     "explicacion": ""
   },
   {
-    "id": 104,
+    "id": "mad_t11_104",
     "tema": "Tema 11",
     "pregunta": "Las proteínas de las legumbres son deficientes en el aminoácido:",
     "opciones": {
@@ -5216,7 +5216,7 @@
     "explicacion": ""
   },
   {
-    "id": 105,
+    "id": "mad_t11_105",
     "tema": "Tema 11",
     "pregunta": "¿Qué tratamiento térmico de la leche es el más suave y conserva mejor las vitaminas?",
     "opciones": {
@@ -5229,7 +5229,7 @@
     "explicacion": ""
   },
   {
-    "id": 106,
+    "id": "mad_t11_106",
     "tema": "Tema 11",
     "pregunta": "El queso es un producto obtenido por la coagulación de:",
     "opciones": {
@@ -5242,7 +5242,7 @@
     "explicacion": ""
   },
   {
-    "id": 107,
+    "id": "mad_t11_107",
     "tema": "Tema 11",
     "pregunta": "Los pescados planos (lenguado, gallo) suelen clasificarse como:",
     "opciones": {
@@ -5255,7 +5255,7 @@
     "explicacion": ""
   },
   {
-    "id": 108,
+    "id": "mad_t11_108",
     "tema": "Tema 11",
     "pregunta": "¿Qué nutriente del pescado azul ayuda a reducir el colesterol y los triglicéridos?",
     "opciones": {
@@ -5268,7 +5268,7 @@
     "explicacion": ""
   },
   {
-    "id": 109,
+    "id": "mad_t11_109",
     "tema": "Tema 11",
     "pregunta": "La mioglobina es la proteína responsable del color de:",
     "opciones": {
@@ -5281,7 +5281,7 @@
     "explicacion": ""
   },
   {
-    "id": 110,
+    "id": "mad_t11_110",
     "tema": "Tema 11",
     "pregunta": "Se considera \"carne blanca\" a la proveniente de:",
     "opciones": {
@@ -5294,7 +5294,7 @@
     "explicacion": ""
   },
   {
-    "id": 111,
+    "id": "mad_t11_111",
     "tema": "Tema 11",
     "pregunta": "El principal glúcido de reserva en los animales se llama:",
     "opciones": {
@@ -5307,7 +5307,7 @@
     "explicacion": ""
   },
   {
-    "id": 112,
+    "id": "mad_t11_112",
     "tema": "Tema 11",
     "pregunta": "Las vitaminas B1, B2 y B3 intervienen principalmente en:",
     "opciones": {
@@ -5320,7 +5320,7 @@
     "explicacion": ""
   },
   {
-    "id": 113,
+    "id": "mad_t11_113",
     "tema": "Tema 11",
     "pregunta": "El ácido fólico es especialmente importante en la dieta de:",
     "opciones": {
@@ -5333,7 +5333,7 @@
     "explicacion": ""
   },
   {
-    "id": 114,
+    "id": "mad_t11_114",
     "tema": "Tema 11",
     "pregunta": "¿Qué alimento tiene un alto contenido en purinas (malo para el ácido úrico/gota)?",
     "opciones": {
@@ -5346,7 +5346,7 @@
     "explicacion": ""
   },
   {
-    "id": 115,
+    "id": "mad_t11_115",
     "tema": "Tema 11",
     "pregunta": "El proceso de hidrogenación de grasas las convierte de:",
     "opciones": {
@@ -5359,7 +5359,7 @@
     "explicacion": ""
   },
   {
-    "id": 116,
+    "id": "mad_t11_116",
     "tema": "Tema 11",
     "pregunta": "El raquitismo es a los niños lo que la osteomalacia es a:",
     "opciones": {
@@ -5372,7 +5372,7 @@
     "explicacion": ""
   },
   {
-    "id": 117,
+    "id": "mad_t11_117",
     "tema": "Tema 11",
     "pregunta": "¿Qué vitamina se encuentra casi exclusivamente en alimentos de origen animal?",
     "opciones": {
@@ -5385,7 +5385,7 @@
     "explicacion": ""
   },
   {
-    "id": 118,
+    "id": "mad_t11_118",
     "tema": "Tema 11",
     "pregunta": "La absorción del hierro de origen vegetal mejora si se consume con:",
     "opciones": {
@@ -5398,7 +5398,7 @@
     "explicacion": ""
   },
   {
-    "id": 119,
+    "id": "mad_t11_119",
     "tema": "Tema 11",
     "pregunta": "¿Cuál es el principal mineral extracelular que regula la presión arterial?",
     "opciones": {
@@ -5411,7 +5411,7 @@
     "explicacion": ""
   },
   {
-    "id": 120,
+    "id": "mad_t11_120",
     "tema": "Tema 11",
     "pregunta": "¿Qué órgano produce la bilis?",
     "opciones": {
@@ -5424,7 +5424,7 @@
     "explicacion": ""
   },
   {
-    "id": 121,
+    "id": "mad_t11_121",
     "tema": "Tema 11",
     "pregunta": "La función de la vitamina E es principalmente:",
     "opciones": {
@@ -5437,7 +5437,7 @@
     "explicacion": ""
   },
   {
-    "id": 122,
+    "id": "mad_t11_122",
     "tema": "Tema 11",
     "pregunta": "¿Qué es el perístaltismo?",
     "opciones": {
@@ -5450,7 +5450,7 @@
     "explicacion": ""
   },
   {
-    "id": 123,
+    "id": "mad_t11_123",
     "tema": "Tema 11",
     "pregunta": "Las enzimas digestivas son de naturaleza:",
     "opciones": {
@@ -5463,7 +5463,7 @@
     "explicacion": ""
   },
   {
-    "id": 124,
+    "id": "mad_t11_124",
     "tema": "Tema 11",
     "pregunta": "¿En qué parte del tubo digestivo termina la digestión y comienza la absorción masiva?",
     "opciones": {
@@ -5476,7 +5476,7 @@
     "explicacion": ""
   },
   {
-    "id": 125,
+    "id": "mad_t11_125",
     "tema": "Tema 11",
     "pregunta": "La función del intestino grueso es principalmente:",
     "opciones": {
@@ -5489,7 +5489,7 @@
     "explicacion": ""
   },
   {
-    "id": 126,
+    "id": "mad_t11_126",
     "tema": "Tema 11",
     "pregunta": "¿Cómo se llama el bolo alimenticio una vez que sale del estómago hacia el intestino?",
     "opciones": {
@@ -5502,7 +5502,7 @@
     "explicacion": ""
   },
   {
-    "id": 127,
+    "id": "mad_t11_127",
     "tema": "Tema 11",
     "pregunta": "El exceso de energía consumida y no gastada se almacena en forma de:",
     "opciones": {
@@ -5515,7 +5515,7 @@
     "explicacion": ""
   },
   {
-    "id": 128,
+    "id": "mad_t11_128",
     "tema": "Tema 11",
     "pregunta": "Las grasas saturadas deben representar menos del:",
     "opciones": {
@@ -5528,7 +5528,7 @@
     "explicacion": ""
   },
   {
-    "id": 129,
+    "id": "mad_t11_129",
     "tema": "Tema 11",
     "pregunta": "¿Qué técnica de cocción conserva mejor las vitaminas hidrosolubles?",
     "opciones": {
@@ -5541,7 +5541,7 @@
     "explicacion": ""
   },
   {
-    "id": 130,
+    "id": "mad_t11_130",
     "tema": "Tema 11",
     "pregunta": "El proceso de \"escaldado\" en cocina sirve para:",
     "opciones": {
@@ -5554,7 +5554,7 @@
     "explicacion": ""
   },
   {
-    "id": 131,
+    "id": "mad_t11_131",
     "tema": "Tema 11",
     "pregunta": "¿Qué es un alimento \"fortificado\" o \"enriquecido\"?",
     "opciones": {
@@ -5567,7 +5567,7 @@
     "explicacion": ""
   },
   {
-    "id": 132,
+    "id": "mad_t11_132",
     "tema": "Tema 11",
     "pregunta": "La intolerancia a la lactosa se debe a la falta de la enzima:",
     "opciones": {
@@ -5580,7 +5580,7 @@
     "explicacion": ""
   },
   {
-    "id": 133,
+    "id": "mad_t11_133",
     "tema": "Tema 11",
     "pregunta": "El gluten es una proteína presente en:",
     "opciones": {
@@ -5593,7 +5593,7 @@
     "explicacion": ""
   },
   {
-    "id": 134,
+    "id": "mad_t11_134",
     "tema": "Tema 11",
     "pregunta": "La dieta basal en un hospital es aquella que:",
     "opciones": {
@@ -5606,7 +5606,7 @@
     "explicacion": ""
   },
   {
-    "id": 135,
+    "id": "mad_t11_135",
     "tema": "Tema 11",
     "pregunta": "Una dieta \"astringente\" está indicada para casos de:",
     "opciones": {
@@ -5619,7 +5619,7 @@
     "explicacion": ""
   },
   {
-    "id": 136,
+    "id": "mad_t11_136",
     "tema": "Tema 11",
     "pregunta": "¿Qué alimento se evita en una dieta astringente?",
     "opciones": {
@@ -5632,7 +5632,7 @@
     "explicacion": ""
   },
   {
-    "id": 137,
+    "id": "mad_t11_137",
     "tema": "Tema 11",
     "pregunta": "La dieta hipocalórica se caracteriza por:",
     "opciones": {
@@ -5645,7 +5645,7 @@
     "explicacion": ""
   },
   {
-    "id": 138,
+    "id": "mad_t11_138",
     "tema": "Tema 11",
     "pregunta": "En una dieta para hipertensos se restringe el:",
     "opciones": {
@@ -5658,7 +5658,7 @@
     "explicacion": ""
   },
   {
-    "id": 139,
+    "id": "mad_t11_139",
     "tema": "Tema 11",
     "pregunta": "La dieta para diabéticos controla principalmente la cantidad de:",
     "opciones": {
@@ -5671,7 +5671,7 @@
     "explicacion": ""
   },
   {
-    "id": 140,
+    "id": "mad_t11_140",
     "tema": "Tema 11",
     "pregunta": "¿Qué es la nutrición enteral?",
     "opciones": {
@@ -5684,7 +5684,7 @@
     "explicacion": ""
   },
   {
-    "id": 141,
+    "id": "mad_t11_141",
     "tema": "Tema 11",
     "pregunta": "La nutrición parenteral es aquella que se administra por:",
     "opciones": {
@@ -5697,7 +5697,7 @@
     "explicacion": ""
   },
   {
-    "id": 142,
+    "id": "mad_t11_142",
     "tema": "Tema 11",
     "pregunta": "El huevo se debe conservar en el frigorífico para evitar el crecimiento de:",
     "opciones": {
@@ -5710,7 +5710,7 @@
     "explicacion": ""
   },
   {
-    "id": 143,
+    "id": "mad_t11_143",
     "tema": "Tema 11",
     "pregunta": "¿Qué parte de la carne tiene más colágeno y es más dura?",
     "opciones": {
@@ -5723,7 +5723,7 @@
     "explicacion": ""
   },
   {
-    "id": 144,
+    "id": "mad_t11_144",
     "tema": "Tema 11",
     "pregunta": "El principal componente del pan es:",
     "opciones": {
@@ -5736,7 +5736,7 @@
     "explicacion": ""
   },
   {
-    "id": 145,
+    "id": "mad_t11_145",
     "tema": "Tema 11",
     "pregunta": "Las legumbres frescas (guisantes, habas) tienen más cantidad de:",
     "opciones": {
@@ -5749,7 +5749,7 @@
     "explicacion": ""
   },
   {
-    "id": 146,
+    "id": "mad_t11_146",
     "tema": "Tema 11",
     "pregunta": "La fruta desecada (pasas, higos) tiene los nutrientes más:",
     "opciones": {
@@ -5762,7 +5762,7 @@
     "explicacion": ""
   },
   {
-    "id": 147,
+    "id": "mad_t11_147",
     "tema": "Tema 11",
     "pregunta": "¿Cuál es el aceite más rico en ácidos grasos poliinsaturados?",
     "opciones": {
@@ -5775,7 +5775,7 @@
     "explicacion": ""
   },
   {
-    "id": 148,
+    "id": "mad_t11_148",
     "tema": "Tema 11",
     "pregunta": "El consumo excesivo de azúcar se relaciona con:",
     "opciones": {
@@ -5788,7 +5788,7 @@
     "explicacion": ""
   },
   {
-    "id": 149,
+    "id": "mad_t11_149",
     "tema": "Tema 11",
     "pregunta": "Los tubérculos como la patata son ricos en:",
     "opciones": {
@@ -5801,7 +5801,7 @@
     "explicacion": ""
   },
   {
-    "id": 150,
+    "id": "mad_t11_150",
     "tema": "Tema 11",
     "pregunta": "El \"pardeamiento enzimático\" es el proceso por el cual:",
     "opciones": {
@@ -5814,7 +5814,7 @@
     "explicacion": ""
   },
   {
-    "id": 151,
+    "id": "mad_t11_151",
     "tema": "Tema 11",
     "pregunta": "¿Qué es la \"trazabilidad\" alimentaria?",
     "opciones": {
@@ -5827,7 +5827,7 @@
     "explicacion": ""
   },
   {
-    "id": 152,
+    "id": "mad_t11_152",
     "tema": "Tema 11",
     "pregunta": "En el etiquetado, los ingredientes deben aparecer en orden:",
     "opciones": {
@@ -5840,7 +5840,7 @@
     "explicacion": ""
   },
   {
-    "id": 153,
+    "id": "mad_t11_153",
     "tema": "Tema 11",
     "pregunta": "La fecha de \"consumo preferente\" indica que:",
     "opciones": {
@@ -5853,7 +5853,7 @@
     "explicacion": ""
   },
   {
-    "id": 154,
+    "id": "mad_t11_154",
     "tema": "Tema 11",
     "pregunta": "La \"fecha de caducidad\" se usa en alimentos:",
     "opciones": {
@@ -5866,7 +5866,7 @@
     "explicacion": ""
   },
   {
-    "id": 155,
+    "id": "mad_t11_155",
     "tema": "Tema 11",
     "pregunta": "¿Qué nutriente aporta el mayor porcentaje de energía en la dieta mediterránea?",
     "opciones": {
@@ -5879,7 +5879,7 @@
     "explicacion": ""
   },
   {
-    "id": 156,
+    "id": "mad_t11_156",
     "tema": "Tema 11",
     "pregunta": "El \"HDL\" se conoce comúnmente como:",
     "opciones": {
@@ -5892,7 +5892,7 @@
     "explicacion": ""
   },
   {
-    "id": 157,
+    "id": "mad_t11_157",
     "tema": "Tema 11",
     "pregunta": "El ácido úrico es el producto final del metabolismo de:",
     "opciones": {
@@ -5905,7 +5905,7 @@
     "explicacion": ""
   },
   {
-    "id": 158,
+    "id": "mad_t11_158",
     "tema": "Tema 11",
     "pregunta": "¿Qué es la obesidad?",
     "opciones": {
@@ -5918,7 +5918,7 @@
     "explicacion": ""
   },
   {
-    "id": 159,
+    "id": "mad_t11_159",
     "tema": "Tema 11",
     "pregunta": "La dieta baja en residuos es una dieta:",
     "opciones": {
@@ -5931,7 +5931,7 @@
     "explicacion": ""
   },
   {
-    "id": 160,
+    "id": "mad_t11_160",
     "tema": "Tema 11",
     "pregunta": "Un paciente con insuficiencia renal debe controlar mucho el aporte de:",
     "opciones": {
@@ -5944,7 +5944,7 @@
     "explicacion": ""
   },
   {
-    "id": 161,
+    "id": "mad_t11_161",
     "tema": "Tema 11",
     "pregunta": "El escorbuto se debe a la carencia de:",
     "opciones": {
@@ -5957,7 +5957,7 @@
     "explicacion": ""
   },
   {
-    "id": 162,
+    "id": "mad_t11_162",
     "tema": "Tema 11",
     "pregunta": "La xeroftalmía (sequedad ocular) se relaciona con la falta de:",
     "opciones": {
@@ -5970,7 +5970,7 @@
     "explicacion": ""
   },
   {
-    "id": 163,
+    "id": "mad_t11_163",
     "tema": "Tema 11",
     "pregunta": "¿Qué grupo de la rueda de alimentos incluye a los aceites y grasas?",
     "opciones": {
@@ -5983,7 +5983,7 @@
     "explicacion": ""
   },
   {
-    "id": 164,
+    "id": "mad_t11_164",
     "tema": "Tema 11",
     "pregunta": "El agua \"metabólica\" es la que:",
     "opciones": {
@@ -5996,7 +5996,7 @@
     "explicacion": ""
   },
   {
-    "id": 165,
+    "id": "mad_t11_165",
     "tema": "Tema 11",
     "pregunta": "La mayor parte del agua del cuerpo se encuentra:",
     "opciones": {
@@ -6009,7 +6009,7 @@
     "explicacion": ""
   },
   {
-    "id": 166,
+    "id": "mad_t11_166",
     "tema": "Tema 11",
     "pregunta": "La pérdida de agua por la piel sin que se note sudor se llama:",
     "opciones": {
@@ -6022,7 +6022,7 @@
     "explicacion": ""
   },
   {
-    "id": 167,
+    "id": "mad_t11_167",
     "tema": "Tema 11",
     "pregunta": "La malnutrición puede ser:",
     "opciones": {
@@ -6035,7 +6035,7 @@
     "explicacion": ""
   },
   {
-    "id": 168,
+    "id": "mad_t11_168",
     "tema": "Tema 11",
     "pregunta": "La unidad de medida de la energía en el sistema internacional es el:",
     "opciones": {
@@ -6048,7 +6048,7 @@
     "explicacion": ""
   },
   {
-    "id": 169,
+    "id": "mad_t11_169",
     "tema": "Tema 11",
     "pregunta": "¿Cuántas kcal tiene un gramo de alcohol?",
     "opciones": {
@@ -6061,7 +6061,7 @@
     "explicacion": ""
   },
   {
-    "id": 170,
+    "id": "mad_t11_170",
     "tema": "Tema 11",
     "pregunta": "El hambre es una sensación:",
     "opciones": {
@@ -6074,7 +6074,7 @@
     "explicacion": ""
   },
   {
-    "id": 171,
+    "id": "mad_t11_171",
     "tema": "Tema 11",
     "pregunta": "El apetito es:",
     "opciones": {
@@ -6087,7 +6087,7 @@
     "explicacion": ""
   },
   {
-    "id": 172,
+    "id": "mad_t11_172",
     "tema": "Tema 11",
     "pregunta": "La saciedad es la sensación de:",
     "opciones": {
@@ -6100,7 +6100,7 @@
     "explicacion": ""
   },
   {
-    "id": 173,
+    "id": "mad_t11_173",
     "tema": "Tema 11",
     "pregunta": "¿Cuál es el principal factor que determina el gasto energético basal?",
     "opciones": {
@@ -6113,7 +6113,7 @@
     "explicacion": ""
   },
   {
-    "id": 174,
+    "id": "mad_t11_174",
     "tema": "Tema 11",
     "pregunta": "El efecto termogénico de los alimentos es:",
     "opciones": {
@@ -6126,7 +6126,7 @@
     "explicacion": ""
   },
   {
-    "id": 175,
+    "id": "mad_t11_175",
     "tema": "Tema 11",
     "pregunta": "La obesidad tipo androide (forma de manzana) tiene más riesgo de:",
     "opciones": {
@@ -6139,7 +6139,7 @@
     "explicacion": ""
   },
   {
-    "id": 176,
+    "id": "mad_t11_176",
     "tema": "Tema 11",
     "pregunta": "La dieta líquida suele estar indicada:",
     "opciones": {
@@ -6152,7 +6152,7 @@
     "explicacion": ""
   },
   {
-    "id": 177,
+    "id": "mad_t11_177",
     "tema": "Tema 11",
     "pregunta": "La dieta semilíquida o pastosa incluye:",
     "opciones": {
@@ -6165,7 +6165,7 @@
     "explicacion": ""
   },
   {
-    "id": 178,
+    "id": "mad_t11_178",
     "tema": "Tema 11",
     "pregunta": "Un alimento \"perecedero\" es aquel que:",
     "opciones": {
@@ -6178,7 +6178,7 @@
     "explicacion": ""
   },
   {
-    "id": 179,
+    "id": "mad_t11_179",
     "tema": "Tema 11",
     "pregunta": "La liofilización es un método de conservación que consiste en:",
     "opciones": {
@@ -6191,7 +6191,7 @@
     "explicacion": ""
   },
   {
-    "id": 180,
+    "id": "mad_t11_180",
     "tema": "Tema 11",
     "pregunta": "¿Qué gas se suele usar en el envasado en atmósfera protegida?",
     "opciones": {
@@ -6204,7 +6204,7 @@
     "explicacion": ""
   },
   {
-    "id": 181,
+    "id": "mad_t11_181",
     "tema": "Tema 11",
     "pregunta": "El aditivo E-621 (glutamato monosódico) es un:",
     "opciones": {
@@ -6217,7 +6217,7 @@
     "explicacion": ""
   },
   {
-    "id": 182,
+    "id": "mad_t11_182",
     "tema": "Tema 11",
     "pregunta": "Los colorantes alimentarios sirven para:",
     "opciones": {
@@ -6230,7 +6230,7 @@
     "explicacion": ""
   },
   {
-    "id": 183,
+    "id": "mad_t11_183",
     "tema": "Tema 11",
     "pregunta": "¿Qué indica el número E en un aditivo?",
     "opciones": {
@@ -6243,7 +6243,7 @@
     "explicacion": ""
   },
   {
-    "id": 184,
+    "id": "mad_t11_184",
     "tema": "Tema 11",
     "pregunta": "La irradiación de alimentos sirve para:",
     "opciones": {
@@ -6256,7 +6256,7 @@
     "explicacion": ""
   },
   {
-    "id": 185,
+    "id": "mad_t11_185",
     "tema": "Tema 11",
     "pregunta": "El principal componente de los cereales es el almidón, que se encuentra en:",
     "opciones": {
@@ -6269,7 +6269,7 @@
     "explicacion": ""
   },
   {
-    "id": 186,
+    "id": "mad_t11_186",
     "tema": "Tema 11",
     "pregunta": "Los cereales integrales conservan:",
     "opciones": {
@@ -6282,7 +6282,7 @@
     "explicacion": ""
   },
   {
-    "id": 187,
+    "id": "mad_t11_187",
     "tema": "Tema 11",
     "pregunta": "Las legumbres deben cocinarse bien para:",
     "opciones": {
@@ -6295,7 +6295,7 @@
     "explicacion": ""
   },
   {
-    "id": 188,
+    "id": "mad_t11_188",
     "tema": "Tema 11",
     "pregunta": "¿Qué hortaliza es un bulbo?",
     "opciones": {
@@ -6308,7 +6308,7 @@
     "explicacion": ""
   },
   {
-    "id": 189,
+    "id": "mad_t11_189",
     "tema": "Tema 11",
     "pregunta": "La fructosa es el azúcar predominante en:",
     "opciones": {
@@ -6321,7 +6321,7 @@
     "explicacion": ""
   },
   {
-    "id": 190,
+    "id": "mad_t11_190",
     "tema": "Tema 11",
     "pregunta": "El aceite de girasol destaca por su contenido en:",
     "opciones": {
@@ -6334,7 +6334,7 @@
     "explicacion": ""
   },
   {
-    "id": 191,
+    "id": "mad_t11_191",
     "tema": "Tema 11",
     "pregunta": "La margarina se diferencia de la mantequilla en que:",
     "opciones": {
@@ -6347,7 +6347,7 @@
     "explicacion": ""
   },
   {
-    "id": 192,
+    "id": "mad_t11_192",
     "tema": "Tema 11",
     "pregunta": "¿Qué bebida NO aporta calorías (energía)?",
     "opciones": {
@@ -6360,7 +6360,7 @@
     "explicacion": ""
   },
   {
-    "id": 193,
+    "id": "mad_t11_193",
     "tema": "Tema 11",
     "pregunta": "El café y el té contienen sustancias:",
     "opciones": {
@@ -6373,7 +6373,7 @@
     "explicacion": ""
   },
   {
-    "id": 194,
+    "id": "mad_t11_194",
     "tema": "Tema 11",
     "pregunta": "La dieta hipoproteica restringe:",
     "opciones": {
@@ -6386,7 +6386,7 @@
     "explicacion": ""
   },
   {
-    "id": 155,
+    "id": "mad_t11_155_b",
     "tema": "Tema 11",
     "pregunta": "¿Qué es la disfagia? (Nota: la numeración saltaba en el original, la mantengo o corrijo? mantengo texto)",
     "opciones": {
@@ -6399,7 +6399,7 @@
     "explicacion": ""
   },
   {
-    "id": 196,
+    "id": "mad_t11_196",
     "tema": "Tema 11",
     "pregunta": "En una dieta para disfagia se suele usar:",
     "opciones": {
@@ -6412,7 +6412,7 @@
     "explicacion": ""
   },
   {
-    "id": 197,
+    "id": "mad_t11_197",
     "tema": "Tema 11",
     "pregunta": "El consumo de fibra previene el cáncer de:",
     "opciones": {
@@ -6425,7 +6425,7 @@
     "explicacion": ""
   },
   {
-    "id": 198,
+    "id": "mad_t11_198",
     "tema": "Tema 11",
     "pregunta": "¿Qué es el \"metabolismo\"?",
     "opciones": {
@@ -6438,7 +6438,7 @@
     "explicacion": ""
   },
   {
-    "id": 199,
+    "id": "mad_t11_199",
     "tema": "Tema 11",
     "pregunta": "El anabolismo es la fase del metabolismo donde:",
     "opciones": {
@@ -6451,7 +6451,7 @@
     "explicacion": ""
   },
   {
-    "id": 200,
+    "id": "mad_t11_200",
     "tema": "Tema 11",
     "pregunta": "El catabolismo es la fase donde:",
     "opciones": {
@@ -6464,7 +6464,7 @@
     "explicacion": ""
   },
   {
-    "id": 201,
+    "id": "mad_t11_201",
     "tema": "Tema 11",
     "pregunta": "¿Qué es el valor biológico de una proteína?",
     "opciones": {
@@ -6477,7 +6477,7 @@
     "explicacion": ""
   },
   {
-    "id": 202,
+    "id": "mad_t11_202",
     "tema": "Tema 11",
     "pregunta": "La vitamina B2 se denomina también:",
     "opciones": {
@@ -6490,7 +6490,7 @@
     "explicacion": ""
   },
   {
-    "id": 203,
+    "id": "mad_t11_203",
     "tema": "Tema 11",
     "pregunta": "¿Qué nutriente ayuda a prevenir el bocio?",
     "opciones": {
@@ -6503,7 +6503,7 @@
     "explicacion": ""
   },
   {
-    "id": 204,
+    "id": "mad_t11_204",
     "tema": "Tema 11",
     "pregunta": "¿Cuál es la principal función de los lípidos en el organismo?",
     "opciones": {
@@ -6516,7 +6516,7 @@
     "explicacion": ""
   },
   {
-    "id": 205,
+    "id": "mad_t11_205",
     "tema": "Tema 11",
     "pregunta": "El exceso de consumo de proteínas puede sobrecargar el trabajo de:",
     "opciones": {
@@ -6529,7 +6529,7 @@
     "explicacion": ""
   },
   {
-    "id": 206,
+    "id": "mad_t11_206",
     "tema": "Tema 11",
     "pregunta": "Las \"calorías vacías\" son aquellas que:",
     "opciones": {
@@ -6542,7 +6542,7 @@
     "explicacion": ""
   },
   {
-    "id": 207,
+    "id": "mad_t11_207",
     "tema": "Tema 11",
     "pregunta": "¿Qué alimento es característico de los glúcidos de absorción rápida?",
     "opciones": {
@@ -6555,7 +6555,7 @@
     "explicacion": ""
   },
   {
-    "id": 208,
+    "id": "mad_t11_208",
     "tema": "Tema 11",
     "pregunta": "El componente mayoritario de las legumbres frescas es:",
     "opciones": {
@@ -6568,7 +6568,7 @@
     "explicacion": ""
   },
   {
-    "id": 209,
+    "id": "mad_t11_209",
     "tema": "Tema 11",
     "pregunta": "¿Cuál de estos alimentos tiene una función principalmente reguladora?",
     "opciones": {
@@ -6581,7 +6581,7 @@
     "explicacion": ""
   },
   {
-    "id": 210,
+    "id": "mad_t11_210",
     "tema": "Tema 11",
     "pregunta": "La falta de Vitamina B1 (Tiamina) produce la enfermedad conocida como:",
     "opciones": {
@@ -6594,7 +6594,7 @@
     "explicacion": ""
   },
   {
-    "id": 211,
+    "id": "mad_t11_211",
     "tema": "Tema 11",
     "pregunta": "¿En qué órgano se produce la mayor parte de la absorción de agua?",
     "opciones": {
@@ -6607,7 +6607,7 @@
     "explicacion": ""
   },
   {
-    "id": 212,
+    "id": "mad_t11_212",
     "tema": "Tema 11",
     "pregunta": "¿Qué mineral es vital para la contracción muscular y el ritmo cardíaco?",
     "opciones": {
@@ -6620,7 +6620,7 @@
     "explicacion": ""
   },
   {
-    "id": 213,
+    "id": "mad_t11_213",
     "tema": "Tema 11",
     "pregunta": "La dieta blanda hospitalaria se caracteriza por:",
     "opciones": {
@@ -6633,7 +6633,7 @@
     "explicacion": ""
   },
   {
-    "id": 214,
+    "id": "mad_t11_214",
     "tema": "Tema 11",
     "pregunta": "El \"quemado\" de la grasa al cocinar a temperaturas muy altas puede generar:",
     "opciones": {
@@ -6646,7 +6646,7 @@
     "explicacion": ""
   },
   {
-    "id": 215,
+    "id": "mad_t11_215",
     "tema": "Tema 11",
     "pregunta": "¿Qué es un \"nutriente esencial\"?",
     "opciones": {
@@ -6659,7 +6659,7 @@
     "explicacion": ""
   },
   {
-    "id": 216,
+    "id": "mad_t11_216",
     "tema": "Tema 11",
     "pregunta": "La Vitamina B9 es el nombre técnico de:",
     "opciones": {
@@ -6672,7 +6672,7 @@
     "explicacion": ""
   },
   {
-    "id": 217,
+    "id": "mad_t11_217",
     "tema": "Tema 11",
     "pregunta": "El \"marmoleado\" de la carne se refiere a:",
     "opciones": {
@@ -6685,7 +6685,7 @@
     "explicacion": ""
   },
   {
-    "id": 218,
+    "id": "mad_t11_218",
     "tema": "Tema 11",
     "pregunta": "El yogur es una leche fermentada gracias a la acción de:",
     "opciones": {
@@ -6698,7 +6698,7 @@
     "explicacion": ""
   },
   {
-    "id": 219,
+    "id": "mad_t11_219",
     "tema": "Tema 11",
     "pregunta": "¿Cuál de estas es una función de la Vitamina A?",
     "opciones": {
@@ -6711,7 +6711,7 @@
     "explicacion": ""
   },
   {
-    "id": 220,
+    "id": "mad_t11_220",
     "tema": "Tema 11",
     "pregunta": "El principal mineral que se pierde por el sudor es:",
     "opciones": {
@@ -6724,7 +6724,7 @@
     "explicacion": ""
   },
   {
-    "id": 221,
+    "id": "mad_t11_221",
     "tema": "Tema 11",
     "pregunta": "La dieta líquida clara incluye:",
     "opciones": {
@@ -6737,7 +6737,7 @@
     "explicacion": ""
   },
   {
-    "id": 222,
+    "id": "mad_t11_222",
     "tema": "Tema 11",
     "pregunta": "El huevo \"fresco\" se reconoce porque al sumergirlo en agua con sal:",
     "opciones": {
@@ -6750,7 +6750,7 @@
     "explicacion": ""
   },
   {
-    "id": 223,
+    "id": "mad_t11_223",
     "tema": "Tema 11",
     "pregunta": "¿Qué nutriente es fundamental para la reparación de tejidos tras una cirugía?",
     "opciones": {
@@ -6763,7 +6763,7 @@
     "explicacion": ""
   },
   {
-    "id": 224,
+    "id": "mad_t11_224",
     "tema": "Tema 11",
     "pregunta": "La digestión de las proteínas comienza principalmente en:",
     "opciones": {
@@ -6776,7 +6776,7 @@
     "explicacion": ""
   },
   {
-    "id": 225,
+    "id": "mad_t11_225",
     "tema": "Tema 11",
     "pregunta": "Los glúcidos complejos (polisacáridos) tardan más en digerirse porque:",
     "opciones": {
@@ -6789,7 +6789,7 @@
     "explicacion": ""
   },
   {
-    "id": 226,
+    "id": "mad_t11_226",
     "tema": "Tema 11",
     "pregunta": "El aceite de pescado es rico en:",
     "opciones": {
@@ -6802,7 +6802,7 @@
     "explicacion": ""
   },
   {
-    "id": 227,
+    "id": "mad_t11_227",
     "tema": "Tema 11",
     "pregunta": "¿Qué enfermedad se asocia a un consumo excesivo de grasas saturadas y colesterol?",
     "opciones": {
@@ -6815,7 +6815,7 @@
     "explicacion": ""
   },
   {
-    "id": 228,
+    "id": "mad_t11_228",
     "tema": "Tema 11",
     "pregunta": "La función de la Vitamina B12 está muy ligada a la formación de:",
     "opciones": {
@@ -6828,7 +6828,7 @@
     "explicacion": ""
   },
   {
-    "id": 229,
+    "id": "mad_t11_229",
     "tema": "Tema 11",
     "pregunta": "El agua se clasifica como un nutriente:",
     "opciones": {
@@ -6841,7 +6841,7 @@
     "explicacion": ""
   },
   {
-    "id": 230,
+    "id": "mad_t11_230",
     "tema": "Tema 11",
     "pregunta": "La intolerancia al gluten se llama técnicamente:",
     "opciones": {
@@ -6854,7 +6854,7 @@
     "explicacion": ""
   },
   {
-    "id": 231,
+    "id": "mad_t11_231",
     "tema": "Tema 11",
     "pregunta": "¿Qué es la \"anorexia\" como síntoma clínico?",
     "opciones": {
@@ -6867,7 +6867,7 @@
     "explicacion": ""
   },
   {
-    "id": 232,
+    "id": "mad_t11_232",
     "tema": "Tema 11",
     "pregunta": "Un alimento \"transgénico\" es aquel que:",
     "opciones": {
@@ -6880,7 +6880,7 @@
     "explicacion": ""
   },
   {
-    "id": 233,
+    "id": "mad_t11_233",
     "tema": "Tema 11",
     "pregunta": "¿Qué nutriente abunda en la cáscara de los cereales (salvado)?",
     "opciones": {
@@ -6893,7 +6893,7 @@
     "explicacion": ""
   },
   {
-    "id": 234,
+    "id": "mad_t11_234",
     "tema": "Tema 11",
     "pregunta": "La función del calcio en la sangre es:",
     "opciones": {
@@ -6906,7 +6906,7 @@
     "explicacion": ""
   },
   {
-    "id": 235,
+    "id": "mad_t11_235",
     "tema": "Tema 11",
     "pregunta": "¿Qué vitamina es la Piridoxina?",
     "opciones": {
@@ -6919,7 +6919,7 @@
     "explicacion": ""
   },
   {
-    "id": 236,
+    "id": "mad_t11_236",
     "tema": "Tema 11",
     "pregunta": "El estreñimiento se combate aumentando el consumo de:",
     "opciones": {
@@ -6932,7 +6932,7 @@
     "explicacion": ""
   },
   {
-    "id": 237,
+    "id": "mad_t11_237",
     "tema": "Tema 11",
     "pregunta": "¿Cuál es el pH neutro?",
     "opciones": {
@@ -6945,7 +6945,7 @@
     "explicacion": ""
   },
   {
-    "id": 238,
+    "id": "mad_t11_238",
     "tema": "Tema 11",
     "pregunta": "Las grasas de origen marino (pescado) son mayoritariamente:",
     "opciones": {
@@ -6958,7 +6958,7 @@
     "explicacion": ""
   },
   {
-    "id": 239,
+    "id": "mad_t11_239",
     "tema": "Tema 11",
     "pregunta": "¿Qué vitamina ayuda a absorber el hierro de las lentejas?",
     "opciones": {
@@ -6971,7 +6971,7 @@
     "explicacion": ""
   },
   {
-    "id": 240,
+    "id": "mad_t11_240",
     "tema": "Tema 11",
     "pregunta": "La dieta baja en colesterol evita el consumo de:",
     "opciones": {
@@ -6984,7 +6984,7 @@
     "explicacion": ""
   },
   {
-    "id": 241,
+    "id": "mad_t11_241",
     "tema": "Tema 11",
     "pregunta": "¿Qué nutriente es la principal fuente de energía para los músculos durante el ejercicio?",
     "opciones": {
@@ -6997,7 +6997,7 @@
     "explicacion": ""
   },
   {
-    "id": 242,
+    "id": "mad_t11_242",
     "tema": "Tema 11",
     "pregunta": "El proceso por el cual el cuerpo mantiene constante su temperatura se llama:",
     "opciones": {
@@ -7010,7 +7010,7 @@
     "explicacion": ""
   },
   {
-    "id": 243,
+    "id": "mad_t11_243",
     "tema": "Tema 11",
     "pregunta": "La leche desnatada pierde principalmente:",
     "opciones": {
@@ -7023,7 +7023,7 @@
     "explicacion": ""
   },
   {
-    "id": 244,
+    "id": "mad_t11_244",
     "tema": "Tema 11",
     "pregunta": "¿Qué es la \"bulimia\"?",
     "opciones": {
@@ -7036,7 +7036,7 @@
     "explicacion": ""
   },
   {
-    "id": 245,
+    "id": "mad_t11_245",
     "tema": "Tema 11",
     "pregunta": "¿Cuál es el objetivo principal de la alimentación hospitalaria?",
     "opciones": {
@@ -7049,7 +7049,7 @@
     "explicacion": ""
   },
   {
-    "id": 1,
+    "id": "mad_t12_1",
     "tema": "Tema 12",
     "pregunta": "¿Cómo se denominan los diferentes procesos y transformaciones desde la producción primaria de alimentos hasta su consumo final?",
     "opciones": {
@@ -7062,7 +7062,7 @@
     "explicacion": ""
   },
   {
-    "id": 2,
+    "id": "mad_t12_2",
     "tema": "Tema 12",
     "pregunta": "¿Cómo se denomina en el sistema de trazabilidad al eslabón intermedio que describe la vida del producto y los procedimientos utilizados?",
     "opciones": {
@@ -7075,7 +7075,7 @@
     "explicacion": ""
   },
   {
-    "id": 3,
+    "id": "mad_t12_3",
     "tema": "Tema 12",
     "pregunta": "La información sobre los productos que se han sometido a trazabilidad será clara para:",
     "opciones": {
@@ -7088,7 +7088,7 @@
     "explicacion": ""
   },
   {
-    "id": 4,
+    "id": "mad_t12_4",
     "tema": "Tema 12",
     "pregunta": "¿Cuál es el principio 1 del sistema APPCC?",
     "opciones": {
@@ -7101,7 +7101,7 @@
     "explicacion": ""
   },
   {
-    "id": 5,
+    "id": "mad_t12_5",
     "tema": "Tema 12",
     "pregunta": "¿En cuántos principios está basado el sistema APPCC?",
     "opciones": {
@@ -7114,7 +7114,7 @@
     "explicacion": ""
   },
   {
-    "id": 6,
+    "id": "mad_t12_6",
     "tema": "Tema 12",
     "pregunta": "¿Quién será el responsable de aprobar el Plan APPCC y sus revisiones en el hospital, sin delegación a terceros?",
     "opciones": {
@@ -7127,7 +7127,7 @@
     "explicacion": ""
   },
   {
-    "id": 7,
+    "id": "mad_t12_7",
     "tema": "Tema 12",
     "pregunta": "¿En qué principios se basa el sistema de Análisis de Peligros y Puntos de Control Crítico (APPCC)?",
     "opciones": {
@@ -7140,7 +7140,7 @@
     "explicacion": ""
   },
   {
-    "id": 8,
+    "id": "mad_t12_8",
     "tema": "Tema 12",
     "pregunta": "El sistema de APPCC tiene como objetivo:",
     "opciones": {
@@ -7153,7 +7153,7 @@
     "explicacion": ""
   },
   {
-    "id": 9,
+    "id": "mad_t12_9",
     "tema": "Tema 12",
     "pregunta": "El sistema de APPCC está basado en:",
     "opciones": {
@@ -7166,7 +7166,7 @@
     "explicacion": ""
   },
   {
-    "id": 10,
+    "id": "mad_t12_10",
     "tema": "Tema 12",
     "pregunta": "La verificación del sistema de APPCC debe realizarse:",
     "opciones": {
@@ -7179,7 +7179,7 @@
     "explicacion": ""
   },
   {
-    "id": 11,
+    "id": "mad_t12_11",
     "tema": "Tema 12",
     "pregunta": "Es, entre otras, función del coordinador del equipo de implantación del sistema de APPCC:",
     "opciones": {
@@ -7192,7 +7192,7 @@
     "explicacion": ""
   },
   {
-    "id": 12,
+    "id": "mad_t12_12",
     "tema": "Tema 12",
     "pregunta": "El establecimiento de un sistema de registro o documentación de los planes de APPCC permite:",
     "opciones": {
@@ -7205,7 +7205,7 @@
     "explicacion": ""
   },
   {
-    "id": 13,
+    "id": "mad_t12_13",
     "tema": "Tema 12",
     "pregunta": "¿Qué criterios de calidad aplicará el Pinche de cocina en el trabajo de manipulación de alimentos?",
     "opciones": {
@@ -7218,7 +7218,7 @@
     "explicacion": ""
   },
   {
-    "id": 14,
+    "id": "mad_t12_14",
     "tema": "Tema 12",
     "pregunta": "Para definir un plan de calidad, ¿qué criterios se utilizarán?",
     "opciones": {
@@ -7231,7 +7231,7 @@
     "explicacion": ""
   },
   {
-    "id": 15,
+    "id": "mad_t12_15",
     "tema": "Tema 12",
     "pregunta": "¿Qué finalidad tienen las medidas preventivas?",
     "opciones": {
@@ -7244,7 +7244,7 @@
     "explicacion": ""
   },
   {
-    "id": 16,
+    "id": "mad_t12_16",
     "tema": "Tema 12",
     "pregunta": "¿Cuál de los siguientes es un objetivo de un plan de calidad?",
     "opciones": {
@@ -7257,7 +7257,7 @@
     "explicacion": ""
   },
   {
-    "id": 17,
+    "id": "mad_t12_17",
     "tema": "Tema 12",
     "pregunta": "¿Cuál sería la primera fase en un proceso de control de calidad?",
     "opciones": {
@@ -7270,7 +7270,7 @@
     "explicacion": ""
   },
   {
-    "id": 18,
+    "id": "mad_t12_18",
     "tema": "Tema 12",
     "pregunta": "¿Cuál de las siguientes NO es una característica del plan de calidad?",
     "opciones": {
@@ -7283,7 +7283,7 @@
     "explicacion": ""
   },
   {
-    "id": 19,
+    "id": "mad_t12_19",
     "tema": "Tema 12",
     "pregunta": "¿Cuál de los siguientes es un sistema de calidad específico para las empresas turísticas españolas?",
     "opciones": {
@@ -7296,7 +7296,7 @@
     "explicacion": ""
   },
   {
-    "id": 20,
+    "id": "mad_t12_20",
     "tema": "Tema 12",
     "pregunta": "¿Qué es la marca Q?",
     "opciones": {
@@ -7309,7 +7309,7 @@
     "explicacion": ""
   },
   {
-    "id": 21,
+    "id": "mad_t12_21",
     "tema": "Tema 12",
     "pregunta": "¿Cuáles son las fases que conforman un proceso de mejora continua?",
     "opciones": {
@@ -7322,7 +7322,7 @@
     "explicacion": ""
   },
   {
-    "id": 22,
+    "id": "mad_t12_22",
     "tema": "Tema 12",
     "pregunta": "¿Qué son los indicadores de calidad?",
     "opciones": {
@@ -7335,7 +7335,7 @@
     "explicacion": ""
   },
   {
-    "id": 23,
+    "id": "mad_t12_23",
     "tema": "Tema 12",
     "pregunta": "¿Quién realiza y participa el autocontrol en un plan de calidad?",
     "opciones": {
@@ -7348,7 +7348,7 @@
     "explicacion": ""
   },
   {
-    "id": 24,
+    "id": "mad_t12_24",
     "tema": "Tema 12",
     "pregunta": "¿Qué medidas de control de calidad se aplican con carácter preventivo?",
     "opciones": {
@@ -7361,7 +7361,7 @@
     "explicacion": ""
   },
   {
-    "id": 25,
+    "id": "mad_t12_25",
     "tema": "Tema 12",
     "pregunta": "¿Qué supone la norma ISO 22000:2018?",
     "opciones": {
@@ -7374,7 +7374,7 @@
     "explicacion": ""
   },
   {
-    "id": 26,
+    "id": "mad_t12_26",
     "tema": "Tema 12",
     "pregunta": "¿Cuál de los siguientes NO es un objetivo de la norma ISO 22000:2018?",
     "opciones": {
@@ -7387,7 +7387,7 @@
     "explicacion": ""
   },
   {
-    "id": 27,
+    "id": "mad_t12_27",
     "tema": "Tema 12",
     "pregunta": "¿Qué enfoque tiene la norma ISO 22000:2018?",
     "opciones": {
@@ -7400,7 +7400,7 @@
     "explicacion": ""
   },
   {
-    "id": 28,
+    "id": "mad_t12_28",
     "tema": "Tema 12",
     "pregunta": "¿Cuál de las siguientes es una característica de la norma ISO 22000:2018?",
     "opciones": {
@@ -7413,7 +7413,7 @@
     "explicacion": ""
   },
   {
-    "id": 29,
+    "id": "mad_t12_29",
     "tema": "Tema 12",
     "pregunta": "¿Qué beneficios puede tener para la empresa el cumplimiento de la norma ISO 22000?",
     "opciones": {
@@ -7426,7 +7426,7 @@
     "explicacion": ""
   },
   {
-    "id": 30,
+    "id": "mad_t12_30",
     "tema": "Tema 12",
     "pregunta": "¿Cómo se garantiza el nivel de higiene adecuado en cocina?",
     "opciones": {
@@ -7439,7 +7439,7 @@
     "explicacion": ""
   },
   {
-    "id": 31,
+    "id": "mad_t12_31",
     "tema": "Tema 12",
     "pregunta": "¿Cuál es la marca de calidad turística?",
     "opciones": {
@@ -7452,7 +7452,7 @@
     "explicacion": ""
   },
   {
-    "id": 32,
+    "id": "mad_t12_32",
     "tema": "Tema 12",
     "pregunta": "¿Cuáles de los siguientes son objetivos de calidad de un producto alimentario?",
     "opciones": {
@@ -7465,7 +7465,7 @@
     "explicacion": ""
   },
   {
-    "id": 33,
+    "id": "mad_t12_33",
     "tema": "Tema 12",
     "pregunta": "¿Qué objetivo tienen las hojas de sugerencias?",
     "opciones": {
@@ -7478,7 +7478,7 @@
     "explicacion": ""
   },
   {
-    "id": 34,
+    "id": "mad_t12_34",
     "tema": "Tema 12",
     "pregunta": "La ausencia de sustancias tóxicas y de microorganismos patógenos es calidad:",
     "opciones": {
@@ -7491,7 +7491,7 @@
     "explicacion": ""
   },
   {
-    "id": 35,
+    "id": "mad_t12_35",
     "tema": "Tema 12",
     "pregunta": "¿Cómo define la ISO la calidad?",
     "opciones": {
@@ -7504,7 +7504,7 @@
     "explicacion": ""
   },
   {
-    "id": 36,
+    "id": "mad_t12_36",
     "tema": "Tema 12",
     "pregunta": "¿Cuáles de los siguientes factores pueden dificultar la satisfacción del cliente?",
     "opciones": {
@@ -7517,7 +7517,7 @@
     "explicacion": ""
   },
   {
-    "id": 37,
+    "id": "mad_t12_37",
     "tema": "Tema 12",
     "pregunta": "¿Qué criterios de calidad aplicará el pinche en la recepción de materia prima?",
     "opciones": {
@@ -7530,7 +7530,7 @@
     "explicacion": ""
   },
   {
-    "id": 38,
+    "id": "mad_t12_38",
     "tema": "Tema 12",
     "pregunta": "¿Qué establece la ISO 22000:2018?",
     "opciones": {
@@ -7543,7 +7543,7 @@
     "explicacion": ""
   },
   {
-    "id": 39,
+    "id": "mad_t12_39",
     "tema": "Tema 12",
     "pregunta": "¿Qué características tiene la ISO 22000:2018?",
     "opciones": {
@@ -7556,7 +7556,7 @@
     "explicacion": ""
   },
   {
-    "id": 40,
+    "id": "mad_t12_40",
     "tema": "Tema 12",
     "pregunta": "¿Cuáles son factores internos de la organización?",
     "opciones": {
@@ -7569,7 +7569,7 @@
     "explicacion": ""
   },
   {
-    "id": 41,
+    "id": "mad_t12_41",
     "tema": "Tema 12",
     "pregunta": "¿Cuáles son factores externos a la organización?",
     "opciones": {
@@ -7582,7 +7582,7 @@
     "explicacion": ""
   },
   {
-    "id": 42,
+    "id": "mad_t12_42",
     "tema": "Tema 12",
     "pregunta": "La calidad nutricional hace referencia a:",
     "opciones": {
@@ -7595,7 +7595,7 @@
     "explicacion": ""
   },
   {
-    "id": 1,
+    "id": "mad_t13_1",
     "tema": "Tema 13",
     "pregunta": "¿Qué se define como “conjunto de medidas necesarias para asegurar la salubridad, inocuidad y buen estado de los productos destinados a la alimentación, en todas las etapas de su preparación”?",
     "opciones": {
@@ -7608,7 +7608,7 @@
     "explicacion": ""
   },
   {
-    "id": 2,
+    "id": "mad_t13_2",
     "tema": "Tema 13",
     "pregunta": "El cumplimiento de las normas de higiene alimentaria va a asegurar la salubridad del alimento:",
     "opciones": {
@@ -7621,7 +7621,7 @@
     "explicacion": ""
   },
   {
-    "id": 3,
+    "id": "mad_t13_3",
     "tema": "Tema 13",
     "pregunta": "La mayoría de las enfermedades transmitidas por los alimentos están relacionadas con:",
     "opciones": {
@@ -7634,7 +7634,7 @@
     "explicacion": ""
   },
   {
-    "id": 4,
+    "id": "mad_t13_4",
     "tema": "Tema 13",
     "pregunta": "¿Cuál de estos es un error en la manipulación de alimentos que puede ocasionar una enfermedad en las personas?",
     "opciones": {
@@ -7647,7 +7647,7 @@
     "explicacion": ""
   },
   {
-    "id": 5,
+    "id": "mad_t13_5",
     "tema": "Tema 13",
     "pregunta": "Durante la cocción de productos alimenticios hay que garantizar que el centro del producto cocinado alcanza al menos los:",
     "opciones": {
@@ -7660,7 +7660,7 @@
     "explicacion": ""
   },
   {
-    "id": 6,
+    "id": "mad_t13_6",
     "tema": "Tema 13",
     "pregunta": "Si un alimento cocinando se conserva en caliente se hará por encima de la temperatura de:",
     "opciones": {
@@ -7673,7 +7673,7 @@
     "explicacion": ""
   },
   {
-    "id": 7,
+    "id": "mad_t13_7",
     "tema": "Tema 13",
     "pregunta": "Cuando un alimento crudo contaminado entra en contacto con el alimento cocinado tendremos:",
     "opciones": {
@@ -7686,7 +7686,7 @@
     "explicacion": ""
   },
   {
-    "id": 8,
+    "id": "mad_t13_8",
     "tema": "Tema 13",
     "pregunta": "Según la normativa vigente la responsabilidad en materia de formación de los manipuladores de alimentos recae en:",
     "opciones": {
@@ -7699,7 +7699,7 @@
     "explicacion": ""
   },
   {
-    "id": 9,
+    "id": "mad_t13_9",
     "tema": "Tema 13",
     "pregunta": "¿En qué normativa se establecen las normas generales relativas a la higiene alimentaria, destinadas a los operadores de empresa alimentaria?",
     "opciones": {
@@ -7712,7 +7712,7 @@
     "explicacion": ""
   },
   {
-    "id": 10,
+    "id": "mad_t13_10",
     "tema": "Tema 13",
     "pregunta": "¿Qué medidas a llevar a cabo en animales o en productos animales NO deberán realizar los operadores mediante registros sobre peligros?",
     "opciones": {
@@ -7725,7 +7725,7 @@
     "explicacion": ""
   },
   {
-    "id": 11,
+    "id": "mad_t13_11",
     "tema": "Tema 13",
     "pregunta": "¿En qué parte del Reglamento CE 852/2004 se especifican los requisitos higiénicos y características de los locales de producción?",
     "opciones": {
@@ -7738,7 +7738,7 @@
     "explicacion": ""
   },
   {
-    "id": 12,
+    "id": "mad_t13_12",
     "tema": "Tema 13",
     "pregunta": "¿Qué afirmación es INCORRECTA sobre los requisitos de las salas donde se manipulan alimentos?",
     "opciones": {
@@ -7751,7 +7751,7 @@
     "explicacion": ""
   },
   {
-    "id": 13,
+    "id": "mad_t13_13",
     "tema": "Tema 13",
     "pregunta": "¿Qué operarios NO deben estar autorizados a manipular alimentos?",
     "opciones": {
@@ -7764,7 +7764,7 @@
     "explicacion": ""
   },
   {
-    "id": 14,
+    "id": "mad_t13_14",
     "tema": "Tema 13",
     "pregunta": "¿En qué capítulo del Anexo II del Reglamento CE 852/2004 se contempla la formación de manipuladores?",
     "opciones": {
@@ -7777,7 +7777,7 @@
     "explicacion": ""
   },
   {
-    "id": 15,
+    "id": "mad_t13_15",
     "tema": "Tema 13",
     "pregunta": "La formación de los manipuladores puede ser impartida por:",
     "opciones": {
@@ -7790,7 +7790,7 @@
     "explicacion": ""
   },
   {
-    "id": 16,
+    "id": "mad_t13_16",
     "tema": "Tema 13",
     "pregunta": "¿Dónde vendrán recogidos los aspectos de formación de operarios en la empresa?",
     "opciones": {
@@ -7803,7 +7803,7 @@
     "explicacion": ""
   },
   {
-    "id": 17,
+    "id": "mad_t13_17",
     "tema": "Tema 13",
     "pregunta": "Para verificar el cumplimiento de los objetivos del Plan Nacional de Control de la Cadena Alimentaria se realizará:",
     "opciones": {
@@ -7816,7 +7816,7 @@
     "explicacion": ""
   },
   {
-    "id": 18,
+    "id": "mad_t13_18",
     "tema": "Tema 13",
     "pregunta": "¿Qué normativa española recoge la seguridad alimentaria y la obligación de realizar auditorías?",
     "opciones": {
@@ -7829,7 +7829,7 @@
     "explicacion": ""
   },
   {
-    "id": 19,
+    "id": "mad_t13_19",
     "tema": "Tema 13",
     "pregunta": "¿Qué regula la Ley Orgánica 5/2002, de 19 de junio?",
     "opciones": {
@@ -7842,7 +7842,7 @@
     "explicacion": ""
   },
   {
-    "id": 20,
+    "id": "mad_t13_20",
     "tema": "Tema 13",
     "pregunta": "¿Cómo se denomina al sujeto con infección latente, sin síntomas, pero capaz de transmitirla?",
     "opciones": {
@@ -7855,7 +7855,7 @@
     "explicacion": ""
   },
   {
-    "id": 21,
+    "id": "mad_t13_21",
     "tema": "Tema 13",
     "pregunta": "Las infracciones graves de la ley 17/2011 pueden alcanzar una multa máxima de:",
     "opciones": {
@@ -7868,7 +7868,7 @@
     "explicacion": ""
   },
   {
-    "id": 22,
+    "id": "mad_t13_22",
     "tema": "Tema 13",
     "pregunta": "Una infracción con clara intencionalidad y gravedad extrema se cataloga como:",
     "opciones": {
@@ -7881,7 +7881,7 @@
     "explicacion": ""
   },
   {
-    "id": 23,
+    "id": "mad_t13_23",
     "tema": "Tema 13",
     "pregunta": "¿Cómo se denominan las enfermedades por infección de un microorganismo en el alimento?",
     "opciones": {
@@ -7894,7 +7894,7 @@
     "explicacion": ""
   },
   {
-    "id": 24,
+    "id": "mad_t13_24",
     "tema": "Tema 13",
     "pregunta": "¿Cuándo es mayor la incidencia de toxiinfecciones alimentarias?",
     "opciones": {
@@ -7907,7 +7907,7 @@
     "explicacion": ""
   },
   {
-    "id": 25,
+    "id": "mad_t13_25",
     "tema": "Tema 13",
     "pregunta": "¿Qué grupos son de mayor riesgo de padecer estas enfermedades?",
     "opciones": {
@@ -7920,7 +7920,7 @@
     "explicacion": ""
   },
   {
-    "id": 26,
+    "id": "mad_t13_26",
     "tema": "Tema 13",
     "pregunta": "El enranciamiento es una alteración de tipo:",
     "opciones": {
@@ -7933,7 +7933,7 @@
     "explicacion": ""
   },
   {
-    "id": 27,
+    "id": "mad_t13_27",
     "tema": "Tema 13",
     "pregunta": "La acumulación de microorganismos invisibles produce un riesgo:",
     "opciones": {
@@ -7946,7 +7946,7 @@
     "explicacion": ""
   },
   {
-    "id": 28,
+    "id": "mad_t13_28",
     "tema": "Tema 13",
     "pregunta": "Los alimentos que se conservan mucho tiempo por distintos métodos se llaman:",
     "opciones": {
@@ -7959,7 +7959,7 @@
     "explicacion": ""
   },
   {
-    "id": 29,
+    "id": "mad_t13_29",
     "tema": "Tema 13",
     "pregunta": "¿Qué denominación reciben los alimentos que duran tiempo prolongado?",
     "opciones": {
@@ -7972,7 +7972,7 @@
     "explicacion": ""
   },
   {
-    "id": 30,
+    "id": "mad_t13_30",
     "tema": "Tema 13",
     "pregunta": "La contaminación por crecimiento de microorganismos sobre los alimentos es:",
     "opciones": {
@@ -7985,7 +7985,7 @@
     "explicacion": ""
   },
   {
-    "id": 31,
+    "id": "mad_t13_31",
     "tema": "Tema 13",
     "pregunta": "¿Qué factores propician la contaminación?",
     "opciones": {
@@ -7998,7 +7998,7 @@
     "explicacion": ""
   },
   {
-    "id": 32,
+    "id": "mad_t13_32",
     "tema": "Tema 13",
     "pregunta": "La temperatura óptima para el crecimiento de gérmenes es:",
     "opciones": {
@@ -8011,7 +8011,7 @@
     "explicacion": ""
   },
   {
-    "id": 33,
+    "id": "mad_t13_33",
     "tema": "Tema 13",
     "pregunta": "Un elemento involuntario con efectos negativos en la salud es un:",
     "opciones": {
@@ -8024,7 +8024,7 @@
     "explicacion": ""
   },
   {
-    "id": 34,
+    "id": "mad_t13_34",
     "tema": "Tema 13",
     "pregunta": "¿Qué contaminante es abiótico?",
     "opciones": {
@@ -8037,7 +8037,7 @@
     "explicacion": ""
   },
   {
-    "id": 35,
+    "id": "mad_t13_35",
     "tema": "Tema 13",
     "pregunta": "¿Qué enfermedad es bacteriana?",
     "opciones": {
@@ -8050,7 +8050,7 @@
     "explicacion": ""
   },
   {
-    "id": 36,
+    "id": "mad_t13_36",
     "tema": "Tema 13",
     "pregunta": "¿Qué enfermedad es parasitaria?",
     "opciones": {
@@ -8063,7 +8063,7 @@
     "explicacion": ""
   },
   {
-    "id": 37,
+    "id": "mad_t13_37",
     "tema": "Tema 13",
     "pregunta": "¿Cuál es el contaminante con mayor riesgo para la salud?",
     "opciones": {
@@ -8076,7 +8076,7 @@
     "explicacion": ""
   },
   {
-    "id": 38,
+    "id": "mad_t13_38",
     "tema": "Tema 13",
     "pregunta": "Las bacterias que viven sin oxígeno son:",
     "opciones": {
@@ -8089,7 +8089,7 @@
     "explicacion": ""
   },
   {
-    "id": 39,
+    "id": "mad_t13_39",
     "tema": "Tema 13",
     "pregunta": "El periodo de incubación de la salmonelosis es de:",
     "opciones": {
@@ -8102,7 +8102,7 @@
     "explicacion": ""
   },
   {
-    "id": 40,
+    "id": "mad_t13_40",
     "tema": "Tema 13",
     "pregunta": "¿Cómo se transmite el estafilococo a los alimentos?",
     "opciones": {
@@ -8115,7 +8115,7 @@
     "explicacion": ""
   },
   {
-    "id": 41,
+    "id": "mad_t13_41",
     "tema": "Tema 13",
     "pregunta": "La Escherichia coli se destruye a:",
     "opciones": {
@@ -8128,7 +8128,7 @@
     "explicacion": ""
   },
   {
-    "id": 42,
+    "id": "mad_t13_42",
     "tema": "Tema 13",
     "pregunta": "¿En qué condiciones el Clostridium botulinum produce la toxina?",
     "opciones": {
@@ -8141,7 +8141,7 @@
     "explicacion": ""
   },
   {
-    "id": 43,
+    "id": "mad_t13_43",
     "tema": "Tema 13",
     "pregunta": "¿A qué temperatura se deben esterilizar conservas contra el botulismo?",
     "opciones": {
@@ -8154,7 +8154,7 @@
     "explicacion": ""
   },
   {
-    "id": 44,
+    "id": "mad_t13_44",
     "tema": "Tema 13",
     "pregunta": "Dato característico de la shigelosis:",
     "opciones": {
@@ -8167,7 +8167,7 @@
     "explicacion": ""
   },
   {
-    "id": 45,
+    "id": "mad_t13_45",
     "tema": "Tema 13",
     "pregunta": "¿Dónde se encuentra frecuentemente Bacillus cereus?",
     "opciones": {
@@ -8180,7 +8180,7 @@
     "explicacion": ""
   },
   {
-    "id": 46,
+    "id": "mad_t13_46",
     "tema": "Tema 13",
     "pregunta": "¿A qué vegetales pasa el Bacillus cereus desde el suelo?",
     "opciones": {
@@ -8193,7 +8193,7 @@
     "explicacion": ""
   },
   {
-    "id": 47,
+    "id": "mad_t13_47",
     "tema": "Tema 13",
     "pregunta": "Alimentos que suelen ocasionar brucelosis:",
     "opciones": {
@@ -8206,7 +8206,7 @@
     "explicacion": ""
   },
   {
-    "id": 48,
+    "id": "mad_t13_48",
     "tema": "Tema 13",
     "pregunta": "¿A quién afecta más la Listeria monocytogenes?",
     "opciones": {
@@ -8219,7 +8219,7 @@
     "explicacion": ""
   },
   {
-    "id": 49,
+    "id": "mad_t13_49",
     "tema": "Tema 13",
     "pregunta": "Productor del cólera:",
     "opciones": {
@@ -8232,7 +8232,7 @@
     "explicacion": ""
   },
   {
-    "id": 50,
+    "id": "mad_t13_50",
     "tema": "Tema 13",
     "pregunta": "La intoxicación paralítica por mariscos causa la muerte por:",
     "opciones": {
@@ -8245,7 +8245,7 @@
     "explicacion": ""
   },
   {
-    "id": 51,
+    "id": "mad_t13_51",
     "tema": "Tema 13",
     "pregunta": "Patología del virus Norwalk:",
     "opciones": {
@@ -8258,7 +8258,7 @@
     "explicacion": ""
   },
   {
-    "id": 52,
+    "id": "mad_t13_52",
     "tema": "Tema 13",
     "pregunta": "Técnica que garantiza inocuidad frente a triquinosis en cerdo:",
     "opciones": {
@@ -8271,7 +8271,7 @@
     "explicacion": ""
   },
   {
-    "id": 53,
+    "id": "mad_t13_53",
     "tema": "Tema 13",
     "pregunta": "El anisakis ocasiona:",
     "opciones": {
@@ -8284,7 +8284,7 @@
     "explicacion": ""
   },
   {
-    "id": 54,
+    "id": "mad_t13_54",
     "tema": "Tema 13",
     "pregunta": "El anisaki se destruye en pescados por:",
     "opciones": {
@@ -8297,7 +8297,7 @@
     "explicacion": ""
   },
   {
-    "id": 55,
+    "id": "mad_t13_55",
     "tema": "Tema 13",
     "pregunta": "La enfermedad de Minamata se produce por:",
     "opciones": {
@@ -8310,7 +8310,7 @@
     "explicacion": ""
   },
   {
-    "id": 56,
+    "id": "mad_t13_56",
     "tema": "Tema 13",
     "pregunta": "El plato testigo es una medida recogida en el RD:",
     "opciones": {
@@ -8323,7 +8323,7 @@
     "explicacion": ""
   },
   {
-    "id": 57,
+    "id": "mad_t13_57",
     "tema": "Tema 13",
     "pregunta": "El plato testigo es:",
     "opciones": {
@@ -8336,7 +8336,7 @@
     "explicacion": ""
   },
   {
-    "id": 58,
+    "id": "mad_t13_58",
     "tema": "Tema 13",
     "pregunta": "Las muestras testigos se recogerán cada:",
     "opciones": {
@@ -8349,7 +8349,7 @@
     "explicacion": ""
   },
   {
-    "id": 59,
+    "id": "mad_t13_59",
     "tema": "Tema 13",
     "pregunta": "Temperatura de traslado de la muestra testigo:",
     "opciones": {
@@ -8362,7 +8362,7 @@
     "explicacion": ""
   },
   {
-    "id": 60,
+    "id": "mad_t13_60",
     "tema": "Tema 13",
     "pregunta": "¿Cuál es el objetivo principal del plato testigo?",
     "opciones": {
@@ -8375,7 +8375,7 @@
     "explicacion": ""
   },
   {
-    "id": 1,
+    "id": "mad_t14_1",
     "tema": "Tema 14",
     "pregunta": "¿Qué es el aprovisionamiento de mercancía?",
     "opciones": {
@@ -8388,7 +8388,7 @@
     "explicacion": ""
   },
   {
-    "id": 2,
+    "id": "mad_t14_2",
     "tema": "Tema 14",
     "pregunta": "¿Cómo se denominan los materiales de consumo habitual sujetos a todas las operaciones de gestión de almacén?",
     "opciones": {
@@ -8401,7 +8401,7 @@
     "explicacion": ""
   },
   {
-    "id": 3,
+    "id": "mad_t14_3",
     "tema": "Tema 14",
     "pregunta": "¿Cuáles son los materiales inventariables?",
     "opciones": {
@@ -8414,7 +8414,7 @@
     "explicacion": ""
   },
   {
-    "id": 4,
+    "id": "mad_t14_4",
     "tema": "Tema 14",
     "pregunta": "¿Dentro de qué grupo de suministros entran los víveres?",
     "opciones": {
@@ -8427,7 +8427,7 @@
     "explicacion": ""
   },
   {
-    "id": 5,
+    "id": "mad_t14_5",
     "tema": "Tema 14",
     "pregunta": "¿En qué consiste la gestión de aprovisionamiento?",
     "opciones": {
@@ -8440,7 +8440,7 @@
     "explicacion": ""
   },
   {
-    "id": 6,
+    "id": "mad_t14_6",
     "tema": "Tema 14",
     "pregunta": "¿Cuáles son las fases de la gestión de aprovisionamiento por orden de realización?",
     "opciones": {
@@ -8453,7 +8453,7 @@
     "explicacion": ""
   },
   {
-    "id": 7,
+    "id": "mad_t14_7",
     "tema": "Tema 14",
     "pregunta": "¿Cómo influye el número de menús al planificar las necesidades de compra?",
     "opciones": {
@@ -8466,7 +8466,7 @@
     "explicacion": ""
   },
   {
-    "id": 8,
+    "id": "mad_t14_8",
     "tema": "Tema 14",
     "pregunta": "¿Cuál de estos factores influye en la previsión de necesidades?",
     "opciones": {
@@ -8479,7 +8479,7 @@
     "explicacion": ""
   },
   {
-    "id": 9,
+    "id": "mad_t14_9",
     "tema": "Tema 14",
     "pregunta": "¿Qué características se valorarán al seleccionar un proveedor?",
     "opciones": {
@@ -8492,7 +8492,7 @@
     "explicacion": ""
   },
   {
-    "id": 10,
+    "id": "mad_t14_10",
     "tema": "Tema 14",
     "pregunta": "¿Cómo se establece la frecuencia de compra?",
     "opciones": {
@@ -8505,7 +8505,7 @@
     "explicacion": ""
   },
   {
-    "id": 11,
+    "id": "mad_t14_11",
     "tema": "Tema 14",
     "pregunta": "¿En qué consiste el sistema de revisión periódica?",
     "opciones": {
@@ -8518,7 +8518,7 @@
     "explicacion": ""
   },
   {
-    "id": 12,
+    "id": "mad_t14_12",
     "tema": "Tema 14",
     "pregunta": "¿En qué consiste el sistema de revisión continua?",
     "opciones": {
@@ -8531,7 +8531,7 @@
     "explicacion": ""
   },
   {
-    "id": 13,
+    "id": "mad_t14_13",
     "tema": "Tema 14",
     "pregunta": "¿Qué sistema se usa cuando los pedidos se hacen con una periodicidad que varía según el consumo?",
     "opciones": {
@@ -8544,7 +8544,7 @@
     "explicacion": ""
   },
   {
-    "id": 14,
+    "id": "mad_t14_14",
     "tema": "Tema 14",
     "pregunta": "¿Cuál de estas cualidades NO se comprobará al recepcionar alimentos?",
     "opciones": {
@@ -8557,7 +8557,7 @@
     "explicacion": ""
   },
   {
-    "id": 15,
+    "id": "mad_t14_15",
     "tema": "Tema 14",
     "pregunta": "¿Qué comprobación se hará respecto a los envases?",
     "opciones": {
@@ -8570,7 +8570,7 @@
     "explicacion": ""
   },
   {
-    "id": 16,
+    "id": "mad_t14_16",
     "tema": "Tema 14",
     "pregunta": "¿A qué temperatura se transportan los productos congelados en los camiones?",
     "opciones": {
@@ -8583,7 +8583,7 @@
     "explicacion": ""
   },
   {
-    "id": 17,
+    "id": "mad_t14_17",
     "tema": "Tema 14",
     "pregunta": "¿Qué condiciones de transporte tendrá la carne fresca servida en canales?",
     "opciones": {
@@ -8596,7 +8596,7 @@
     "explicacion": ""
   },
   {
-    "id": 18,
+    "id": "mad_t14_18",
     "tema": "Tema 14",
     "pregunta": "¿Qué utilidad tiene el albarán?",
     "opciones": {
@@ -8609,7 +8609,7 @@
     "explicacion": ""
   },
   {
-    "id": 19,
+    "id": "mad_t14_19",
     "tema": "Tema 14",
     "pregunta": "¿En qué consiste el registro documental de mercancías?",
     "opciones": {
@@ -8622,7 +8622,7 @@
     "explicacion": ""
   },
   {
-    "id": 20,
+    "id": "mad_t14_20",
     "tema": "Tema 14",
     "pregunta": "¿Qué es el pedido?",
     "opciones": {
@@ -8635,7 +8635,7 @@
     "explicacion": ""
   },
   {
-    "id": 21,
+    "id": "mad_t14_21",
     "tema": "Tema 14",
     "pregunta": "Si se piden 10 kg de azúcar, ¿de qué unidad se trata?",
     "opciones": {
@@ -8648,7 +8648,7 @@
     "explicacion": ""
   },
   {
-    "id": 22,
+    "id": "mad_t14_22",
     "tema": "Tema 14",
     "pregunta": "Si se pide un saco de patatas, ¿de qué unidad se trata?",
     "opciones": {
@@ -8661,7 +8661,7 @@
     "explicacion": ""
   },
   {
-    "id": 23,
+    "id": "mad_t14_23",
     "tema": "Tema 14",
     "pregunta": "Si se pide un palet de mercancía, ¿de qué unidad se trata?",
     "opciones": {
@@ -8674,7 +8674,7 @@
     "explicacion": ""
   },
   {
-    "id": 24,
+    "id": "mad_t14_24",
     "tema": "Tema 14",
     "pregunta": "¿En qué consiste el pedido programado?",
     "opciones": {
@@ -8687,7 +8687,7 @@
     "explicacion": ""
   },
   {
-    "id": 25,
+    "id": "mad_t14_25",
     "tema": "Tema 14",
     "pregunta": "¿Qué condiciones tendrán los lugares de almacenamiento de alimentos?",
     "opciones": {
@@ -8700,7 +8700,7 @@
     "explicacion": ""
   },
   {
-    "id": 26,
+    "id": "mad_t14_26",
     "tema": "Tema 14",
     "pregunta": "¿Qué condiciones cumplirán las pilas o lotes de productos?",
     "opciones": {
@@ -8713,7 +8713,7 @@
     "explicacion": ""
   },
   {
-    "id": 27,
+    "id": "mad_t14_27",
     "tema": "Tema 14",
     "pregunta": "¿Qué está prohibido en el almacenamiento de alimentos?",
     "opciones": {
@@ -8726,7 +8726,7 @@
     "explicacion": ""
   },
   {
-    "id": 28,
+    "id": "mad_t14_28",
     "tema": "Tema 14",
     "pregunta": "¿Cuál es la temperatura de almacenamiento adecuada para los alimentos?",
     "opciones": {
@@ -8739,7 +8739,7 @@
     "explicacion": ""
   },
   {
-    "id": 29,
+    "id": "mad_t14_29",
     "tema": "Tema 14",
     "pregunta": "¿Qué características tendrán las máquinas que contactan con alimentos?",
     "opciones": {
@@ -8752,7 +8752,7 @@
     "explicacion": ""
   },
   {
-    "id": 30,
+    "id": "mad_t14_30",
     "tema": "Tema 14",
     "pregunta": "¿Qué son alimentos no perecederos?",
     "opciones": {
@@ -8765,7 +8765,7 @@
     "explicacion": ""
   },
   {
-    "id": 31,
+    "id": "mad_t14_31",
     "tema": "Tema 14",
     "pregunta": "¿En qué consiste la rotación periódica de los alimentos?",
     "opciones": {
@@ -8778,7 +8778,7 @@
     "explicacion": ""
   },
   {
-    "id": 32,
+    "id": "mad_t14_32",
     "tema": "Tema 14",
     "pregunta": "¿Qué objetivo tiene la rotación?",
     "opciones": {
@@ -8791,7 +8791,7 @@
     "explicacion": ""
   },
   {
-    "id": 33,
+    "id": "mad_t14_33",
     "tema": "Tema 14",
     "pregunta": "¿Cuáles de los siguientes productos son semiperecederos?",
     "opciones": {
@@ -8804,7 +8804,7 @@
     "explicacion": ""
   },
   {
-    "id": 34,
+    "id": "mad_t14_34",
     "tema": "Tema 14",
     "pregunta": "¿Qué tipo de producto es una lata de anchoas?",
     "opciones": {
@@ -8817,7 +8817,7 @@
     "explicacion": ""
   },
   {
-    "id": 35,
+    "id": "mad_t14_35",
     "tema": "Tema 14",
     "pregunta": "¿Qué diferencia hay entre las conservas y las semiconservas?",
     "opciones": {
@@ -8830,7 +8830,7 @@
     "explicacion": ""
   },
   {
-    "id": 36,
+    "id": "mad_t14_36",
     "tema": "Tema 14",
     "pregunta": "¿Qué tipo de producto es la mantequilla?",
     "opciones": {
@@ -8843,7 +8843,7 @@
     "explicacion": ""
   },
   {
-    "id": 37,
+    "id": "mad_t14_37",
     "tema": "Tema 14",
     "pregunta": "¿Qué alimento tiene menor vida útil?",
     "opciones": {
@@ -8856,7 +8856,7 @@
     "explicacion": ""
   },
   {
-    "id": 38,
+    "id": "mad_t14_38",
     "tema": "Tema 14",
     "pregunta": "¿Por qué no se deben meter las cajas de los proveedores en el refrigerador?",
     "opciones": {
@@ -8869,7 +8869,7 @@
     "explicacion": ""
   },
   {
-    "id": 39,
+    "id": "mad_t14_39",
     "tema": "Tema 14",
     "pregunta": "¿A qué temperatura se almacenan los productos cocinados congelados?",
     "opciones": {
@@ -8882,7 +8882,7 @@
     "explicacion": ""
   },
   {
-    "id": 40,
+    "id": "mad_t14_40",
     "tema": "Tema 14",
     "pregunta": "¿Qué práctica está prohibida en almacén?",
     "opciones": {
@@ -8895,7 +8895,7 @@
     "explicacion": ""
   },
   {
-    "id": 41,
+    "id": "mad_t14_41",
     "tema": "Tema 14",
     "pregunta": "¿Qué se hará con los productos con muestras de contaminación?",
     "opciones": {
@@ -8908,7 +8908,7 @@
     "explicacion": ""
   },
   {
-    "id": 42,
+    "id": "mad_t14_42",
     "tema": "Tema 14",
     "pregunta": "¿Cómo será la humedad de los almacenes de alimentos?",
     "opciones": {
@@ -8921,7 +8921,7 @@
     "explicacion": ""
   },
   {
-    "id": 43,
+    "id": "mad_t14_43",
     "tema": "Tema 14",
     "pregunta": "¿Temperatura media de un almacén de productos no perecederos?",
     "opciones": {
@@ -8934,7 +8934,7 @@
     "explicacion": ""
   },
   {
-    "id": 44,
+    "id": "mad_t14_44",
     "tema": "Tema 14",
     "pregunta": "¿Qué es falso sobre las conservas?",
     "opciones": {
@@ -8947,7 +8947,7 @@
     "explicacion": ""
   },
   {
-    "id": 45,
+    "id": "mad_t14_45",
     "tema": "Tema 14",
     "pregunta": "¿Qué es lo que NO se hará en el almacenamiento de frescos?",
     "opciones": {
@@ -8960,7 +8960,7 @@
     "explicacion": ""
   },
   {
-    "id": 46,
+    "id": "mad_t14_46",
     "tema": "Tema 14",
     "pregunta": "¿A qué temperatura se mantendrá la carne congelada?",
     "opciones": {
@@ -8973,7 +8973,7 @@
     "explicacion": ""
   },
   {
-    "id": 47,
+    "id": "mad_t14_47",
     "tema": "Tema 14",
     "pregunta": "Un producto congelado de calidad es aquel que:",
     "opciones": {
@@ -8986,7 +8986,7 @@
     "explicacion": ""
   },
   {
-    "id": 48,
+    "id": "mad_t14_48",
     "tema": "Tema 14",
     "pregunta": "¿Qué objetivo tiene la correcta gestión de stock?",
     "opciones": {
@@ -8999,7 +8999,7 @@
     "explicacion": ""
   },
   {
-    "id": 49,
+    "id": "mad_t14_49",
     "tema": "Tema 14",
     "pregunta": "¿Qué productos se colocan en las zonas más accesibles del almacén?",
     "opciones": {
@@ -9012,7 +9012,7 @@
     "explicacion": ""
   },
   {
-    "id": 50,
+    "id": "mad_t14_50",
     "tema": "Tema 14",
     "pregunta": "¿Qué se entiende por \"rotura de stock\"?",
     "opciones": {
@@ -9025,7 +9025,7 @@
     "explicacion": ""
   },
   {
-    "id": 51,
+    "id": "mad_t14_51",
     "tema": "Tema 14",
     "pregunta": "El sistema de gestión de almacén LIFO significa:",
     "opciones": {
@@ -9038,7 +9038,7 @@
     "explicacion": ""
   },
   {
-    "id": 52,
+    "id": "mad_t14_52",
     "tema": "Tema 14",
     "pregunta": "El sistema de gestión de almacén más recomendado para alimentos es:",
     "opciones": {
@@ -9051,7 +9051,7 @@
     "explicacion": ""
   },
   {
-    "id": 53,
+    "id": "mad_t14_53",
     "tema": "Tema 14",
     "pregunta": "La normativa sobre etiquetado y presentación de productos alimenticios es:",
     "opciones": {
@@ -9064,7 +9064,7 @@
     "explicacion": ""
   },
   {
-    "id": 54,
+    "id": "mad_t14_54",
     "tema": "Tema 14",
     "pregunta": "¿Qué normativa regula específicamente las temperaturas de transporte de alimentos?",
     "opciones": {
@@ -9077,7 +9077,7 @@
     "explicacion": ""
   },
   {
-    "id": 55,
+    "id": "mad_t14_55",
     "tema": "Tema 14",
     "pregunta": "El fin primordial de la pre-elaboración de alimentos es:",
     "opciones": {
@@ -9090,7 +9090,7 @@
     "explicacion": ""
   },
   {
-    "id": 56,
+    "id": "mad_t14_56",
     "tema": "Tema 14",
     "pregunta": "¿Qué es el albarán de entrega?",
     "opciones": {
@@ -9103,7 +9103,7 @@
     "explicacion": ""
   },
   {
-    "id": 57,
+    "id": "mad_t14_57",
     "tema": "Tema 14",
     "pregunta": "¿Qué es el \"Stock de Seguridad\"?",
     "opciones": {
@@ -9116,7 +9116,7 @@
     "explicacion": ""
   },
   {
-    "id": 58,
+    "id": "mad_t14_58",
     "tema": "Tema 14",
     "pregunta": "La normativa sobre platos preparados en España es el:",
     "opciones": {
@@ -9129,7 +9129,7 @@
     "explicacion": ""
   },
   {
-    "id": 59,
+    "id": "mad_t14_59",
     "tema": "Tema 14",
     "pregunta": "Los productos ultracongelados deben mantenerse a:",
     "opciones": {
@@ -9142,7 +9142,7 @@
     "explicacion": ""
   },
   {
-    "id": 60,
+    "id": "mad_t14_60",
     "tema": "Tema 14",
     "pregunta": "La limpieza de las materias primas tiene como fin:",
     "opciones": {
@@ -9155,7 +9155,7 @@
     "explicacion": ""
   },
   {
-    "id": 61,
+    "id": "mad_t14_61",
     "tema": "Tema 14",
     "pregunta": "Las hortalizas que se consumen crudas en ensalada deben lavarse:",
     "opciones": {
@@ -9168,7 +9168,7 @@
     "explicacion": ""
   },
   {
-    "id": 62,
+    "id": "mad_t14_62",
     "tema": "Tema 14",
     "pregunta": "La limpieza de la materia prima se realizará por:",
     "opciones": {
@@ -9181,7 +9181,7 @@
     "explicacion": ""
   },
   {
-    "id": 63,
+    "id": "mad_t14_63",
     "tema": "Tema 14",
     "pregunta": "Una hortaliza de \"cuarta gama\" es aquella que:",
     "opciones": {
@@ -9194,7 +9194,7 @@
     "explicacion": ""
   },
   {
-    "id": 64,
+    "id": "mad_t14_64",
     "tema": "Tema 14",
     "pregunta": "¿Qué es el acondicionamiento industrial de materias primas?",
     "opciones": {
@@ -9207,7 +9207,7 @@
     "explicacion": ""
   },
   {
-    "id": 65,
+    "id": "mad_t14_65",
     "tema": "Tema 14",
     "pregunta": "¿Qué está permitido en el área de preparación de alimentos?",
     "opciones": {
@@ -9220,7 +9220,7 @@
     "explicacion": ""
   },
   {
-    "id": 66,
+    "id": "mad_t14_66",
     "tema": "Tema 14",
     "pregunta": "La leche cruda destinada a consumo debe ser siempre:",
     "opciones": {
@@ -9233,7 +9233,7 @@
     "explicacion": ""
   },
   {
-    "id": 67,
+    "id": "mad_t14_67",
     "tema": "Tema 14",
     "pregunta": "Las hortalizas de hoja deben consumirse en un plazo máximo de:",
     "opciones": {
@@ -9246,7 +9246,7 @@
     "explicacion": ""
   },
   {
-    "id": 68,
+    "id": "mad_t14_68",
     "tema": "Tema 14",
     "pregunta": "¿Cuál es el corte de carne de vacuno de mayor categoría (Extra)?",
     "opciones": {
@@ -9259,7 +9259,7 @@
     "explicacion": ""
   },
   {
-    "id": 69,
+    "id": "mad_t14_69",
     "tema": "Tema 14",
     "pregunta": "La pieza de carne situada en la parte externa de la pierna de la ternera se llama:",
     "opciones": {
@@ -9272,7 +9272,7 @@
     "explicacion": ""
   },
   {
-    "id": 70,
+    "id": "mad_t14_70",
     "tema": "Tema 14",
     "pregunta": "¿Qué es la \"contra\" en el despiece de la ternera?",
     "opciones": {
@@ -9285,7 +9285,7 @@
     "explicacion": ""
   },
   {
-    "id": 71,
+    "id": "mad_t14_71",
     "tema": "Tema 14",
     "pregunta": "La pieza pequeña y tierna del despiece de la ternera situada en la pala se llama:",
     "opciones": {
@@ -9298,7 +9298,7 @@
     "explicacion": ""
   },
   {
-    "id": 72,
+    "id": "mad_t14_72",
     "tema": "Tema 14",
     "pregunta": "La pieza que une el lomo con el pescuezo se llama:",
     "opciones": {
@@ -9311,7 +9311,7 @@
     "explicacion": ""
   },
   {
-    "id": 73,
+    "id": "mad_t14_73",
     "tema": "Tema 14",
     "pregunta": "El corte de carne en lonchas finas para cocinar a la plancha se llama:",
     "opciones": {
@@ -9324,7 +9324,7 @@
     "explicacion": ""
   },
   {
-    "id": 74,
+    "id": "mad_t14_74",
     "tema": "Tema 14",
     "pregunta": "El corte de carne grueso (mínimo 3 cm) con hueso se llama:",
     "opciones": {
@@ -9337,7 +9337,7 @@
     "explicacion": ""
   },
   {
-    "id": 75,
+    "id": "mad_t14_75",
     "tema": "Tema 14",
     "pregunta": "La carne de ave se considera de mejor calidad cuanto más joven es el:",
     "opciones": {
@@ -9350,7 +9350,7 @@
     "explicacion": ""
   },
   {
-    "id": 76,
+    "id": "mad_t14_76",
     "tema": "Tema 14",
     "pregunta": "Las aves destinadas a asar suelen presentarse:",
     "opciones": {
@@ -9363,7 +9363,7 @@
     "explicacion": ""
   },
   {
-    "id": 77,
+    "id": "mad_t14_77",
     "tema": "Tema 14",
     "pregunta": "¿Qué es el chamuscado de las aves?",
     "opciones": {
@@ -9376,7 +9376,7 @@
     "explicacion": ""
   },
   {
-    "id": 78,
+    "id": "mad_t14_78",
     "tema": "Tema 14",
     "pregunta": "Envolver una carne con láminas de tocino o grasa se llama:",
     "opciones": {
@@ -9389,7 +9389,7 @@
     "explicacion": ""
   },
   {
-    "id": 79,
+    "id": "mad_t14_79",
     "tema": "Tema 14",
     "pregunta": "¿Cómo se deben lavar los pescados tras el eviscerado?",
     "opciones": {
@@ -9402,7 +9402,7 @@
     "explicacion": ""
   },
   {
-    "id": 80,
+    "id": "mad_t14_80",
     "tema": "Tema 14",
     "pregunta": "Quitar las aletas y escamas del pescado se llama:",
     "opciones": {
@@ -9415,7 +9415,7 @@
     "explicacion": ""
   },
   {
-    "id": 81,
+    "id": "mad_t14_81",
     "tema": "Tema 14",
     "pregunta": "El corte del pescado que consiste en un filete grueso y limpio se llama:",
     "opciones": {
@@ -9428,7 +9428,7 @@
     "explicacion": ""
   },
   {
-    "id": 82,
+    "id": "mad_t14_82",
     "tema": "Tema 14",
     "pregunta": "¿Cómo se llama al corte transversal del pescado con piel y espina central?",
     "opciones": {
@@ -9441,7 +9441,7 @@
     "explicacion": ""
   },
   {
-    "id": 83,
+    "id": "mad_t14_83",
     "tema": "Tema 14",
     "pregunta": "¿Qué es la \"ventresca\"?",
     "opciones": {
@@ -9454,7 +9454,7 @@
     "explicacion": ""
   },
   {
-    "id": 84,
+    "id": "mad_t14_84",
     "tema": "Tema 14",
     "pregunta": "Las hortalizas de raíz incluyen:",
     "opciones": {
@@ -9467,7 +9467,7 @@
     "explicacion": ""
   },
   {
-    "id": 85,
+    "id": "mad_t14_85",
     "tema": "Tema 14",
     "pregunta": "El oscurecimiento de frutas cortadas por contacto con el aire es:",
     "opciones": {
@@ -9480,7 +9480,7 @@
     "explicacion": ""
   },
   {
-    "id": 86,
+    "id": "mad_t14_86",
     "tema": "Tema 14",
     "pregunta": "¿Cómo se evita la oxidación de alcachofas o champiñones cortados?",
     "opciones": {
@@ -9493,7 +9493,7 @@
     "explicacion": ""
   },
   {
-    "id": 87,
+    "id": "mad_t14_87",
     "tema": "Tema 14",
     "pregunta": "La alcachofa es una hortaliza de:",
     "opciones": {
@@ -9506,7 +9506,7 @@
     "explicacion": ""
   },
   {
-    "id": 88,
+    "id": "mad_t14_88",
     "tema": "Tema 14",
     "pregunta": "¿Qué afirmación es falsa sobre las hortalizas?",
     "opciones": {
@@ -9519,7 +9519,7 @@
     "explicacion": ""
   },
   {
-    "id": 89,
+    "id": "mad_t14_89",
     "tema": "Tema 14",
     "pregunta": "El corte de hortalizas en tiras muy finas (como cerillas) se llama:",
     "opciones": {
@@ -9532,7 +9532,7 @@
     "explicacion": ""
   },
   {
-    "id": 90,
+    "id": "mad_t14_90",
     "tema": "Tema 14",
     "pregunta": "El corte en dados pequeños (2-3 mm) se llama:",
     "opciones": {
@@ -9545,7 +9545,7 @@
     "explicacion": ""
   },
   {
-    "id": 91,
+    "id": "mad_t14_91",
     "tema": "Tema 14",
     "pregunta": "¿Qué se usa para desinfectar verduras de consumo en crudo?",
     "opciones": {
@@ -9558,7 +9558,7 @@
     "explicacion": ""
   },
   {
-    "id": 92,
+    "id": "mad_t14_92",
     "tema": "Tema 14",
     "pregunta": "¿Dónde se debe realizar la descongelación de alimentos?",
     "opciones": {
@@ -9571,7 +9571,7 @@
     "explicacion": ""
   },
   {
-    "id": 93,
+    "id": "mad_t14_93",
     "tema": "Tema 14",
     "pregunta": "¿Cuánto tiempo máximo suele tardar en descongelarse una pieza grande en cámara?",
     "opciones": {
@@ -9584,7 +9584,7 @@
     "explicacion": ""
   },
   {
-    "id": 94,
+    "id": "mad_t14_94",
     "tema": "Tema 14",
     "pregunta": "Para descongelar un alimento:",
     "opciones": {
@@ -9597,7 +9597,7 @@
     "explicacion": ""
   },
   {
-    "id": 95,
+    "id": "mad_t14_95",
     "tema": "Tema 14",
     "pregunta": "¿Se puede volver a congelar un alimento ya descongelado?",
     "opciones": {
@@ -9610,7 +9610,7 @@
     "explicacion": ""
   },
   {
-    "id": 1,
+    "id": "mad_t15_1",
     "tema": "Tema 15",
     "pregunta": "¿Cuál de estos utensilios sirve para la elaboración de pescado?",
     "opciones": {
@@ -9623,7 +9623,7 @@
     "explicacion": ""
   },
   {
-    "id": 2,
+    "id": "mad_t15_2",
     "tema": "Tema 15",
     "pregunta": "¿Cómo se utilizan los moldes de repostería?",
     "opciones": {
@@ -9636,7 +9636,7 @@
     "explicacion": ""
   },
   {
-    "id": 3,
+    "id": "mad_t15_3",
     "tema": "Tema 15",
     "pregunta": "¿Qué ventajas tiene el acero inoxidable?",
     "opciones": {
@@ -9649,7 +9649,7 @@
     "explicacion": ""
   },
   {
-    "id": 4,
+    "id": "mad_t15_4",
     "tema": "Tema 15",
     "pregunta": "¿Cómo se mejora la conducción de un utensilio de acero inoxidable?",
     "opciones": {
@@ -9662,7 +9662,7 @@
     "explicacion": ""
   },
   {
-    "id": 5,
+    "id": "mad_t15_5",
     "tema": "Tema 15",
     "pregunta": "¿Qué es falso sobre el aluminio?",
     "opciones": {
@@ -9675,7 +9675,7 @@
     "explicacion": ""
   },
   {
-    "id": 6,
+    "id": "mad_t15_6",
     "tema": "Tema 15",
     "pregunta": "¿Cuál es el material más utilizado para las sartenes?",
     "opciones": {
@@ -9688,7 +9688,7 @@
     "explicacion": ""
   },
   {
-    "id": 7,
+    "id": "mad_t15_7",
     "tema": "Tema 15",
     "pregunta": "¿Para qué se utiliza la marmita?",
     "opciones": {
@@ -9701,7 +9701,7 @@
     "explicacion": ""
   },
   {
-    "id": 8,
+    "id": "mad_t15_8",
     "tema": "Tema 15",
     "pregunta": "¿Cómo se limpia una marmita?",
     "opciones": {
@@ -9714,7 +9714,7 @@
     "explicacion": ""
   },
   {
-    "id": 9,
+    "id": "mad_t15_9",
     "tema": "Tema 15",
     "pregunta": "¿Qué capacidad media tiene un cazo alto con mango?",
     "opciones": {
@@ -9727,7 +9727,7 @@
     "explicacion": ""
   },
   {
-    "id": 10,
+    "id": "mad_t15_10",
     "tema": "Tema 15",
     "pregunta": "¿Cuál de los siguientes utensilios de cocina se utilizan para asar alimentos?",
     "opciones": {
@@ -9740,7 +9740,7 @@
     "explicacion": ""
   },
   {
-    "id": 11,
+    "id": "mad_t15_11",
     "tema": "Tema 15",
     "pregunta": "¿Qué forma tiene la besuguera?",
     "opciones": {
@@ -9753,7 +9753,7 @@
     "explicacion": ""
   },
   {
-    "id": 12,
+    "id": "mad_t15_12",
     "tema": "Tema 15",
     "pregunta": "¿Cuál de los siguientes términos corresponde a una sartén profunda con dos asas?",
     "opciones": {
@@ -9766,7 +9766,7 @@
     "explicacion": ""
   },
   {
-    "id": 13,
+    "id": "mad_t15_13",
     "tema": "Tema 15",
     "pregunta": "¿Cómo se puede evitar que salga moho en la paellera que no se usa?",
     "opciones": {
@@ -9779,7 +9779,7 @@
     "explicacion": ""
   },
   {
-    "id": 14,
+    "id": "mad_t15_14",
     "tema": "Tema 15",
     "pregunta": "¿Cuál de los siguientes moldes no es redondo?",
     "opciones": {
@@ -9792,7 +9792,7 @@
     "explicacion": ""
   },
   {
-    "id": 15,
+    "id": "mad_t15_15",
     "tema": "Tema 15",
     "pregunta": "¿Cuál de los siguientes moldes tienen tapa?",
     "opciones": {
@@ -9805,7 +9805,7 @@
     "explicacion": ""
   },
   {
-    "id": 16,
+    "id": "mad_t15_16",
     "tema": "Tema 15",
     "pregunta": "¿Qué característica tiene el molde de pan de miga?",
     "opciones": {
@@ -9818,7 +9818,7 @@
     "explicacion": ""
   },
   {
-    "id": 17,
+    "id": "mad_t15_17",
     "tema": "Tema 15",
     "pregunta": "La Sautese es utilizada para:",
     "opciones": {
@@ -9831,7 +9831,7 @@
     "explicacion": ""
   },
   {
-    "id": 18,
+    "id": "mad_t15_18",
     "tema": "Tema 15",
     "pregunta": "¿Qué diferencia hay entre una marmita y un rondón?",
     "opciones": {
@@ -9844,7 +9844,7 @@
     "explicacion": ""
   },
   {
-    "id": 19,
+    "id": "mad_t15_19",
     "tema": "Tema 15",
     "pregunta": "¿Para qué se utiliza la cazuela de barro?",
     "opciones": {
@@ -9857,7 +9857,7 @@
     "explicacion": ""
   },
   {
-    "id": 20,
+    "id": "mad_t15_20",
     "tema": "Tema 15",
     "pregunta": "¿Qué herramienta se utiliza para estirar masas?",
     "opciones": {
@@ -9870,7 +9870,7 @@
     "explicacion": ""
   },
   {
-    "id": 21,
+    "id": "mad_t15_21",
     "tema": "Tema 15",
     "pregunta": "¿Para qué sirve el baño maría como herramienta?",
     "opciones": {
@@ -9883,7 +9883,7 @@
     "explicacion": ""
   },
   {
-    "id": 22,
+    "id": "mad_t15_22",
     "tema": "Tema 15",
     "pregunta": "¿Qué utensilio es específico para cocinar piezas de rodaballo enteras?",
     "opciones": {
@@ -9896,7 +9896,7 @@
     "explicacion": ""
   },
   {
-    "id": 23,
+    "id": "mad_t15_23",
     "tema": "Tema 15",
     "pregunta": "¿Para qué se utiliza un tamiz?",
     "opciones": {
@@ -9909,7 +9909,7 @@
     "explicacion": ""
   },
   {
-    "id": 24,
+    "id": "mad_t15_24",
     "tema": "Tema 15",
     "pregunta": "¿Qué ventaja tiene el uso de tapas en los recipientes de cocción?",
     "opciones": {
@@ -9922,7 +9922,7 @@
     "explicacion": ""
   },
   {
-    "id": 25,
+    "id": "mad_t15_25",
     "tema": "Tema 15",
     "pregunta": "Sobre la maquinaria de calor, es cierto que:",
     "opciones": {
@@ -9935,7 +9935,7 @@
     "explicacion": ""
   },
   {
-    "id": 26,
+    "id": "mad_t15_26",
     "tema": "Tema 15",
     "pregunta": "¿Qué tipos de combustibles se pueden usar en las cocinas industriales?",
     "opciones": {
@@ -9948,7 +9948,7 @@
     "explicacion": ""
   },
   {
-    "id": 27,
+    "id": "mad_t15_27",
     "tema": "Tema 15",
     "pregunta": "¿Cómo se protegen las ollas a presión industriales?",
     "opciones": {
@@ -9961,7 +9961,7 @@
     "explicacion": ""
   },
   {
-    "id": 28,
+    "id": "mad_t15_28",
     "tema": "Tema 15",
     "pregunta": "El antracita y la hulla son:",
     "opciones": {
@@ -9974,7 +9974,7 @@
     "explicacion": ""
   },
   {
-    "id": 29,
+    "id": "mad_t15_29",
     "tema": "Tema 15",
     "pregunta": "Una placa vitrocerámica convencional calienta:",
     "opciones": {
@@ -9987,7 +9987,7 @@
     "explicacion": ""
   },
   {
-    "id": 30,
+    "id": "mad_t15_30",
     "tema": "Tema 15",
     "pregunta": "¿Cuál es el principal factor a considerar en un sistema de cocción?",
     "opciones": {
@@ -10000,7 +10000,7 @@
     "explicacion": ""
   },
   {
-    "id": 31,
+    "id": "mad_t15_31",
     "tema": "Tema 15",
     "pregunta": "¿Funcionará un recipiente de barro en una placa de inducción?",
     "opciones": {
@@ -10013,7 +10013,7 @@
     "explicacion": ""
   },
   {
-    "id": 32,
+    "id": "mad_t15_32",
     "tema": "Tema 15",
     "pregunta": "Una de las mayores ventajas de la placa de inducción es:",
     "opciones": {
@@ -10026,7 +10026,7 @@
     "explicacion": ""
   },
   {
-    "id": 33,
+    "id": "mad_t15_33",
     "tema": "Tema 15",
     "pregunta": "¿Cuál es la función de la campana extractora?",
     "opciones": {
@@ -10039,7 +10039,7 @@
     "explicacion": ""
   },
   {
-    "id": 34,
+    "id": "mad_t15_34",
     "tema": "Tema 15",
     "pregunta": "Sobre el horno de convección, es cierto que:",
     "opciones": {
@@ -10052,7 +10052,7 @@
     "explicacion": ""
   },
   {
-    "id": 35,
+    "id": "mad_t15_35",
     "tema": "Tema 15",
     "pregunta": "¿Qué equipos se incluyen en la zona de cocción?",
     "opciones": {
@@ -10065,7 +10065,7 @@
     "explicacion": ""
   },
   {
-    "id": 36,
+    "id": "mad_t15_36",
     "tema": "Tema 15",
     "pregunta": "¿Cómo se limpia la superficie de una plancha de acero?",
     "opciones": {
@@ -10078,7 +10078,7 @@
     "explicacion": ""
   },
   {
-    "id": 37,
+    "id": "mad_t15_37",
     "tema": "Tema 15",
     "pregunta": "En la limpieza de la maquinaria de calor, las llaves de mando:",
     "opciones": {
@@ -10091,7 +10091,7 @@
     "explicacion": ""
   },
   {
-    "id": 38,
+    "id": "mad_t15_38",
     "tema": "Tema 15",
     "pregunta": "Los restos de comida quemada en los fogones se retiran:",
     "opciones": {
@@ -10104,7 +10104,7 @@
     "explicacion": ""
   },
   {
-    "id": 39,
+    "id": "mad_t15_39",
     "tema": "Tema 15",
     "pregunta": "¿Qué medidas de seguridad deben tener las cortadoras de fiambre?",
     "opciones": {
@@ -10117,7 +10117,7 @@
     "explicacion": ""
   },
   {
-    "id": 40,
+    "id": "mad_t15_40",
     "tema": "Tema 15",
     "pregunta": "¿Qué sistema de seguridad es común en los hornos modernos?",
     "opciones": {
@@ -10130,7 +10130,7 @@
     "explicacion": ""
   },
   {
-    "id": 41,
+    "id": "mad_t15_41",
     "tema": "Tema 15",
     "pregunta": "Las placas de inducción:",
     "opciones": {
@@ -10143,7 +10143,7 @@
     "explicacion": ""
   },
   {
-    "id": 42,
+    "id": "mad_t15_42",
     "tema": "Tema 15",
     "pregunta": "Para evitar riesgos térmicos en el personal:",
     "opciones": {
@@ -10156,7 +10156,7 @@
     "explicacion": ""
   },
   {
-    "id": 43,
+    "id": "mad_t15_43",
     "tema": "Tema 15",
     "pregunta": "La freidora industrial debe tener:",
     "opciones": {
@@ -10169,7 +10169,7 @@
     "explicacion": ""
   },
   {
-    "id": 44,
+    "id": "mad_t15_44",
     "tema": "Tema 15",
     "pregunta": "¿Qué es el lignito?",
     "opciones": {
@@ -10182,7 +10182,7 @@
     "explicacion": ""
   },
   {
-    "id": 45,
+    "id": "mad_t15_45",
     "tema": "Tema 15",
     "pregunta": "¿Qué sistema de calentamiento utiliza una placa vitrocerámica?",
     "opciones": {
@@ -10195,7 +10195,7 @@
     "explicacion": ""
   },
   {
-    "id": 46,
+    "id": "mad_t15_46",
     "tema": "Tema 15",
     "pregunta": "¿Qué material compone el filtro de una campana extractora de humo?",
     "opciones": {
@@ -10208,7 +10208,7 @@
     "explicacion": ""
   },
   {
-    "id": 47,
+    "id": "mad_t15_47",
     "tema": "Tema 15",
     "pregunta": "¿Cuál/es de los siguientes elementos de una cocina de gas son desmontables?",
     "opciones": {
@@ -10221,7 +10221,7 @@
     "explicacion": ""
   },
   {
-    "id": 48,
+    "id": "mad_t15_48",
     "tema": "Tema 15",
     "pregunta": "¿Qué inconveniente tiene el uso de productos corrosivos en los fogones eléctricos?",
     "opciones": {
@@ -10234,7 +10234,7 @@
     "explicacion": ""
   },
   {
-    "id": 49,
+    "id": "mad_t15_49",
     "tema": "Tema 15",
     "pregunta": "¿Qué equipos se utilizan en cocinas industriales?",
     "opciones": {
@@ -10247,7 +10247,7 @@
     "explicacion": ""
   },
   {
-    "id": 50,
+    "id": "mad_t15_50",
     "tema": "Tema 15",
     "pregunta": "¿Cuál de estos procesos no necesitan máquinas generadoras de calor?",
     "opciones": {
@@ -10260,7 +10260,7 @@
     "explicacion": ""
   },
   {
-    "id": 51,
+    "id": "mad_t15_51",
     "tema": "Tema 15",
     "pregunta": "¿En qué caso es útil un generador de frío?",
     "opciones": {
@@ -10273,7 +10273,7 @@
     "explicacion": ""
   },
   {
-    "id": 52,
+    "id": "mad_t15_52",
     "tema": "Tema 15",
     "pregunta": "¿Qué parte de un generador de frío es un conducto cubierto de hojas en batería?",
     "opciones": {
@@ -10286,7 +10286,7 @@
     "explicacion": ""
   },
   {
-    "id": 53,
+    "id": "mad_t15_53",
     "tema": "Tema 15",
     "pregunta": "¿Qué partes puede tener una cámara frigorífica?",
     "opciones": {
@@ -10299,7 +10299,7 @@
     "explicacion": ""
   },
   {
-    "id": 54,
+    "id": "mad_t15_54",
     "tema": "Tema 15",
     "pregunta": "¿Cuál de las siguientes es la antecámara?",
     "opciones": {
@@ -10312,7 +10312,7 @@
     "explicacion": ""
   },
   {
-    "id": 55,
+    "id": "mad_t15_55",
     "tema": "Tema 15",
     "pregunta": "¿Qué función tiene el abatidor de temperatura?",
     "opciones": {
@@ -10325,7 +10325,7 @@
     "explicacion": ""
   },
   {
-    "id": 56,
+    "id": "mad_t15_56",
     "tema": "Tema 15",
     "pregunta": "¿Cuál es el mueble destinado a la conservación de géneros a corto plazo?",
     "opciones": {
@@ -10338,7 +10338,7 @@
     "explicacion": ""
   },
   {
-    "id": 57,
+    "id": "mad_t15_57",
     "tema": "Tema 15",
     "pregunta": "¿Qué es un armario frigorífico?",
     "opciones": {
@@ -10351,7 +10351,7 @@
     "explicacion": ""
   },
   {
-    "id": 58,
+    "id": "mad_t15_58",
     "tema": "Tema 15",
     "pregunta": "¿Qué función tiene el abatidor de temperatura (tiempos)?",
     "opciones": {
@@ -10364,7 +10364,7 @@
     "explicacion": ""
   },
   {
-    "id": 59,
+    "id": "mad_t15_59",
     "tema": "Tema 15",
     "pregunta": "¿Cómo se realiza el control de temperatura en el interior del alimento?",
     "opciones": {
@@ -10377,7 +10377,7 @@
     "explicacion": ""
   },
   {
-    "id": 60,
+    "id": "mad_t15_60",
     "tema": "Tema 15",
     "pregunta": "¿Qué son las mesas refrigeradas?",
     "opciones": {
@@ -10390,7 +10390,7 @@
     "explicacion": ""
   },
   {
-    "id": 61,
+    "id": "mad_t15_61",
     "tema": "Tema 15",
     "pregunta": "¿Cuál de estas características para las cámaras frigoríficas es correcta?",
     "opciones": {
@@ -10403,7 +10403,7 @@
     "explicacion": ""
   },
   {
-    "id": 62,
+    "id": "mad_t15_62",
     "tema": "Tema 15",
     "pregunta": "¿Qué nivel de iluminación tendrán las cámaras frigoríficas?",
     "opciones": {
@@ -10416,7 +10416,7 @@
     "explicacion": ""
   },
   {
-    "id": 63,
+    "id": "mad_t15_63",
     "tema": "Tema 15",
     "pregunta": "¿Qué utilidad tienen las palas giratorias de la sorbetera?",
     "opciones": {
@@ -10429,7 +10429,7 @@
     "explicacion": ""
   },
   {
-    "id": 64,
+    "id": "mad_t15_64",
     "tema": "Tema 15",
     "pregunta": "¿Cuántas aspas suele tener las cuchillas de la sorbetera?",
     "opciones": {
@@ -10442,7 +10442,7 @@
     "explicacion": ""
   },
   {
-    "id": 65,
+    "id": "mad_t15_65",
     "tema": "Tema 15",
     "pregunta": "¿Cuál de estos elementos de la sorbetera sirve para preparar cremas montadas?",
     "opciones": {
@@ -10455,7 +10455,7 @@
     "explicacion": ""
   },
   {
-    "id": 66,
+    "id": "mad_t15_66",
     "tema": "Tema 15",
     "pregunta": "¿Qué aparato sirve para hacer granizados?",
     "opciones": {
@@ -10468,7 +10468,7 @@
     "explicacion": ""
   },
   {
-    "id": 67,
+    "id": "mad_t15_67",
     "tema": "Tema 15",
     "pregunta": "¿Cómo se obtiene el helado en la sorbetera?",
     "opciones": {
@@ -10481,7 +10481,7 @@
     "explicacion": ""
   },
   {
-    "id": 68,
+    "id": "mad_t15_68",
     "tema": "Tema 15",
     "pregunta": "¿A qué temperatura se sirve el helado desde la sorbetera?",
     "opciones": {
@@ -10494,7 +10494,7 @@
     "explicacion": ""
   },
   {
-    "id": 69,
+    "id": "mad_t15_69",
     "tema": "Tema 15",
     "pregunta": "¿Qué equipo se utiliza para gratinar?",
     "opciones": {
@@ -10507,7 +10507,7 @@
     "explicacion": ""
   },
   {
-    "id": 70,
+    "id": "mad_t15_70",
     "tema": "Tema 15",
     "pregunta": "¿Cómo se limpian las partes desmontables de una batidora industrial?",
     "opciones": {
@@ -10520,7 +10520,7 @@
     "explicacion": ""
   },
   {
-    "id": 71,
+    "id": "mad_t15_71",
     "tema": "Tema 15",
     "pregunta": "¿Qué capacidad media tiene un cazo pequeño?",
     "opciones": {
@@ -10533,7 +10533,7 @@
     "explicacion": ""
   },
   {
-    "id": 72,
+    "id": "mad_t15_72",
     "tema": "Tema 15",
     "pregunta": "¿Qué es un pestillo en maquinaria de cierre?",
     "opciones": {
@@ -10546,7 +10546,7 @@
     "explicacion": ""
   },
   {
-    "id": 73,
+    "id": "mad_t15_73",
     "tema": "Tema 15",
     "pregunta": "¿Qué temperatura suele tener una mesa caliente?",
     "opciones": {
@@ -10559,7 +10559,7 @@
     "explicacion": ""
   },
   {
-    "id": 74,
+    "id": "mad_t15_74",
     "tema": "Tema 15",
     "pregunta": "¿Para qué se usa la mesa caliente?",
     "opciones": {
@@ -10572,7 +10572,7 @@
     "explicacion": ""
   },
   {
-    "id": 75,
+    "id": "mad_t15_75",
     "tema": "Tema 15",
     "pregunta": "¿Qué es una sartén abatible?",
     "opciones": {
@@ -10585,7 +10585,7 @@
     "explicacion": ""
   },
   {
-    "id": 76,
+    "id": "mad_t15_76",
     "tema": "Tema 15",
     "pregunta": "¿Con qué fluido funciona el baño María?",
     "opciones": {
@@ -10598,7 +10598,7 @@
     "explicacion": ""
   },
   {
-    "id": 77,
+    "id": "mad_t15_77",
     "tema": "Tema 15",
     "pregunta": "¿Qué ventajas presenta la cocción al baño María?",
     "opciones": {
@@ -10611,7 +10611,7 @@
     "explicacion": ""
   },
   {
-    "id": 78,
+    "id": "mad_t15_78",
     "tema": "Tema 15",
     "pregunta": "¿Qué otra ventaja presenta el baño María frente al horno?",
     "opciones": {
@@ -10624,7 +10624,7 @@
     "explicacion": ""
   },
   {
-    "id": 79,
+    "id": "mad_t15_79",
     "tema": "Tema 15",
     "pregunta": "¿Cuál de estos utensilios sirve para cortar carne en trozos muy pequeños?",
     "opciones": {
@@ -10637,7 +10637,7 @@
     "explicacion": ""
   },
   {
-    "id": 80,
+    "id": "mad_t15_80",
     "tema": "Tema 15",
     "pregunta": "¿Cómo se limpia la pequeña maquinaria en general?",
     "opciones": {
@@ -10650,7 +10650,7 @@
     "explicacion": ""
   },
   {
-    "id": 81,
+    "id": "mad_t15_81",
     "tema": "Tema 15",
     "pregunta": "¿Qué equipo se conoce también como fouet?",
     "opciones": {
@@ -10663,7 +10663,7 @@
     "explicacion": ""
   },
   {
-    "id": 82,
+    "id": "mad_t15_82",
     "tema": "Tema 15",
     "pregunta": "¿Para qué se utiliza la batidora?",
     "opciones": {
@@ -10676,7 +10676,7 @@
     "explicacion": ""
   },
   {
-    "id": 83,
+    "id": "mad_t15_83",
     "tema": "Tema 15",
     "pregunta": "¿Cómo se limpian en la batidora las partes no desmontables?",
     "opciones": {
@@ -10689,7 +10689,7 @@
     "explicacion": ""
   },
   {
-    "id": 84,
+    "id": "mad_t15_84",
     "tema": "Tema 15",
     "pregunta": "¿Qué aparato utilizaría para amasar galletas?",
     "opciones": {
@@ -10702,7 +10702,7 @@
     "explicacion": ""
   },
   {
-    "id": 85,
+    "id": "mad_t15_85",
     "tema": "Tema 15",
     "pregunta": "¿Cuál de las siguientes no es un tipo de amasadora?",
     "opciones": {
@@ -10715,7 +10715,7 @@
     "explicacion": ""
   },
   {
-    "id": 86,
+    "id": "mad_t15_86",
     "tema": "Tema 15",
     "pregunta": "¿De qué depende que el grano molido sea más o menos grueso?",
     "opciones": {
@@ -10728,7 +10728,7 @@
     "explicacion": ""
   },
   {
-    "id": 87,
+    "id": "mad_t15_87",
     "tema": "Tema 15",
     "pregunta": "¿Qué tipo de alimento se puede trocear en la picadora?",
     "opciones": {
@@ -10741,7 +10741,7 @@
     "explicacion": ""
   },
   {
-    "id": 88,
+    "id": "mad_t15_88",
     "tema": "Tema 15",
     "pregunta": "¿Cómo quitan la piel las máquinas peladoras?",
     "opciones": {
@@ -10754,7 +10754,7 @@
     "explicacion": ""
   },
   {
-    "id": 89,
+    "id": "mad_t15_89",
     "tema": "Tema 15",
     "pregunta": "¿Qué afirmación es correcta sobre la cortadora de pan?",
     "opciones": {
@@ -10767,7 +10767,7 @@
     "explicacion": ""
   },
   {
-    "id": 90,
+    "id": "mad_t15_90",
     "tema": "Tema 15",
     "pregunta": "¿Cómo se mueve la cuchilla de la cortadora de fiambre?",
     "opciones": {
@@ -10780,7 +10780,7 @@
     "explicacion": ""
   },
   {
-    "id": 91,
+    "id": "mad_t15_91",
     "tema": "Tema 15",
     "pregunta": "¿Cómo funciona la laminadora para pasta?",
     "opciones": {
@@ -10793,7 +10793,7 @@
     "explicacion": ""
   },
   {
-    "id": 92,
+    "id": "mad_t15_92",
     "tema": "Tema 15",
     "pregunta": "¿Qué característica tienen las máquinas universales?",
     "opciones": {
@@ -10806,7 +10806,7 @@
     "explicacion": ""
   },
   {
-    "id": 93,
+    "id": "mad_t15_93",
     "tema": "Tema 15",
     "pregunta": "¿Qué factor es determinante en la elección de una báscula?",
     "opciones": {
@@ -10819,7 +10819,7 @@
     "explicacion": ""
   },
   {
-    "id": 94,
+    "id": "mad_t15_94",
     "tema": "Tema 15",
     "pregunta": "¿Para qué sirve la batidora de brazo industrial?",
     "opciones": {
@@ -10832,7 +10832,7 @@
     "explicacion": ""
   },
   {
-    "id": 95,
+    "id": "mad_t15_95",
     "tema": "Tema 15",
     "pregunta": "¿Qué desventaja tiene el sistema de cocina por inducción?",
     "opciones": {
@@ -10845,7 +10845,7 @@
     "explicacion": ""
   },
   {
-    "id": 96,
+    "id": "mad_t15_96",
     "tema": "Tema 15",
     "pregunta": "¿Para qué sirve el vaso medidor?",
     "opciones": {
@@ -10858,7 +10858,7 @@
     "explicacion": ""
   },
   {
-    "id": 97,
+    "id": "mad_t15_97",
     "tema": "Tema 15",
     "pregunta": "¿Cuántas velocidades puede tener una batidora profesional?",
     "opciones": {
@@ -10871,7 +10871,7 @@
     "explicacion": ""
   },
   {
-    "id": 98,
+    "id": "mad_t15_98",
     "tema": "Tema 15",
     "pregunta": "¿Cuál es el colador más fino?",
     "opciones": {
@@ -10884,7 +10884,7 @@
     "explicacion": ""
   },
   {
-    "id": 99,
+    "id": "mad_t15_99",
     "tema": "Tema 15",
     "pregunta": "¿Qué utensilios se usan para la limpieza manual?",
     "opciones": {
@@ -10897,7 +10897,7 @@
     "explicacion": ""
   },
   {
-    "id": 100,
+    "id": "mad_t15_100",
     "tema": "Tema 15",
     "pregunta": "¿Qué equipo es un generador de calor?",
     "opciones": {
@@ -10910,7 +10910,7 @@
     "explicacion": ""
   },
   {
-    "id": 101,
+    "id": "mad_t15_101",
     "tema": "Tema 15",
     "pregunta": "¿Cómo se desinfecta un termómetro de sonda?",
     "opciones": {
@@ -10923,7 +10923,7 @@
     "explicacion": ""
   },
   {
-    "id": 102,
+    "id": "mad_t15_102",
     "tema": "Tema 15",
     "pregunta": "Sobre la desinfección de maquinaria, es cierto que:",
     "opciones": {
@@ -10936,7 +10936,7 @@
     "explicacion": ""
   },
   {
-    "id": 103,
+    "id": "mad_t15_103",
     "tema": "Tema 15",
     "pregunta": "¿Qué ventaja tiene el horno mixto?",
     "opciones": {
@@ -10949,7 +10949,7 @@
     "explicacion": ""
   },
   {
-    "id": 104,
+    "id": "mad_t15_104",
     "tema": "Tema 15",
     "pregunta": "¿Qué aparato sirve para picar?",
     "opciones": {
@@ -10962,7 +10962,7 @@
     "explicacion": ""
   },
   {
-    "id": 105,
+    "id": "mad_t15_105",
     "tema": "Tema 15",
     "pregunta": "¿Cómo se limpia la picadora de carne?",
     "opciones": {
@@ -10975,7 +10975,7 @@
     "explicacion": ""
   },
   {
-    "id": 106,
+    "id": "mad_t15_106",
     "tema": "Tema 15",
     "pregunta": "¿Qué aparato sirve para batir?",
     "opciones": {
@@ -10988,7 +10988,7 @@
     "explicacion": ""
   },
   {
-    "id": 107,
+    "id": "mad_t15_107",
     "tema": "Tema 15",
     "pregunta": "¿Para qué sirve la amasadora?",
     "opciones": {
@@ -11001,7 +11001,7 @@
     "explicacion": ""
   },
   {
-    "id": 108,
+    "id": "mad_t15_108",
     "tema": "Tema 15",
     "pregunta": "¿Cómo se limpia la amasadora por fuera?",
     "opciones": {
@@ -11014,7 +11014,7 @@
     "explicacion": ""
   },
   {
-    "id": 109,
+    "id": "mad_t15_109",
     "tema": "Tema 15",
     "pregunta": "¿Qué aparato sirve para amasar?",
     "opciones": {
@@ -11027,7 +11027,7 @@
     "explicacion": ""
   },
   {
-    "id": 110,
+    "id": "mad_t15_110",
     "tema": "Tema 15",
     "pregunta": "¿Qué aparato sirve para transportar carros?",
     "opciones": {
@@ -11040,7 +11040,7 @@
     "explicacion": ""
   },
   {
-    "id": 111,
+    "id": "mad_t15_111",
     "tema": "Tema 15",
     "pregunta": "El grano molido depende de:",
     "opciones": {
@@ -11053,7 +11053,7 @@
     "explicacion": ""
   },
   {
-    "id": 112,
+    "id": "mad_t15_112",
     "tema": "Tema 15",
     "pregunta": "Sobre la peladora de patatas:",
     "opciones": {
@@ -11066,7 +11066,7 @@
     "explicacion": ""
   },
   {
-    "id": 113,
+    "id": "mad_t15_113",
     "tema": "Tema 15",
     "pregunta": "Las máquinas peladoras quitan la piel:",
     "opciones": {
@@ -11079,7 +11079,7 @@
     "explicacion": ""
   },
   {
-    "id": 114,
+    "id": "mad_t15_114",
     "tema": "Tema 15",
     "pregunta": "Sobre la cortadora de pan:",
     "opciones": {
@@ -11092,7 +11092,7 @@
     "explicacion": ""
   },
   {
-    "id": 115,
+    "id": "mad_t15_115",
     "tema": "Tema 15",
     "pregunta": "La cuchilla de la cortadora de fiambre se mueve:",
     "opciones": {
@@ -11105,7 +11105,7 @@
     "explicacion": ""
   },
   {
-    "id": 116,
+    "id": "mad_t15_116",
     "tema": "Tema 15",
     "pregunta": "La laminadora de pasta funciona:",
     "opciones": {
@@ -11118,7 +11118,7 @@
     "explicacion": ""
   },
   {
-    "id": 117,
+    "id": "mad_t15_117",
     "tema": "Tema 15",
     "pregunta": "Las máquinas universales:",
     "opciones": {
@@ -11131,7 +11131,7 @@
     "explicacion": ""
   },
   {
-    "id": 118,
+    "id": "mad_t15_118",
     "tema": "Tema 15",
     "pregunta": "Lo más importante de una báscula es:",
     "opciones": {
@@ -11144,7 +11144,7 @@
     "explicacion": ""
   },
   {
-    "id": 119,
+    "id": "mad_t15_119",
     "tema": "Tema 15",
     "pregunta": "La batidora de brazo industrial sirve para:",
     "opciones": {
@@ -11157,7 +11157,7 @@
     "explicacion": ""
   },
   {
-    "id": 120,
+    "id": "mad_t15_120",
     "tema": "Tema 15",
     "pregunta": "La inducción es:",
     "opciones": {
@@ -11170,7 +11170,7 @@
     "explicacion": ""
   },
   {
-    "id": 121,
+    "id": "mad_t15_121",
     "tema": "Tema 15",
     "pregunta": "El vaso medidor sirve para:",
     "opciones": {
@@ -11183,7 +11183,7 @@
     "explicacion": ""
   },
   {
-    "id": 122,
+    "id": "mad_t15_122",
     "tema": "Tema 15",
     "pregunta": "La batidora profesional tiene:",
     "opciones": {
@@ -11196,7 +11196,7 @@
     "explicacion": ""
   },
   {
-    "id": 123,
+    "id": "mad_t15_123",
     "tema": "Tema 15",
     "pregunta": "El colador más pequeño es el:",
     "opciones": {
@@ -11209,7 +11209,7 @@
     "explicacion": ""
   },
   {
-    "id": 124,
+    "id": "mad_t15_124",
     "tema": "Tema 15",
     "pregunta": "Para la limpieza manual se usan:",
     "opciones": {
@@ -11222,7 +11222,7 @@
     "explicacion": ""
   },
   {
-    "id": 125,
+    "id": "mad_t15_125",
     "tema": "Tema 15",
     "pregunta": "La puntilla tiene una hoja de:",
     "opciones": {
@@ -11235,7 +11235,7 @@
     "explicacion": ""
   },
   {
-    "id": 126,
+    "id": "mad_t15_126",
     "tema": "Tema 15",
     "pregunta": "El cuchillo cebollero sirve para:",
     "opciones": {
@@ -11248,7 +11248,7 @@
     "explicacion": ""
   },
   {
-    "id": 127,
+    "id": "mad_t15_127",
     "tema": "Tema 15",
     "pregunta": "El cuchillo de medio golpe es para:",
     "opciones": {
@@ -11261,7 +11261,7 @@
     "explicacion": ""
   },
   {
-    "id": 128,
+    "id": "mad_t15_128",
     "tema": "Tema 15",
     "pregunta": "La cuerda de cocina se llama:",
     "opciones": {
@@ -11274,7 +11274,7 @@
     "explicacion": ""
   },
   {
-    "id": 129,
+    "id": "mad_t15_129",
     "tema": "Tema 15",
     "pregunta": "Los cuchillos de sierra son para:",
     "opciones": {
@@ -11287,7 +11287,7 @@
     "explicacion": ""
   },
   {
-    "id": 130,
+    "id": "mad_t15_130",
     "tema": "Tema 15",
     "pregunta": "La chaira sirve para:",
     "opciones": {
@@ -11300,7 +11300,7 @@
     "explicacion": ""
   },
   {
-    "id": 131,
+    "id": "mad_t15_131",
     "tema": "Tema 15",
     "pregunta": "Para aplastar filetes se usa:",
     "opciones": {
@@ -11313,7 +11313,7 @@
     "explicacion": ""
   },
   {
-    "id": 132,
+    "id": "mad_t15_132",
     "tema": "Tema 15",
     "pregunta": "Para colar caldos grandes se usa:",
     "opciones": {
@@ -11326,7 +11326,7 @@
     "explicacion": ""
   },
   {
-    "id": 133,
+    "id": "mad_t15_133",
     "tema": "Tema 15",
     "pregunta": "Para machacar especias se usa el:",
     "opciones": {
@@ -11339,7 +11339,7 @@
     "explicacion": ""
   },
   {
-    "id": 134,
+    "id": "mad_t15_134",
     "tema": "Tema 15",
     "pregunta": "Para rallar queso se usa el:",
     "opciones": {
@@ -11352,7 +11352,7 @@
     "explicacion": ""
   },
   {
-    "id": 135,
+    "id": "mad_t15_135",
     "tema": "Tema 15",
     "pregunta": "Para tamizar harina se usa el:",
     "opciones": {
@@ -11365,7 +11365,7 @@
     "explicacion": ""
   },
   {
-    "id": 136,
+    "id": "mad_t15_136",
     "tema": "Tema 15",
     "pregunta": "Lo más importante de un cuchillo es el:",
     "opciones": {
@@ -11378,7 +11378,7 @@
     "explicacion": ""
   },
   {
-    "id": 137,
+    "id": "mad_t15_137",
     "tema": "Tema 15",
     "pregunta": "El cuchillo más pequeño es la:",
     "opciones": {
@@ -11391,7 +11391,7 @@
     "explicacion": ""
   },
   {
-    "id": 138,
+    "id": "mad_t15_138",
     "tema": "Tema 15",
     "pregunta": "Sobre las tablas de corte:",
     "opciones": {
@@ -11404,7 +11404,7 @@
     "explicacion": ""
   },
   {
-    "id": 139,
+    "id": "mad_t15_139",
     "tema": "Tema 15",
     "pregunta": "Para picar se usa el:",
     "opciones": {
@@ -11417,7 +11417,7 @@
     "explicacion": ""
   },
   {
-    "id": 140,
+    "id": "mad_t15_140",
     "tema": "Tema 15",
     "pregunta": "Para mechar carne se usa la:",
     "opciones": {
@@ -11430,7 +11430,7 @@
     "explicacion": ""
   },
   {
-    "id": 141,
+    "id": "mad_t15_141",
     "tema": "Tema 15",
     "pregunta": "Las marmitas se limpian:",
     "opciones": {
@@ -11443,7 +11443,7 @@
     "explicacion": ""
   },
   {
-    "id": 142,
+    "id": "mad_t15_142",
     "tema": "Tema 15",
     "pregunta": "La maquinaria se limpia:",
     "opciones": {
@@ -11456,7 +11456,7 @@
     "explicacion": ""
   },
   {
-    "id": 143,
+    "id": "mad_t15_143",
     "tema": "Tema 15",
     "pregunta": "La pequeña maquinaria se limpia con:",
     "opciones": {
@@ -11469,7 +11469,7 @@
     "explicacion": ""
   },
   {
-    "id": 144,
+    "id": "mad_t15_144",
     "tema": "Tema 15",
     "pregunta": "No se meten en el lavavajillas:",
     "opciones": {
@@ -11482,7 +11482,7 @@
     "explicacion": ""
   },
   {
-    "id": 145,
+    "id": "mad_t15_145",
     "tema": "Tema 15",
     "pregunta": "El bloque de cocción se refiere:",
     "opciones": {
@@ -11495,7 +11495,7 @@
     "explicacion": ""
   },
   {
-    "id": 146,
+    "id": "mad_t15_146",
     "tema": "Tema 15",
     "pregunta": "Sobre los productos de limpieza:",
     "opciones": {
@@ -11508,7 +11508,7 @@
     "explicacion": ""
   },
   {
-    "id": 147,
+    "id": "mad_t15_147",
     "tema": "Tema 15",
     "pregunta": "Los limpiadores de suelos son:",
     "opciones": {
@@ -11521,7 +11521,7 @@
     "explicacion": ""
   },
   {
-    "id": 148,
+    "id": "mad_t15_148",
     "tema": "Tema 15",
     "pregunta": "El hipoclorito es:",
     "opciones": {
@@ -11534,7 +11534,7 @@
     "explicacion": ""
   },
   {
-    "id": 149,
+    "id": "mad_t15_149",
     "tema": "Tema 15",
     "pregunta": "La limpieza sirve para:",
     "opciones": {
@@ -11547,7 +11547,7 @@
     "explicacion": ""
   },
   {
-    "id": 150,
+    "id": "mad_t15_150",
     "tema": "Tema 15",
     "pregunta": "Sobre la maquinaria pesada:",
     "opciones": {
@@ -11560,7 +11560,7 @@
     "explicacion": ""
   },
   {
-    "id": 151,
+    "id": "mad_t15_151",
     "tema": "Tema 15",
     "pregunta": "No se deben mezclar:",
     "opciones": {
@@ -11573,7 +11573,7 @@
     "explicacion": ""
   },
   {
-    "id": 152,
+    "id": "mad_t15_152",
     "tema": "Tema 15",
     "pregunta": "Sobre la desinfección química:",
     "opciones": {
@@ -11586,7 +11586,7 @@
     "explicacion": ""
   },
   {
-    "id": 153,
+    "id": "mad_t15_153",
     "tema": "Tema 15",
     "pregunta": "La primera fase de limpieza es el:",
     "opciones": {
@@ -11599,7 +11599,7 @@
     "explicacion": ""
   },
   {
-    "id": 154,
+    "id": "mad_t15_154",
     "tema": "Tema 15",
     "pregunta": "Sobre los detergentes:",
     "opciones": {
@@ -11612,7 +11612,7 @@
     "explicacion": ""
   },
   {
-    "id": 155,
+    "id": "mad_t15_155",
     "tema": "Tema 15",
     "pregunta": "La \"plonge\" es:",
     "opciones": {
@@ -11625,7 +11625,7 @@
     "explicacion": ""
   },
   {
-    "id": 156,
+    "id": "mad_t15_156",
     "tema": "Tema 15",
     "pregunta": "Se limpia mejor:",
     "opciones": {
@@ -11638,7 +11638,7 @@
     "explicacion": ""
   },
   {
-    "id": 157,
+    "id": "mad_t15_157",
     "tema": "Tema 15",
     "pregunta": "Un desengrasante suele ser:",
     "opciones": {
@@ -11651,7 +11651,7 @@
     "explicacion": ""
   },
   {
-    "id": 158,
+    "id": "mad_t15_158",
     "tema": "Tema 15",
     "pregunta": "Los tensioactivos más comunes son:",
     "opciones": {
@@ -11664,7 +11664,7 @@
     "explicacion": ""
   },
   {
-    "id": 159,
+    "id": "mad_t15_159",
     "tema": "Tema 15",
     "pregunta": "Sobre la lejía:",
     "opciones": {
@@ -11677,7 +11677,7 @@
     "explicacion": ""
   },
   {
-    "id": 160,
+    "id": "mad_t15_160",
     "tema": "Tema 15",
     "pregunta": "Para cortar huesos se usa la:",
     "opciones": {
@@ -11690,7 +11690,7 @@
     "explicacion": ""
   },
   {
-    "id": 161,
+    "id": "mad_t15_161",
     "tema": "Tema 15",
     "pregunta": "Sobre las frases de peligro:",
     "opciones": {
@@ -11703,7 +11703,7 @@
     "explicacion": ""
   },
   {
-    "id": 162,
+    "id": "mad_t15_162",
     "tema": "Tema 15",
     "pregunta": "Los productos que destruyen tejidos son:",
     "opciones": {
@@ -11716,7 +11716,7 @@
     "explicacion": ""
   },
   {
-    "id": 163,
+    "id": "mad_t15_163",
     "tema": "Tema 15",
     "pregunta": "Sobre los envases de limpieza:",
     "opciones": {
@@ -11729,7 +11729,7 @@
     "explicacion": ""
   },
   {
-    "id": 164,
+    "id": "mad_t15_164",
     "tema": "Tema 15",
     "pregunta": "Sobre el plan de residuos:",
     "opciones": {
@@ -11742,7 +11742,7 @@
     "explicacion": ""
   },
   {
-    "id": 165,
+    "id": "mad_t15_165",
     "tema": "Tema 15",
     "pregunta": "La reglamentación de detergentes es de:",
     "opciones": {
@@ -11755,7 +11755,7 @@
     "explicacion": ""
   },
   {
-    "id": 166,
+    "id": "mad_t15_166",
     "tema": "Tema 15",
     "pregunta": "Los agentes tensioactivos son:",
     "opciones": {
@@ -11768,7 +11768,7 @@
     "explicacion": ""
   },
   {
-    "id": 167,
+    "id": "mad_t15_167",
     "tema": "Tema 15",
     "pregunta": "El producto para dar volumen al detergente es la:",
     "opciones": {
@@ -11781,7 +11781,7 @@
     "explicacion": ""
   },
   {
-    "id": 168,
+    "id": "mad_t15_168",
     "tema": "Tema 15",
     "pregunta": "Al mezclar lejía sale gas:",
     "opciones": {
@@ -11794,7 +11794,7 @@
     "explicacion": ""
   },
   {
-    "id": 169,
+    "id": "mad_t15_169",
     "tema": "Tema 15",
     "pregunta": "El componente activo de la lejía es:",
     "opciones": {
@@ -11807,7 +11807,7 @@
     "explicacion": ""
   },
   {
-    "id": 170,
+    "id": "mad_t15_170",
     "tema": "Tema 15",
     "pregunta": "El producto de limpieza se recoge en:",
     "opciones": {
@@ -11820,7 +11820,7 @@
     "explicacion": ""
   },
   {
-    "id": 171,
+    "id": "mad_t15_171",
     "tema": "Tema 15",
     "pregunta": "Si ves una botella sin etiqueta:",
     "opciones": {
@@ -11833,7 +11833,7 @@
     "explicacion": ""
   },
   {
-    "id": 172,
+    "id": "mad_t15_172",
     "tema": "Tema 15",
     "pregunta": "En los detergentes siempre figuran las:",
     "opciones": {
@@ -11846,7 +11846,7 @@
     "explicacion": ""
   },
   {
-    "id": 173,
+    "id": "mad_t15_173",
     "tema": "Tema 15",
     "pregunta": "El etiquetado peligroso:",
     "opciones": {
@@ -11859,7 +11859,7 @@
     "explicacion": ""
   },
   {
-    "id": 174,
+    "id": "mad_t15_174",
     "tema": "Tema 15",
     "pregunta": "El pictograma de peligro es un:",
     "opciones": {
@@ -11872,7 +11872,7 @@
     "explicacion": ""
   },
   {
-    "id": 175,
+    "id": "mad_t15_175",
     "tema": "Tema 15",
     "pregunta": "La cantidad de limpiador será:",
     "opciones": {
@@ -11885,7 +11885,7 @@
     "explicacion": ""
   },
   {
-    "id": 176,
+    "id": "mad_t15_176",
     "tema": "Tema 15",
     "pregunta": "La sal en el lavavajillas sirve para:",
     "opciones": {
@@ -11898,7 +11898,7 @@
     "explicacion": ""
   },
   {
-    "id": 177,
+    "id": "mad_t15_177",
     "tema": "Tema 15",
     "pregunta": "El agua de aclarado estará a:",
     "opciones": {
@@ -11911,7 +11911,7 @@
     "explicacion": ""
   },
   {
-    "id": 178,
+    "id": "mad_t15_178",
     "tema": "Tema 15",
     "pregunta": "Las partes desmontables se limpian:",
     "opciones": {
@@ -11924,7 +11924,7 @@
     "explicacion": ""
   },
   {
-    "id": 179,
+    "id": "mad_t15_179",
     "tema": "Tema 15",
     "pregunta": "La plancha se limpia:",
     "opciones": {
@@ -11937,7 +11937,7 @@
     "explicacion": ""
   },
   {
-    "id": 180,
+    "id": "mad_t15_180",
     "tema": "Tema 15",
     "pregunta": "No es toxicidad aguda si los efectos salen:",
     "opciones": {
@@ -11950,7 +11950,7 @@
     "explicacion": ""
   },
   {
-    "id": 1,
+    "id": "mad_t16_1",
     "tema": "Tema 16",
     "pregunta": "Según la FAO, ¿qué porcentaje aproximado de los alimentos producidos a nivel mundial se pierden o se desperdician?",
     "opciones": {
@@ -11963,7 +11963,7 @@
     "explicacion": ""
   },
   {
-    "id": 2,
+    "id": "mad_t16_2",
     "tema": "Tema 16",
     "pregunta": "¿Cómo se denomina a aquellos alimentos que, siendo aún útiles para el consumo humano, se descartan para este uso?",
     "opciones": {
@@ -11976,7 +11976,7 @@
     "explicacion": ""
   },
   {
-    "id": 3,
+    "id": "mad_t16_3",
     "tema": "Tema 16",
     "pregunta": "¿Cómo se denomina el desarrollo que satisface las necesidades de las generaciones presentes sin comprometer las de las futuras (Río-1992)?",
     "opciones": {
@@ -11989,7 +11989,7 @@
     "explicacion": ""
   },
   {
-    "id": 4,
+    "id": "mad_t16_4",
     "tema": "Tema 16",
     "pregunta": "¿En qué año se celebró la Cumbre de la Tierra de Río +20?",
     "opciones": {
@@ -12002,7 +12002,7 @@
     "explicacion": ""
   },
   {
-    "id": 5,
+    "id": "mad_t16_5",
     "tema": "Tema 16",
     "pregunta": "¿Cómo se denomina la introducción de una sustancia nociva o energía que altera el medio y provoca efectos perjudiciales?",
     "opciones": {
@@ -12015,7 +12015,7 @@
     "explicacion": ""
   },
   {
-    "id": 6,
+    "id": "mad_t16_6",
     "tema": "Tema 16",
     "pregunta": "¿Qué gases contribuyen al efecto invernadero de forma NO natural (o incrementados por el hombre)?",
     "opciones": {
@@ -12028,7 +12028,7 @@
     "explicacion": ""
   },
   {
-    "id": 7,
+    "id": "mad_t16_7",
     "tema": "Tema 16",
     "pregunta": "¿Qué gas contribuye más al efecto invernadero por causas tanto naturales como humanas (combustión, incendios, tala)?",
     "opciones": {
@@ -12041,7 +12041,7 @@
     "explicacion": ""
   },
   {
-    "id": 8,
+    "id": "mad_t16_8",
     "tema": "Tema 16",
     "pregunta": "¿Dónde se encuentra la mayoría del ozono en nuestra atmósfera?",
     "opciones": {
@@ -12054,7 +12054,7 @@
     "explicacion": ""
   },
   {
-    "id": 9,
+    "id": "mad_t16_9",
     "tema": "Tema 16",
     "pregunta": "¿Qué sustancias son las principales responsables de la destrucción de la capa de ozono?",
     "opciones": {
@@ -12067,7 +12067,7 @@
     "explicacion": ""
   },
   {
-    "id": 10,
+    "id": "mad_t16_10",
     "tema": "Tema 16",
     "pregunta": "El ruido se define como un sonido:",
     "opciones": {
@@ -12080,7 +12080,7 @@
     "explicacion": ""
   },
   {
-    "id": 11,
+    "id": "mad_t16_11",
     "tema": "Tema 16",
     "pregunta": "La unidad de medida de la intensidad del sonido es el:",
     "opciones": {
@@ -12093,7 +12093,7 @@
     "explicacion": ""
   },
   {
-    "id": 12,
+    "id": "mad_t16_12",
     "tema": "Tema 16",
     "pregunta": "¿Qué normativa estatal regula actualmente la gestión de residuos y suelos contaminados?",
     "opciones": {
@@ -12106,7 +12106,7 @@
     "explicacion": ""
   },
   {
-    "id": 13,
+    "id": "mad_t16_13",
     "tema": "Tema 16",
     "pregunta": "¿Cómo se clasifican los residuos hospitalarios del Grupo I?",
     "opciones": {
@@ -12119,7 +12119,7 @@
     "explicacion": ""
   },
   {
-    "id": 14,
+    "id": "mad_t16_14",
     "tema": "Tema 16",
     "pregunta": "Los residuos del Grupo II en un hospital son:",
     "opciones": {
@@ -12132,7 +12132,7 @@
     "explicacion": ""
   },
   {
-    "id": 15,
+    "id": "mad_t16_15",
     "tema": "Tema 16",
     "pregunta": "¿Qué color de bolsa se utiliza para los residuos del Grupo III (específicos de riesgo)?",
     "opciones": {
@@ -12145,7 +12145,7 @@
     "explicacion": ""
   },
   {
-    "id": 16,
+    "id": "mad_t16_16",
     "tema": "Tema 16",
     "pregunta": "Los residuos de cocina (orgánicos) se deben depositar en el contenedor de color:",
     "opciones": {
@@ -12158,7 +12158,7 @@
     "explicacion": ""
   },
   {
-    "id": 17,
+    "id": "mad_t16_17",
     "tema": "Tema 16",
     "pregunta": "El contenedor azul está destinado a:",
     "opciones": {
@@ -12171,7 +12171,7 @@
     "explicacion": ""
   },
   {
-    "id": 18,
+    "id": "mad_t16_18",
     "tema": "Tema 16",
     "pregunta": "En el contenedor amarillo debemos depositar:",
     "opciones": {
@@ -12184,7 +12184,7 @@
     "explicacion": ""
   },
   {
-    "id": 19,
+    "id": "mad_t16_19",
     "tema": "Tema 16",
     "pregunta": "El contenedor verde (tipo iglú) sirve para recoger:",
     "opciones": {
@@ -12197,7 +12197,7 @@
     "explicacion": ""
   },
   {
-    "id": 20,
+    "id": "mad_t16_20",
     "tema": "Tema 16",
     "pregunta": "¿Qué se debe hacer con el aceite usado de las freidoras en la cocina hospitalaria?",
     "opciones": {
@@ -12210,7 +12210,7 @@
     "explicacion": ""
   },
   {
-    "id": 21,
+    "id": "mad_t16_21",
     "tema": "Tema 16",
     "pregunta": "¿Qué es el compostaje?",
     "opciones": {
@@ -12223,7 +12223,7 @@
     "explicacion": ""
   },
   {
-    "id": 22,
+    "id": "mad_t16_22",
     "tema": "Tema 16",
     "pregunta": "La regla de las \"3 R\" en ecología significa:",
     "opciones": {
@@ -12236,7 +12236,7 @@
     "explicacion": ""
   },
   {
-    "id": 23,
+    "id": "mad_t16_23",
     "tema": "Tema 16",
     "pregunta": "El agua residual que proviene de la limpieza de la cocina se considera:",
     "opciones": {
@@ -12249,7 +12249,7 @@
     "explicacion": ""
   },
   {
-    "id": 24,
+    "id": "mad_t16_24",
     "tema": "Tema 16",
     "pregunta": "¿Qué es un \"gestor de residuos\"?",
     "opciones": {
@@ -12262,7 +12262,7 @@
     "explicacion": ""
   },
   {
-    "id": 25,
+    "id": "mad_t16_25",
     "tema": "Tema 16",
     "pregunta": "Los residuos del Grupo IV incluyen:",
     "opciones": {
@@ -12275,7 +12275,7 @@
     "explicacion": ""
   },
   {
-    "id": 26,
+    "id": "mad_t16_26",
     "tema": "Tema 16",
     "pregunta": "La contaminación del suelo en una cocina puede ocurrir por:",
     "opciones": {
@@ -12288,7 +12288,7 @@
     "explicacion": ""
   },
   {
-    "id": 27,
+    "id": "mad_t16_27",
     "tema": "Tema 16",
     "pregunta": "El ahorro de agua en la cocina hospitalaria es una medida de:",
     "opciones": {
@@ -12301,7 +12301,7 @@
     "explicacion": ""
   },
   {
-    "id": 28,
+    "id": "mad_t16_28",
     "tema": "Tema 16",
     "pregunta": "¿Qué es la lluvia ácida?",
     "opciones": {
@@ -12314,7 +12314,7 @@
     "explicacion": ""
   },
   {
-    "id": 29,
+    "id": "mad_t16_29",
     "tema": "Tema 16",
     "pregunta": "El \"Punto Sigre\" sirve para recoger:",
     "opciones": {
@@ -12327,7 +12327,7 @@
     "explicacion": ""
   },
   {
-    "id": 30,
+    "id": "mad_t16_30",
     "tema": "Tema 16",
     "pregunta": "¿Qué se entiende por residuo \"peligroso\"?",
     "opciones": {
@@ -12340,7 +12340,7 @@
     "explicacion": ""
   },
   {
-    "id": 31,
+    "id": "mad_t16_31",
     "tema": "Tema 16",
     "pregunta": "El etiquetado de los recipientes de residuos peligrosos debe contener:",
     "opciones": {
@@ -12353,7 +12353,7 @@
     "explicacion": ""
   },
   {
-    "id": 32,
+    "id": "mad_t16_32",
     "tema": "Tema 16",
     "pregunta": "¿Qué es la \"valorización\" de un residuo?",
     "opciones": {
@@ -12366,7 +12366,7 @@
     "explicacion": ""
   },
   {
-    "id": 33,
+    "id": "mad_t16_33",
     "tema": "Tema 16",
     "pregunta": "La incineración de residuos es un método de:",
     "opciones": {
@@ -12379,7 +12379,7 @@
     "explicacion": ""
   },
   {
-    "id": 34,
+    "id": "mad_t16_34",
     "tema": "Tema 16",
     "pregunta": "¿Qué residuo de cocina se puede considerar \"biomasa\" para energía?",
     "opciones": {
@@ -12392,7 +12392,7 @@
     "explicacion": ""
   },
   {
-    "id": 35,
+    "id": "mad_t16_35",
     "tema": "Tema 16",
     "pregunta": "La \"huella de carbono\" mide:",
     "opciones": {
@@ -12405,7 +12405,7 @@
     "explicacion": ""
   },
   {
-    "id": 36,
+    "id": "mad_t16_36",
     "tema": "Tema 16",
     "pregunta": "Un producto de limpieza \"biodegradable\" es aquel que:",
     "opciones": {
@@ -12418,7 +12418,7 @@
     "explicacion": ""
   },
   {
-    "id": 37,
+    "id": "mad_t16_37",
     "tema": "Tema 16",
     "pregunta": "¿Cuál es el principal residuo en volumen de una cocina hospitalaria?",
     "opciones": {
@@ -12431,7 +12431,7 @@
     "explicacion": ""
   },
   {
-    "id": 38,
+    "id": "mad_t16_38",
     "tema": "Tema 16",
     "pregunta": "La limpieza de los filtros de las campanas ayuda a evitar la contaminación:",
     "opciones": {
@@ -12444,7 +12444,7 @@
     "explicacion": ""
   },
   {
-    "id": 39,
+    "id": "mad_t16_39",
     "tema": "Tema 16",
     "pregunta": "¿Qué normativa regula la protección del aire y la atmósfera?",
     "opciones": {
@@ -12457,7 +12457,7 @@
     "explicacion": ""
   },
   {
-    "id": 40,
+    "id": "mad_t16_40",
     "tema": "Tema 16",
     "pregunta": "¿Qué se debe hacer con los fluorescentes fundidos de la cocina?",
     "opciones": {
@@ -12470,7 +12470,7 @@
     "explicacion": ""
   },
   {
-    "id": 41,
+    "id": "mad_t16_41",
     "tema": "Tema 16",
     "pregunta": "El desarrollo sostenible busca un equilibrio entre:",
     "opciones": {
@@ -12483,7 +12483,7 @@
     "explicacion": ""
   },
   {
-    "id": 42,
+    "id": "mad_t16_42",
     "tema": "Tema 16",
     "pregunta": "¿Qué significa el símbolo del \"punto verde\" en un envase?",
     "opciones": {
@@ -12496,7 +12496,7 @@
     "explicacion": ""
   },
   {
-    "id": 43,
+    "id": "mad_t16_43",
     "tema": "Tema 16",
     "pregunta": "La contaminación lumínica es producida por:",
     "opciones": {
@@ -12509,7 +12509,7 @@
     "explicacion": ""
   },
   {
-    "id": 44,
+    "id": "mad_t16_44",
     "tema": "Tema 16",
     "pregunta": "¿Qué es un residuo \"inerte\"?",
     "opciones": {
@@ -12522,7 +12522,7 @@
     "explicacion": ""
   },
   {
-    "id": 45,
+    "id": "mad_t16_45",
     "tema": "Tema 16",
     "pregunta": "El almacenamiento de residuos en la cocina debe durar:",
     "opciones": {
@@ -12535,7 +12535,7 @@
     "explicacion": ""
   },
   {
-    "id": 46,
+    "id": "mad_t16_46",
     "tema": "Tema 16",
     "pregunta": "¿Qué zona de la cocina debe tener una ventilación más potente?",
     "opciones": {
@@ -12548,7 +12548,7 @@
     "explicacion": ""
   },
   {
-    "id": 47,
+    "id": "mad_t16_47",
     "tema": "Tema 16",
     "pregunta": "El uso de papel reciclado en las oficinas del hospital es una medida de:",
     "opciones": {
@@ -12561,7 +12561,7 @@
     "explicacion": ""
   },
   {
-    "id": 48,
+    "id": "mad_t16_48",
     "tema": "Tema 16",
     "pregunta": "¿Qué es un \"vertedero controlado\"?",
     "opciones": {
@@ -12574,7 +12574,7 @@
     "explicacion": ""
   },
   {
-    "id": 49,
+    "id": "mad_t16_49",
     "tema": "Tema 16",
     "pregunta": "La educación ambiental del personal de cocina es:",
     "opciones": {
@@ -12587,7 +12587,7 @@
     "explicacion": ""
   },
   {
-    "id": 50,
+    "id": "mad_t16_50",
     "tema": "Tema 16",
     "pregunta": "¿A qué temperatura se deben lavar las bolsas de basura reutilizables?",
     "opciones": {
@@ -12600,7 +12600,7 @@
     "explicacion": ""
   },
   {
-    "id": 51,
+    "id": "mad_t16_51",
     "tema": "Tema 16",
     "pregunta": "La prevención de ruidos en la cocina protege:",
     "opciones": {
@@ -12613,7 +12613,7 @@
     "explicacion": ""
   },
   {
-    "id": 52,
+    "id": "mad_t16_52",
     "tema": "Tema 16",
     "pregunta": "Los residuos químicos de limpieza (ácidos, bases) son del Grupo:",
     "opciones": {
@@ -12626,7 +12626,7 @@
     "explicacion": ""
   },
   {
-    "id": 53,
+    "id": "mad_t16_53",
     "tema": "Tema 16",
     "pregunta": "¿Qué autoridad supervisa el cumplimiento medioambiental en Castilla-La Mancha?",
     "opciones": {
@@ -12639,7 +12639,7 @@
     "explicacion": ""
   },
   {
-    "id": 54,
+    "id": "mad_t16_54",
     "tema": "Tema 16",
     "pregunta": "La reducción del uso de plásticos de un solo uso en el hospital es:",
     "opciones": {
@@ -12652,7 +12652,7 @@
     "explicacion": ""
   },
   {
-    "id": 55,
+    "id": "mad_t16_55",
     "tema": "Tema 16",
     "pregunta": "El objetivo final de la protección medioambiental en el hospital es:",
     "opciones": {
@@ -13024,7 +13024,7 @@
       "c": "Seguridad jurídica.",
       "d": "Jerarquía normativa."
     },
-    "correcta": "a,b",
+    "correcta": "c",
     "explicacion": "",
     "origen": "MAD"
   },

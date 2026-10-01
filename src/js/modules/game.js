@@ -278,10 +278,10 @@ function renderQuestion(focusQuestion = false) {
     // Mode tag
     const modeTag = document.getElementById('mode-tag');
     const modeStyles = {
-        exam: { text: 'Examen', bg: '#ffebee', color: '#c62828' },
-        failures: { text: 'Repaso Fallos', bg: '#fff3e0', color: '#ef6c00' },
-        review: { text: 'Revisión', bg: '#e3f2fd', color: '#1565c0' },
-        training: { text: 'Entrenamiento', bg: '#e8f5e9', color: '#2e7d32' }
+        exam: { text: 'Examen', bg: 'rgba(239,68,68,0.20)', color: '#fecaca' },
+        failures: { text: 'Repaso Fallos', bg: 'rgba(250,204,21,0.20)', color: '#fde68a' },
+        review: { text: 'Revisión', bg: 'rgba(56,189,248,0.20)', color: '#bae6fd' },
+        training: { text: 'Entrenamiento', bg: 'rgba(34,197,94,0.20)', color: '#bbf7d0' }
     };
     const style = modeStyles[mode] || modeStyles.training;
     modeTag.textContent = style.text;

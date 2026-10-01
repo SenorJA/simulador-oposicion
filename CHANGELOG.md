@@ -5,6 +5,17 @@ formato de [Keep a Changelog](https://keepachangelog.com/es/1.0.0/) y versionado
 semántico (`MAJOR.MINOR.PATCH`). La fuente única de la versión es
 `CONFIG.APP_VERSION` en `src/js/modules/config.js`.
 
+## [1.20.0] — 2026-10-01
+### Cambiado
+- **Nuevo tema oscuro con acentos turquesa**: fondo de app `#1a1e2e`,
+  contenedores `#242a3a` con esquinas de **16px** y sombra suave, texto claro
+  (blanco/gris) y acento **turquesa `#38bdf8`** en títulos, etiquetas y flechas.
+- **Selects del simulacro** con fondo blanco puro (`#FFFFFF`) y flecha turquesa.
+- Fondos de estado (feedback de respuesta, opción correcta, etiquetas `tag`,
+  chips, barras) en tonos **translúcidos** para mantener el contraste sobre oscuro.
+- Se elimina la tarjeta gris claro del tema anterior (queda sustituida por el
+  contenedor oscuro).
+
 ## [1.19.3] — 2026-10-01
 ### Cambiado
 - Las tarjetas pasan de blanco puro a **gris muy claro (`#F1F5F9`)** para no

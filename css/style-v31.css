@@ -8,51 +8,51 @@
 
 /* ── 1. TOKENS ─────────────────────────────────────────────────────────── */
 :root {
-    /* Controles nativos (inputs, scrollbars) en modo claro coherente */
-    color-scheme: light;
+    /* Controles nativos en oscuro coherente con el tema */
+    color-scheme: dark;
 
-    /* Marca */
-    --primary: #00897B;
-    --primary-dark: #00695C;
-    --primary-light: #4DB6AC;
+    /* Marca / acento turquesa brillante */
+    --primary: #38bdf8;
+    --primary-dark: #0ea5e9;
+    --primary-light: #7dd3fc;
     --secondary: #0288D1;
-    --accent: #4f46e5;
-    --accent-alt: #7c3aed;
-    --primary-rgb: 0, 137, 123;
-    --accent-rgb: 79, 70, 229;
+    --accent: #38bdf8;
+    --accent-alt: #7dd3fc;
+    --primary-rgb: 56, 189, 248;
+    --accent-rgb: 56, 189, 248;
 
-    /* Fondo oscuro de la app + texto sobre él */
-    --bg-gradient: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
-    --app-text: #f1f5f9;
+    /* Fondo de app azul-gris muy oscuro + texto claro */
+    --bg-gradient: #1a1e2e;
+    --app-text: #ffffff;
     --app-text-light: #cbd5e1;
 
-    /* Tarjetas gris muy claro (rompe el blanco plano) + texto oscuro dentro */
-    --card-bg: #F1F5F9;
-    --text: #111827;
-    --text-light: #374151;
-    --text-muted: #4b5563;
+    /* Contenedores oscuros (ligeramente más claros que el fondo) */
+    --card-bg: #242a3a;
+    --text: #ffffff;
+    --text-light: #cbd5e1;
+    --text-muted: #94a3b8;
 
-    /* Estado (colores vivos que resaltan sobre blanco) */
-    --success: #16a34a;
-    --error: #dc2626;
-    --error-dark: #b91c1c;
-    --warning: #b45309;
+    /* Estado (vivos) */
+    --success: #22c55e;
+    --error: #ef4444;
+    --error-dark: #f87171;
+    --warning: #facc15;
 
-    /* Bordes sobre las tarjetas blancas */
-    --border-soft: #e5e7eb;
-    --border: #d1d5db;
-    --border-strong: #9ca3af;
+    /* Bordes sobre fondo oscuro */
+    --border-soft: rgba(255, 255, 255, 0.10);
+    --border: rgba(255, 255, 255, 0.18);
+    --border-strong: rgba(255, 255, 255, 0.30);
 
     /* Radios */
-    --radius: 20px;
+    --radius: 16px;
     --radius-sm: 8px;
     --radius-md: 12px;
     --radius-lg: 16px;
     --radius-pill: 999px;
 
     /* Sombras y elevación */
-    --shadow-card: 0 10px 30px rgba(0, 0, 0, 0.28);
-    --shadow-overlay: 0 10px 30px rgba(0, 0, 0, 0.35);
+    --shadow-card: 0 10px 30px rgba(0, 0, 0, 0.40);
+    --shadow-overlay: 0 10px 30px rgba(0, 0, 0, 0.50);
 }
 
 /* ── 2. RESET Y BASE ───────────────────────────────────────────────────── */
@@ -128,7 +128,7 @@ h1 {
 .section-label {
     font-size: 1.1rem;
     font-weight: 700;
-    color: var(--primary-dark);
+    color: var(--primary);
 }
 
 .subtitle {
@@ -177,7 +177,7 @@ h1 {
     content: '';
     position: absolute;
     top: 0; left: 0; right: 0; bottom: 0;
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 50%);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0) 50%);
     pointer-events: none;
     border-radius: inherit;
 }
@@ -214,7 +214,7 @@ h1 {
 .btn-mode:hover {
     transform: translateY(-5px);
     border-color: var(--border-strong);
-    background: #f3f4f6;
+    background: #2c3346;
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
 }
 
@@ -230,7 +230,7 @@ h1 {
 }
 
 .badge {
-    background: rgba(0, 0, 0, 0.05);
+    background: rgba(255, 255, 255, 0.12);
     padding: 6px 10px;
     border-radius: 10px;
     font-size: 0.8rem;
@@ -272,7 +272,7 @@ h1 {
     margin-top: auto;
     font-size: 0.85rem;
     font-weight: 600;
-    color: var(--primary-dark);
+    color: var(--primary);
     display: block;
 }
 
@@ -317,7 +317,7 @@ h1 {
 .segmented-control {
     display: flex;
     flex-wrap: wrap;
-    background: rgba(0, 0, 0, 0.05);
+    background: rgba(255, 255, 255, 0.08);
     padding: 4px;
     border-radius: var(--radius-md);
     gap: 4px;
@@ -348,7 +348,7 @@ h1 {
     align-items: center;
     gap: 15px;
     padding: 15px;
-    background: #f3f4f6;
+    background: #2c3346;
     border-radius: var(--radius-md);
 }
 
@@ -360,13 +360,20 @@ h1 {
 
 .form-control-premium {
     width: 100%;
-    padding: 12px;
-    border-radius: var(--radius-md);
-    border: 2px solid var(--primary-light);
-    background: var(--card-bg);
-    color: var(--text);
+    padding: 10px 40px 10px 14px;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border);
+    background-color: #ffffff;
+    color: #111827;
     font-size: 1rem;
     font-weight: 600;
+    color-scheme: light; /* el desplegable nativo combine con el select blanco */
+    appearance: none;
+    -webkit-appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%2338bdf8' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    background-size: 12px 8px;
 }
 
 .source-grid-premium {
@@ -442,9 +449,9 @@ h1 {
 }
 
 .btn-secondary {
-    background: #e0e0e0;
-    color: #333;
-    border: none;
+    background: rgba(255, 255, 255, 0.12);
+    color: #ffffff;
+    border: 1px solid var(--border);
     padding: 10px 20px;
     border-radius: var(--radius);
     font-weight: bold;
@@ -453,9 +460,9 @@ h1 {
 }
 
 .btn-small {
-    background: var(--border-soft);
-    color: var(--text);
-    border: none;
+    background: rgba(255, 255, 255, 0.14);
+    color: #ffffff;
+    border: 1px solid var(--border);
     padding: 5px 10px;
     border-radius: var(--radius-sm);
     cursor: pointer;
@@ -479,7 +486,7 @@ h1 {
 
 .btn-back:hover {
     transform: translateX(-3px);
-    color: var(--primary-dark);
+    color: var(--primary);
 }
 
 /* ── 10. JUEGO: CABECERA Y CRONÓMETRO ──────────────────────────────────── */
@@ -596,8 +603,8 @@ h1 {
 }
 
 .tag {
-    background: #e3f2fd;
-    color: #1565c0;
+    background: rgba(56, 189, 248, 0.15);
+    color: var(--primary-light);
     padding: 5px 10px;
     border-radius: 6px;
     font-size: 0.85rem;
@@ -636,7 +643,7 @@ h1 {
 
 .btn-option:hover {
     border-color: var(--border-strong);
-    background: #f3f4f6;
+    background: #2c3346;
     transform: translateY(-4px);
     box-shadow: 0 12px 25px rgba(0, 0, 0, 0.18);
 }
@@ -648,11 +655,11 @@ h1 {
 }
 
 .btn-option.correct {
-    background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+    background: rgba(34, 197, 94, 0.20);
     border-color: var(--success);
-    color: #1b5e20;
+    color: #bbf7d0;
     font-weight: bold;
-    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.15), inset 0 2px 4px rgba(255, 255, 255, 0.6);
+    box-shadow: 0 0 0 1px var(--success) inset;
 }
 
 .btn-option.incorrect {
@@ -680,25 +687,25 @@ h1 {
 .feedback {
     margin-top: 20px;
     padding: 15px;
-    background: #fff3cd;
+    background: rgba(250, 204, 21, 0.15);
     border-radius: var(--radius-md);
-    border-left: 5px solid #ffc107;
+    border-left: 5px solid var(--warning);
 }
 
 .feedback.correct {
-    background: #e8f5e9;
-    border-left-color: #4caf50;
+    background: rgba(34, 197, 94, 0.15);
+    border-left-color: var(--success);
 }
 
 .feedback.incorrect {
-    background: #ffebee;
-    border-left-color: var(--error-dark);
+    background: rgba(239, 68, 68, 0.15);
+    border-left-color: var(--error);
 }
 
 .score-circle {
     font-size: 3rem;
     font-weight: bold;
-    color: var(--primary-dark);
+    color: var(--primary);
     margin: 20px 0;
 }
 
@@ -727,7 +734,7 @@ h1 {
 
 .btn-mode strong {
     font-size: 1.1rem;
-    color: var(--primary-dark);
+    color: var(--primary);
 }
 
 .btn-mode small {
@@ -750,7 +757,7 @@ h1 {
 }
 
 .progress-table th {
-    color: var(--primary-dark);
+    color: var(--primary);
     font-weight: 600;
 }
 
@@ -779,7 +786,7 @@ h1 {
 .global-progress-bar-bg {
     width: 100%;
     height: 6px;
-    background: rgba(0, 0, 0, 0.05);
+    background: rgba(255, 255, 255, 0.12);
     border-radius: 10px;
     overflow: hidden;
 }
@@ -974,7 +981,7 @@ h1 {
     content: '';
     position: absolute;
     top: 0; left: 0; right: 0; bottom: 0;
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0) 50%);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0) 50%);
     pointer-events: none;
     border-radius: inherit;
 }
@@ -1057,7 +1064,7 @@ h1 {
 .btn-small.active-view-btn {
     background: var(--primary);
     color: white;
-    border-color: var(--primary-dark);
+    border-color: var(--primary);
     box-shadow: 0 2px 8px rgba(var(--primary-rgb), 0.4);
 }
 
@@ -1066,15 +1073,15 @@ h1 {
     position: absolute;
     bottom: 8px;
     right: 12px;
-    background: rgba(16, 185, 129, 0.15);
-    color: #065f46;
+    background: rgba(34, 197, 94, 0.20);
+    color: #bbf7d0;
     font-size: 0.75rem;
     font-weight: 700;
     padding: 4px 10px;
     border-radius: var(--radius-sm);
     pointer-events: none;
     z-index: 10;
-    border: 1px solid rgba(16, 185, 129, 0.3);
+    border: 1px solid rgba(34, 197, 94, 0.4);
     display: flex;
     align-items: center;
     gap: 4px;
@@ -1159,7 +1166,7 @@ h1 {
 
 .setting-title {
     display: block;
-    color: var(--primary-dark);
+    color: var(--primary);
 }
 
 .setting-hint {
@@ -1239,7 +1246,7 @@ h1 {
 .topic-stat .ts-bar-bg {
     flex: 1;
     height: 8px;
-    background: rgba(0, 0, 0, 0.08);
+    background: rgba(255, 255, 255, 0.12);
     border-radius: 5px;
     overflow: hidden;
 }
@@ -1306,7 +1313,7 @@ h1 {
 }
 
 .exam-breakdown {
-    background: var(--card-bg);
+    background: rgba(255, 255, 255, 0.04);
     padding: 15px;
     border-radius: var(--radius-sm);
     border: 1px solid var(--border);
@@ -1324,11 +1331,11 @@ h1 {
 }
 
 .exam-breakdown .eb-ok {
-    color: #15803d;
+    color: #4ade80;
 }
 
 .exam-breakdown .eb-err {
-    color: #b91c1c;
+    color: #f87171;
 }
 
 .exam-breakdown .eb-blank {
@@ -1345,7 +1352,7 @@ h1 {
 
 .exam-breakdown .eb-final {
     font-size: 1.1em;
-    color: var(--primary-dark);
+    color: var(--primary);
 }
 
 .exam-breakdown .eb-note {
@@ -1416,8 +1423,8 @@ h1 {
 #btn-clear-records { margin-top: 15px; background: #ffcdd2; color: #c62828; }
 #btn-show-grid { margin-right: 6px; padding: 2px 8px; font-size: 1.2rem; }
 #btn-close-grid { margin-top: 20px; }
-#mode-tag { background: #e8f5e9; color: #2e7d32; }
-#resultado-motivacional { margin: 20px 0; padding: 15px; border-radius: 10px; background: var(--card-bg); border: 1px solid var(--border-soft); }
+#mode-tag { background: rgba(34, 197, 94, 0.20); color: #bbf7d0; }
+#resultado-motivacional { margin: 20px 0; padding: 15px; border-radius: 10px; background: rgba(255, 255, 255, 0.04); border: 1px solid var(--border-soft); }
 #resultado-porcentaje { font-size: 2.5rem; margin: 0; }
 #resultado-texto { font-size: 1.1rem; font-weight: bold; margin-top: 10px; }
 #exam-feedback-container { text-align: left; margin-top: 20px; }

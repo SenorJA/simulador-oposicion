@@ -7,8 +7,6 @@ const KEYS = {
     DUDOSAS: 'ope_dudosas',
     PROGRESS: 'ope_progress',
     ANSWERED: 'ope_answered',
-    STREAK: 'ope_streak',
-    STREAK_DATE: 'ope_streak_date',
     USER_ACCESS: 'ope_user_access',
     TOKEN: 'ope_token',
     DEVICE_ID: 'ope_device_id',
@@ -47,10 +45,9 @@ function updatePrefix() {
 }
 
 function pk(key) {
-    // Aislamiento por usuario+rol: fallos, dudosas, historial, récords, stats
+    // Aislamiento por usuario+rol: fallos, dudosas, historial, récords, sesión
     if (key === KEYS.FAILED_IDS || key === KEYS.DUDOSAS || key === KEYS.PROGRESS ||
-        key === KEYS.RECORDS || key === KEYS.SESSION ||
-        key === KEYS.ANSWERED || key === KEYS.STREAK || key === KEYS.STREAK_DATE) {
+        key === KEYS.RECORDS || key === KEYS.SESSION || key === KEYS.ANSWERED) {
         return currentPrefix + key;
     }
     return key;
@@ -67,11 +64,15 @@ export function getAnsweredTotal() {
     return parseInt(localStorage.getItem(pk(KEYS.ANSWERED)) || '0', 10);
 }
 
+// La racha es de la persona, no del rol: clave por usuario (sin rol).
+const streakKey = () => userPrefix() + 'ope_streak';
+const streakDateKey = () => userPrefix() + 'ope_streak_date';
+
 /** Actualiza la racha de días seguidos. Devuelve la racha actual. */
 export function touchStreak() {
     const hoy = new Date().toISOString().slice(0, 10);
-    const ultimo = localStorage.getItem(pk(KEYS.STREAK_DATE));
-    let racha = parseInt(localStorage.getItem(pk(KEYS.STREAK)) || '0', 10);
+    const ultimo = localStorage.getItem(streakDateKey());
+    let racha = parseInt(localStorage.getItem(streakKey()) || '0', 10);
 
     if (ultimo === hoy) return racha;
     if (!ultimo) {
@@ -81,12 +82,12 @@ export function touchStreak() {
         d.setUTCDate(d.getUTCDate() + 1);
         racha = d.toISOString().slice(0, 10) === hoy ? racha + 1 : 1;
     }
-    localStorage.setItem(pk(KEYS.STREAK_DATE), hoy);
-    localStorage.setItem(pk(KEYS.STREAK), String(racha));
+    localStorage.setItem(streakDateKey(), hoy);
+    localStorage.setItem(streakKey(), String(racha));
     return racha;
 }
 export function getStreak() {
-    return parseInt(localStorage.getItem(pk(KEYS.STREAK)) || '0', 10);
+    return parseInt(localStorage.getItem(streakKey()) || '0', 10);
 }
 
 // ── Preguntas marcadas como dudosas ──────────────────────────────────────────

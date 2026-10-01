@@ -887,17 +887,23 @@ function renderTopicStats() {
         if (failed.has(q.id)) g.fallidas++;
     }
     const filas = Object.entries(grupos)
-        .map(([n, g]) => ({ n, total: g.total, pct: Math.round(((g.total - g.fallidas) / g.total) * 100) }))
-        .sort((a, b) => a.pct - b.pct);
+        .map(([n, g]) => ({ n, total: g.total, fallidas: g.fallidas }))
+        .filter(f => f.fallidas > 0)
+        .sort((a, b) => b.fallidas - a.fallidas);
 
-    cont.innerHTML = filas.length === 0
-        ? '<p class="setting-hint">Aún no hay datos.</p>'
-        : filas.map(f => `
+    if (filas.length === 0) {
+        cont.innerHTML = '<p class="setting-hint">Sin fallos pendientes. 🏆 ¡Todo dominado!</p>';
+        return;
+    }
+    cont.innerHTML = filas.map(f => {
+        const pct = Math.round(((f.total - f.fallidas) / f.total) * 100);
+        return `
             <div class="topic-stat">
                 <span class="ts-name">${escapeHtml(f.n)}</span>
-                <span class="ts-bar-bg"><span class="ts-bar" style="width:${f.pct}%"></span></span>
-                <span class="ts-pct">${f.pct}%</span>
-            </div>`).join('');
+                <span class="ts-bar-bg"><span class="ts-bar" style="width:${pct}%"></span></span>
+                <span class="ts-pct">${f.fallidas} fallo${f.fallidas === 1 ? '' : 's'}</span>
+            </div>`;
+    }).join('');
 }
 
 /** Lista de preguntas actualmente falladas, para repasarlas. */

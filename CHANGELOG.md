@@ -5,6 +5,13 @@ formato de [Keep a Changelog](https://keepachangelog.com/es/1.0.0/) y versionado
 semántico (`MAJOR.MINOR.PATCH`). La fuente única de la versión es
 `CONFIG.APP_VERSION` en `src/js/modules/config.js`.
 
+## [1.29.1] — 2026-10-01
+### Corregido
+- **“Acierto por tema”** ahora muestra **solo los temas con fallos pendientes**
+  (los más flojos primero), en vez de decenas de filas casi todas al 100%.
+- La **racha de días** pasa a ser **por usuario** (no por rol), por lo que se
+  registra bien al entrar (antes salía 0).
+
 ## [1.29.0] — 2026-10-01
 ### Añadido
 - **Crear usuarios desde el panel de administración** (código, nombre y

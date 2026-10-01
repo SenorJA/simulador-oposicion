@@ -5,6 +5,13 @@ formato de [Keep a Changelog](https://keepachangelog.com/es/1.0.0/) y versionado
 semántico (`MAJOR.MINOR.PATCH`). La fuente única de la versión es
 `CONFIG.APP_VERSION` en `src/js/modules/config.js`.
 
+## [1.35.1] — 2026-10-01
+### Cambiado
+- **Indicador de racha premium**: icono **SVG de llama** (estilo Lucide) en vez
+  del emoji, en una píldora con **gradiente cálido sutil**, borde naranja,
+  resplandor suave, color **naranja vibrante** en negrita y una animación
+  discreta de “fuego vivo” (respeta `prefers-reduced-motion`).
+
 ## [1.35.0] — 2026-10-01
 ### Corregido
 - **Persistencia al borrar fallos/dudosas**: la sincronización ya no restaura los

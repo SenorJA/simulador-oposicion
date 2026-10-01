@@ -1564,16 +1564,31 @@ h1 {
     color: #fde68a;
 }
 
-/* Chip de racha en el menú */
+/* Chip de racha (acabado premium, "fuego vivo") */
 .streak-chip {
-    background: rgba(250, 204, 21, 0.20);
-    color: #fde68a;
-    border: 1px solid rgba(250, 204, 21, 0.4);
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    background: linear-gradient(to right, rgba(249, 115, 22, 0.12), rgba(239, 68, 68, 0.10));
+    color: #fb923c;
+    border: 1px solid rgba(249, 115, 22, 0.30);
     border-radius: var(--radius-pill);
-    padding: 3px 10px;
+    padding: 4px 10px;
     font-size: 0.85rem;
-    font-weight: 700;
+    font-weight: 800;
     white-space: nowrap;
+    box-shadow: 0 0 10px rgba(249, 115, 22, 0.20);
+}
+
+.streak-flame {
+    width: 15px;
+    height: 15px;
+    animation: flamePulse 1.8s ease-in-out infinite;
+}
+
+@keyframes flamePulse {
+    0%, 100% { transform: scale(1); opacity: 0.9; }
+    50%      { transform: scale(1.12); opacity: 1; }
 }
 
 .header-right {
@@ -1624,9 +1639,9 @@ h1 {
 }
 
 :root[data-theme="light"] .streak-chip {
-    background: #fef3c7;
-    color: #92400e;
-    border-color: #fcd34d;
+    background: linear-gradient(to right, rgba(249, 115, 22, 0.12), rgba(239, 68, 68, 0.12));
+    color: #c2410c;
+    border-color: rgba(249, 115, 22, 0.35);
 }
 
 /* Buscador de preguntas */

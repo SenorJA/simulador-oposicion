@@ -13,11 +13,9 @@
 
     /* Marca / acento turquesa brillante */
     --primary: #38bdf8;
-    --primary-dark: #0ea5e9;
     --primary-light: #7dd3fc;
     --secondary: #0288D1;
     --accent: #38bdf8;
-    --accent-alt: #7dd3fc;
     --primary-rgb: 56, 189, 248;
     --accent-rgb: 56, 189, 248;
 
@@ -410,7 +408,7 @@ h1 {
 
 /* ── 9. BOTONES ────────────────────────────────────────────────────────── */
 .btn-primary-premium {
-    background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+    background: #2563eb;
     color: white;
     border: none;
     padding: 20px;
@@ -419,17 +417,16 @@ h1 {
     font-size: 1.2rem;
     font-weight: 800;
     cursor: pointer;
-    box-shadow: 0 10px 25px rgba(var(--primary-rgb), 0.3);
-    transition: all 0.3s ease;
+    box-shadow: none;
+    transition: background 0.2s ease;
 }
 
 .btn-primary-premium:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 15px 30px rgba(var(--primary-rgb), 0.4);
+    background: #1d4ed8;
 }
 
 .btn-primary {
-    background: linear-gradient(to right, var(--accent), var(--accent-alt));
+    background: #2563eb;
     color: white;
     border: none;
     padding: 18px 32px;
@@ -438,14 +435,12 @@ h1 {
     font-weight: 800;
     cursor: pointer;
     width: 100%;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 15px 0 rgba(var(--accent-rgb), 0.4);
+    transition: background 0.2s ease;
+    box-shadow: none;
 }
 
 .btn-primary:hover {
-    background: linear-gradient(to right, #4338ca, #6d28d9);
-    transform: translateY(-2px);
-    box-shadow: 0 8px 25px 0 rgba(var(--accent-rgb), 0.5);
+    background: #1d4ed8;
 }
 
 .btn-secondary {
@@ -1040,16 +1035,14 @@ h1 {
 .full-view-finish-btn {
     margin-top: 0.5rem;
     min-height: 52px;
-    background: linear-gradient(135deg, var(--primary), var(--secondary));
-    box-shadow: 0 6px 20px rgba(var(--primary-rgb), 0.35);
+    background: #2563eb;
+    box-shadow: none;
     font-size: 1.1rem;
     border-radius: var(--radius-lg);
 }
 
 .full-view-finish-btn:hover {
-    background: linear-gradient(135deg, var(--primary-dark), var(--primary));
-    transform: translateY(-2px);
-    box-shadow: 0 10px 28px rgba(var(--primary-rgb), 0.45);
+    background: #1d4ed8;
 }
 
 #btn-toggle-fullview {
@@ -1176,9 +1169,76 @@ h1 {
 .results-actions {
     margin-top: 30px;
     display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+}
+
+.results-review-row {
+    display: flex;
+    flex-wrap: wrap;
     gap: 10px;
     justify-content: center;
-    flex-wrap: wrap;
+}
+
+.results-review-row .btn-action-outline {
+    width: auto;
+    flex: 1 1 150px;
+}
+
+/* Jerarquía de acciones de resultados: principal → outline → enlace */
+.btn-action-primary {
+    width: 100%;
+    background: #2563eb;
+    color: #ffffff;
+    border: none;
+    padding: 16px 20px;
+    border-radius: var(--radius);
+    font-size: 1.1rem;
+    font-weight: 800;
+    cursor: pointer;
+    box-shadow: none;
+    transition: background 0.2s ease;
+}
+
+.btn-action-primary:hover {
+    background: #1d4ed8;
+}
+
+.btn-action-outline {
+    width: 100%;
+    background: transparent;
+    color: #60a5fa;
+    border: 2px solid #3b82f6;
+    padding: 14px 20px;
+    border-radius: var(--radius);
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: none;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.btn-action-outline:hover {
+    background: rgba(59, 130, 246, 0.12);
+    color: #93c5fd;
+}
+
+.btn-action-link {
+    background: none;
+    border: none;
+    color: var(--text-light);
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 6px;
+    text-decoration: none;
+    box-shadow: none;
+}
+
+.btn-action-link:hover {
+    color: #ffffff;
+    text-decoration: underline;
 }
 
 .kbd-hint {
@@ -1443,11 +1503,6 @@ h1 {
     cursor: pointer;
 }
 
-#btn-review-exam { background: #2196f3; }
-#btn-review-failed { background: #ff9800; }
-#btn-clear-failures { background: #f44336; color: white; margin-top: 10px; }
-#btn-back-selection { background: #00bcd4; }
-#btn-retry { background: var(--secondary); }
 
 /* ── 21. RESPONSIVE ────────────────────────────────────────────────────── */
 @media (min-width: 540px) {

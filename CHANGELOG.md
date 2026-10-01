@@ -5,6 +5,19 @@ formato de [Keep a Changelog](https://keepachangelog.com/es/1.0.0/) y versionado
 semántico (`MAJOR.MINOR.PATCH`). La fuente única de la versión es
 `CONFIG.APP_VERSION` en `src/js/modules/config.js`.
 
+## [1.20.1] — 2026-10-01
+### Cambiado
+- **Jerarquía visual estricta en los botones de resultados**:
+  1. **Principal** — “Repetir Test”: ancho completo, azul mate sólido (`#2563eb`).
+  2. **Secundario** — “Volver a Selección”: estilo *outline* (sin fondo; borde y
+     texto azules).
+  3. **Terciario** — “Volver al Menú”: enlace de texto gris claro, sin aspecto de
+     botón, debajo de los otros.
+- Revisión (“Ver Todo”, “Solo Fallos”, “Borrar Fallos”) pasa a botones *outline*
+  en una fila secundaria.
+- Eliminados los **resplandores (glow)** de los botones principales y los
+  degradados; ahora son de color **mate**.
+
 ## [1.20.0] — 2026-10-01
 ### Cambiado
 - **Nuevo tema oscuro con acentos turquesa**: fondo de app `#1a1e2e`,

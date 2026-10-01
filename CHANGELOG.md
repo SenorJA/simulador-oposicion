@@ -5,6 +5,12 @@ formato de [Keep a Changelog](https://keepachangelog.com/es/1.0.0/) y versionado
 semántico (`MAJOR.MINOR.PATCH`). La fuente única de la versión es
 `CONFIG.APP_VERSION` en `src/js/modules/config.js`.
 
+## [1.25.0] — 2026-10-01
+### Añadido
+- **Estadísticas de actividad** en “Mi Progreso”: preguntas respondidas, **racha
+  de días seguidos**, fallos pendientes, dudosas y **gráfica de evolución** de
+  la nota de los últimos tests.
+
 ## [1.24.0] — 2026-10-01
 ### Añadido
 - **Marcar preguntas como dudosas** (botón en la pregunta) y modo **“Repasar

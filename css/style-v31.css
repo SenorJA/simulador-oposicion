@@ -1381,6 +1381,54 @@ h1 {
     font-size: 0.75rem;
 }
 
+/* Resumen de actividad (Mi Progreso) */
+.stats-summary {
+    margin-top: 10px;
+}
+
+.stat-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+    gap: 12px;
+}
+
+.stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    padding: 12px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: var(--radius-md);
+}
+
+.stat-num {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: var(--primary);
+}
+
+.stat-lbl {
+    font-size: 0.75rem;
+    color: var(--text-light);
+    text-align: center;
+}
+
+.stat-chart {
+    display: flex;
+    align-items: flex-end;
+    gap: 4px;
+    height: 70px;
+    margin-top: 16px;
+}
+
+.stat-bar {
+    flex: 1;
+    background: linear-gradient(180deg, var(--primary-light), var(--primary));
+    border-radius: 4px 4px 0 0;
+    min-height: 8px;
+}
+
 .results-breakdown {
     margin-top: 20px;
     text-align: left;

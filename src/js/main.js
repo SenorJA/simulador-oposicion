@@ -106,6 +106,7 @@ function handleAuthSuccess(_userData, _currentDevices, _maxDevices) {
         UI.renderizarRecordsMenu();
         UI.renderizarProgresoGlobal();
         UI.renderizarProgresoExamenes();
+        Storage.touchStreak();
         setupEventListeners();
 
         const lastRole = Storage.getLastRole();
@@ -799,6 +800,7 @@ function showProgress() {
           </tr>`).join('');
     renderTopicStats();
     renderFailuresList();
+    renderStatsSummary();
     UI.showView('progress');
 }
 
@@ -853,6 +855,30 @@ function renderFailuresList() {
             <div class="fi-meta">Correcta: ${escapeHtml(String(q.correcta).toUpperCase())}</div>
         </div>`).join('')
         + (items.length > 10 ? `<p class="setting-hint">… y ${items.length - 10} más.</p>` : '');
+}
+
+/** Resumen de actividad: respondidas, racha, fallos, dudosas y evolución. */
+function renderStatsSummary() {
+    const cont = document.getElementById('stats-summary');
+    if (!cont) return;
+
+    const total = Storage.getAnsweredTotal();
+    const racha = Storage.getStreak();
+    const fallos = Storage.getFailedIds().length;
+    const dudosas = Storage.getDudosas().length;
+    const history = Storage.getHistory().slice(0, 12).reverse(); // de antiguo a reciente
+    const barras = history
+        .map(h => `<span class="stat-bar" style="height:${Math.max(8, h.pct)}%" title="${h.pct}%"></span>`)
+        .join('');
+
+    cont.innerHTML = `
+        <div class="stat-grid">
+            <div class="stat"><span class="stat-num">${total}</span><span class="stat-lbl">respondidas</span></div>
+            <div class="stat"><span class="stat-num">${racha}</span><span class="stat-lbl">días seguidos</span></div>
+            <div class="stat"><span class="stat-num">${fallos}</span><span class="stat-lbl">fallos pendientes</span></div>
+            <div class="stat"><span class="stat-num">${dudosas}</span><span class="stat-lbl">dudosas</span></div>
+        </div>
+        ${history.length ? `<div class="stat-chart">${barras}</div><p class="setting-hint">Evolución de los últimos ${history.length} tests</p>` : ''}`;
 }
 
 /** Descarga el progreso del usuario actual como archivo JSON. */

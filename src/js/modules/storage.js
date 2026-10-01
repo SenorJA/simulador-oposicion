@@ -6,6 +6,9 @@ const KEYS = {
     FAILED_IDS: 'ope_failed_ids',
     DUDOSAS: 'ope_dudosas',
     PROGRESS: 'ope_progress',
+    ANSWERED: 'ope_answered',
+    STREAK: 'ope_streak',
+    STREAK_DATE: 'ope_streak_date',
     USER_ACCESS: 'ope_user_access',
     TOKEN: 'ope_token',
     DEVICE_ID: 'ope_device_id',
@@ -44,12 +47,46 @@ function updatePrefix() {
 }
 
 function pk(key) {
-    // Aislamiento por usuario+rol: fallos, dudosas, historial, récords y sesión
+    // Aislamiento por usuario+rol: fallos, dudosas, historial, récords, stats
     if (key === KEYS.FAILED_IDS || key === KEYS.DUDOSAS || key === KEYS.PROGRESS ||
-        key === KEYS.RECORDS || key === KEYS.SESSION) {
+        key === KEYS.RECORDS || key === KEYS.SESSION ||
+        key === KEYS.ANSWERED || key === KEYS.STREAK || key === KEYS.STREAK_DATE) {
         return currentPrefix + key;
     }
     return key;
+}
+
+// ── Estadísticas (preguntas respondidas y racha) ─────────────────────────────
+
+export function incrementAnswered(n = 1) {
+    const v = parseInt(localStorage.getItem(pk(KEYS.ANSWERED)) || '0', 10) + n;
+    localStorage.setItem(pk(KEYS.ANSWERED), String(v));
+    return v;
+}
+export function getAnsweredTotal() {
+    return parseInt(localStorage.getItem(pk(KEYS.ANSWERED)) || '0', 10);
+}
+
+/** Actualiza la racha de días seguidos. Devuelve la racha actual. */
+export function touchStreak() {
+    const hoy = new Date().toISOString().slice(0, 10);
+    const ultimo = localStorage.getItem(pk(KEYS.STREAK_DATE));
+    let racha = parseInt(localStorage.getItem(pk(KEYS.STREAK)) || '0', 10);
+
+    if (ultimo === hoy) return racha;
+    if (!ultimo) {
+        racha = 1;
+    } else {
+        const d = new Date(ultimo + 'T00:00:00Z');
+        d.setUTCDate(d.getUTCDate() + 1);
+        racha = d.toISOString().slice(0, 10) === hoy ? racha + 1 : 1;
+    }
+    localStorage.setItem(pk(KEYS.STREAK_DATE), hoy);
+    localStorage.setItem(pk(KEYS.STREAK), String(racha));
+    return racha;
+}
+export function getStreak() {
+    return parseInt(localStorage.getItem(pk(KEYS.STREAK)) || '0', 10);
 }
 
 // ── Preguntas marcadas como dudosas ──────────────────────────────────────────

@@ -395,7 +395,9 @@ function handleAnswer(selected, q) {
     if (state.currentMode !== 'exam' && state.userAnswers[state.currentIndex]) return;
 
     const isCorrect = selected === q.correcta;
+    const yaRespondida = state.userAnswers[state.currentIndex];
     state.userAnswers[state.currentIndex] = selected;
+    if (!yaRespondida) Storage.incrementAnswered();
 
     // Score + failure tracking
     if (isCorrect) {

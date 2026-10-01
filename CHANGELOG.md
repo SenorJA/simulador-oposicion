@@ -5,6 +5,15 @@ formato de [Keep a Changelog](https://keepachangelog.com/es/1.0.0/) y versionado
 semántico (`MAJOR.MINOR.PATCH`). La fuente única de la versión es
 `CONFIG.APP_VERSION` en `src/js/modules/config.js`.
 
+## [1.30.0] — 2026-10-01
+### Añadido
+- **Listado de dudosas** en “Mi Progreso”, con opción de **quitar** cada una
+  (además del botón “☆ Marcar dudosa” dentro de un test).
+### Corregido
+- **“Borrar todo el progreso”** (antes “Limpiar Progreso”) ahora borra de verdad
+  **fallos, dudosas, historial, récords y estadísticas**. Antes solo borraba los
+  récords, por eso “Acierto por fuente” seguía mostrando los fallos.
+
 ## [1.29.2] — 2026-10-01
 ### Cambiado
 - **“Acierto por fuente”** en lugar de “Acierto por tema”: agrupa por **MAD,

@@ -1388,6 +1388,16 @@ h1 {
     font-size: 0.75rem;
 }
 
+.link-inline {
+    background: none;
+    border: none;
+    color: var(--primary);
+    cursor: pointer;
+    font: inherit;
+    text-decoration: underline;
+    padding: 0;
+}
+
 /* Resumen de actividad (Mi Progreso) */
 .stats-summary {
     margin-top: 10px;

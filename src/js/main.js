@@ -407,6 +407,18 @@ function setupEventListeners() {
     // ── Admin ──
     on('btn-admin-panel', 'click', loadAdminLogs);
     setupAdminActions();
+
+    // ── Quitar una dudosa desde la lista de Mi Progreso ──
+    const dudosasCont = document.getElementById('dudosas-list');
+    if (dudosasCont) {
+        dudosasCont.addEventListener('click', (e) => {
+            const b = e.target.closest('[data-dudosa-id]');
+            if (!b) return;
+            Storage.toggleDudosa(b.dataset.dudosaId);
+            updateDudosasBadge();
+            renderDudosasList();
+        });
+    }
     on('btn-admin-new', 'click', async () => {
         const id = (prompt('Código de usuario (letras/números, sin espacios):') || '').trim();
         if (!id) return;
@@ -625,10 +637,13 @@ function setupEventListeners() {
         if (confirm('¿Borrar todo el historial?')) { Storage.clearHistory(); showProgress(); }
     });
     on('btn-clear-records', 'click', () => {
-        if (confirm('¿Estás seguro de que quieres borrar todos tus récords y medallas? Esta acción no se puede deshacer.')) {
-            Storage.clearRecords();
+        if (confirm('¿Borrar TODO tu progreso de esta categoría (fallos, dudosas, récords, historial y estadísticas)? Esta acción no se puede deshacer.')) {
+            Storage.clearAllProgress();
+            UI.updateFailureBadge(0);
+            updateDudosasBadge();
             UI.renderizarRecordsMenu();
-            alert('¡Progreso limpiado correctamente!');
+            showProgress();
+            showToast('Progreso borrado ✓');
         }
     });
     on('btn-export-data', 'click', exportProgress);
@@ -862,6 +877,7 @@ function showProgress() {
           </tr>`).join('');
     renderTopicStats();
     renderFailuresList();
+    renderDudosasList();
     renderStatsSummary();
     UI.showView('progress');
 }
@@ -920,6 +936,27 @@ function renderFailuresList() {
             <div class="fi-meta">${escapeHtml(q.origen || '')} · ${escapeHtml(q.tema || '')}</div>
             <div>${escapeHtml(q.pregunta)}</div>
             <div class="fi-meta">Correcta: ${escapeHtml(String(q.correcta).toUpperCase())}</div>
+        </div>`).join('')
+        + (items.length > 10 ? `<p class="setting-hint">… y ${items.length - 10} más.</p>` : '');
+}
+
+/** Lista de preguntas marcadas como dudosas (se pueden quitar). */
+function renderDudosasList() {
+    const cont = document.getElementById('dudosas-list');
+    if (!cont) return;
+    const ids = new Set(Storage.getDudosas());
+    const items = state.allQuestions.filter(q => ids.has(q.id));
+    if (items.length === 0) {
+        cont.innerHTML = '<p class="setting-hint">No tienes preguntas marcadas. Usa “☆ Marcar dudosa” dentro de un test.</p>';
+        return;
+    }
+    cont.innerHTML = items.slice(0, 10).map(q => `
+        <div class="failure-item">
+            <div class="fi-meta">${escapeHtml(q.origen || '')} · ${escapeHtml(q.tema || '')}</div>
+            <div>${escapeHtml(q.pregunta)}</div>
+            <div class="fi-meta">Correcta: ${escapeHtml(String(q.correcta).toUpperCase())} ·
+                <button type="button" class="link-inline" data-dudosa-id="${escapeHtml(q.id)}">Quitar</button>
+            </div>
         </div>`).join('')
         + (items.length > 10 ? `<p class="setting-hint">… y ${items.length - 10} más.</p>` : '');
 }

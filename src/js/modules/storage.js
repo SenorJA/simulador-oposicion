@@ -303,8 +303,13 @@ export function saveRecord(testId, score) {
 /**
  * Borra todos los récords de localStorage (del usuario y rol actuales).
  */
-export function clearRecords() {
-    localStorage.removeItem(pk(KEYS.RECORDS));
+/** Borra TODO el progreso del usuario+rol: fallos, dudosas, historial,
+ *  récords, estadísticas y la racha. No toca la sesión de licencia. */
+export function clearAllProgress() {
+    [KEYS.FAILED_IDS, KEYS.DUDOSAS, KEYS.PROGRESS, KEYS.RECORDS, KEYS.ANSWERED]
+        .forEach(k => localStorage.removeItem(pk(k)));
+    localStorage.removeItem(streakKey());
+    localStorage.removeItem(streakDateKey());
 }
 
 // ── Backup: exportar / importar los datos del usuario ─────────────────────

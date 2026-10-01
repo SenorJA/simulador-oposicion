@@ -48,8 +48,8 @@ This file provides high-signal context for future OpenCode/AI agent sessions to 
 - The stylesheet is cache-busted as `css/style-v31.css?v=<version>` in `index.html`; bump it with `CONFIG.APP_VERSION`.
 
 ## ♿ HTML & Accessibility Conventions
-- No presentational inline `style=""` on new markup; use classes. Some legacy inline styles remain on one-off buttons and banners and are migrated progressively.
-- Every class used in `index.html` must exist in the stylesheet; a missing rule is a bug.
+- **No inline `style=""` in `index.html`**; every presentational rule lives in the stylesheet. `verify_refs.js` fails if one reappears.
+- Every class used in `index.html` must exist in the stylesheet; a missing rule is a bug. Reusable layout goes in the utility block (`.text-center`, `.m-0`, `.mt-40`…), one-off element tweaks use the element `id`.
 - Decorative icons/SVGs get `aria-hidden="true" focusable="false"`. Icon-only buttons get `aria-label`.
 - Overlays and modals use `role="dialog"`, `aria-modal="true"` and `aria-labelledby` pointing to their title.
 - Dynamic counters (score, question number, timer) use `aria-live="polite"`; the data-failure banner uses `role="alert"`.

@@ -213,7 +213,7 @@ ok(!/[ÃÂâ]/.test(cssTexto), 'CSS sin mojibake');
 ok(/prefers-reduced-motion/.test(cssTexto), 'respeta prefers-reduced-motion');
 ok(/:focus-visible/.test(cssTexto), 'foco visible para teclado');
 ok(!/user-select:\s*none/.test(cssTexto), 'no bloquea la selección de texto');
-ok(!/<body[^>]*style=/.test(html), 'el <body> no lleva estilos inline');
+ok(!/ style="/.test(html), 'index.html sin estilos inline');
 
 console.log('\n' + (fails === 0 ? '✅ TODAS LAS COMPROBACIONES OK' : `❌ ${fails} COMPROBACIONES FALLIDAS`));
 process.exit(fails ? 1 : 0);

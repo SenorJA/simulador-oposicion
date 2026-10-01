@@ -5,6 +5,13 @@ formato de [Keep a Changelog](https://keepachangelog.com/es/1.0.0/) y versionado
 semántico (`MAJOR.MINOR.PATCH`). La fuente única de la versión es
 `CONFIG.APP_VERSION` en `src/js/modules/config.js`.
 
+## [1.35.2] — 2026-10-01
+### Corregido
+- **La categoría (Pinche/Celador) ya no salta al recargar.** La sincronización
+  copiaba `last_role` desde el servidor y **sobrescribía** la categoría local.
+  Ahora `last_role` (y la sesión suspendida) son claves **locales del
+  dispositivo** y **no se sincronizan** entre dispositivos.
+
 ## [1.35.1] — 2026-10-01
 ### Cambiado
 - **Indicador de racha premium**: icono **SVG de llama** (estilo Lucide) en vez

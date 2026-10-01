@@ -79,13 +79,21 @@ function mergeValue(key: string, a: string, b: string): string {
     return b.length >= a.length ? b : a;
 }
 
-/** Claves de la sesión suspendida: son del dispositivo, no se sincronizan. */
-const esDeSesion = (k: string) => k.includes('estado_test_suspendido');
+/** Claves LOCALES del dispositivo que NO se sincronizan entre dispositivos:
+ *  la sesión suspendida y la última categoría elegida (preferencia de UI). */
+const esLocal = (k: string) => k.includes('estado_test_suspendido') || k.includes('_last_role');
+
+/** Devuelve una copia sin las claves locales del dispositivo. */
+function soloSync(data: Record<string, string>) {
+    const out: Record<string, string> = {};
+    for (const [k, v] of Object.entries(data || {})) if (!esLocal(k)) out[k] = v;
+    return out;
+}
 
 function mergeAll(base: Record<string, string>, incoming: Record<string, string>) {
-    const out: Record<string, string> = { ...base };
+    const out = soloSync(base);
     for (const [k, v] of Object.entries(incoming || {})) {
-        if (typeof v !== 'string' || esDeSesion(k)) continue;
+        if (typeof v !== 'string' || esLocal(k)) continue;
         out[k] = k in out ? mergeValue(k, out[k], v) : v;
     }
     return out;
@@ -130,7 +138,7 @@ Deno.serve(async (req: Request) => {
             if (body.replace === true) {
                 fusion = {};
                 for (const [k, v] of Object.entries(incoming)) {
-                    if (typeof v === 'string' && !esDeSesion(k)) fusion[k] = v;
+                    if (typeof v === 'string' && !esLocal(k)) fusion[k] = v;
                 }
             } else {
                 fusion = mergeAll(guardado, incoming);
@@ -138,7 +146,7 @@ Deno.serve(async (req: Request) => {
             await guardar(user, fusion);
             return json({ ok: true, data: fusion });
         }
-        return json({ ok: true, data: guardado });
+        return json({ ok: true, data: soloSync(guardado) });
     } catch {
         return json({ error: 'Error sincronizando el progreso' }, 502);
     }

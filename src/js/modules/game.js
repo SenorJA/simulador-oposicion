@@ -261,6 +261,11 @@ function renderQuestion() {
         mode === 'exam' ? '???' : `Aciertos: ${state.score}`;
     const pct = (state.currentIndex / state.currentQuestions.length) * 100;
     document.getElementById('progress-bar').style.width = `${pct}%`;
+    const barra = document.querySelector('.progress-container');
+    if (barra) {
+        barra.setAttribute('aria-valuenow', String(Math.round(pct)));
+        barra.setAttribute('aria-valuetext', `Pregunta ${state.currentIndex + 1} de ${state.currentQuestions.length}`);
+    }
 
     // Tema tag
     const temaMatch = q?.tema?.match(/Tema \d+/);

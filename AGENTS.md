@@ -60,6 +60,7 @@ There is no build step, so correctness is checked with these Node scripts (from 
 - `node scripts/test_storage.js` — functional test of localStorage isolation between users and roles (needs no deps).
 - `node scripts/test_fullview.js` — functional test of the continuous full view in its 3 modes (loads the real `state.js`, mocks `ui.js`/`storage.js`).
 - `node scripts/test_data_loader.js` — functional test of the loader: mocks `get-bank`, checks the 17 banks, a failing bank, a truncated bank, 5 kinds of invalid question, that the dataset is byte-identical to the recorded SHA-256, and that the license never travels in the URL.
+- `node scripts/test_game_flow.js` — functional test of the normal test flow: startGame reset, correct/wrong answer, next/prev navigation, history + record on finish, and exam penalised score.
 - The three tests above use `vm.SourceTextModule`, an experimental API. They include `scripts/vm-bootstrap.js`, which re-launches them with `--experimental-vm-modules` automatically, so run them exactly as written above.
 - `node scripts/dataset_fingerprint.js` — prints a canonical SHA-256 of the whole dataset. Use it before/after any change to `data/` to prove the content did not shift.
 - `node scripts/generate_icons.js` — regenerates the PWA PNG icons in `icons/` (no deps; writes `manifest.webmanifest` assets). Run it if the brand mark changes.

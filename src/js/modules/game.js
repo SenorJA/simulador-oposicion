@@ -296,7 +296,9 @@ function renderQuestion(focusQuestion = false) {
     document.getElementById('pregunta-texto').textContent = q.pregunta;
 
     // Clear feedback
-    document.getElementById('feedback').classList.add('hidden');
+    const feedbackEl = document.getElementById('feedback');
+    feedbackEl.classList.add('hidden');
+    feedbackEl.classList.remove('correct', 'incorrect');
     document.getElementById('explicacion').innerHTML = '';
 
     // Next button default
@@ -432,14 +434,12 @@ function handleAnswer(selected, q) {
         const feedbackDiv = document.getElementById('feedback');
         const explicacionP = document.getElementById('explicacion');
         feedbackDiv.classList.remove('hidden');
+        feedbackDiv.classList.toggle('correct', isCorrect);
+        feedbackDiv.classList.toggle('incorrect', !isCorrect);
         if (isCorrect) {
             explicacionP.innerHTML = '<strong>✅ ¡Correcto!</strong>';
-            feedbackDiv.style.backgroundColor = '#e8f5e9';
-            feedbackDiv.style.borderLeftColor = '#4caf50';
         } else {
             explicacionP.innerHTML = `<strong>❌ Incorrecto</strong><br>La respuesta correcta es la <strong>${q.correcta.toUpperCase()}</strong>.`;
-            feedbackDiv.style.backgroundColor = '#ffebee'; /* Light Red background */
-            feedbackDiv.style.borderLeftColor = '#b91c1c';   /* Dark Red border */
         }
     }
 
@@ -480,20 +480,16 @@ function finishGame() {
         const detailsEl = document.getElementById('exam-feedback-container');
         detailsEl.classList.remove('hidden');
         detailsEl.innerHTML = `
-            <div style="background:#f9f9f9;padding:15px;border-radius:8px;border:1px solid #ddd;">
+            <div class="exam-breakdown">
               <h4>📊 Desglose de Puntuación</h4>
-              <ul style="list-style:none;padding:0;line-height:1.8;">
+              <ul>
                 <li>✅ <strong>Aciertos:</strong> ${aciertos}</li>
-                <li>❌ <strong>Errores:</strong> ${fallos} <span style="color:red;">(-0.33 c/u)</span></li>
+                <li>❌ <strong>Errores:</strong> ${fallos} <span class="score-bad">(-0.33 c/u)</span></li>
                 <li>⚪ <strong>Blancas:</strong> ${blancos}</li>
-                <li style="margin-top:8px;border-top:1px solid #ccc;padding-top:6px;">
-                    <strong>Puntuación neta:</strong> ${aciertos} - ${(fallos / 3).toFixed(2)} = <strong>${finalScore.toFixed(2)}</strong>
-                </li>
-                <li style="font-size:1.1em;color:var(--primary);">
-                    <strong>Nota Final (0–10): ${notaNumerica.toFixed(2)}</strong>
-                </li>
+                <li class="eb-total"><strong>Puntuación neta:</strong> ${aciertos} - ${(fallos / 3).toFixed(2)} = <strong>${finalScore.toFixed(2)}</strong></li>
+                <li class="eb-final"><strong>Nota Final (0–10): ${notaNumerica.toFixed(2)}</strong></li>
               </ul>
-              <p style="font-size:0.85em;color:#777;">* Fórmula oficial: Aciertos − (Errores / 3)</p>
+              <p class="eb-note">* Fórmula oficial: Aciertos − (Errores / 3)</p>
             </div>`;
 
         Storage.addHistoryEntry({

@@ -5,6 +5,18 @@ formato de [Keep a Changelog](https://keepachangelog.com/es/1.0.0/) y versionado
 semántico (`MAJOR.MINOR.PATCH`). La fuente única de la versión es
 `CONFIG.APP_VERSION` en `src/js/modules/config.js`.
 
+## [1.18.3] — 2026-10-01
+### Corregido
+- **Contraste y legibilidad de colores**:
+  - Los textos del feedback de resultados (verde/teal/ámbar/rojo) se oscurecen en
+    modo claro para leerse bien sobre el fondo.
+  - El feedback de respuesta (correcto/incorrecto) pasa a clases CSS: ya no se
+    vuelve ilegible en modo oscuro (texto claro sobre fondo claro).
+  - Los textos en teal (Entrenamiento, títulos de sección, cabeceras de tabla…)
+    se oscurecen en claro y se aclaran en oscuro.
+  - El desglose de puntuación del examen deja de usar estilos inline y se adapta
+    al modo oscuro.
+
 ## [1.18.2] — 2026-10-01
 ### Añadido
 - Exportar/importar el progreso como JSON desde "Mi Progreso". El import solo

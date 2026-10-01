@@ -26,12 +26,16 @@ document.addEventListener('DOMContentLoaded', () => {
             if (overlay) overlay.classList.remove('hidden'); // Ensure it's visible on denial
             if (titleEl) { titleEl.innerText = 'Acceso Denegado'; titleEl.style.color = 'red'; }
             if (msgEl) msgEl.innerText = msg;
+            const spinner = document.getElementById('access-spinner');
+            if (spinner) spinner.classList.add('hidden');
             const retryBox = document.getElementById('access-retry');
             if (retryBox) retryBox.classList.remove('hidden');
         },
         onSuccess: (_userData, _currentDevices, _maxDevices) => {
-            const overlay = document.getElementById('access-overlay');
-            if (overlay) overlay.classList.add('hidden');
+            // El overlay se mantiene visible (con el spinner) hasta que los bancos
+            // terminen de cargar; así nunca se ve la app a medio construir.
+            const msgEl = document.getElementById('access-msg');
+            if (msgEl) msgEl.innerText = 'Cargando preguntas…';
 
             // ── Role Control ──
             const isAdmin = (_userData.id_acceso === 'PichonJefe');
@@ -49,6 +53,9 @@ document.addEventListener('DOMContentLoaded', () => {
                     return;
                 }
 
+                const overlay = document.getElementById('access-overlay');
+                if (overlay) overlay.classList.add('hidden');
+
                 // One-time data migration for old IDs
                 // v2: los Temas 11-16 de MAD tenían IDs duplicados entre temas;
                 // se renumeraron (mad_t{N}_xxx) y los fallos antiguos quedan huérfanos
@@ -62,7 +69,16 @@ document.addEventListener('DOMContentLoaded', () => {
                 UI.renderizarProgresoGlobal();
                 UI.renderizarProgresoExamenes();
                 setupEventListeners();
-                UI.showView('roleSelection', false); // Usar el sistema de navegación real
+
+                // Si el usuario ya eligió categoría antes, entrar directamente;
+                // roleSelection queda como paso previo para que "Atrás" funcione.
+                const lastRole = Storage.getLastRole();
+                if (lastRole === 'pinche' || lastRole === 'celador') {
+                    UI.showView('roleSelection', false);
+                    selectRole(lastRole);
+                } else {
+                    UI.showView('roleSelection', false);
+                }
             });
         }
     });
@@ -151,6 +167,8 @@ function showFatalDataError(report) {
         : '<div style="font-size:.75rem;opacity:.85;margin-top:.4rem">Revisa la consola (F12) para más detalle.</div>';
 
     if (overlay) overlay.classList.remove('hidden');
+    const spinner = document.getElementById('access-spinner');
+    if (spinner) spinner.classList.add('hidden');
     if (titleEl) { titleEl.innerText = 'Error de carga'; titleEl.style.color = '#b91c1c'; }
     if (msgEl) {
         msgEl.innerHTML = `No se han podido cargar las preguntas (${report?.banks ?? 0} de 17 bancos disponibles).
@@ -196,6 +214,7 @@ function setupAccessRetry() {
 function selectRole(role) {
     state.currentRole = role;
     Storage.setRole(role);
+    Storage.setLastRole(role);
 
     // Vaciar memoria local de fallos y estado al cambiar
     state.userAnswers = {};
@@ -224,6 +243,17 @@ function on(id, event, fn) {
     const el = document.getElementById(id);
     if (el) el.addEventListener(event, fn);
     else console.warn(`[MAIN] Elemento no encontrado: #${id}`);
+}
+
+/** Ignora clics repetidos muy seguidos (evita arrancar el mismo test dos veces). */
+function sinDoble(fn, ms = 600) {
+    let ultimo = 0;
+    return (...args) => {
+        const ahora = Date.now();
+        if (ahora - ultimo < ms) return;
+        ultimo = ahora;
+        return fn(...args);
+    };
 }
 
 function setupEventListeners() {
@@ -363,8 +393,8 @@ function setupEventListeners() {
 
     // ── Mode selection ──
     on('btn-back-mode', 'click', () => UI.goBack());
-    on('btn-mode-training', 'click', () => triggerGameStart('training'));
-    on('btn-mode-exam', 'click', () => triggerGameStart('exam'));
+    on('btn-mode-training', 'click', sinDoble(() => triggerGameStart('training')));
+    on('btn-mode-exam', 'click', sinDoble(() => triggerGameStart('exam')));
 
     // ── Timer Toggle ──
     on('toggle-timer', 'change', (e) => {
@@ -373,7 +403,7 @@ function setupEventListeners() {
 
     // ── Random config ──
     on('btn-back-random', 'click', () => UI.goBack());
-    on('btn-start-random', 'click', startRandom);
+    on('btn-start-random', 'click', sinDoble(startRandom));
 
     // Click en Segmentos (Delegación)
     document.querySelectorAll('.segmented-control').forEach(container => {
@@ -425,6 +455,28 @@ function setupEventListeners() {
     on('btn-show-grid', 'click', () => Game.showGrid());
     on('btn-toggle-fullview', 'click', () => Game.toggleFullView());
     on('btn-close-grid', 'click', () => UI.toggleEl('nav-grid-overlay', false));
+
+    // ── Atajos de teclado durante el test (1-4 responder, ←/→ navegar) ──
+    document.addEventListener('keydown', (e) => {
+        const gameView = document.getElementById('view-game');
+        if (!gameView || !gameView.classList.contains('active')) return;
+        if (e.altKey || e.ctrlKey || e.metaKey) return;
+        const tag = (e.target && e.target.tagName) || '';
+        if (/^(INPUT|TEXTAREA|SELECT)$/.test(tag)) return;
+
+        if (/^[1-4]$/.test(e.key)) {
+            const opciones = [...document.querySelectorAll('#view-game .btn-option:not([disabled])')]
+                .filter(b => b.offsetParent !== null);
+            const btn = opciones[parseInt(e.key, 10) - 1];
+            if (btn) { e.preventDefault(); btn.click(); }
+        } else if (e.key === 'ArrowRight') {
+            const next = document.getElementById('btn-next');
+            if (next && !next.classList.contains('hidden')) { e.preventDefault(); next.click(); }
+        } else if (e.key === 'ArrowLeft') {
+            const prev = document.getElementById('btn-prev');
+            if (prev && !prev.classList.contains('hidden')) { e.preventDefault(); prev.click(); }
+        }
+    });
 
     // ── Results ──
     on('btn-home-results', 'click', () => {

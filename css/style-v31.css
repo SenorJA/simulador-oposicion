@@ -1221,6 +1221,20 @@ input:checked + .slider:before {
 
 #btn-access-retry { padding: 0.55rem 1.2rem; }
 
+.spinner {
+    width: 34px;
+    height: 34px;
+    margin: 18px auto 0;
+    border: 3px solid rgba(var(--primary-rgb), 0.25);
+    border-top-color: var(--primary);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
 #licencia-activa {
     color: #4CAF50;
     font-weight: bold;

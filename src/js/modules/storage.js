@@ -111,6 +111,19 @@ export function clearUser() {
     localStorage.removeItem(KEYS.DEVICE_REGISTERED);
 }
 
+// ── Última categoría elegida (preferencia por usuario, no por rol) ────────────
+
+function roleKey() {
+    const cleanId = currentUser ? currentUser.trim().toLowerCase().replace(/[^a-z0-9]/g, '') : 'localdev';
+    return `u_${cleanId}_last_role`;
+}
+
+export function getLastRole() { return localStorage.getItem(roleKey()); }
+
+export function setLastRole(role) {
+    if (role === 'pinche' || role === 'celador') localStorage.setItem(roleKey(), role);
+}
+
 export function getOrCreateDeviceId() {
     let id = localStorage.getItem(KEYS.DEVICE_ID);
     if (!id) {

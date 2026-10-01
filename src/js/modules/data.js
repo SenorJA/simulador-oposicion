@@ -111,18 +111,26 @@ function validateQuestion(q, file, index) {
     return null;
 }
 
+const ESPERA_REINTENTO_MS = 700;
+const esperar = (ms) => new Promise(r => setTimeout(r, ms));
+
+/** Fallos que merece la pena reintentar (red o servidor), no 4xx de negocio. */
+const esTransitorio = (status) => status === 429 || status >= 500;
+
 /**
  * Descarga un banco desde la Edge Function `get-bank`, que valida la licencia
- * server-side y sirve el JSON de un bucket PRIVADO. Los ficheros ya no están
- * en el repo ni se pueden leer directamente.
+ * server-side y sirve el JSON de un bucket PRIVADO. Reintenta UNA vez ante un
+ * fallo transitorio (corte de red o 5xx); ante un 403/404 o datos corruptos no
+ * insiste, porque reintentar no lo arreglaría.
  * NUNCA lanza: devuelve el error para poder informarlo.
  */
-async function fetchBank(bank) {
+async function fetchBank(bank, intento = 0) {
     const user = Storage.getSavedUser();
     if (!user) return { bank, ok: false, error: 'sin licencia' };
 
+    let res;
     try {
-        const res = await fetch(`${CONFIG.SUPABASE_URL}/functions/v1/get-bank`, {
+        res = await fetch(`${CONFIG.SUPABASE_URL}/functions/v1/get-bank`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -131,21 +139,34 @@ async function fetchBank(bank) {
             },
             body: JSON.stringify({ bank: bank.file, user })
         });
-
-        if (!res.ok) {
-            let msg = `HTTP ${res.status}`;
-            try {
-                const err = await res.json();
-                if (err && err.error) msg = err.error;
-            } catch { /* respuesta sin JSON */ }
-            return { bank, ok: false, error: msg };
+    } catch (e) {
+        if (intento === 0) {
+            await esperar(ESPERA_REINTENTO_MS);
+            return fetchBank(bank, 1);
         }
+        return { bank, ok: false, error: e.message };
+    }
 
+    if (!res.ok) {
+        let msg = `HTTP ${res.status}`;
+        try {
+            const err = await res.json();
+            if (err && err.error) msg = err.error;
+        } catch { /* respuesta sin JSON */ }
+
+        if (esTransitorio(res.status) && intento === 0) {
+            await esperar(ESPERA_REINTENTO_MS);
+            return fetchBank(bank, 1);
+        }
+        return { bank, ok: false, error: msg };
+    }
+
+    try {
         const data = await res.json();
         if (!Array.isArray(data)) return { bank, ok: false, error: 'la respuesta no es un array' };
         return { bank, ok: true, data };
     } catch (e) {
-        return { bank, ok: false, error: e.message };
+        return { bank, ok: false, error: e.message }; // dato corrupto: no se reintenta
     }
 }
 

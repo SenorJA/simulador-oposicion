@@ -2,8 +2,9 @@
 
 Aplicación web avanzada y gamificada para preparar las oposiciones del **SESCAM**
 (Ayudante de Cocina / Pinche, Celador y otras categorías). Diseño *Mobile-First*
-de **tema oscuro** (con variante clara) y acentos **turquesa**, con un motor de
-evaluación en tiempo real.
+**pensado para usarlo también en el móvil** (p. ej. en los descansos del trabajo):
+**tema oscuro** (con variante clara) y acentos **turquesa**, con un motor de
+evaluación en tiempo real e instalable como app.
 
 ---
 
@@ -11,6 +12,9 @@ evaluación en tiempo real.
 
 - **Tema oscuro con acentos turquesa** (`#1a1e2e` / contenedores `#242a3a`),
   **tema claro** conmutable y respeto por el tema del sistema. 100% responsivo.
+- **Móvil primero**: diseño en una columna, áreas táctiles ≥ 44 px, cabeceras que
+  se adaptan (barra de progreso en su línea) y **PWA instalable** para abrirla a
+  pantalla completa como una app.
 - **Progreso en cascada** (Fuentes > Bloques > Temas) con **Media real de los
   intentos** (no solo el récord) y barras por nivel.
 - **Estadísticas de actividad**: preguntas respondidas, **racha de días**,

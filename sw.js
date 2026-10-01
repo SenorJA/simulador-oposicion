@@ -1,13 +1,13 @@
 /**
  * sw.js — Service Worker del Simulador OPE SESCAM.
  *
- * Estrategia: RED PRIMERO para recursos propios (así nunca sirve JS/HTML
- * antiguos) y caché solo como respaldo cuando no hay conexión. Las llamadas
- * a Supabase y al CDN (otro origen) NO se cachean.
+ * Estrategia: RED PRIMERO *sin caché HTTP* para recursos propios, de modo que
+ * el navegador NUNCA sirva JS/HTML antiguos (bucket de la API Cache solo como
+ * respaldo offline). Las llamadas a Supabase y al CDN (otro origen) no se tocan.
  *
  * Sube CACHE al cambiar el shell para invalidar lo viejo.
  */
-const CACHE = 'ope-sescam-v1';
+const CACHE = 'ope-sescam-v2';
 
 self.addEventListener('install', () => self.skipWaiting());
 
@@ -27,7 +27,9 @@ self.addEventListener('fetch', (event) => {
     if (url.origin !== self.location.origin) return; // Supabase/CDN: sin caché
 
     event.respondWith(
-        fetch(req)
+        // `no-store` evita la caché HTTP del navegador: siempre pide la versión
+        // actual al servidor y la guarda solo como respaldo offline.
+        fetch(req, { cache: 'no-store' })
             .then(res => {
                 if (res && res.ok) {
                     const copy = res.clone();

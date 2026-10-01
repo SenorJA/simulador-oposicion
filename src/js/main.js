@@ -152,6 +152,25 @@ function setupDialogA11y() {
 }
 
 /**
+ * Muestra un aviso breve (toast) no bloqueante en la parte inferior.
+ */
+function showToast(msg) {
+    let t = document.getElementById('toast');
+    if (!t) {
+        t = document.createElement('div');
+        t.id = 'toast';
+        t.className = 'toast';
+        t.setAttribute('role', 'status');
+        t.setAttribute('aria-live', 'polite');
+        document.body.appendChild(t);
+    }
+    t.textContent = msg;
+    t.classList.add('show');
+    clearTimeout(t._timer);
+    t._timer = setTimeout(() => t.classList.remove('show'), 2200);
+}
+
+/**
  * Error irrecuperable de carga: no hay ninguna pregunta con la que arrancar.
  * Se muestra en el overlay de acceso (que sigue visible) con instrucciones
  * accionables, en vez de dejar la pantalla en blanco.
@@ -446,6 +465,7 @@ function setupEventListeners() {
     on('btn-quit-game', 'click', () => {
         if (confirm('¿Salir al menú? Tu test actual quedará guardado automáticamente.')) {
             Game.stopTimer(); // Detener cronómetro (sin borrar el tiempo guardado)
+            showToast('Progreso guardado ✓');
             checkAndInjectSessionButton(); // Refresca UI
             UI.goBack(); 
         }

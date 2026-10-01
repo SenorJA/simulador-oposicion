@@ -23,7 +23,7 @@ ok(unused.length === 0, 'sin exports muertos' + (unused.length ? ': ' + unused.j
 
 console.log('=== 2. IDs usados por getElementById existen en el HTML ===');
 // btn-continue-session se crea dinámicamente en main.js (checkAndInjectSessionButton)
-const dynamicIds = new Set(['btn-continue-session']);
+const dynamicIds = new Set(['btn-continue-session', 'toast']);
 const usedIds = [...new Set([...jsFiles.map(f => r(f)).join('\n').matchAll(/getElementById\('([^']+)'\)/g)].map(m => m[1]))].sort();
 const missingInHtml = usedIds.filter(id => !html.includes(`id="${id}"`) && !dynamicIds.has(id));
 ok(missingInHtml.length === 0, 'todo getElementById tiene su elemento' + (missingInHtml.length ? ': ' + missingInHtml.join(', ') : ''));

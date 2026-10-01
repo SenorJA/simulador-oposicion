@@ -1204,6 +1204,49 @@ input:checked + .slider:before {
     flex-wrap: wrap;
 }
 
+.kbd-hint {
+    text-align: center;
+    color: var(--text-light);
+    font-size: 0.8rem;
+    margin-top: 1rem;
+}
+
+.kbd-hint kbd {
+    background: rgba(0, 0, 0, 0.06);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 0 5px;
+    font-family: inherit;
+    font-size: 0.75rem;
+}
+
+/* En pantallas táctiles no hay teclado físico: ocultar la leyenda */
+@media (hover: none) {
+    .kbd-hint { display: none; }
+}
+
+.toast {
+    position: fixed;
+    left: 50%;
+    bottom: 24px;
+    transform: translate(-50%, 20px);
+    background: rgba(30, 41, 59, 0.95);
+    color: white;
+    padding: 10px 18px;
+    border-radius: var(--radius-pill);
+    font-size: 0.9rem;
+    font-weight: 600;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease, transform 0.25s ease;
+    z-index: 9500;
+}
+
+.toast.show {
+    opacity: 1;
+    transform: translate(-50%, 0);
+}
+
 /* Overlay de acceso */
 #access-title { color: var(--primary); }
 #access-msg { font-weight: bold; }

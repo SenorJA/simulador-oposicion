@@ -189,7 +189,7 @@ export function startReviewMode(onlyFailures = false) {
 export function nextQuestion() {
     if (state.currentIndex < state.currentQuestions.length - 1) {
         state.currentIndex++;
-        renderQuestion();
+        renderQuestion(true);
         saveCurrentSession();
     } else {
         if (state.currentMode === 'review') {
@@ -208,7 +208,7 @@ export function nextQuestion() {
 export function prevQuestion() {
     if (state.currentIndex > 0) {
         state.currentIndex--;
-        renderQuestion();
+        renderQuestion(true);
         saveCurrentSession();
     }
 }
@@ -225,7 +225,10 @@ export function showGrid() {
         btn.textContent = index + 1;
 
         const answer = state.userAnswers[index];
-        if (index === state.currentIndex) btn.classList.add('current');
+        if (index === state.currentIndex) {
+            btn.classList.add('current');
+            btn.setAttribute('aria-current', 'true');
+        }
         if (answer) {
             btn.classList.add('answered');
             if (state.currentMode !== 'exam') {
@@ -238,7 +241,7 @@ export function showGrid() {
 
         btn.addEventListener('click', () => {
             state.currentIndex = index;
-            renderQuestion();
+            renderQuestion(true);
             overlay.classList.add('hidden');
             saveCurrentSession();
         });
@@ -250,7 +253,7 @@ export function showGrid() {
 
 // ── Internal helpers ──────────────────────────────────────────────────────────
 
-function renderQuestion() {
+function renderQuestion(focusQuestion = false) {
     const q = state.currentQuestions[state.currentIndex];
     const mode = state.currentMode;
 
@@ -315,6 +318,13 @@ function renderQuestion() {
     if (mode === 'exam' || mode === 'review' || alreadyAnswered) {
         btnNext.classList.remove('hidden');
         btnNext.innerHTML = buildNextButtonLabel();
+    }
+
+    // Al navegar (next/prev/rejilla), llevar el foco al enunciado para lectores
+    // de pantalla y teclado. No se hace en el render inicial para no robar foco.
+    if (focusQuestion) {
+        const h = document.getElementById('pregunta-texto');
+        if (h && typeof h.focus === 'function') h.focus();
     }
 }
 

@@ -103,6 +103,7 @@ node scripts/test_game_flow.js     # flujo normal de test (nota, récords…)
 
 | Documento | Contenido |
 |-----------|-----------|
+| [`CHANGELOG.md`](CHANGELOG.md) | Historial de versiones versionado semánticamente. |
 | [`AGENTS.md`](AGENTS.md) | Instrucciones para agentes/IA: reglas, arquitectura y prevención de regresiones. |
 | [`LICENCIAS.md`](LICENCIAS.md) | Límite de dispositivos, riesgos, RPC no aplicada, rotación de claves y bancos por Supabase. |
 | [`AUDITORIA.md`](AUDITORIA.md) | Estado de la auditoría y correcciones aplicadas. |

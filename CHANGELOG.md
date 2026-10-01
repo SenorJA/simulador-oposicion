@@ -1,0 +1,118 @@
+# Historial de cambios (Changelog)
+
+Todas las versiones relevantes del **Simulador Oposiciones SESCAM**. Sigue el
+formato de [Keep a Changelog](https://keepachangelog.com/es/1.0.0/) y versionado
+semántico (`MAJOR.MINOR.PATCH`). La fuente única de la versión es
+`CONFIG.APP_VERSION` en `src/js/modules/config.js`.
+
+## [1.18.2] — 2026-10-01
+### Añadido
+- Exportar/importar el progreso como JSON desde "Mi Progreso". El import solo
+  acepta claves del prefijo del usuario actual (cubierto por test).
+- Service worker (`sw.js`) en modo **red primero**: nunca sirve JS/HTML
+  antiguos y da respaldo offline del shell. Ignora Supabase/CDN.
+
+## [1.18.1] — 2026-10-01
+### Añadido
+- **Modo oscuro** automático según `prefers-color-scheme` (tokens y superficies
+  de cristal ajustadas).
+- **Desglose de aciertos por tema** en la pantalla de resultados.
+- **Bienvenida** la primera vez, con resumen de modos y atajos.
+
+## [1.18.0] — 2026-10-01
+### Añadido
+- **Estadísticas por tema** y **lista de preguntas falladas** en "Mi Progreso".
+- **Simulacro configurable**: elegir nº de preguntas (10–40 o todas) y tiempo
+  (30 s / 1 min / 2 min / sin límite). Sustituye al antiguo interruptor de cronómetro.
+### Corregido
+- Varios artefactos de formato (`>` suelto) que dejó la eliminación de estilos inline.
+
+## [1.17.9] — 2026-10-01
+### Añadido
+- Leyenda de atajos bajo el test (oculta en dispositivos táctiles).
+- Al navegar (siguiente/anterior/rejilla), el foco va al enunciado.
+- La rejilla marca la pregunta actual con `aria-current`.
+- Aviso (toast) "Progreso guardado" al salir de un test.
+
+## [1.17.8] — 2026-10-01
+### Añadido
+- Test `test_game_flow.js`: flujo normal de test (reset, acierto/fallo,
+  next/prev, historial y récord, nota penalizada de examen).
+- Barra de progreso con `role="progressbar"` y `aria-valuenow`/`valuetext`.
+- Feedback de respuesta con `role="status"`/`aria-live`.
+
+## [1.17.7] — 2026-10-01
+### Añadido
+- Spinner en el overlay de acceso; se mantiene hasta que cargan los bancos.
+- Reintento automático (1 vez) de `get-bank` ante fallo transitorio (red/5xx).
+- Anti-doble-clic al iniciar test.
+- Atajos de teclado: `1`–`4` responder, `←`/`→` navegar.
+- Recordar la última categoría por usuario.
+- **PWA**: manifest, iconos PNG (normal + maskable) y metas de instalación.
+- Script `deploy_backend.js` (sube bancos y despliega `get-bank` en un paso).
+
+## [1.17.6] — 2026-10-01
+### Cambiado
+- Título general: "Simulador Oposiciones SESCAM" (ya no solo Pinche).
+- Favicon SVG propio y `preconnect` a Supabase/CDN.
+- Diálogos accesibles: atrapan el foco, lo devuelven al cerrar y se cierran con Escape.
+### Eliminado
+- El bloque "anti-copia" (`contextmenu` + Ctrl+C/X/P/A/S): era inefectivo y
+  contradecía el poder seleccionar texto.
+
+## [1.17.5] — 2026-10-01
+### Corregido
+- Clases de estado que el JS usaba pero no existían en el CSS
+  (`texto-exito-teal`, `texto-bien-teal`, `texto-aviso-naranja`,
+  `texto-peligro-rojo`, `selected`): el feedback de resultados no se coloreaba.
+- Eliminadas clases CSS muertas (`.badge-record.teal`, `.topics-grid`, `.error-text`).
+
+## [1.17.4] — 2026-10-01
+### Cambiado
+- El contenedor principal pasa a `<main>` (landmark accesible).
+- `aria-label` en la tabla de administración y `color-scheme: light`.
+
+## [1.17.3] — 2026-10-01
+### Cambiado
+- **Cero estilos inline** en `index.html`: todo a clases de la hoja.
+
+## [1.17.2] — 2026-10-01
+### Añadido
+- Semántica de diálogos (`role="dialog"`, `aria-modal`, `aria-labelledby`),
+  12 botones solo-icono con `aria-label`, SVG decorativos con `aria-hidden`,
+  `aria-live` en contadores.
+- Definidas 7 clases que el HTML usaba sin estilo.
+### Cambiado
+- `meta description` y `theme-color`; `<body>` sin estilos inline.
+
+## [1.17.1] — 2026-10-01
+### Corregido
+- `.login-box` usaba `var(--shadow)` sin definir (la sombra no se dibujaba).
+- Selectores duplicados que se pisaban en silencio; secuencia literal `\n`;
+  13 líneas con mojibake.
+### Cambiado
+- Hoja **tokenizada** (color, radios, sombras); `Inter` se carga de verdad;
+  menos `!important`; una sola media query de 768 px.
+### Añadido
+- `:focus-visible`, `prefers-reduced-motion`; se retira `user-select: none`.
+
+## [1.17.0] — 2026-10-01
+### Cambiado
+- **Los bancos de preguntas salen del repo público.** Se sirven desde un bucket
+  **privado** de Supabase Storage mediante la Edge Function `get-bank`, que
+  valida la licencia en el servidor. `data/` pasa a `.gitignore`.
+- `data.js` pide los bancos con `POST /functions/v1/get-bank`.
+### Añadido
+- Scripts `upload_banks.js` y `download_banks.js`.
+
+## [1.16.x] — anterior
+### Corregido
+- Re numeración de 677 IDs duplicados de MAD y reparación de codificación UTF-8 de CSIF.
+- Aislamiento de fallos y sesión por usuario + rol (`pk()`), con migración legacy v2.
+- Navegación, persistencia de sesión cada 5 s y vista completa.
+### Añadido
+- Cargador JSON robusto con validación, avisos visibles (`#data-warning`) e informe.
+- Suite de verificación: `verify_refs`, `test_storage`, `test_fullview`,
+  `test_data_loader`, `dataset_fingerprint`.
+### Eliminado
+- Código muerto: `js/script.js`, `css/style-v30.css`, CryptoJS y overlay de login antiguo.

@@ -7,13 +7,13 @@
     <meta name="theme-color" content="#00897B">
     <meta name="description"
         content="Simulador de tests para las oposiciones del SESCAM (Ayudante de Cocina/Pinche, Celador y más): entrenamiento con corrección inmediata, simulacros de examen y repaso de fallos.">
-    <title>Simulador Oposiciones SESCAM - v1.17.9</title>
+    <title>Simulador Oposiciones SESCAM - v1.18.0</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://ictintjdebutsjkbexpc.supabase.co" crossorigin>
     <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style-v31.css?v=1.17.9">
+    <link rel="stylesheet" href="css/style-v31.css?v=1.18.0">
     <link rel="manifest" href="manifest.webmanifest">
     <link rel="apple-touch-icon" href="icons/icon-192.png">
     <meta name="mobile-web-app-capable" content="yes">
@@ -82,10 +82,9 @@
                     <span class="badge">Disponible</span>
                 </button>
             </div>
-            <button id="btn-admin-panel" class="btn-secondary"
-               >Ver Conexiones (Admin)</button>
+            <button id="btn-admin-panel" class="btn-secondary">Ver Conexiones (Admin)</button>
             <p class="footer-note">
-                v1.17.9 - Más categorías en desarrollo<br>
+                v1.18.0 - Más categorías en desarrollo<br>
                 <span id="licencia-activa">✓
                     Licencia activa</span>
             </p>
@@ -264,16 +263,32 @@
                     </button>
                 </div>
 
-                <!-- NEW: Timer Toggle -->
+                <!-- Configuración del simulacro (solo afecta a Examen) -->
                 <div class="setting-row">
                     <div class="text-left">
-                        <strong class="setting-title">Activar Cronómetro</strong>
-                        <small class="setting-hint">Límite de 1 min/pregunta</small>
+                        <strong class="setting-title">Nº de preguntas</strong>
+                        <small class="setting-hint">Solo para el simulacro</small>
                     </div>
-                    <label class="toggle-switch">
-                        <input type="checkbox" id="toggle-timer" checked aria-label="Activar cronómetro del test">
-                        <span class="slider"></span>
-                    </label>
+                    <select id="exam-count" class="form-control-premium select-inline" aria-label="Número de preguntas del simulacro">
+                        <option value="10">10</option>
+                        <option value="20">20</option>
+                        <option value="30">30</option>
+                        <option value="40">40</option>
+                        <option value="0" selected>Todas</option>
+                    </select>
+                </div>
+
+                <div class="setting-row">
+                    <div class="text-left">
+                        <strong class="setting-title">Tiempo por pregunta</strong>
+                        <small class="setting-hint">Solo para el simulacro</small>
+                    </div>
+                    <select id="exam-time" class="form-control-premium select-inline" aria-label="Tiempo por pregunta del simulacro">
+                        <option value="1" selected>1 min</option>
+                        <option value="0.5">30 s</option>
+                        <option value="2">2 min</option>
+                        <option value="0">Sin límite</option>
+                    </select>
                 </div>
             </div>
         </div>
@@ -320,10 +335,19 @@
                         </tbody>
                     </table>
                 </div>
-                <button id="btn-clear-history" class="btn-small"
-                   >Borrar Historial</button>
-                <button id="btn-clear-records" class="btn-small"
-                   >Limpiar Progreso</button>
+                <button id="btn-clear-history" class="btn-small">Borrar Historial</button>
+                <button id="btn-clear-records" class="btn-small">Limpiar Progreso</button>
+            </div>
+
+            <div class="card">
+                <h3>📊 Acierto por tema</h3>
+                <p class="setting-hint">Porcentaje sin fallos pendientes. Los más flojos, arriba.</p>
+                <div id="topic-stats" class="topic-stats"></div>
+            </div>
+
+            <div class="card">
+                <h3>🧠 Preguntas falladas</h3>
+                <div id="failures-list" class="failures-list"></div>
             </div>
         </div>
 
@@ -437,8 +461,7 @@
                 <div id="game-timer" class="game-timer hidden" aria-live="polite">⏱️ --:--</div>
 
                 <div class="counters">
-                    <button id="btn-show-grid" class="btn-small" aria-label="Ver navegación de preguntas"
-                       >▦</button>
+                    <button id="btn-show-grid" class="btn-small" aria-label="Ver navegación de preguntas">▦</button>
                     <button id="btn-toggle-fullview" class="btn-small" aria-label="Ver todas las preguntas en una página"
                         title="Ver todas las preguntas">☰</button>
                     <span id="question-counter" aria-live="polite">1/--</span>
@@ -512,10 +535,8 @@
                     <button id="btn-review-exam" class="btn-primary hidden">🔍 Todo</button>
                     <button id="btn-review-failed" class="btn-primary hidden">🔍 Solo
                         Fallos</button>
-                    <button id="btn-clear-failures" class="btn-secondary hidden"
-                       >🗑️ Borrar Fallos Históricos</button>
-                    <button id="btn-back-selection" class="btn-primary"
-                       >Volver a Selección</button>
+                    <button id="btn-clear-failures" class="btn-secondary hidden">🗑️ Borrar Fallos Históricos</button>
+                    <button id="btn-back-selection" class="btn-primary">Volver a Selección</button>
                     <button id="btn-retry" class="btn-primary">Repetir
                         Test</button>
                     <button id="btn-home-results" class="btn-primary">Volver al Menú</button>
@@ -525,7 +546,7 @@
 
     </main>
 
-    <script src="src/js/main.js?v=1.17.9" type="module"></script>
+    <script src="src/js/main.js?v=1.18.0" type="module"></script>
 </body>
 
 </html>

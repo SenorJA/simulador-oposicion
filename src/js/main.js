@@ -416,9 +416,8 @@ function setupEventListeners() {
     on('btn-mode-exam', 'click', sinDoble(() => triggerGameStart('exam')));
 
     // ── Timer Toggle ──
-    on('toggle-timer', 'change', (e) => {
-        state.timerEnabled = e.target.checked;
-    });
+    // El cronómetro del simulacro se configura con #exam-count / #exam-time
+    // (ver triggerGameStart).
 
     // ── Random config ──
     on('btn-back-random', 'click', () => UI.goBack());
@@ -556,11 +555,27 @@ function clearFailuresAndRefresh(goToMenu) {
 
 function triggerGameStart(mode) {
     if (!state.pendingGameGenerator) { alert('No hay tema seleccionado.'); return; }
-    const qs = state.pendingGameGenerator();
+    let qs = state.pendingGameGenerator();
     if (!qs || qs.length === 0) { alert('No hay preguntas para este test.'); return; }
+
+    let customSeconds = null;
+    if (mode === 'exam') {
+        // Nº de preguntas (0 = todas)
+        const countSel = document.getElementById('exam-count');
+        const count = countSel ? parseInt(countSel.value, 10) : 0;
+        if (count > 0 && count < qs.length) {
+            qs = [...qs].sort(() => 0.5 - Math.random()).slice(0, count);
+        }
+        // Tiempo por pregunta (0 = sin límite: el cronómetro cuenta hacia arriba)
+        const timeSel = document.getElementById('exam-time');
+        const minsPerQ = timeSel ? parseFloat(timeSel.value) : 1;
+        state.timerEnabled = minsPerQ > 0;
+        customSeconds = minsPerQ > 0 ? Math.round(qs.length * minsPerQ * 60) : null;
+    }
+
     state.currentMode = mode;
     state.originalMode = mode;
-    Game.startGame(qs, mode, state.pendingTopicTitle || 'Test', state.pendingTestId);
+    Game.startGame(qs, mode, state.pendingTopicTitle || 'Test', state.pendingTestId, customSeconds);
 }
 
 function initRandomView() {
@@ -667,7 +682,62 @@ function showProgress() {
             <td>${r.topic}</td>
             <td class="${r.pct >= 50 ? 'score-good' : 'score-bad'}">${r.score}/${r.total} (${r.pct}%)</td>
           </tr>`).join('');
+    renderTopicStats();
+    renderFailuresList();
     UI.showView('progress');
+}
+
+/** Escapa texto para poder inyectarlo con innerHTML sin romper el HTML. */
+function escapeHtml(s) {
+    return String(s ?? '').replace(/[&<>"']/g, c => (
+        { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]
+    ));
+}
+
+/** Estadísticas de dominio por tema (fallos pendientes / total). */
+function renderTopicStats() {
+    const cont = document.getElementById('topic-stats');
+    if (!cont) return;
+    const failed = new Set(Storage.getFailedIds());
+    const grupos = {};
+    for (const q of state.allQuestions) {
+        const m = String(q.tema || '').match(/Tema\s+\d+/i);
+        const nombre = m ? m[0].replace(/Tema\s+/i, 'Tema ') : (q.origen || 'Otros');
+        const g = grupos[nombre] || (grupos[nombre] = { total: 0, fallidas: 0 });
+        g.total++;
+        if (failed.has(q.id)) g.fallidas++;
+    }
+    const filas = Object.entries(grupos)
+        .map(([n, g]) => ({ n, total: g.total, pct: Math.round(((g.total - g.fallidas) / g.total) * 100) }))
+        .sort((a, b) => a.pct - b.pct);
+
+    cont.innerHTML = filas.length === 0
+        ? '<p class="setting-hint">Aún no hay datos.</p>'
+        : filas.map(f => `
+            <div class="topic-stat">
+                <span class="ts-name">${escapeHtml(f.n)}</span>
+                <span class="ts-bar-bg"><span class="ts-bar" style="width:${f.pct}%"></span></span>
+                <span class="ts-pct">${f.pct}%</span>
+            </div>`).join('');
+}
+
+/** Lista de preguntas actualmente falladas, para repasarlas. */
+function renderFailuresList() {
+    const cont = document.getElementById('failures-list');
+    if (!cont) return;
+    const failed = new Set(Storage.getFailedIds());
+    const items = state.allQuestions.filter(q => failed.has(q.id));
+    if (items.length === 0) {
+        cont.innerHTML = '<p class="setting-hint">No tienes fallos pendientes. 🏆</p>';
+        return;
+    }
+    cont.innerHTML = items.slice(0, 10).map(q => `
+        <div class="failure-item">
+            <div class="fi-meta">${escapeHtml(q.origen || '')} · ${escapeHtml(q.tema || '')}</div>
+            <div>${escapeHtml(q.pregunta)}</div>
+            <div class="fi-meta">Correcta: ${escapeHtml(String(q.correcta).toUpperCase())}</div>
+        </div>`).join('')
+        + (items.length > 10 ? `<p class="setting-hint">… y ${items.length - 10} más.</p>` : '');
 }
 
 // ── Admin panel ────────────────────────────────────────────────────────────

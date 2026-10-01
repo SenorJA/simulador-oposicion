@@ -114,8 +114,7 @@ export function clearUser() {
 // ── Última categoría elegida (preferencia por usuario, no por rol) ────────────
 
 function roleKey() {
-    const cleanId = currentUser ? currentUser.trim().toLowerCase().replace(/[^a-z0-9]/g, '') : 'localdev';
-    return `u_${cleanId}_last_role`;
+    return userPrefix() + 'last_role';
 }
 
 export function getLastRole() { return localStorage.getItem(roleKey()); }
@@ -222,4 +221,41 @@ export function saveRecord(testId, score) {
  */
 export function clearRecords() {
     localStorage.removeItem(pk(KEYS.RECORDS));
+}
+
+// ── Backup: exportar / importar los datos del usuario ─────────────────────
+
+/** Prefijo de las claves del usuario actual (ambos roles comparten prefijo base). */
+function userPrefix() {
+    const cleanId = currentUser ? currentUser.trim().toLowerCase().replace(/[^a-z0-9]/g, '') : 'localdev';
+    return `u_${cleanId}_`;
+}
+
+/** Todas las claves de localStorage del usuario actual (fallos, récords, sesión…). */
+export function exportUserData() {
+    const pref = userPrefix();
+    const data = {};
+    for (let i = 0; i < localStorage.length; i++) {
+        const k = localStorage.key(i);
+        if (k && k.startsWith(pref)) data[k] = localStorage.getItem(k);
+    }
+    return data;
+}
+
+/**
+ * Restaura un backup. Solo acepta claves con el prefijo del usuario actual,
+ * así un backup no puede escribir datos de otra cuenta ni claves ajenas.
+ * @returns {number} cuántas claves se restauraron
+ */
+export function importUserData(data) {
+    if (!data || typeof data !== 'object') return 0;
+    const pref = userPrefix();
+    let n = 0;
+    for (const [k, v] of Object.entries(data)) {
+        if (typeof k === 'string' && typeof v === 'string' && k.startsWith(pref)) {
+            localStorage.setItem(k, v);
+            n++;
+        }
+    }
+    return n;
 }

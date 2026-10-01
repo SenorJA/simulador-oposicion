@@ -7,6 +7,7 @@ This file provides high-signal context for future OpenCode/AI agent sessions to 
 - **Local Dev Server:** Start local development using any standard static server, such as:
   - `python -m http.server 8000`
   - Live Server (VS Code extension)
+- **PWA:** `manifest.webmanifest` + `sw.js` (service worker, **network-first** so it never serves stale JS/HTML; only caches same-origin GETs as offline fallback). Icons live in `icons/`. Bump `CACHE` in `sw.js` if the shell changes.
 
 ## 🔒 Security, Licensing & Data Access (STRICT)
 - **Database/Licensing Lock:** Supabase enforces the 2-device license limit (`usuarios_acceso` and `access_logs` tables).

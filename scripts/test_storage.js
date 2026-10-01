@@ -113,6 +113,24 @@ async function main() {
     S.clearSuspendedSession();
     ok(S.getSuspendedSession() === null, 'clearSuspendedSession la borra');
 
+    console.log('=== G. Export / import del progreso ===');
+    store.clear();
+    S.setPrefix('ALFA'); S.setRole('pinche');
+    S.addFailedId('q1'); S.saveRecord('t1', 8); S.saveSuspendedSession({ currentIndex: 2 });
+    const backup = S.exportUserData();
+    ok(Object.keys(backup).length >= 3, 'el backup incluye los datos de ALFA', String(Object.keys(backup).length));
+    store.clear();
+    ok(S.getFailedIds().length === 0, 'tras borrar, ALFA no tiene fallos');
+    const restauradas = S.importUserData(backup);
+    ok(restauradas >= 3, 'restaura las claves', String(restauradas));
+    ok(S.getFailedIds().join() === 'q1', 'recupera los fallos');
+    ok(S.getRecords()['t1'] === 8, 'recupera el récord');
+    // Un backup no puede escribir datos de otro usuario
+    store.clear();
+    S.setPrefix('BETA');
+    const nBeta = S.importUserData(backup); // backup es de ALFA (u_alfa_)
+    ok(nBeta === 0 && S.getFailedIds().length === 0, 'BETA no importa datos de ALFA (prefijo distinto)');
+
     console.log('\n' + (fails === 0 ? '✅ AISLAMIENTO CORRECTO' : `❌ ${fails} FALLOS`));
     process.exit(fails ? 1 : 0);
 }

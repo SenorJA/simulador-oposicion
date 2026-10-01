@@ -15,6 +15,13 @@ document.addEventListener('DOMContentLoaded', () => {
     // ── Diálogos accesibles: Escape cierra, Tab queda atrapado dentro ──────
     setupDialogA11y();
 
+    // ── PWA: cachea el shell para permitir instalación y arranque offline ──
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register('sw.js').catch(() => { /* sin SW no pasa nada */ });
+        });
+    }
+
     // ── Auth flow ──────────────────────────────────────────────────────────
     setupAccessRetry();
 
@@ -474,6 +481,12 @@ function setupEventListeners() {
             alert('¡Progreso limpiado correctamente!');
         }
     });
+    on('btn-export-data', 'click', exportProgress);
+    on('btn-import-data', 'click', () => {
+        const input = document.getElementById('import-file');
+        if (input) input.click();
+    });
+    on('import-file', 'change', (e) => importProgressFile(e.target.files && e.target.files[0]));
 
     // ── Game controls ──
     on('btn-quit-game', 'click', () => {
@@ -753,6 +766,41 @@ function renderFailuresList() {
             <div class="fi-meta">Correcta: ${escapeHtml(String(q.correcta).toUpperCase())}</div>
         </div>`).join('')
         + (items.length > 10 ? `<p class="setting-hint">… y ${items.length - 10} más.</p>` : '');
+}
+
+/** Descarga el progreso del usuario actual como archivo JSON. */
+function exportProgress() {
+    const data = Storage.exportUserData();
+    const payload = JSON.stringify({ app: 'ope-sescam', version: 1, data }, null, 2);
+    const url = URL.createObjectURL(new Blob([payload], { type: 'application/json' }));
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `ope-sescam-progreso-${new Date().toISOString().slice(0, 10)}.json`;
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    URL.revokeObjectURL(url);
+    showToast('Progreso exportado ✓');
+}
+
+/** Restaura el progreso desde un archivo JSON exportado. */
+function importProgressFile(file) {
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = () => {
+        try {
+            const parsed = JSON.parse(reader.result);
+            const data = parsed && parsed.data ? parsed.data : parsed;
+            const n = Storage.importUserData(data);
+            if (n === 0) { alert('El archivo no contiene datos válidos para este usuario.'); return; }
+            showToast(`Progreso importado (${n}) ✓`);
+            UI.updateFailureBadge(Storage.getFailedIds().length);
+            showProgress();
+        } catch {
+            alert('No se pudo leer el archivo de progreso.');
+        }
+    };
+    reader.readAsText(file);
 }
 
 // ── Admin panel ────────────────────────────────────────────────────────────

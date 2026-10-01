@@ -8,21 +8,25 @@ This file provides high-signal context for future OpenCode/AI agent sessions to 
   - `python -m http.server 8000`
   - Live Server (VS Code extension)
 
-## 🔒 Security & Device License System (STRICT)
-- **Database/Licensing Lock:** Supabase is used EXCLUSIVELY to enforce a 2-device license limit (`usuarios_acceso` and `access_logs` tables).
-- **CRITICAL RESTRICTION:** Never alter, comment out, refactor, or bypass the authentication or Supabase connection logic (mainly in `src/js/modules/auth.js`, `src/js/main.js`, `db.js`). 
+## 🔒 Security, Licensing & Data Access (STRICT)
+- **Database/Licensing Lock:** Supabase enforces the 2-device license limit (`usuarios_acceso` and `access_logs` tables).
+- **Data Access:** los bancos de preguntas NO viven en el repo. Se guardan en un bucket **privado** de Supabase Storage (`preguntas`) y los sirve la Edge Function `supabase/functions/get-bank`, que valida la licencia server-side con la `service_role`. El navegador solo habla con `get-bank`.
+- **CRITICAL RESTRICTION:** Never alter, comment out, refactor, or bypass the authentication or Supabase connection logic (mainly in `src/js/modules/auth.js`, `src/js/main.js`, `db.js`) without explicit permission.
 - **UI Rendering constraint:** The application interface must NOT render/show views (specifically hiding the `#access-overlay` login screens) until the security check promise `Auth.checkAuth` returns `onSuccess`.
+- **NEVER put the `service_role` (or any `sb_secret_` key) in the frontend.** It lives only in the Edge Function environment and in the local `.env` used by the upload/download scripts. `config.js` only carries the publishable key.
 
-## 📦 Import Quirks & Cache-Busting
+## 📦 Import Quirks & Data Loading
 - **STRICT PROHIBITION:** Do NOT append version query params or cache-busting suffixes (e.g. `?v=1.2`) to ES module imports inside Javascript files. Doing so loads duplicate singletons in the browser and breaks global state (e.g. `state.js` or `storage.js`). Imports must be clean:
   ```javascript
   import { state } from './state.js';
-- **Raw JSON fetches use `?v=${CONFIG.APP_VERSION}`** (approved change, `data.js` only). Busting by release, not by visit: the browser reuses its HTTP cache between visits of the same release, and a new release invalidates it. `Date.now()` is forbidden here too — it defeated the cache and re-downloaded ~2.7 MB on every page load. The cache key must never be a timestamp.
-- **`data.js` is the only place allowed to build cache keys.** If you add a bank, register it in the `BANKS` array; `verify_refs.js` fails if a JSON in `data/` is not registered.
+- **Banks are fetched as `POST /functions/v1/get-bank`** with `{ bank, user }`. The license code travels in the request body, never in the URL. `data.js` is the only module allowed to call `get-bank`.
+- If you add a bank: put the JSON in `data/`, register it in the `BANKS` array, and run `node scripts/upload_banks.js` to push it to the private bucket. `verify_refs.js` fails if a local JSON is not registered.
 - A bank that fails to load must never be silent: `fetchBank()` reports it, `loadAllData()` keeps the remaining banks, `showDataWarning()` shows `#data-warning`, and `getLastLoadReport()` exposes the full list for diagnostics.
+- There is no offline fallback by design: if Supabase is down or paused, the app shows the data warning instead of serving stale files.
 🗄️ Ingestion & Question Data Structure
+- **`data/` is gitignored on purpose.** The banks live only in the private Storage bucket; `data/` is a local working copy used to upload and to run the tests. A clean clone has no `data/`: restore it with `node scripts/download_banks.js`.
 - Sumative Only: Any addition of categories, exams, or questions in data/ or data.js must be sumative. Do not overwrite, rename, or delete existing variables, global arrays, or dictionaries mapping buttons to exams.
-- Strict Format Verification: Validate JSON syntax thoroughly when appending large question sets. If a JSON file fails to parse, the entire application fails to boot.
+- Strict Format Verification: Validate JSON syntax thoroughly when appending large question sets. A malformed bank is discarded whole and reported; it must never crash the loader.
 - Preprocessing Scripts: There is a suite of custom python and JS scripts in /scripts/ for data cleaning, duplicate checking, and scraping. Run them directly (e.g., node scripts/check.js, python scripts/check_dupes.py).
 🗺️ Navigation & History Stack
 - Browser History Integration: The application uses a custom History Stack coupled with window.onpopstate and UI.goBack().
@@ -37,12 +41,14 @@ This file provides high-signal context for future OpenCode/AI agent sessions to 
 
 ## 🧪 Verification Scripts (run before committing)
 There is no build step, so correctness is checked with these Node scripts (from the repo root):
-- `node scripts/verify_refs.js` — static checks: dead exports, `getElementById` targets present in `index.html`, orphan HTML ids, broken paths, resolved imports, forbidden `?v=` on imports, JSON validity, global ID uniqueness, mojibake, version consistency, and that every `data/*.json` is registered in `BANKS`.
+- `node scripts/verify_refs.js` — static checks: dead exports, `getElementById` targets present in `index.html`, orphan HTML ids, broken paths, resolved imports, forbidden `?v=` on imports, JSON validity, global ID uniqueness, mojibake, version consistency, and that local `data/*.json` match `BANKS`.
 - `node scripts/test_storage.js` — functional test of localStorage isolation between users and roles (needs no deps).
 - `node scripts/test_fullview.js` — functional test of the continuous full view in its 3 modes (loads the real `state.js`, mocks `ui.js`/`storage.js`).
-- `node scripts/test_data_loader.js` — functional test of the JSON loader: 17 banks, a failing bank, a truncated JSON, 5 kinds of invalid question, and that the loaded dataset is byte-identical to the recorded SHA-256.
+- `node scripts/test_data_loader.js` — functional test of the loader: mocks `get-bank`, checks the 17 banks, a failing bank, a truncated bank, 5 kinds of invalid question, that the dataset is byte-identical to the recorded SHA-256, and that the license never travels in the URL.
 - The three tests above use `vm.SourceTextModule`, an experimental API. They include `scripts/vm-bootstrap.js`, which re-launches them with `--experimental-vm-modules` automatically, so run them exactly as written above.
 - `node scripts/dataset_fingerprint.js` — prints a canonical SHA-256 of the whole dataset. Use it before/after any change to `data/` to prove the content did not shift.
+- `node scripts/upload_banks.js [--check]` — pushes `data/*.json` to the private bucket (needs `SUPABASE_URL` + `SUPABASE_SERVICE_ROLE_KEY` in `.env`).
+- `node scripts/download_banks.js [--check]` — restores `data/*.json` from the bucket (clean clone / backup).
 - Data repair scripts accept `--check` to validate without writing: `node scripts/fix_duplicate_ids.js --check`, `node scripts/fix_csif_encoding.js --check`.
 - Any `data/*.json` change must keep every JSON parseable and every `correcta` value present in that question's `opciones`.
 - Question IDs must be unique within their file. Numeric IDs restart per file; prefix them (e.g. `mad_t11_155`) to avoid cross-topic collisions.

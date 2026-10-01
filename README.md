@@ -61,6 +61,46 @@ El motor separa el contenido por fuentes para un estudio estructurado:
 
 ---
 
+## 🏗️ Arquitectura y puesta en marcha
+
+Frontend **100% estático** (ES Modules, sin build) servido por cualquier servidor
+estático. Los datos y el acceso se apoyan en Supabase:
+
+```
+navegador ── checkAuth ─────────► usuarios_acceso (licencia, límite 2 dispositivos)
+   │
+   └────── POST {bank,user} ─────► Edge Function get-bank ──► bucket PRIVADO "preguntas"
+```
+
+- **Licencia:** 2 dispositivos por código. El overlay no se oculta hasta `onSuccess`.
+- **Preguntas:** no están en el repo. Se guardan en un bucket privado y las sirve
+  `get-bank`, que valida la licencia server-side. Sin Supabase no hay preguntas.
+- **Detalles y puesta en marcha:** ver [`LICENCIAS.md`](LICENCIAS.md) §9.
+
+### Desarrollo local
+
+```bash
+python -m http.server 8000      # o Live Server
+```
+
+Para subir/restaurar los bancos (necesita `.env` con `SUPABASE_SERVICE_ROLE_KEY`):
+
+```bash
+node scripts/upload_banks.js      # data/*.json → bucket privado
+node scripts/download_banks.js    # bucket privado → data/ (clon limpio)
+```
+
+Comprobaciones antes de subir cambios:
+
+```bash
+node scripts/verify_refs.js
+node scripts/test_storage.js
+node scripts/test_fullview.js
+node scripts/test_data_loader.js
+```
+
+---
+
 ## 🔒 Reglas de Oro (Seguridad y Sincronización)
 
 Para evitar regresiones en futuras actualizaciones, se deben respetar estos pilares:

@@ -243,8 +243,10 @@ resetear, comparar con la columna `device_info` de `access_logs`.
    no un bug.
 3. **La barrera de seguridad es la DB**, no el frontend. `CONFIG.ADMIN_USER` y
    cualquier `if` en `auth.js` son solo UX.
-4. **Los JSON de `data/` no están protegidos** por la licencia: son estáticos y
-   públicos. El licensing controla el acceso a la app, no la copia del contenido.
+4. **El contenido ya no es estático ni público.** Los bancos de preguntas viven
+   en un bucket **privado** de Supabase Storage y los sirve la Edge Function
+   `get-bank` tras validar la licencia (ver §9). Un usuario **con licencia** sí
+   puede copiar lo que ve: esto frena a desconocidos, no a un usuario legítimo.
 
 ---
 
@@ -297,3 +299,58 @@ Los proyectos pausados no responden: la app mostrará "Error de conexión al
 validar el acceso" con botón **Reintentar**. Es el comportamiento esperado
 (§3), no un fallo de código. Reactivar el proyecto desde el panel antes de
 probar.
+
+---
+
+## 9. Bancos de preguntas servidos por Supabase
+
+Los JSON ya **no están en el repo público**. Se sirven así:
+
+```
+app (navegador)  --POST {bank,user}-->  Edge Function get-bank
+                                            │ valida licencia (service_role)
+                                            ▼
+                                bucket PRIVADO "preguntas"
+```
+
+- `data/` está en `.gitignore`: es solo una copia local para subir y testear.
+- El código de licencia viaja en el **cuerpo** de la petición, nunca en la URL.
+- La `service_role` solo existe en el entorno de la función y en el `.env` local
+  de los scripts. **Jamás** en `config.js`.
+
+### Puesta en marcha (una vez)
+
+1. Instalar la CLI: `npm i -g supabase` (o `scoop`/`brew`).
+2. En la raíz del repo, crear `.env` (gitignored):
+   ```
+   SUPABASE_URL=https://<ref>.supabase.co
+   SUPABASE_SERVICE_ROLE_KEY=sb_secret_...
+   ```
+3. Subir los bancos (crea el bucket privado y sube los 17 JSON):
+   ```
+   node scripts/upload_banks.js
+   ```
+4. Desplegar la función **sin verificación de JWT** (la puerta es la licencia):
+   ```
+   supabase functions deploy get-bank --no-verify-jwt --project-ref <ref>
+   ```
+
+### Verificación
+
+- `node scripts/upload_banks.js --check` — lista lo que se subiría, sin tocar nada.
+- `node scripts/download_banks.js --check` — lista lo que hay en el bucket.
+- Directo al bucket (con la `apikey` pública) debe dar **400/404**, no el JSON:
+  ```
+  curl -s -o /dev/null -w "%{http_code}" \
+    "https://<ref>.supabase.co/storage/v1/object/public/preguntas/preguntas.json"
+  ```
+- `get-bank` con un código inválido debe dar **403**.
+
+### Coste y límites
+
+- Egress: cada carga descarga ~1,8 MB. El plan gratuito de Supabase son 5 GB/mes
+  → unas **2.700 cargas**; a partir de ahí, a pagar.
+- Sin Supabase no hay preguntas: la app muestra el aviso de carga incompleta
+  (§7.1). No hay copia local de respaldo, por diseño.
+- Endurecimiento futuro (no aplicado): rate limit por código en la función,
+  comprobar el límite de dispositivos dentro de `get-bank` y firmar las URLs.

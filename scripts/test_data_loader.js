@@ -20,49 +20,59 @@ const ok = (c, msg, extra = '') => {
     if (!c) fails++;
 };
 
-// ── fetch falso: lee de data/, y puede simular fallos ──────────────────────
+// ── fetch falso: simula la Edge Function get-bank (lee de data/ en local) ──
 const fetchLog = [];
-let failFiles = new Set();     // ficheros que deben simular error
-let corruptFiles = new Set();  // ficheros que deben devolver basura truncada
+let failFiles = new Set();     // bancos que deben simular error
+let corruptFiles = new Set();  // bancos que deben devolver basura
 
 function makeFetch() {
-    return async (url) => {
-        const file = url.replace(/^data\//, '').split('?')[0];
-        fetchLog.push(url);
-        if (failFiles.has(file)) {
-            return { ok: false, status: 404, text: async () => 'Not Found' };
+    return async (url, options = {}) => {
+        fetchLog.push({ url, options });
+        let bank = '';
+        try { bank = String(JSON.parse(options.body).bank || ''); } catch { /* sin body */ }
+
+        if (failFiles.has(bank)) {
+            return { ok: false, status: 404, json: async () => ({ error: `${bank}: no encontrado` }) };
         }
-        if (corruptFiles.has(file)) {
-            return { ok: true, status: 200, text: async () => '[{"id":"x","preg' };
+        if (corruptFiles.has(bank)) {
+            return { ok: true, status: 200, json: async () => { throw new Error('JSON truncado o corrupto'); } };
         }
-        const p = path.join(ROOT, 'data', file);
-        if (!fs.existsSync(p)) return { ok: false, status: 404, text: async () => '' };
-        return { ok: true, status: 200, text: async () => fs.readFileSync(p, 'utf8') };
+        const p = path.join(ROOT, 'data', bank);
+        if (!fs.existsSync(p)) {
+            return { ok: false, status: 404, json: async () => ({ error: 'Banco no encontrado' }) };
+        }
+        return {
+            ok: true, status: 200,
+            json: async () => JSON.parse(fs.readFileSync(p, 'utf8').replace(/^﻿/, '').trim())
+        };
     };
 }
 
-// ── DOM mínimo ─────────────────────────────────────────────────────────────
+// ── DOM + localStorage mínimos ─────────────────────────────────────────────
 const warning = { classList: { _h: new Set(), add(c) { this._h.add(c); }, remove(c) { this._h.delete(c); }, contains(c) { return this._h.has(c); } }, innerHTML: '', hidden: false };
 const document = { getElementById: (id) => (id === 'data-warning' ? warning : null) };
+const falsoLocalStorage = {
+    getItem: (k) => (k === 'ope_user_access' ? 'USUARIO_TEST' : null),
+    setItem: () => {}, removeItem: () => {}
+};
 
 async function loadDataModule() {
-    const state = { allQuestions: [] };
     const ctx = vm.createContext({
         console, JSON, Object, Array, String, Number, Boolean, Set, Map, Promise, Math, parseInt,
-        document, fetch: makeFetch(),
-        state,
-        CONFIG: { APP_VERSION: 'v1.16.5' }
+        document, fetch: makeFetch(), localStorage: falsoLocalStorage
     });
     const read = (f) => new vm.SourceTextModule(
         fs.readFileSync(path.join(ROOT, f), 'utf8'),
-        { identifier: f, initializeImportMeta: (m) => { m.export = null; }, context: ctx }
+        { identifier: f, context: ctx }
     );
     const stateMod = read('src/js/modules/state.js');
     const cfgMod = read('src/js/modules/config.js');
+    const storageMod = read('src/js/modules/storage.js');
     const dataMod = read('src/js/modules/data.js');
     await dataMod.link((dep) => {
         if (dep === './state.js') return stateMod;
         if (dep === './config.js') return cfgMod;
+        if (dep === './storage.js') return storageMod;
         throw new Error('import inesperado: ' + dep);
     });
     await dataMod.evaluate();
@@ -111,10 +121,13 @@ async function main() {
         ok(porOrigen[k] === v, `"${k}" → ${v}`, String(porOrigen[k]));
     }
 
-    console.log('\n=== 4. Caché por release, no por visita (punto D) ===');
-    const conFecha = fetchLog.filter(u => /v=\d{10,}/.test(u));
-    ok(conFecha.length === 0, 'ningún fetch usa marca de tiempo', conFecha[0] || '');
-    ok(fetchLog.every(u => u.endsWith('?v=v1.16.5')), 'todos usan ?v=CONFIG.APP_VERSION', fetchLog[0]);
+    console.log('\n=== 4. Los bancos se piden a la función, no a ficheros públicos ===');
+    ok(fetchLog.length === 17, 'una petición por banco', String(fetchLog.length));
+    ok(fetchLog.every(r => r.options.method === 'POST'), 'todas son POST');
+    ok(fetchLog.every(r => /\/functions\/v1\/get-bank$/.test(r.url)), 'todas van a get-bank', fetchLog[0]?.url);
+    ok(fetchLog.every(r => !/USUARIO_TEST/.test(r.url)), 'el código de licencia NO viaja en la URL');
+    ok(fetchLog.every(r => JSON.parse(r.options.body).user === 'USUARIO_TEST'), 'el código viaja en el cuerpo');
+    ok(fetchLog.every(r => !/\d{10,}/.test(r.url) && !/\d{10,}/.test(r.options.body)), 'sin marca de tiempo (no Date.now)');
 
     console.log('\n=== 5. Un banco caído se AVISA, no se pierde en silencio (punto A) ===');
     failFiles = new Set(['sescam_2026_tecnico_ti.json']);
@@ -124,7 +137,7 @@ async function main() {
     ok(qs2.length === 5145, 'carga el resto sin el banco caído (5245-100)', String(qs2.length));
     ok(!warning.classList.contains('hidden'), 'muestra el aviso visible');
     ok(/sescam_2026_tecnico_ti\.json/.test(warning.innerHTML), 'el aviso nombra el fichero que falta');
-    ok(/HTTP 404/.test(warning.innerHTML), 'el aviso indica el motivo');
+    ok(/no encontrado/.test(warning.innerHTML), 'el aviso indica el motivo');
     failFiles = new Set();
 
     console.log('\n=== 6. JSON truncado (corte de red a medias) ===');

@@ -6,6 +6,7 @@
  */
 import { state } from './state.js';
 import { CONFIG } from './config.js';
+import * as Storage from './storage.js';
 
 // ── Registro de bancos ─────────────────────────────────────────────────────
 // kind:
@@ -111,18 +112,37 @@ function validateQuestion(q, file, index) {
 }
 
 /**
- * Descarga un banco. NUNCA lanza: devuelve el error para poder informarlo,
- * porque antes un fallo silencioso dejaba una categoría simplemente vacía.
+ * Descarga un banco desde la Edge Function `get-bank`, que valida la licencia
+ * server-side y sirve el JSON de un bucket PRIVADO. Los ficheros ya no están
+ * en el repo ni se pueden leer directamente.
+ * NUNCA lanza: devuelve el error para poder informarlo.
  */
-async function fetchBank(bank, cacheKey) {
+async function fetchBank(bank) {
+    const user = Storage.getSavedUser();
+    if (!user) return { bank, ok: false, error: 'sin licencia' };
+
     try {
-        const res = await fetch(`data/${bank.file}?v=${cacheKey}`);
-        if (!res.ok) return { bank, ok: false, error: `HTTP ${res.status}` };
+        const res = await fetch(`${CONFIG.SUPABASE_URL}/functions/v1/get-bank`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                apikey: CONFIG.SUPABASE_KEY,
+                Authorization: `Bearer ${CONFIG.SUPABASE_KEY}`
+            },
+            body: JSON.stringify({ bank: bank.file, user })
+        });
 
-        const text = await res.text();
-        const data = JSON.parse(text.replace(/^﻿/, '').trim()); // sanea BOM
+        if (!res.ok) {
+            let msg = `HTTP ${res.status}`;
+            try {
+                const err = await res.json();
+                if (err && err.error) msg = err.error;
+            } catch { /* respuesta sin JSON */ }
+            return { bank, ok: false, error: msg };
+        }
 
-        if (!Array.isArray(data)) return { bank, ok: false, error: 'la raíz del JSON no es un array' };
+        const data = await res.json();
+        if (!Array.isArray(data)) return { bank, ok: false, error: 'la respuesta no es un array' };
         return { bank, ok: true, data };
     } catch (e) {
         return { bank, ok: false, error: e.message };
@@ -169,13 +189,8 @@ export function getLastLoadReport() {
 }
 
 export async function loadAllData() {
-    // Clave de caché por release, no por visita: los datos se refrescan en cada
-    // versión publicada pero el navegador reutiliza la descarga entre visitas
-    // (antes `?v=Date.now()` obligaba a bajar los 2,7 MB en cada carga).
-    const cacheKey = CONFIG.APP_VERSION;
-
-    console.log('[DATA] Cargando bancos de preguntas…');
-    const results = await Promise.all(BANKS.map(b => fetchBank(b, cacheKey)));
+    console.log('[DATA] Cargando bancos de preguntas vía get-bank…');
+    const results = await Promise.all(BANKS.map(b => fetchBank(b)));
 
     const bankErrors = [];
     const invalidDetails = [];

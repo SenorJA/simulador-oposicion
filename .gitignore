@@ -1,1 +1,10 @@
 _archived_files/
+
+# Los bancos de preguntas ya no viven en el repo público: se sirven desde un
+# bucket privado de Supabase a través de la Edge Function get-bank.
+# En local se conservan solo para subirlos y para los tests.
+data/
+
+# Secretos locales (service_role para subir bancos). NUNCA commitear.
+.env
+.env.*

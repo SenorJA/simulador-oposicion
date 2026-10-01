@@ -114,25 +114,34 @@ ok(/id="access-retry"/.test(html) && /id="btn-access-retry"/.test(html), 'reinte
 ok(/css\/style-v31\.css/.test(html) && !fs.existsSync(path.join(ROOT, 'css/style-v30.css')), 'solo queda style-v31.css');
 ok(!fs.existsSync(path.join(ROOT, 'js/script.js')) && !fs.existsSync(path.join(ROOT, 'deploy_test.txt')), 'legacy js/script.js y deploy_test.txt eliminados');
 
-console.log('=== 13. Cargador de datos: registro, validación y caché ===');
+console.log('=== 13. Cargador de datos: registro, validación y origen privado ===');
 const data = r('src/js/modules/data.js');
 ok(/const BANKS = \[/.test(data), 'los bancos se declaran en el array BANKS');
 const bankFiles = [...data.matchAll(/file:\s*'([^']+\.json)'/g)].map(m => m[1]);
 ok(bankFiles.length === 17, 'BANKS declara los 17 ficheros', String(bankFiles.length));
-const missingBanks = bankFiles.filter(f => !fs.existsSync(path.join(ROOT, 'data', f)));
-ok(missingBanks.length === 0, 'todos los bancos existen en disco' + (missingBanks.length ? ': ' + missingBanks.join(', ') : ''));
 // Cada banco debe estar referenciado una sola vez (sin duplicados en el registro)
 ok(new Set(bankFiles).size === bankFiles.length, 'sin bancos duplicados en BANKS');
-// Todo JSON de data/ debe estar registrado en BANKS
-const onDisk = fs.readdirSync(path.join(ROOT, 'data')).filter(f => f.endsWith('.json')).sort();
-const unregistered = onDisk.filter(f => !bankFiles.includes(f));
-ok(unregistered.length === 0, 'todo JSON de data/ está registrado' + (unregistered.length ? ': ' + unregistered.join(', ') : ''));
+// Los JSON ya no viven en el repo: si están en local, deben coincidir con BANKS
+const dataDir = path.join(ROOT, 'data');
+if (fs.existsSync(dataDir)) {
+    const missingBanks = bankFiles.filter(f => !fs.existsSync(path.join(dataDir, f)));
+    ok(missingBanks.length === 0, 'los bancos locales coinciden con BANKS' + (missingBanks.length ? ': ' + missingBanks.join(', ') : ''));
+    const onDisk = fs.readdirSync(dataDir).filter(f => f.endsWith('.json')).sort();
+    const unregistered = onDisk.filter(f => !bankFiles.includes(f));
+    ok(unregistered.length === 0, 'todo JSON local está registrado' + (unregistered.length ? ': ' + unregistered.join(', ') : ''));
+} else {
+    console.log('  · data/ no está en local (normal en un clon limpio): se omite la comprobación de ficheros');
+}
 ok(/function validateQuestion/.test(data), 'existe validación de preguntas');
 ok(/function getLastLoadReport/.test(data), 'el informe de carga es consultable');
 ok(/showDataWarning/.test(data), 'los fallos se muestran en pantalla');
 ok(/catch/.test(data), 'un banco corrupto no tumba la carga');
-ok(/data\/\$\{bank\.file\}\?v=\$\{cacheKey\}/.test(data), 'los fetch usan la clave de caché del release');
+// Los bancos se sirven por la Edge Function, no como fichero estático
+ok(/functions\/v1\/get-bank/.test(data), 'data.js pide los bancos a get-bank');
+ok(!/fetch\(`data\//.test(data) && !/fetch\('data\//.test(data), 'data.js ya NO lee data/*.json directo');
+ok(/Storage\.getSavedUser\(\)/.test(data), 'la licencia se toma del usuario autenticado');
 ok(!/^[^/\n]*Date\.now\(\)/m.test(data.replace(/^\s*\/\/.*$/gm, '')), 'sin cache-busting por marca de tiempo');
+ok(fs.existsSync(path.join(ROOT, 'supabase/functions/get-bank/index.ts')), 'existe la Edge Function get-bank');
 ok(/id="data-warning"/.test(html), 'existe el aviso visible de carga en index.html');
 // El aviso debe estar referenciado por el JS
 ok(allJs.includes("'data-warning'"), 'data.js rellena el aviso #data-warning');

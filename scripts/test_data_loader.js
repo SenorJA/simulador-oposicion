@@ -52,7 +52,7 @@ function makeFetch() {
 const warning = { classList: { _h: new Set(), add(c) { this._h.add(c); }, remove(c) { this._h.delete(c); }, contains(c) { return this._h.has(c); } }, innerHTML: '', hidden: false };
 const document = { getElementById: (id) => (id === 'data-warning' ? warning : null) };
 const falsoLocalStorage = {
-    getItem: (k) => (k === 'ope_user_access' ? 'USUARIO_TEST' : null),
+    getItem: (k) => (k === 'ope_token' ? 'TOKEN_TEST' : null),
     setItem: () => {}, removeItem: () => {}
 };
 
@@ -125,8 +125,8 @@ async function main() {
     ok(fetchLog.length === 17, 'una petición por banco', String(fetchLog.length));
     ok(fetchLog.every(r => r.options.method === 'POST'), 'todas son POST');
     ok(fetchLog.every(r => /\/functions\/v1\/get-bank$/.test(r.url)), 'todas van a get-bank', fetchLog[0]?.url);
-    ok(fetchLog.every(r => !/USUARIO_TEST/.test(r.url)), 'el código de licencia NO viaja en la URL');
-    ok(fetchLog.every(r => JSON.parse(r.options.body).user === 'USUARIO_TEST'), 'el código viaja en el cuerpo');
+    ok(fetchLog.every(r => !/TOKEN_TEST/.test(r.url)), 'el token NO viaja en la URL');
+    ok(fetchLog.every(r => JSON.parse(r.options.body).token === 'TOKEN_TEST'), 'el token viaja en el cuerpo');
     ok(fetchLog.every(r => !/\d{10,}/.test(r.url) && !/\d{10,}/.test(r.options.body)), 'sin marca de tiempo (no Date.now)');
 
     console.log('\n=== 5. Un banco caído se AVISA, no se pierde en silencio (punto A) ===');

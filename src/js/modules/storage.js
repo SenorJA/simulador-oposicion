@@ -6,6 +6,7 @@ const KEYS = {
     FAILED_IDS: 'ope_failed_ids',
     PROGRESS: 'ope_progress',
     USER_ACCESS: 'ope_user_access',
+    TOKEN: 'ope_token',
     DEVICE_ID: 'ope_device_id',
     DEVICE_REGISTERED: 'ope_device_registered', // Legacy
     VERSION_DATA: 'ope_version_data',
@@ -105,8 +106,16 @@ export function clearHistory() {
 
 export function getSavedUser() { return localStorage.getItem(KEYS.USER_ACCESS); }
 export function saveUser(id) { localStorage.setItem(KEYS.USER_ACCESS, id); }
-/** Olvida el usuario guardado (para "Cambiar de usuario") sin tocar el device id. */
-export function forgetUser() { localStorage.removeItem(KEYS.USER_ACCESS); }
+/** Olvida el usuario y su token (para "Cambiar de usuario") sin tocar el device id. */
+export function forgetUser() {
+    localStorage.removeItem(KEYS.USER_ACCESS);
+    localStorage.removeItem(KEYS.TOKEN);
+}
+
+// ── Token de sesión (emitido por la Edge Function `login`) ───────────────────
+export function getToken() { return localStorage.getItem(KEYS.TOKEN); }
+export function setToken(token) { if (token) localStorage.setItem(KEYS.TOKEN, token); }
+export function forgetToken() { localStorage.removeItem(KEYS.TOKEN); }
 export function clearUser() {
     localStorage.removeItem(KEYS.USER_ACCESS);
     localStorage.removeItem(KEYS.DEVICE_ID);

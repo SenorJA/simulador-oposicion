@@ -23,89 +23,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // ── Auth flow ──────────────────────────────────────────────────────────
-    setupAccessRetry();
+    prefillUserFromUrl();
+    setupLoginForm();
 
-    Auth.checkAuth({
-        onDenied: (msg) => {
-            const overlay = document.getElementById('access-overlay');
-            if (overlay) overlay.classList.remove('hidden');
-            const spinner = document.getElementById('access-spinner');
-            if (spinner) spinner.classList.add('hidden');
-
-            // Sin código (primer acceso) → login neutro; con código fallido → motivo
-            const sinCodigo = /Introduce tu código en la URL/i.test(msg || '');
-            const titleEl = document.getElementById('access-title');
-            const msgEl = document.getElementById('access-msg');
-            if (titleEl) {
-                titleEl.innerText = sinCodigo ? 'Inicia sesión' : 'Acceso Denegado';
-                titleEl.style.color = sinCodigo ? '' : 'red';
-            }
-            if (msgEl) msgEl.innerText = sinCodigo ? 'Introduce tu código de acceso.' : msg;
-
-            const input = document.getElementById('access-code-input');
-            if (input) input.focus();
-        },
-        onSuccess: (_userData, _currentDevices, _maxDevices) => {
-            // El overlay se mantiene visible (con el spinner) hasta que los bancos
-            // terminen de cargar; así nunca se ve la app a medio construir.
-            const msgEl = document.getElementById('access-msg');
-            if (msgEl) msgEl.innerText = 'Cargando preguntas…';
-
-            // ── Role Control ──
-            const isAdmin = (_userData.id_acceso === 'PichonJefe');
-            UI.toggleEl('btn-admin-panel', isAdmin);
-            console.log(`[AUTH] User: ${_userData.id_acceso} | Admin: ${isAdmin}`);
-
-            const licEl = document.getElementById('licencia-activa');
-            if (licEl) {
-                licEl.textContent = '✓ Conectado como ' + _userData.id_acceso;
-                licEl.style.display = 'inline-block';
-            }
-            const logoutBtn = document.getElementById('btn-logout');
-            if (logoutBtn) logoutBtn.classList.remove('hidden');
-
-            Data.loadAllData().then(questions => {
-                if (questions.length === 0) {
-                    // Antes esto salía en silencio y el usuario se quedaba con la
-                    // pantalla en blanco. Ahora se explica qué ha pasado.
-                    showFatalDataError(Data.getLastLoadReport());
-                    return;
-                }
-
-                const overlay = document.getElementById('access-overlay');
-                if (overlay) overlay.classList.add('hidden');
-
-                // One-time data migration for old IDs
-                // v2: los Temas 11-16 de MAD tenían IDs duplicados entre temas;
-                // se renumeraron (mad_t{N}_xxx) y los fallos antiguos quedan huérfanos
-                if (Storage.getVersionData() !== 'v2_unique_ids') {
-                    Storage.clearFailures();
-                    Storage.setVersionData('v2_unique_ids');
-                }
-
-                UI.updateFailureBadge(Storage.getFailedIds().length);
-                UI.renderizarRecordsMenu();
-                UI.renderizarProgresoGlobal();
-                UI.renderizarProgresoExamenes();
-                setupEventListeners();
-
-                // Si el usuario ya eligió categoría antes, entrar directamente;
-                // roleSelection queda como paso previo para que "Atrás" funcione.
-                const lastRole = Storage.getLastRole();
-                if (lastRole === 'pinche' || lastRole === 'celador') {
-                    UI.showView('roleSelection', false);
-                    selectRole(lastRole);
-                } else {
-                    UI.showView('roleSelection', false);
-                }
-
-                // Bienvenida solo la primera vez en este navegador
-                if (!Storage.hasSeenOnboarding()) {
-                    UI.toggleEl('onboarding-modal', true);
-                }
-            });
-        }
-    });
+    Auth.checkAuth({ onDenied: handleAuthDenied, onSuccess: handleAuthSuccess });
 
     // ── Browsing History Fix ──
     window.onpopstate = (event) => {
@@ -116,6 +37,93 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // ── Helpers ────────────────────────────────────────────────────────────────
+
+/**
+ * Acceso denegado: muestra el overlay con el motivo (o un login neutro).
+ */
+function handleAuthDenied(msg) {
+    const overlay = document.getElementById('access-overlay');
+    if (overlay) overlay.classList.remove('hidden');
+    const spinner = document.getElementById('access-spinner');
+    if (spinner) spinner.classList.add('hidden');
+
+    const sinSesion = /Introduce tu/i.test(msg || '');
+    const titleEl = document.getElementById('access-title');
+    const msgEl = document.getElementById('access-msg');
+    if (titleEl) {
+        titleEl.innerText = sinSesion ? 'Inicia sesión' : 'Acceso Denegado';
+        titleEl.style.color = sinSesion ? '' : 'red';
+    }
+    if (msgEl) msgEl.innerText = sinSesion ? 'Introduce tu usuario y contraseña.' : msg;
+
+    const input = document.getElementById('access-code-input');
+    if (input) input.focus();
+}
+
+/**
+ * Acceso correcto: carga los bancos y arranca la app.
+ */
+function handleAuthSuccess(_userData, _currentDevices, _maxDevices) {
+    // El overlay sigue visible (con el spinner) hasta cargar los bancos.
+    const msgEl = document.getElementById('access-msg');
+    if (msgEl) msgEl.innerText = 'Cargando preguntas…';
+
+    const isAdmin = (_userData.id_acceso === CONFIG.ADMIN_USER);
+    UI.toggleEl('btn-admin-panel', isAdmin);
+    console.log(`[AUTH] User: ${_userData.id_acceso} | Admin: ${isAdmin}`);
+
+    const licEl = document.getElementById('licencia-activa');
+    if (licEl) {
+        licEl.textContent = '✓ Conectado como ' + _userData.id_acceso;
+        licEl.style.display = 'inline-block';
+    }
+    const logoutBtn = document.getElementById('btn-logout');
+    if (logoutBtn) logoutBtn.classList.remove('hidden');
+
+    Data.loadAllData().then(questions => {
+        if (questions.length === 0) {
+            showFatalDataError(Data.getLastLoadReport());
+            return;
+        }
+
+        const overlay = document.getElementById('access-overlay');
+        if (overlay) overlay.classList.add('hidden');
+
+        // Migración única de IDs antiguos
+        if (Storage.getVersionData() !== 'v2_unique_ids') {
+            Storage.clearFailures();
+            Storage.setVersionData('v2_unique_ids');
+        }
+
+        UI.updateFailureBadge(Storage.getFailedIds().length);
+        UI.renderizarRecordsMenu();
+        UI.renderizarProgresoGlobal();
+        UI.renderizarProgresoExamenes();
+        setupEventListeners();
+
+        const lastRole = Storage.getLastRole();
+        if (lastRole === 'pinche' || lastRole === 'celador') {
+            UI.showView('roleSelection', false);
+            selectRole(lastRole);
+        } else {
+            UI.showView('roleSelection', false);
+        }
+
+        if (!Storage.hasSeenOnboarding()) {
+            UI.toggleEl('onboarding-modal', true);
+        }
+    });
+}
+
+/** Rellena el usuario desde ?user= en la URL (compatibilidad) y limpia la URL. */
+function prefillUserFromUrl() {
+    const params = new URLSearchParams(window.location.search);
+    const urlUser = params.get('user');
+    if (!urlUser) return;
+    const input = document.getElementById('access-code-input');
+    if (input) input.value = urlUser;
+    window.history.replaceState({}, document.title, window.location.pathname);
+}
 
 /**
  * Accesibilidad de los modales: al abrirse mueve el foco dentro de ellos y lo
@@ -237,24 +245,34 @@ function showFatalDataError(report) {
  * una única vez, sin duplicar listeners ni el estado global de `state`.
  * NO toca la lógica de autenticación: solo navegación.
  */
-function setupAccessRetry() {
-    const retryBox = document.getElementById('access-retry');
+function setupLoginForm() {
     const input = document.getElementById('access-code-input');
+    const password = document.getElementById('access-password-input');
     const btn = document.getElementById('btn-access-retry');
-    if (!retryBox || !input || !btn) return;
+    if (!input || !password || !btn) return;
 
-    const retry = () => {
-        const code = input.value.trim();
-        if (!code) { input.focus(); return; }
-        const url = new URL(window.location.href);
-        url.searchParams.set('user', code);
-        window.location.href = url.toString();
+    const submit = async () => {
+        const user = input.value.trim();
+        if (!user) { input.focus(); return; }
+        if (!password.value) { password.focus(); return; }
+
+        btn.disabled = true;
+        const spinner = document.getElementById('access-spinner');
+        if (spinner) spinner.classList.remove('hidden');
+        const msgEl = document.getElementById('access-msg');
+        if (msgEl) msgEl.innerText = 'Verificando…';
+
+        await Auth.loginWithPassword(user, password.value, {
+            onDenied: handleAuthDenied,
+            onSuccess: handleAuthSuccess
+        });
+        btn.disabled = false;
     };
 
-    btn.addEventListener('click', retry);
-    input.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter') { e.preventDefault(); retry(); }
-    });
+    btn.addEventListener('click', submit);
+    [input, password].forEach(el => el.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') { e.preventDefault(); submit(); }
+    }));
 }
 
 /**

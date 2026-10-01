@@ -47,21 +47,26 @@ console.log('── 1/2 · Subiendo bancos al bucket privado ──');
 const upload = spawnSync(process.execPath, [path.join(__dirname, 'upload_banks.js')], { stdio: 'inherit' });
 if (upload.status !== 0) { console.error('✗ Falló la subida de bancos.'); process.exit(upload.status || 1); }
 
-console.log('\n── 2/2 · Desplegando la Edge Function get-bank ──');
-const args = ['functions', 'deploy', 'get-bank', '--no-verify-jwt', '--project-ref', ref];
+console.log('\n── 2/2 · Desplegando las Edge Functions (login, get-bank) ──');
 
-let deploy = spawnSync('supabase', args, {
-    stdio: 'inherit', shell: true,
-    env: { ...process.env, SUPABASE_ACCESS_TOKEN: env.SUPABASE_ACCESS_TOKEN || '' }
-});
-
-if (deploy.error || deploy.status !== 0) {
-    console.log('\n· La CLI "supabase" no está disponible; probando con npx…');
-    deploy = spawnSync('npx', ['--yes', 'supabase', ...args], {
+function deployFunction(fn) {
+    const args = ['functions', 'deploy', fn, '--no-verify-jwt', '--project-ref', ref];
+    let r = spawnSync('supabase', args, {
         stdio: 'inherit', shell: true,
         env: { ...process.env, SUPABASE_ACCESS_TOKEN: env.SUPABASE_ACCESS_TOKEN || '' }
     });
+    if (r.error || r.status !== 0) {
+        console.log('\n· La CLI "supabase" no está disponible; probando con npx…');
+        r = spawnSync('npx', ['--yes', 'supabase', ...args], {
+            stdio: 'inherit', shell: true,
+            env: { ...process.env, SUPABASE_ACCESS_TOKEN: env.SUPABASE_ACCESS_TOKEN || '' }
+        });
+    }
+    return r;
 }
+
+let deploy = deployFunction('login');
+if (deploy.status === 0) deploy = deployFunction('get-bank');
 
 if (deploy.status !== 0) {
     console.error('\n✗ No se pudo desplegar la función.');

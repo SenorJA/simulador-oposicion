@@ -32,7 +32,7 @@ console.log('=== 3. IDs del HTML sin uso en JS ===');
 const htmlIds = [...html.matchAll(/\sid="([^"]+)"/g)].map(m => m[1]);
 const allJs = jsFiles.map(f => r(f)).join('\n');
 // Contenedores puramente decorativos: sus hijos sí se usan
-const decorative = new Set(['resultado-motivacional']);
+const decorative = new Set(['resultado-motivacional', 'access-retry']);
 // IDs referenciados desde el propio HTML (aria-labelledby, aria-describedby, label for)
 const ariaRefs = new Set();
 for (const m of html.matchAll(/(?:aria-labelledby|aria-describedby|for)="([^"]+)"/g)) {
@@ -145,7 +145,7 @@ ok(/catch/.test(data), 'un banco corrupto no tumba la carga');
 // Los bancos se sirven por la Edge Function, no como fichero estático
 ok(/functions\/v1\/get-bank/.test(data), 'data.js pide los bancos a get-bank');
 ok(!/fetch\(`data\//.test(data) && !/fetch\('data\//.test(data), 'data.js ya NO lee data/*.json directo');
-ok(/Storage\.getSavedUser\(\)/.test(data), 'la licencia se toma del usuario autenticado');
+ok(/Storage\.getToken\(\)/.test(data), 'la licencia viaja como token de sesión');
 ok(!/^[^/\n]*Date\.now\(\)/m.test(data.replace(/^\s*\/\/.*$/gm, '')), 'sin cache-busting por marca de tiempo');
 ok(fs.existsSync(path.join(ROOT, 'supabase/functions/get-bank/index.ts')), 'existe la Edge Function get-bank');
 ok(/id="data-warning"/.test(html), 'existe el aviso visible de carga en index.html');

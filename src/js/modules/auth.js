@@ -1,6 +1,10 @@
 /**
- * auth.js — Supabase-based user authentication.
- * Mirrors the validateUserAccess() logic from the original script.js.
+ * auth.js — Acceso con usuario + contraseña.
+ *
+ * La contraseña se verifica en la Edge Function `login` (NUNCA en el cliente),
+ * que devuelve un token de sesión firmado. Ese token es el que usa `get-bank`
+ * para servir los bancos. El límite de 2 dispositivos sigue gestionándose aquí
+ * sobre `usuarios_acceso` / `access_logs`.
  */
 import { state } from './state.js';
 import { CONFIG } from './config.js';
@@ -14,169 +18,165 @@ function initSupabase() {
     }
 }
 
-/**
- * Show the "access denied" state on the overlay (without hiding it).
- */
 function showAccessDenied(msg) {
     const titleEl = document.getElementById('access-title');
     const msgEl = document.getElementById('access-msg');
     if (titleEl) { titleEl.innerText = 'Acceso Denegado'; titleEl.style.color = 'red'; }
     if (msgEl) msgEl.innerText = msg;
-
-    // Ensure the overlay is visible
     const overlay = document.getElementById('access-overlay');
     if (overlay) overlay.classList.remove('hidden');
-
     Storage.clearUser();
 }
 
+/** Llama a la Edge Function `login` (usuario+contraseña o token). */
+async function callLogin(body) {
+    const res = await fetch(`${CONFIG.SUPABASE_URL}/functions/v1/login`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            apikey: CONFIG.SUPABASE_KEY,
+            Authorization: `Bearer ${CONFIG.SUPABASE_KEY}`
+        },
+        body: JSON.stringify(body)
+    });
+    let j = {};
+    try { j = await res.json(); } catch { /* respuesta sin JSON */ }
+    if (!res.ok || j.ok !== true) {
+        const e = new Error(j.error || `HTTP ${res.status}`);
+        e.status = res.status;
+        throw e;
+    }
+    return j;
+}
+
 /**
- * Validate a user ID against Supabase and call the appropriate callback.
- * @param {string} userId
- * @param {{ onSuccess: Function, onDenied: Function }} callbacks
+ * Tras validar usuario+contraseña (o el token): comprueba/actualiza el contador
+ * de dispositivos y llama a `onSuccess`.
  */
-async function validateUserAccess(userId, { onSuccess, onDenied }) {
-    initSupabase();
-    if (!state.supabaseClient) {
-        onDenied("Error: Supabase no inicializado.");
-        return;
+async function finalizeAccess(data, { onSuccess, onDenied }) {
+    const exactId = data.id_acceso;
+    Storage.saveUser(exactId);
+    Storage.setPrefix(exactId);
+
+    const { id: deviceId } = Storage.getOrCreateDeviceId();
+    const shortId = deviceId.substring(0, 10);
+    let currentDBCount = data.dispositivos_usados || 0;
+
+    const registeredDeviceId = localStorage.getItem('ope_reg_v2_' + exactId);
+    let isRegisteredLocally = (registeredDeviceId === deviceId);
+    if (currentDBCount === 0) isRegisteredLocally = false;
+
+    let needsIncrement = !isRegisteredLocally;
+
+    // Auto-recuperación: si el contador de la DB es incoherente, se apoya en logs
+    if (isRegisteredLocally && currentDBCount < MAX_DEVICES) {
+        try {
+            const { data: lastLogs } = await state.supabaseClient
+                .from(CONFIG.TABLE_LOGS)
+                .select('device_info')
+                .ilike('device_info', `%(${exactId})%`)
+                .order('created_at', { ascending: false })
+                .limit(1);
+
+            if (lastLogs && lastLogs.length > 0) {
+                const lastInfo = lastLogs[0].device_info || '';
+                const lastDevId = lastInfo.split(' — ').pop().trim();
+                if (lastDevId && lastDevId !== shortId) {
+                    console.log(`[AUTH] Cambio de dispositivo detectado (${lastDevId} -> ${shortId}). Reparando contador…`);
+                    needsIncrement = true;
+                }
+            }
+        } catch (e) {
+            console.warn('[AUTH] Error en self-healing check:', e);
+        }
     }
 
+    if (needsIncrement) {
+        if (currentDBCount >= MAX_DEVICES && !isRegisteredLocally) {
+            onDenied(`Acceso denegado. Esta licencia ya ha alcanzado el límite máximo de ${MAX_DEVICES} dispositivos permitidos.`);
+            Storage.clearUser();
+            Storage.forgetToken();
+            return;
+        }
+
+        if (currentDBCount < MAX_DEVICES) {
+            const newCount = currentDBCount + 1;
+            const { data: updateData, error: updateError } = await state.supabaseClient
+                .from(CONFIG.TABLE_USERS)
+                .update({ dispositivos_usados: newCount })
+                .eq('id_acceso', exactId)
+                .select();
+
+            if (updateError) {
+                console.error('[AUTH] Error Update:', updateError);
+            } else if (updateData && updateData.length > 0) {
+                currentDBCount = updateData[0].dispositivos_usados;
+                localStorage.setItem('ope_reg_v2_' + exactId, deviceId);
+                console.log(`[AUTH] DB Reparada/Incrementada: ${currentDBCount}/${MAX_DEVICES}`);
+            }
+        }
+    }
+
+    // Log de acceso
     try {
-        // Fetch user record (case-insensitive read)
-        const { data, error } = await state.supabaseClient
-            .from(CONFIG.TABLE_USERS)
-            .select('*')
-            .ilike('id_acceso', userId.trim())
-            .single();
+        const regStatus = isRegisteredLocally ? 'Old' : 'NEW';
+        const trace = `V:${CONFIG.APP_VERSION.split(' ')[0]} [DB:${data.dispositivos_usados},Reg:${regStatus},Inc:${needsIncrement ? 'Y' : 'N'}]`;
+        await state.supabaseClient.from(CONFIG.TABLE_LOGS).insert([{
+            created_at: new Date().toISOString(),
+            status: 'success',
+            device_info: `${data.nombre} (${data.id_acceso}) — ${currentDBCount}/${MAX_DEVICES} — ${trace} — ${shortId}`
+        }]);
+    } catch (e) { console.warn('Log error:', e); }
 
-        if (error || !data) {
-            onDenied("Acceso denegado. Código de usuario inválido o no encontrado.");
-            return;
-        }
+    onSuccess(data, currentDBCount, MAX_DEVICES);
+}
 
-        if (data.bloqueado === true) {
-            onDenied("Acceso denegado. Tu licencia ha sido bloqueada.");
-            return;
-        }
+/**
+ * Acceso con usuario + contraseña (lo llama el formulario de login).
+ */
+export async function loginWithPassword(user, password, { onSuccess, onDenied }) {
+    initSupabase();
+    if (!state.supabaseClient) { onDenied('Error: Supabase no inicializado.'); return; }
 
-        Storage.saveUser(userId.trim());
-        Storage.setPrefix(userId.trim()); // Isolate progress data
-
-        const exactId = data.id_acceso;
-
-        // Keep local ID just for diagnostics/logs
-        const { id: deviceId } = Storage.getOrCreateDeviceId();
-        const shortId = deviceId.substring(0, 10);
-        let currentDBCount = data.dispositivos_usados || 0;
-
-        // VERIFICACIÓN ESTRICTA
-        const registeredDeviceId = localStorage.getItem('ope_reg_v2_' + exactId);
-        let isRegisteredLocally = (registeredDeviceId === deviceId);
-
-        // Sanity check: si la DB dice 0, el local no puede ser válido
-        if (currentDBCount === 0) isRegisteredLocally = false;
-
-        let needsIncrement = !isRegisteredLocally;
-
-        // --- LÓGICA DE AUTO-RECUPERACIÓN (Self-Healing) ---
-        // Si el dispositivo cree que está registrado pero la DB dice 1, 
-        // comprobamos si el ÚLTIMO log exitoso era de un dispositivo DISTINTO.
-        if (isRegisteredLocally && currentDBCount < MAX_DEVICES) {
-            try {
-                const { data: lastLogs } = await state.supabaseClient
-                    .from(CONFIG.TABLE_LOGS)
-                    .select('device_info')
-                    .ilike('device_info', `%(${exactId})%`)
-                    .order('created_at', { ascending: false })
-                    .limit(1);
-
-                if (lastLogs && lastLogs.length > 0) {
-                    const lastInfo = lastLogs[0].device_info || '';
-                    // Extraer shortId del log (está al final tras el último " — ")
-                    const lastDevId = lastInfo.split(' — ').pop().trim();
-                    
-                    if (lastDevId && lastDevId !== shortId) {
-                        console.log(`[AUTH] Swich de dispositivo detectado (${lastDevId} -> ${shortId}). Reparando contador...`);
-                        needsIncrement = true;
-                    }
-                }
-            } catch (e) {
-                console.warn('[AUTH] Error en self-healing check:', e);
-            }
-        }
-
-        if (needsIncrement) {
-            if (currentDBCount >= MAX_DEVICES && !isRegisteredLocally) {
-                // Solo bloqueamos si el dispositivo es REALMENTE nuevo (no registrado localmente)
-                // y ya hemos alcanzado el límite.
-                console.warn(`[AUTH] Bloqueo: ${exactId} Supera límite (${currentDBCount}/${MAX_DEVICES}). Dev: ${shortId}`);
-                onDenied(`Acceso denegado. Esta licencia ya ha alcanzado el límite máximo de ${MAX_DEVICES} dispositivos permitidos.`);
-                Storage.clearUser();
-                return;
-            }
-            
-            // Proceder a incrementar (solo si estamos por debajo del límite o si es una reparación)
-            if (currentDBCount < MAX_DEVICES) {
-                const newCount = currentDBCount + 1;
-                const { data: updateData, error: updateError } = await state.supabaseClient
-                    .from(CONFIG.TABLE_USERS)
-                    .update({ dispositivos_usados: newCount })
-                    .eq('id_acceso', exactId)
-                    .select();
-
-                if (updateError) {
-                    console.error('[AUTH] Error Update:', updateError);
-                } else if (updateData && updateData.length > 0) {
-                    currentDBCount = updateData[0].dispositivos_usados;
-                    localStorage.setItem('ope_reg_v2_' + exactId, deviceId);
-                    console.log(`[AUTH] DB Reparada/Incrementada: ${currentDBCount}/${MAX_DEVICES}`);
-                }
-            }
-        }
-
-        // Log Final en Supabase
-        try {
-            const regStatus = isRegisteredLocally ? 'Old' : 'NEW';
-            const trace = `V:${CONFIG.APP_VERSION.split(' ')[0]} [DB:${data.dispositivos_usados},Reg:${regStatus},Inc:${needsIncrement?'Y':'N'}]`;
-            
-            await state.supabaseClient.from(CONFIG.TABLE_LOGS).insert([{
-                created_at: new Date().toISOString(),
-                status: 'success',
-                device_info: `${data.nombre} (${data.id_acceso}) — ${currentDBCount}/${MAX_DEVICES} — ${trace} — ${shortId}`
-            }]);
-        } catch (e) { console.warn('Log error:', e); }
-
-        onSuccess(data, currentDBCount, MAX_DEVICES);
-
-    } catch (err) {
-        console.error("validateUserAccess error:", err);
-        onDenied("Error de conexión al validar el acceso.");
+    try {
+        const j = await callLogin({ user, password });
+        Storage.setToken(j.token);
+        await finalizeAccess(
+            { id_acceso: j.user, nombre: j.nombre || j.user, bloqueado: false, dispositivos_usados: j.dispositivos_usados || 0 },
+            { onSuccess, onDenied }
+        );
+    } catch (e) {
+        onDenied(e.message || 'No se pudo iniciar sesión.');
     }
 }
 
-
 /**
- * Main entry point — checks URL param → localStorage → denies.
- * @param {{ onSuccess: Function, onDenied: Function }} callbacks
+ * Comprueba la sesión guardada (token) al abrir la app. Si no hay sesión o ha
+ * caducado, llama a `onDenied` para mostrar el login.
  */
 export async function checkAuth({ onSuccess, onDenied }) {
     initSupabase();
 
-    const params = new URLSearchParams(window.location.search);
-    const userId = params.get('user') || Storage.getSavedUser();
+    const token = Storage.getToken();
+    if (!token) {
+        onDenied('Introduce tu usuario y contraseña.');
+        return;
+    }
 
-    if (userId) {
-        // Clean the URL (remove ?user=xxx so it doesn't persist in history)
-        window.history.replaceState({}, document.title, window.location.pathname);
-        await validateUserAccess(userId, { onSuccess, onDenied });
-    } else {
-        onDenied("Acceso denegado. Introduce tu código en la URL (?user=TU_CODIGO).");
+    try {
+        const j = await callLogin({ token });
+        await finalizeAccess(
+            { id_acceso: j.user, nombre: j.nombre || j.user, bloqueado: false, dispositivos_usados: j.dispositivos_usados || 0 },
+            { onSuccess, onDenied }
+        );
+    } catch {
+        Storage.forgetToken();
+        onDenied('Tu sesión ha caducado. Vuelve a entrar.');
     }
 }
 
 /**
- * Log an access event to Supabase.
+ * Registra un evento de acceso.
  */
 export async function logAccess(userId, detail) {
     if (!state.supabaseClient) return;

@@ -17,13 +17,22 @@ evitar regresiones, saltos de seguridad y corrupción de estado.
 ## 🔒 Seguridad, licencias y acceso a datos (ESTRICTO)
 - **Bloqueo de licencia:** Supabase aplica el límite de 2 dispositivos
   (tablas `usuarios_acceso` y `access_logs`).
+- **Login:** usuario + contraseña se validan en la Edge Function `login` (PBKDF2,
+  **en el servidor**), que devuelve un **token firmado** (HMAC). Ese token es el
+  que exige `get-bank`: conocer solo el código de usuario ya no basta. Las
+  contraseñas se dan de alta con `node scripts/set_password.js <usuario> <contraseña>`
+  (columna `password_hash` en `usuarios_acceso`). El formato del hash es
+  `pbkdf2$100000$saltB64$hashB64` (compartido en
+  `supabase/functions/_shared/crypto.ts`).
 - **Acceso a datos:** los bancos de preguntas NO viven en el repo. Se guardan en
   un bucket **privado** de Supabase Storage (`preguntas`) y los sirve la Edge
-  Function `supabase/functions/get-bank`, que valida la licencia en el servidor
-  con la `service_role`. El navegador solo habla con `get-bank`.
+  Function `supabase/functions/get-bank`, que **valida el token** y vuelve a
+  comprobar la licencia en el servidor con la `service_role`. El navegador solo
+  habla con `login` y `get-bank`.
 - **RESTRICCIÓN CRÍTICA:** no alterar, comentar, refactorizar ni saltarse la
   lógica de autenticación o de conexión con Supabase (principalmente en
   `src/js/modules/auth.js`, `src/js/main.js`, `db.js`) sin permiso explícito.
+  `auth.js` ahora consume `login` y guarda el token (`Storage.getToken()`).
 - **Restricción de render de UI:** la interfaz NO debe mostrar ninguna vista
   (ni ocultar las pantallas de acceso `#access-overlay`) hasta que la promesa de
   comprobación `Auth.checkAuth` devuelva `onSuccess`.
@@ -155,8 +164,11 @@ la raíz del repo):
 - `node scripts/upload_banks.js [--check]` — sube `data/*.json` al bucket
   privado (necesita `SUPABASE_URL` + `SUPABASE_SERVICE_ROLE_KEY` en `.env`).
 - `node scripts/deploy_backend.js` — hace todo el backend de una vez: sube los
-  bancos y despliega la función `get-bank` (`--no-verify-jwt`). Necesita la CLI
-  de Supabase (o `npx`) y `supabase login` / `SUPABASE_ACCESS_TOKEN`.
+  bancos y despliega las funciones `login` y `get-bank` (`--no-verify-jwt`).
+  Necesita la CLI de Supabase (o `npx`) y `supabase login` / `SUPABASE_ACCESS_TOKEN`.
+- `node scripts/set_password.js <usuario> <contraseña> [--name "Nombre"]` — da de
+  alta/actualiza un usuario y su contraseña (hash PBKDF2) en `usuarios_acceso`.
+  `--list` muestra los usuarios y si tienen contraseña.
 - `node scripts/download_banks.js [--check]` — restaura `data/*.json` desde el
   bucket (clon limpio / copia de seguridad).
 - Los scripts de reparación de datos aceptan `--check` para validar sin

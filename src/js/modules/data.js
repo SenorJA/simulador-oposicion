@@ -125,8 +125,8 @@ const esTransitorio = (status) => status === 429 || status >= 500;
  * NUNCA lanza: devuelve el error para poder informarlo.
  */
 async function fetchBank(bank, intento = 0) {
-    const user = Storage.getSavedUser();
-    if (!user) return { bank, ok: false, error: 'sin licencia' };
+    const token = Storage.getToken();
+    if (!token) return { bank, ok: false, error: 'sin sesión' };
 
     let res;
     try {
@@ -137,7 +137,7 @@ async function fetchBank(bank, intento = 0) {
                 apikey: CONFIG.SUPABASE_KEY,
                 Authorization: `Bearer ${CONFIG.SUPABASE_KEY}`
             },
-            body: JSON.stringify({ bank: bank.file, user })
+            body: JSON.stringify({ bank: bank.file, token })
         });
     } catch (e) {
         if (intento === 0) {

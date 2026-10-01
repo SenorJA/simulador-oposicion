@@ -55,15 +55,19 @@ estático (GitHub Pages, Cloudflare Pages…). El acceso y los datos se apoyan e
 Supabase:
 
 ```
-navegador ── Auth.checkAuth ──► usuarios_acceso (licencia · límite 2 dispositivos)
+usuario + contraseña ──► Edge Function login ──► usuarios_acceso (PBKDF2 + token)
    │
-   └────── POST {bank,user} ───► Edge Function get-bank ──► bucket PRIVADO "preguntas"
+   └── token ──► Edge Function get-bank ──► bucket PRIVADO "preguntas"
 ```
 
-- **Licencia:** 2 dispositivos por código. El overlay no se oculta hasta `onSuccess`.
+- **Acceso:** usuario y contraseña validados en el servidor (`login`), que
+  devuelve un token. Las contraseñas se dan de alta con
+  `node scripts/set_password.js <usuario> <contraseña>`.
+- **Licencia:** límite de 2 dispositivos por usuario. El overlay no se oculta
+  hasta tener sesión válida.
 - **Preguntas:** no están en el repo. Viven en un bucket privado y las sirve
-  `get-bank`, que valida la licencia en el servidor. Sin Supabase no hay preguntas
-  (se muestra un aviso claro, nunca un fallo silencioso).
+  `get-bank`, que exige el token. Sin Supabase no hay preguntas (se muestra un
+  aviso claro, nunca un fallo silencioso).
 - **Detalles de seguridad y despliegue:** ver [`LICENCIAS.md`](LICENCIAS.md) §9.
 
 ### Desarrollo local
@@ -77,13 +81,15 @@ python -m http.server 8000      # o Live Server
 Con un `.env` en la raíz (`SUPABASE_URL` + `SUPABASE_SERVICE_ROLE_KEY`):
 
 ```bash
-node scripts/deploy_backend.js    # sube los bancos y despliega get-bank
+node scripts/deploy_backend.js    # sube los bancos y despliega login + get-bank
+node scripts/set_password.js ANA2026 "su-contraseña" --name "Ana"   # alta de usuario
 ```
 
 O por separado:
 
 ```bash
 node scripts/upload_banks.js      # data/*.json → bucket privado
+supabase functions deploy login --no-verify-jwt --project-ref <ref>
 supabase functions deploy get-bank --no-verify-jwt --project-ref <ref>
 node scripts/download_banks.js    # bucket privado → data/ (clon limpio)
 ```

@@ -1142,12 +1142,6 @@ h1 {
     font-size: 0.85rem;
 }
 
-.retry-row {
-    display: flex;
-    gap: 0.5rem;
-    flex-wrap: wrap;
-}
-
 .view-header-flat {
     position: relative;
     justify-content: center;

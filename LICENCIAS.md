@@ -302,49 +302,58 @@ probar.
 
 ---
 
-## 9. Bancos de preguntas servidos por Supabase
+## 9. Login, bancos y servido por Supabase
 
-Los JSON ya **no están en el repo público**. Se sirven así:
+### Cómo se entra
 
 ```
-app (navegador)  --POST {bank,user}-->  Edge Function get-bank
-                                            │ valida licencia (service_role)
-                                            ▼
-                                bucket PRIVADO "preguntas"
+usuario escribe usuario + contraseña
+   │  POST {user, password}
+   ▼
+Edge Function login ── verifica la contraseña (PBKDF2, server-side) ──► usuarios_acceso
+   │  devuelve un token firmado (HMAC)
+   ▼
+app guarda el token y pide los bancos:
+   POST {bank, token} ──► Edge Function get-bank ── valida token + licencia ──► bucket PRIVADO "preguntas"
 ```
 
-- `data/` está en `.gitignore`: es solo una copia local para subir y testear.
-- El código de licencia viaja en el **cuerpo** de la petición, nunca en la URL.
-- La `service_role` solo existe en el entorno de la función y en el `.env` local
-  de los scripts. **Jamás** en `config.js`.
+- La contraseña se comprueba **en el servidor**, nunca en el navegador. El hash
+  vive en `usuarios_acceso.password_hash`
+  (`pbkdf2$100000$saltB64$hashB64`).
+- El token viaja en el **cuerpo** de la petición, nunca en la URL.
+- `get-bank` **exige token**: conocer solo el usuario ya no sirve para descargar.
+- `data/` está en `.gitignore`: es copia local para subir y testear.
+- La `service_role` solo existe en el entorno de las funciones y en el `.env`.
+  **Jamás** en `config.js`.
 
 ### Puesta en marcha (una vez)
 
-1. Instalar la CLI: `npm i -g supabase` (o `scoop`/`brew`).
-2. En la raíz del repo, crear `.env` (gitignored):
+1. Instalar la CLI: `npm i -g supabase`.
+2. Crear `.env` (gitignored) con `SUPABASE_URL` y `SUPABASE_SERVICE_ROLE_KEY`, y
+   subir los bancos: `node scripts/upload_banks.js`.
+3. Añadir la columna de contraseña: ejecuta `supabase/sql/password_hash.sql` en
+   el SQL Editor (o vía Management API).
+4. Desplegar las funciones **sin verificación de JWT** (la puerta es el login):
    ```
-   SUPABASE_URL=https://<ref>.supabase.co
-   SUPABASE_SERVICE_ROLE_KEY=sb_secret_...
-   ```
-3. Subir los bancos (crea el bucket privado y sube los 17 JSON):
-   ```
-   node scripts/upload_banks.js
-   ```
-4. Desplegar la función **sin verificación de JWT** (la puerta es la licencia):
-   ```
+   supabase functions deploy login --no-verify-jwt --project-ref <ref>
    supabase functions deploy get-bank --no-verify-jwt --project-ref <ref>
    ```
+   O todo de una vez: `node scripts/deploy_backend.js`.
+
+### Dar de alta usuarios y contraseñas
+
+```
+node scripts/set_password.js ANA2026 "su-contraseña" --name "Ana"
+node scripts/set_password.js --list        # ver usuarios y si tienen contraseña
+```
 
 ### Verificación
 
-- `node scripts/upload_banks.js --check` — lista lo que se subiría, sin tocar nada.
-- `node scripts/download_banks.js --check` — lista lo que hay en el bucket.
-- Directo al bucket (con la `apikey` pública) debe dar **400/404**, no el JSON:
-  ```
-  curl -s -o /dev/null -w "%{http_code}" \
-    "https://<ref>.supabase.co/storage/v1/object/public/preguntas/preguntas.json"
-  ```
-- `get-bank` con un código inválido debe dar **403**.
+- `login` con contraseña mala → **403**; correcta → **200** + token.
+- `get-bank` con token válido → **200**; sin token o manipulado → **401**.
+- Directo al bucket (con la `apikey` pública) debe dar **400/404**, no el JSON.
+
+
 
 ### Coste y límites
 

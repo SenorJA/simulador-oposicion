@@ -5,6 +5,20 @@ formato de [Keep a Changelog](https://keepachangelog.com/es/1.0.0/) y versionado
 semántico (`MAJOR.MINOR.PATCH`). La fuente única de la versión es
 `CONFIG.APP_VERSION` en `src/js/modules/config.js`.
 
+## [1.21.0] — 2026-10-01
+### Añadido
+- **Login con usuario + contraseña** validados en el servidor:
+  - Nueva Edge Function `login` (PBKDF2 + token firmado con HMAC).
+  - Nueva columna `usuarios_acceso.password_hash` (`supabase/sql/password_hash.sql`).
+  - Script `scripts/set_password.js` para dar de alta usuarios y contraseñas.
+  - Formulario de acceso con **Usuario** y **Contraseña**.
+- **`get-bank` ahora exige el token** de sesión: conocer solo el código de
+  usuario ya no permite descargar los bancos.
+### Cambiado
+- `auth.js` consume `login` y guarda el token (`Storage.getToken()`); `data.js`
+  envía el token en vez del código.
+- `scripts/deploy_backend.js` despliega `login` y `get-bank`.
+
 ## [1.20.2] — 2026-10-01
 ### Añadido
 - **Formulario de login por código en la propia app**: campo “Código de acceso” +

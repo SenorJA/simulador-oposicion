@@ -1,81 +1,69 @@
-# 🍳 Simulador OPE - SESCAM (v1.16.x)
+# 🩺 Simulador Oposiciones SESCAM (v1.18.x)
 
-Aplicación web avanzada y gamificada para preparar las oposiciones del **SESCAM** (Ayudante de Cocina / Pinche y futuras categorías). Diseño *Mobile-First* con estética *Premium Sanidad Teal* y un motor de evaluación en tiempo real.
-
----
-
-## ✨ Características Principales y UX/UI
-
-- **Estética "Sanatorio Teal"**: Colores institucionales, glassmorphism, sombras dinámicas y diseño 100% responsivo (optimizado para una columna en móvil y rejilla en PC).
-- **Sistema de Progreso en Cascada**: Barras de progreso y nota media calculadas dinámicamente en 3 niveles de profundidad (Fuentes > Bloques > Temas/Partes) sin colisión de datos.
-- **Gamificación y Récords Premium**: 
-  - Sellos de completado estéticos (`✅ Completado | 🏆 Nota`).
-  - Iconos dinámicos según el rendimiento: ❌ (<5), ✅ (5-6.9), 🎖️ (7-8.9), 🏆 (9-10).
-- **Navegación Inteligente**: Historial de vistas integrado. El botón "Atrás" siempre devuelve al submenú exacto, evitando frustraciones de usabilidad.
-- **Almacenamiento Persistente y Aislado**: Uso de `localStorage` con trazabilidad estricta. Historial de fallos y récords guardados entre sesiones sin mezclar partes de tests.
+Aplicación web avanzada y gamificada para preparar las oposiciones del **SESCAM**
+(Ayudante de Cocina / Pinche, Celador y otras categorías). Diseño *Mobile-First*
+con estética *Sanidad Teal*, modo oscuro automático y un motor de evaluación en
+tiempo real.
 
 ---
 
-## 🛠 Modos de Estudio y Herramientas
+## ✨ Características
+
+- **Estética "Sanatorio Teal"** con glassmorphism, sombras dinámicas y diseño
+  100% responsivo. **Modo oscuro** automático según el sistema.
+- **Sistema de progreso en cascada**: barras y nota media en 3 niveles
+  (Fuentes > Bloques > Temas) sin colisión de datos.
+- **Estadísticas por tema** y **lista de fallos** repasables en "Mi Progreso".
+- **Gamificación y récords**: sellos de completado e iconos por rendimiento
+  (❌ <5 · ✅ 5–6.9 · 🎖️ 7–8.9 · 🏆 9–10).
+- **Navegación con historial integrado**: "Atrás" siempre vuelve al submenú exacto.
+- **Almacenamiento persistente y aislado** por usuario y rol (`localStorage`).
+- **Atajos de teclado**: `1`–`4` para responder, `←`/`→` para navegar.
+- **PWA instalable** (manifest + iconos propios) con arranque offline del shell.
+- **Export/import del progreso** (JSON) para no perderlo al cambiar de navegador.
+
+---
+
+## 🛠 Modos de estudio
 
 | Modo / Herramienta | Descripción |
 |-------------------|-------------|
-| ⏱️ **Cronómetro Opcional** | *Modo Examen* (cuenta atrás y cierre) vs *Modo Zen/Repaso* (sin límite de tiempo). |
-| 🏋️ **Entrenamiento** | Feedback inmediato en cada pregunta. Sin penalización. |
-| 📝 **Examen Oficial** | Sin feedback hasta el final. Penalización oficial: **-1/3 por error**. |
-| ❌ **Repaso de Fallos** | Banco de preguntas falladas históricamente. Posibilidad de borrar el historial. |
+| 🏋️ **Entrenamiento** | Corrección inmediata en cada pregunta. Sin penalización. |
+| 📝 **Simulacro Examen** | Sin corrección hasta el final. Penalización oficial **−1/3 por error**. Permite elegir nº de preguntas (10–40 o todas) y tiempo (30 s / 1 min / 2 min / sin límite). |
+| ❌ **Repaso de Fallos** | Banco de preguntas falladas. Posibilidad de vaciarlo. |
 | 🔄 **Revisión** | Repaso visual de un test completado (con o sin filtro de fallos). |
+| 🎲 **Modo Aleatorio** | Test a medida por nº de preguntas, fuentes, temario y tiempo. |
 
 ---
 
-## 📚 Fuentes de Preguntas y Temario
-
-El motor separa el contenido por fuentes para un estudio estructurado:
+## 📚 Fuentes de preguntas
 
 | Fuente | Descripción |
 |--------|-------------|
-| **MAD** | Temario oficial editado (preguntas clásicas de legislación y específicas). |
+| **MAD** | Temario oficial editado (legislación y específicas). |
 | **CSIF** | Banco de preguntas sindicales enfocadas al SESCAM. |
-| **Academia** | Preguntas desglosadas al detalle por tema. |
-| **Exámenes Oficiales** | OPE SESCAM 2020 (ordinario y extraordinario), CCAA, Histórico. |
-
-### Estado Actual del Temario (Ejemplo: Pinche de Cocina)
-
-#### PARTE GENERAL (Temas 1–6)
-| Tema | Título | Estado |
-|------|--------|--------|
-| Tema 1 | La Constitución Española de 1978 | ✅ |
-| Tema 2 | Estatuto de Autonomía de CLM | ✅ |
-| Tema 3 | Ley General de Sanidad y SESCAM | ✅ |
-| Tema 4 | Ley de Ordenación Sanitaria de CLM | ✅ |
-| Tema 5 | Estatuto Marco del Personal Estatutario | ✅ |
-| Tema 6 | Régimen Jurídico del Personal Estatutario | 🔜 |
-
-#### PARTE ESPECÍFICA (Temas 7–16)
-| Tema | Título | Estado |
-|------|--------|--------|
-| Tema 8 | Ley de Prevención de Riesgos Laborales | ✅ (83 prev.) |
-| Tema 9 | La Atención Primaria de Salud | ✅ (60 prev.) |
-| Tema 10 | La Asistencia Especializada | ✅ (65 prev.) |
-| Resto | Cocina, Alimentación, APPCC, Autoprotección… | 🔜 |
+| **Academia** | Preguntas desglosadas por tema. |
+| **Exámenes Oficiales** | OPE SESCAM 2026, 2024, 2020 (ordinario/extraordinario) e histórico. |
 
 ---
 
 ## 🏗️ Arquitectura y puesta en marcha
 
-Frontend **100% estático** (ES Modules, sin build) servido por cualquier servidor
-estático. Los datos y el acceso se apoyan en Supabase:
+Frontend **100% estático** (módulos ES, sin build) servido por cualquier servidor
+estático (GitHub Pages, Cloudflare Pages…). El acceso y los datos se apoyan en
+Supabase:
 
 ```
-navegador ── checkAuth ─────────► usuarios_acceso (licencia, límite 2 dispositivos)
+navegador ── Auth.checkAuth ──► usuarios_acceso (licencia · límite 2 dispositivos)
    │
-   └────── POST {bank,user} ─────► Edge Function get-bank ──► bucket PRIVADO "preguntas"
+   └────── POST {bank,user} ───► Edge Function get-bank ──► bucket PRIVADO "preguntas"
 ```
 
 - **Licencia:** 2 dispositivos por código. El overlay no se oculta hasta `onSuccess`.
-- **Preguntas:** no están en el repo. Se guardan en un bucket privado y las sirve
-  `get-bank`, que valida la licencia server-side. Sin Supabase no hay preguntas.
-- **Detalles y puesta en marcha:** ver [`LICENCIAS.md`](LICENCIAS.md) §9.
+- **Preguntas:** no están en el repo. Viven en un bucket privado y las sirve
+  `get-bank`, que valida la licencia en el servidor. Sin Supabase no hay preguntas
+  (se muestra un aviso claro, nunca un fallo silencioso).
+- **Detalles de seguridad y despliegue:** ver [`LICENCIAS.md`](LICENCIAS.md) §9.
 
 ### Desarrollo local
 
@@ -83,31 +71,53 @@ navegador ── checkAuth ─────────► usuarios_acceso (licen
 python -m http.server 8000      # o Live Server
 ```
 
-Para subir/restaurar los bancos (necesita `.env` con `SUPABASE_SERVICE_ROLE_KEY`):
+### Backend (una sola vez)
+
+Con un `.env` en la raíz (`SUPABASE_URL` + `SUPABASE_SERVICE_ROLE_KEY`):
+
+```bash
+node scripts/deploy_backend.js    # sube los bancos y despliega get-bank
+```
+
+O por separado:
 
 ```bash
 node scripts/upload_banks.js      # data/*.json → bucket privado
+supabase functions deploy get-bank --no-verify-jwt --project-ref <ref>
 node scripts/download_banks.js    # bucket privado → data/ (clon limpio)
 ```
 
-Comprobaciones antes de subir cambios:
+### Comprobaciones antes de subir cambios
 
 ```bash
-node scripts/verify_refs.js
-node scripts/test_storage.js
-node scripts/test_fullview.js
-node scripts/test_data_loader.js
+node scripts/verify_refs.js        # estático (HTML/CSS/ids/tokens/versión…)
+node scripts/test_storage.js       # aislamiento por usuario+rol · export/import
+node scripts/test_fullview.js      # vista completa en sus 3 modos
+node scripts/test_data_loader.js   # carga de bancos y validación
+node scripts/test_game_flow.js     # flujo normal de test (nota, récords…)
 ```
 
 ---
 
-## 🔒 Reglas de Oro (Seguridad y Sincronización)
+## 📖 Documentación
 
-Para evitar regresiones en futuras actualizaciones, se deben respetar estos pilares:
+| Documento | Contenido |
+|-----------|-----------|
+| [`AGENTS.md`](AGENTS.md) | Instrucciones para agentes/IA: reglas, arquitectura y prevención de regresiones. |
+| [`LICENCIAS.md`](LICENCIAS.md) | Límite de dispositivos, riesgos, RPC no aplicada, rotación de claves y bancos por Supabase. |
+| [`AUDITORIA.md`](AUDITORIA.md) | Estado de la auditoría y correcciones aplicadas. |
 
-1.  **Validación de Dispositivo Obligatoria**: No se debe ocultar el `access-overlay` hasta que `Auth.checkAuth` devuelva `onSuccess`.
-2.  **Lógica de Auto-Recuperación (Self-Healing)**: El sistema no confía solo en el `localStorage`. Si el contador de la DB es incoherente (ej. tras un reseteo manual), el código consulta el historial de `access_logs` para detectar cambios de hardware y reparar el contador automáticamente.
-3.  **Aislamiento de Progreso**: Las claves de `localStorage` para resultados deben seguir el patrón `{prefijo}_{tema}_{bloque}` para asegurar que el "Progreso en Cascada" funcione por agregación de prefijos.
+---
+
+## 🔒 Reglas de oro (seguridad y sincronización)
+
+1. **Validación de dispositivo obligatoria:** no ocultar `#access-overlay` hasta
+   que `Auth.checkAuth` devuelva `onSuccess`.
+2. **Aislamiento de progreso:** las claves de `localStorage` para resultados
+   siguen el patrón `{prefijo}_{tema}_{bloque}` para que el progreso en cascada
+   funcione por agregación de prefijos.
+3. **La `service_role` nunca toca el frontend:** vive solo en la Edge Function y
+   en el `.env` local de los scripts.
 
 ---
 

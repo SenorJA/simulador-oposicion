@@ -891,6 +891,7 @@ h1 {
 
 .table-container {
     overflow-y: auto;
+    overflow-x: auto;
     border: 1px solid var(--border-soft);
     border-radius: var(--radius-sm);
 }
@@ -1846,6 +1847,58 @@ h1 {
     .mode-grid {
         grid-template-columns: 1fr;
     }
+
+    /* Cabecera del test: se envuelve y la barra de progreso ocupa su propia línea */
+    .game-header {
+        flex-wrap: wrap;
+        row-gap: 8px;
+    }
+
+    .progress-container {
+        order: 20;
+        flex-basis: 100%;
+        margin: 0;
+    }
+
+    .counters {
+        margin-left: auto;
+    }
+
+    /* Los ajustes del simulacro se apilan */
+    .setting-row {
+        flex-wrap: wrap;
+    }
+
+    .setting-row .select-inline {
+        width: 100%;
+    }
+
+    .container {
+        padding: 14px;
+    }
+
+    /* Los botones de resultados ocupan todo el ancho */
+    .results-review-row {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    .header-left h1 {
+        font-size: 1.25rem;
+    }
+
+    .card {
+        padding: 20px;
+    }
+
+    #resultado-porcentaje {
+        font-size: 2rem;
+    }
 }
 
 @media (max-width: 400px) {
@@ -1857,6 +1910,11 @@ h1 {
     .badge-record {
         font-size: 0.7rem;
         padding: 2px 6px;
+    }
+
+    .game-timer {
+        font-size: 0.85rem;
+        margin: 0 6px;
     }
 }
 

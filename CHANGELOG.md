@@ -5,6 +5,16 @@ formato de [Keep a Changelog](https://keepachangelog.com/es/1.0.0/) y versionado
 semántico (`MAJOR.MINOR.PATCH`). La fuente única de la versión es
 `CONFIG.APP_VERSION` en `src/js/modules/config.js`.
 
+## [1.36.0] — 2026-10-01
+### Mejorado
+- **Responsive móvil reforzado** (para usarla en el móvil con comodidad):
+  - La **cabecera del test** se envuelve y la **barra de progreso ocupa su propia
+    línea** (antes se apretaba todo en una fila).
+  - **Títulos y tarjetas** se ajustan en pantallas pequeñas (h1 y padding).
+  - Los **ajustes del simulacro** se apilan a ancho completo.
+  - La **tabla de administración** tiene scroll horizontal.
+  - Los **botones de resultados** pasan a ancho completo en móvil.
+
 ## [1.35.2] — 2026-10-01
 ### Corregido
 - **La categoría (Pinche/Celador) ya no salta al recargar.** La sincronización

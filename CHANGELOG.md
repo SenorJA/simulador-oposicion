@@ -5,6 +5,12 @@ formato de [Keep a Changelog](https://keepachangelog.com/es/1.0.0/) y versionado
 semántico (`MAJOR.MINOR.PATCH`). La fuente única de la versión es
 `CONFIG.APP_VERSION` en `src/js/modules/config.js`.
 
+## [1.19.3] — 2026-10-01
+### Cambiado
+- Las tarjetas pasan de blanco puro a **gris muy claro (`#F1F5F9`)** para no
+  verse tan planas, manteniendo el texto oscuro y el fondo oscuro. Es un único
+  token (`--card-bg`), fácil de revertir a blanco.
+
 ## [1.19.2] — 2026-10-01
 ### Corregido
 - **Texto invisible dentro de las tarjetas blancas**: al poner el color del

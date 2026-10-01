@@ -26,8 +26,8 @@
     --app-text: #f1f5f9;
     --app-text-light: #cbd5e1;
 
-    /* Tarjetas blancas sólidas + texto dentro de ellas */
-    --card-bg: #ffffff;
+    /* Tarjetas gris muy claro (rompe el blanco plano) + texto oscuro dentro */
+    --card-bg: #F1F5F9;
     --text: #111827;
     --text-light: #374151;
     --text-muted: #4b5563;
@@ -376,7 +376,7 @@ h1 {
 }
 
 .source-card {
-    background: white;
+    background: var(--card-bg);
     color: var(--text);
     padding: 15px;
     border-radius: var(--radius-lg);
@@ -916,7 +916,7 @@ h1 {
 .btn-grid-number {
     aspect-ratio: 1/1;
     border: 2px solid var(--border);
-    background: white;
+    background: var(--card-bg);
     color: var(--text);
     border-radius: var(--radius-sm);
     font-weight: bold;

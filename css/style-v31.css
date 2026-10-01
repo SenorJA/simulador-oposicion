@@ -1410,6 +1410,24 @@ h1 {
     margin: 0 0 1rem;
 }
 
+/* Panel de administración */
+.admin-sep td {
+    font-weight: bold;
+    text-align: center;
+    color: var(--primary);
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.admin-count {
+    text-align: center;
+    font-weight: bold;
+}
+
+.admin-log {
+    font-size: 0.8rem;
+}
+
 .exam-breakdown {
     background: rgba(255, 255, 255, 0.04);
     padding: 15px;

@@ -15,8 +15,12 @@ evitar regresiones, saltos de seguridad y corrupción de estado.
   cambia el shell.
 
 ## 🔒 Seguridad, licencias y acceso a datos (ESTRICTO)
-- **Bloqueo de licencia:** Supabase aplica el límite de 2 dispositivos
-  (tablas `usuarios_acceso` y `access_logs`).
+- **Bloqueo de licencia:** límite de 2 dispositivos **atómico y server-side**
+  (RPC `registrar_dispositivo` sobre la tabla `dispositivos`, llamada desde
+  `login`). Tablas: `usuarios_acceso`, `access_logs`, `dispositivos`.
+- **RLS activo, sin políticas:** el navegador NO lee ni escribe esas tablas con
+  la clave pública; todo pasa por las Edge Functions (`login`, `get-bank`,
+  `admin-logs`) con la `service_role`. SQL: `supabase/sql/rls_and_devices.sql`.
 - **Login:** usuario + contraseña se validan en la Edge Function `login` (PBKDF2,
   **en el servidor**), que devuelve un **token firmado** (HMAC). Ese token es el
   que exige `get-bank`: conocer solo el código de usuario ya no basta. Las

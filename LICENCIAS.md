@@ -125,7 +125,13 @@ resetear `dispositivos_usados` a mano desde el panel de Supabase.
 
 ---
 
-## 5. La solución real: RPC transaccional (NO aplicada)
+## 5. RPC transaccional de dispositivos (APLICADA)
+
+> **Estado: APLICADA.** La RPC `registrar_dispositivo` está en
+> `supabase/sql/rls_and_devices.sql` y la llama la Edge Function `login`. Con
+> `for update` sobre la fila del usuario, dos navegadores a la vez **no pueden
+> superar el límite**. Los riesgos 1 y 2 (carrera y contador en el cliente)
+> quedan resueltos.
 
 Los riesgos 1 y 2 se resuelven moviendo el contador a una función de base de
 datos. La app ya llama a Supabase; una RPC elimina la carrera y quita al cliente
@@ -288,10 +294,10 @@ Si no se usan, borrarlos.
    `curl -H "apikey: VIEJA" https://<ref>.supabase.co/rest/v1/` → `401`.
 
 **C) Cerrar el agujero de verdad (RLS).** Table Editor → `usuarios_acceso` y
-`access_logs` → comprobar el badge **RLS**. Si está *disabled*, cualquiera con
-la clave pública lee y modifica licencias. Activar RLS sin más **rompe la app**
-(el cliente hace `UPDATE dispositivos_usados` directo); la vía limpia es la RPC
-de §5, que exige tocar `auth.js`.
+`access_logs` → comprobar el badge **RLS**. *Aplicado*: RLS está activo en
+`usuarios_acceso`, `access_logs` y `dispositivos`, **sin políticas**, así que la
+clave pública no lee ni escribe; todo pasa por las Edge Functions (`login`,
+`get-bank`, `admin-logs`) con la `service_role`. SQL: `supabase/sql/rls_and_devices.sql`.
 
 ### Nota operativa
 
@@ -321,6 +327,11 @@ app guarda el token y pide los bancos:
   vive en `usuarios_acceso.password_hash`
   (`pbkdf2$100000$saltB64$hashB64`).
 - El token viaja en el **cuerpo** de la petición, nunca en la URL.
+- **RLS activo**: el navegador no puede leer ni escribir las tablas con la clave
+  pública. El panel de administración usa la Edge Function `admin-logs`, que solo
+  responde a un usuario con `es_admin = true` (comprobado server-side).
+- El **registro del dispositivo** (límite 2) también es server-side, atómico
+  (§5).
 - `get-bank` **exige token**: conocer solo el usuario ya no sirve para descargar.
 - `data/` está en `.gitignore`: es copia local para subir y testear.
 - La `service_role` solo existe en el entorno de las funciones y en el `.env`.

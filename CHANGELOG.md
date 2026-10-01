@@ -5,6 +5,22 @@ formato de [Keep a Changelog](https://keepachangelog.com/es/1.0.0/) y versionado
 semántico (`MAJOR.MINOR.PATCH`). La fuente única de la versión es
 `CONFIG.APP_VERSION` en `src/js/modules/config.js`.
 
+## [1.22.0] — 2026-10-01
+### Añadido
+- **RLS activo** en `usuarios_acceso`, `access_logs` y `dispositivos` (sin
+  políticas): la clave pública ya no puede leer ni escribir las tablas con el
+  navegador.
+- **Límite de 2 dispositivos server-side y atómico**: RPC `registrar_dispositivo`
+  (tabla `dispositivos`, `for update`) llamada desde `login`. Arregla la carrera
+  que permitía colar un tercer dispositivo.
+- Nueva Edge Function **`admin-logs`**: el panel de administración pide los datos
+  al servidor y solo responde a un usuario con `es_admin = true`.
+- SQL: `supabase/sql/rls_and_devices.sql`; columna `usuarios_acceso.es_admin`.
+### Cambiado
+- `auth.js` ya **no toca las tablas**: solo habla con `login`. El dispositivo se
+  registra en el servidor.
+- Eliminada la dependencia del CDN `supabase-js` en `index.html` (ya no se usa).
+
 ## [1.21.2] — 2026-10-01
 ### Añadido
 - **Ojo para ver/ocultar la contraseña** en el formulario de acceso.

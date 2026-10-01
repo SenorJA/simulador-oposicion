@@ -104,7 +104,6 @@ export function clearHistory() {
 
 // ── User / Device ─────────────────────────────────────────────────────────────
 
-export function getSavedUser() { return localStorage.getItem(KEYS.USER_ACCESS); }
 export function saveUser(id) { localStorage.setItem(KEYS.USER_ACCESS, id); }
 /** Olvida el usuario y su token (para "Cambiar de usuario") sin tocar el device id. */
 export function forgetUser() {
@@ -138,11 +137,6 @@ export function getRememberedUser() { return localStorage.getItem(REMEMBER_KEY);
 export function setRememberedUser(user) {
     if (user) localStorage.setItem(REMEMBER_KEY, user);
     else localStorage.removeItem(REMEMBER_KEY);
-}
-export function clearUser() {
-    localStorage.removeItem(KEYS.USER_ACCESS);
-    localStorage.removeItem(KEYS.DEVICE_ID);
-    localStorage.removeItem(KEYS.DEVICE_REGISTERED);
 }
 
 // ── Última categoría elegida (preferencia por usuario, no por rol) ────────────

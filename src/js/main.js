@@ -11,6 +11,8 @@ import * as Game from './modules/game.js';
 import { state } from './modules/state.js';
 import { CONFIG } from './modules/config.js';
 
+let currentUserId = '';
+
 document.addEventListener('DOMContentLoaded', () => {
     // ── Tema (claro/oscuro) recordado en el navegador ──────────────────────
     initTheme();
@@ -117,6 +119,7 @@ function handleAuthSuccess(_userData, _currentDevices, _maxDevices) {
     if (msgEl) msgEl.innerText = 'Cargando preguntas…';
 
     const isAdmin = (_userData.id_acceso === CONFIG.ADMIN_USER);
+    currentUserId = _userData.id_acceso;
     UI.toggleEl('btn-admin-panel', isAdmin);
     console.log(`[AUTH] User: ${_userData.id_acceso} | Admin: ${isAdmin}`);
 
@@ -646,12 +649,7 @@ function setupEventListeners() {
             showToast('Progreso borrado ✓');
         }
     });
-    on('btn-export-data', 'click', exportProgress);
-    on('btn-import-data', 'click', () => {
-        const input = document.getElementById('import-file');
-        if (input) input.click();
-    });
-    on('import-file', 'change', (e) => importProgressFile(e.target.files && e.target.files[0]));
+    on('btn-export-data', 'click', exportResultsPdf);
 
     // ── Game controls ──
     on('btn-quit-game', 'click', () => {
@@ -890,9 +888,8 @@ function escapeHtml(s) {
 }
 
 /** Estadísticas de dominio por tema (fallos pendientes / total). */
-function renderTopicStats() {
-    const cont = document.getElementById('topic-stats');
-    if (!cont) return;
+/** Acierto y fallos agrupados por fuente (origen del banco). */
+function computeBySource() {
     const failed = new Set(Storage.getFailedIds());
     const grupos = {};
     for (const q of state.allQuestions) {
@@ -901,8 +898,14 @@ function renderTopicStats() {
         g.total++;
         if (failed.has(q.id)) g.fallidas++;
     }
-    const filas = Object.entries(grupos)
-        .map(([n, g]) => ({ n, total: g.total, fallidas: g.fallidas }))
+    return Object.entries(grupos).map(([n, g]) => ({ n, total: g.total, fallidas: g.fallidas }));
+}
+
+function renderTopicStats() {
+    const cont = document.getElementById('topic-stats');
+    if (!cont) return;
+
+    const filas = computeBySource()
         .filter(f => f.fallidas > 0)
         .sort((a, b) => b.fallidas - a.fallidas);
 
@@ -985,39 +988,60 @@ function renderStatsSummary() {
         ${history.length ? `<div class="stat-chart">${barras}</div><p class="setting-hint">Evolución de los últimos ${history.length} test${history.length === 1 ? '' : 's'}</p>` : ''}`;
 }
 
-/** Descarga el progreso del usuario actual como archivo JSON. */
-function exportProgress() {
-    const data = Storage.exportUserData();
-    const payload = JSON.stringify({ app: 'ope-sescam', version: 1, data }, null, 2);
-    const url = URL.createObjectURL(new Blob([payload], { type: 'application/json' }));
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = `ope-sescam-progreso-${new Date().toISOString().slice(0, 10)}.json`;
-    document.body.appendChild(a);
-    a.click();
-    a.remove();
-    URL.revokeObjectURL(url);
-    showToast('Progreso exportado ✓');
-}
+/**
+ * Genera un informe de resultados en PDF (abre la impresión → “Guardar como PDF”).
+ * Solo incluye notas y estadísticas: NUNCA el texto de las preguntas.
+ */
+function exportResultsPdf() {
+    const history = Storage.getHistory();
+    const totalResp = Storage.getAnsweredTotal();
+    const racha = Storage.getStreak();
+    const fallos = Storage.getFailedIds().length;
+    const dudosas = Storage.getDudosas().length;
+    const fuentes = computeBySource().filter(f => f.fallidas > 0).sort((a, b) => b.fallidas - a.fallidas);
 
-/** Restaura el progreso desde un archivo JSON exportado. */
-function importProgressFile(file) {
-    if (!file) return;
-    const reader = new FileReader();
-    reader.onload = () => {
-        try {
-            const parsed = JSON.parse(reader.result);
-            const data = parsed && parsed.data ? parsed.data : parsed;
-            const n = Storage.importUserData(data);
-            if (n === 0) { alert('El archivo no contiene datos válidos para este usuario.'); return; }
-            showToast(`Progreso importado (${n}) ✓`);
-            UI.updateFailureBadge(Storage.getFailedIds().length);
-            showProgress();
-        } catch {
-            alert('No se pudo leer el archivo de progreso.');
-        }
-    };
-    reader.readAsText(file);
+    const filasHist = history.length
+        ? history.map(h => `<tr><td>${escapeHtml(h.date)}</td><td>${escapeHtml(h.topic)}</td><td>${h.score}/${h.total} (${h.pct}%)</td></tr>`).join('')
+        : '<tr><td colspan="3">Sin tests registrados.</td></tr>';
+    const filasFuente = fuentes.length
+        ? fuentes.map(f => `<tr><td>${escapeHtml(f.n)}</td><td>${f.fallidas}</td></tr>`).join('')
+        : '<tr><td colspan="2">Sin fallos pendientes.</td></tr>';
+
+    const html = `<!doctype html><html lang="es"><head><meta charset="utf-8">
+      <title>Informe de resultados — OPE SESCAM</title>
+      <style>
+        body { font-family: system-ui, -apple-system, sans-serif; color: #111827; padding: 28px; }
+        h1 { font-size: 1.3rem; margin: 0 0 4px; }
+        .sub { color: #6b7280; font-size: .85rem; margin-bottom: 18px; }
+        h2 { font-size: 1rem; margin: 22px 0 6px; }
+        table { width: 100%; border-collapse: collapse; font-size: .85rem; }
+        th, td { border-bottom: 1px solid #e5e7eb; padding: 6px 8px; text-align: left; }
+        .kpis { display: flex; gap: 14px; margin-top: 12px; flex-wrap: wrap; }
+        .kpi { border: 1px solid #e5e7eb; border-radius: 10px; padding: 10px 14px; min-width: 110px; }
+        .kpi b { display: block; font-size: 1.4rem; }
+      </style></head><body>
+      <h1>Simulador Oposiciones SESCAM — Informe de resultados</h1>
+      <div class="sub">Usuario: ${escapeHtml(currentUserId)} · ${new Date().toLocaleString('es-ES')} · categoría: ${escapeHtml(state.currentRole)}</div>
+      <div class="kpis">
+        <div class="kpi"><b>${totalResp}</b>respondidas</div>
+        <div class="kpi"><b>${racha}</b>días seguidos</div>
+        <div class="kpi"><b>${fallos}</b>fallos pendientes</div>
+        <div class="kpi"><b>${dudosas}</b>dudosas</div>
+      </div>
+      <h2>Fallos pendientes por fuente</h2>
+      <table><thead><tr><th>Fuente</th><th>Fallos</th></tr></thead><tbody>${filasFuente}</tbody></table>
+      <h2>Historial de tests</h2>
+      <table><thead><tr><th>Fecha</th><th>Test</th><th>Nota</th></tr></thead><tbody>${filasHist}</tbody></table>
+      <p class="sub">Nota: este informe contiene resultados, no el contenido de las preguntas.</p>
+      </body></html>`;
+
+    const w = window.open('', '_blank');
+    if (!w) { alert('Permite las ventanas emergentes para generar el PDF.'); return; }
+    w.document.open();
+    w.document.write(html);
+    w.document.close();
+    w.focus();
+    setTimeout(() => w.print(), 300);
 }
 
 // ── Admin panel ────────────────────────────────────────────────────────────

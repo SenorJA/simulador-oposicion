@@ -5,6 +5,14 @@ formato de [Keep a Changelog](https://keepachangelog.com/es/1.0.0/) y versionado
 semántico (`MAJOR.MINOR.PATCH`). La fuente única de la versión es
 `CONFIG.APP_VERSION` en `src/js/modules/config.js`.
 
+## [1.31.0] — 2026-10-01
+### Cambiado
+- **“Exportar resultados (PDF)”** sustituye al export JSON: genera un informe de
+  resultados (notas, actividad, fallos por fuente) **sin incluir el texto de las
+  preguntas** (ventana de impresión → Guardar como PDF).
+- **Eliminado “Importar progreso”**: la sincronización entre dispositivos ya
+  cubre la restauración.
+
 ## [1.30.0] — 2026-10-01
 ### Añadido
 - **Listado de dudosas** en “Mi Progreso”, con opción de **quitar** cada una

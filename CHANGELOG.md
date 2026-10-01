@@ -5,6 +5,19 @@ formato de [Keep a Changelog](https://keepachangelog.com/es/1.0.0/) y versionado
 semántico (`MAJOR.MINOR.PATCH`). La fuente única de la versión es
 `CONFIG.APP_VERSION` en `src/js/modules/config.js`.
 
+## [1.21.2] — 2026-10-01
+### Añadido
+- **Ojo para ver/ocultar la contraseña** en el formulario de acceso.
+- **Casilla “Recordar usuario”**: si está marcada, recuerda el nombre de usuario
+  (nunca la contraseña) y mantiene la sesión persistente; si se desmarca, la
+  sesión dura solo la pestaña y no se guarda el usuario.
+
+## [1.21.1] — 2026-10-01
+### Corregido
+- **Service worker**: pasaba por la caché HTTP del navegador y podía servir el
+  frontend antiguo tras un despliegue (causaba `401` al pedir los bancos). Ahora
+  usa `cache: 'no-store'` (red siempre fresca) y `CACHE` sube a `v2`.
+
 ## [1.21.0] — 2026-10-01
 ### Añadido
 - **Login con usuario + contraseña** validados en el servidor:

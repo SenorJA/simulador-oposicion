@@ -109,13 +109,36 @@ export function saveUser(id) { localStorage.setItem(KEYS.USER_ACCESS, id); }
 /** Olvida el usuario y su token (para "Cambiar de usuario") sin tocar el device id. */
 export function forgetUser() {
     localStorage.removeItem(KEYS.USER_ACCESS);
-    localStorage.removeItem(KEYS.TOKEN);
+    forgetToken();
 }
 
 // ── Token de sesión (emitido por la Edge Function `login`) ───────────────────
-export function getToken() { return localStorage.getItem(KEYS.TOKEN); }
-export function setToken(token) { if (token) localStorage.setItem(KEYS.TOKEN, token); }
-export function forgetToken() { localStorage.removeItem(KEYS.TOKEN); }
+export function getToken() {
+    return localStorage.getItem(KEYS.TOKEN) || sessionStorage.getItem(KEYS.TOKEN);
+}
+/** `remember` = true → sesión persistente; false → solo dura la pestaña. */
+export function setToken(token, remember = true) {
+    if (!token) return;
+    if (remember) {
+        localStorage.setItem(KEYS.TOKEN, token);
+        sessionStorage.removeItem(KEYS.TOKEN);
+    } else {
+        sessionStorage.setItem(KEYS.TOKEN, token);
+        localStorage.removeItem(KEYS.TOKEN);
+    }
+}
+export function forgetToken() {
+    localStorage.removeItem(KEYS.TOKEN);
+    sessionStorage.removeItem(KEYS.TOKEN);
+}
+
+// ── Usuario recordado (solo el nombre; NUNCA la contraseña) ──────────────────
+const REMEMBER_KEY = 'ope_remember_user';
+export function getRememberedUser() { return localStorage.getItem(REMEMBER_KEY); }
+export function setRememberedUser(user) {
+    if (user) localStorage.setItem(REMEMBER_KEY, user);
+    else localStorage.removeItem(REMEMBER_KEY);
+}
 export function clearUser() {
     localStorage.removeItem(KEYS.USER_ACCESS);
     localStorage.removeItem(KEYS.DEVICE_ID);

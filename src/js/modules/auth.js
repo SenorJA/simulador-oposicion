@@ -134,13 +134,14 @@ async function finalizeAccess(data, { onSuccess, onDenied }) {
 /**
  * Acceso con usuario + contraseña (lo llama el formulario de login).
  */
-export async function loginWithPassword(user, password, { onSuccess, onDenied }) {
+export async function loginWithPassword(user, password, { onSuccess, onDenied, remember = true }) {
     initSupabase();
     if (!state.supabaseClient) { onDenied('Error: Supabase no inicializado.'); return; }
 
     try {
         const j = await callLogin({ user, password });
-        Storage.setToken(j.token);
+        Storage.setToken(j.token, remember);
+        Storage.setRememberedUser(remember ? user : null);
         await finalizeAccess(
             { id_acceso: j.user, nombre: j.nombre || j.user, bloqueado: false, dispositivos_usados: j.dispositivos_usados || 0 },
             { onSuccess, onDenied }

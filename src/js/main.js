@@ -115,14 +115,16 @@ function handleAuthSuccess(_userData, _currentDevices, _maxDevices) {
     });
 }
 
-/** Rellena el usuario desde ?user= en la URL (compatibilidad) y limpia la URL. */
+/** Rellena el usuario desde ?user= o desde el recordado, y limpia la URL. */
 function prefillUserFromUrl() {
+    const input = document.getElementById('access-code-input');
+    const password = document.getElementById('access-password-input');
     const params = new URLSearchParams(window.location.search);
     const urlUser = params.get('user');
-    if (!urlUser) return;
-    const input = document.getElementById('access-code-input');
-    if (input) input.value = urlUser;
-    window.history.replaceState({}, document.title, window.location.pathname);
+
+    if (input) input.value = urlUser || Storage.getRememberedUser() || '';
+    if (urlUser) window.history.replaceState({}, document.title, window.location.pathname);
+    if (input && input.value && password) password.focus();
 }
 
 /**
@@ -249,7 +251,21 @@ function setupLoginForm() {
     const input = document.getElementById('access-code-input');
     const password = document.getElementById('access-password-input');
     const btn = document.getElementById('btn-access-retry');
+    const toggle = document.getElementById('btn-toggle-password');
+    const remember = document.getElementById('access-remember');
     if (!input || !password || !btn) return;
+
+    // Ojo: ver / ocultar contraseña
+    if (toggle) {
+        toggle.addEventListener('click', () => {
+            const ver = password.type === 'password';
+            password.type = ver ? 'text' : 'password';
+            toggle.setAttribute('aria-pressed', String(ver));
+            toggle.setAttribute('aria-label', ver ? 'Ocultar contraseña' : 'Mostrar contraseña');
+            toggle.textContent = ver ? '🙈' : '👁️';
+            password.focus();
+        });
+    }
 
     const submit = async () => {
         const user = input.value.trim();
@@ -264,7 +280,8 @@ function setupLoginForm() {
 
         await Auth.loginWithPassword(user, password.value, {
             onDenied: handleAuthDenied,
-            onSuccess: handleAuthSuccess
+            onSuccess: handleAuthSuccess,
+            remember: remember ? remember.checked : true
         });
         btn.disabled = false;
     };

@@ -5,6 +5,17 @@ formato de [Keep a Changelog](https://keepachangelog.com/es/1.0.0/) y versionado
 semántico (`MAJOR.MINOR.PATCH`). La fuente única de la versión es
 `CONFIG.APP_VERSION` en `src/js/modules/config.js`.
 
+## [1.19.1] — 2026-10-01
+### Cambiado
+- **Desglose de puntuación del examen con cada línea coloreada y legible**:
+  - `Aciertos: N` en verde oscuro (`#15803d`).
+  - `Errores: N (-0.33 c/u)` en rojo oscuro (`#b91c1c`).
+  - `Blancas: N` en gris oscuro.
+  - `Puntuación neta` en gris nítido y seminegrita.
+  - `Nota Final (0–10)` en teal oscuro (token `--primary-dark`).
+  - Fórmula final en gris oscuro.
+- La nota del examen (`0.00 / N pts`) usa teal de alto contraste en ambas partes.
+
 ## [1.19.0] — 2026-10-01
 ### Cambiado
 - **Nueva paleta de alto contraste**: fondo general oscuro (slate) con

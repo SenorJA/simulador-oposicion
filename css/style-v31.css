@@ -703,7 +703,7 @@ h1 {
 
 .score-circle .total {
     font-size: 1.5rem;
-    color: var(--text-muted);
+    color: var(--primary);
 }
 
 /* ── 12. SELECCIÓN DE MODO ─────────────────────────────────────────────── */
@@ -1321,10 +1321,24 @@ h1 {
     line-height: 1.8;
 }
 
+.exam-breakdown .eb-ok {
+    color: #15803d;
+}
+
+.exam-breakdown .eb-err {
+    color: #b91c1c;
+}
+
+.exam-breakdown .eb-blank {
+    color: var(--text-muted);
+}
+
 .exam-breakdown .eb-total {
     margin-top: 8px;
     border-top: 1px solid var(--border-strong);
     padding-top: 6px;
+    color: var(--text);
+    font-weight: 600;
 }
 
 .exam-breakdown .eb-final {

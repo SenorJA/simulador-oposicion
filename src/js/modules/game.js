@@ -483,9 +483,9 @@ function finishGame() {
             <div class="exam-breakdown">
               <h4>📊 Desglose de Puntuación</h4>
               <ul>
-                <li>✅ <strong>Aciertos:</strong> ${aciertos}</li>
-                <li>❌ <strong>Errores:</strong> ${fallos} <span class="score-bad">(-0.33 c/u)</span></li>
-                <li>⚪ <strong>Blancas:</strong> ${blancos}</li>
+                <li class="eb-ok">✅ <strong>Aciertos:</strong> ${aciertos}</li>
+                <li class="eb-err">❌ <strong>Errores:</strong> ${fallos} <span>(-0.33 c/u)</span></li>
+                <li class="eb-blank">⚪ <strong>Blancas:</strong> ${blancos}</li>
                 <li class="eb-total"><strong>Puntuación neta:</strong> ${aciertos} - ${(fallos / 3).toFixed(2)} = <strong>${finalScore.toFixed(2)}</strong></li>
                 <li class="eb-final"><strong>Nota Final (0–10): ${notaNumerica.toFixed(2)}</strong></li>
               </ul>

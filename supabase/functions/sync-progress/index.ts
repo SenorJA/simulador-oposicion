@@ -39,8 +39,9 @@ function mergeValue(key: string, a: string, b: string): string {
     const B = safeJson(b);
 
     if (key.endsWith('ope_failed_ids') || key.endsWith('ope_dudosas')) {
-        const set = new Set([...(Array.isArray(A) ? A : []), ...(Array.isArray(B) ? B : [])]);
-        return JSON.stringify([...set]);
+        // Conjuntos que se pueden añadir Y quitar: gana el último estado enviado
+        // (si se unieran, los borrados se restaurarían al recargar).
+        return JSON.stringify(Array.isArray(B) ? B : []);
     }
     if (key.includes('simulador_sescam_records')) {
         const out: Record<string, number> = { ...(A || {}) };

@@ -47,6 +47,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // ── Helpers ────────────────────────────────────────────────────────────────
 
+let syncDebounce = null;
+/** Programa un envío inmediato (debounced) del progreso al servidor. */
+function scheduleSync() {
+    clearTimeout(syncDebounce);
+    syncDebounce = setTimeout(() => syncProgress(), 700);
+}
+
 /** Actualiza el contador de preguntas marcadas como dudosas. */
 function updateDudosasBadge() {
     const el = document.getElementById('badge-dudosas');
@@ -61,6 +68,38 @@ function updateStreakChip() {
     const n = Storage.getStreak();
     days.textContent = n;
     chip.classList.toggle('hidden', n < 1);
+}
+
+// ── Gamificación ─────────────────────────────────────────────────────────────
+const FRASES = [
+    '¡Un test más te acerca a la plaza! 🎯',
+    'Constancia y disciplina. ¡A por ello! 💪',
+    'Hoy es buen día para repasar. 📚',
+    'Cada error es un paso hacia el acierto. 🔁',
+    'La plaza es para quien no se rinde. 🏆',
+    'Pequeños avances, gran resultado. 🚀',
+    'Confía en tu preparación. ¡Vas bien! ✨'
+];
+
+function setMotivational() {
+    const el = document.getElementById('motivational');
+    if (!el) return;
+    el.textContent = FRASES[Math.floor(Math.random() * FRASES.length)];
+}
+
+/** Anillo de meta diaria (ej. 3 tests/día) junto a la racha. */
+function updateDailyGoal() {
+    const daily = Storage.getDailyCount();
+    const goal = 3;
+    const fill = document.getElementById('daily-fill');
+    const count = document.getElementById('daily-count');
+    const box = document.getElementById('daily-goal');
+    if (box) box.title = `Meta diaria: ${daily} de ${goal} tests`;
+    if (count) count.textContent = daily;
+    if (fill) {
+        const C = 2 * Math.PI * 15; // circunferencia (r=15)
+        fill.style.strokeDashoffset = String(C * (1 - Math.min(1, daily / goal)));
+    }
 }
 
 /** Aplica y recuerda el tema (claro/oscuro). */
@@ -102,6 +141,7 @@ async function syncProgress(replace = false) {
         UI.updateFailureBadge(Storage.getFailedIds().length);
         updateDudosasBadge();
         updateStreakChip();
+        updateDailyGoal();
         UI.renderizarRecordsMenu();
     } catch { /* offline: se reintentará */ }
 }
@@ -149,6 +189,8 @@ function handleAuthSuccess(_userData, _currentDevices, _maxDevices) {
     const logoutBtn = document.getElementById('btn-logout');
     if (logoutBtn) logoutBtn.classList.remove('hidden');
 
+    setMotivational();
+
     Data.loadAllData().then(questions => {
         if (questions.length === 0) {
             showFatalDataError(Data.getLastLoadReport());
@@ -167,6 +209,7 @@ function handleAuthSuccess(_userData, _currentDevices, _maxDevices) {
         UI.updateFailureBadge(Storage.getFailedIds().length);
         updateDudosasBadge();
         updateStreakChip();
+        updateDailyGoal();
         UI.renderizarRecordsMenu();
         UI.renderizarProgresoGlobal();
         UI.renderizarProgresoExamenes();
@@ -386,6 +429,7 @@ function selectRole(role) {
     UI.updateFailureBadge(Storage.getFailedIds().length);
     updateDudosasBadge();
     updateStreakChip();
+    updateDailyGoal();
     UI.renderizarRecordsMenu();
     UI.renderizarProgresoGlobal();
     UI.renderizarProgresoExamenes();
@@ -440,6 +484,7 @@ function setupEventListeners() {
             Storage.toggleDudosa(b.dataset.dudosaId);
             updateDudosasBadge();
             renderDudosasList();
+            scheduleSync();
         });
     }
     on('btn-clear-dudosas', 'click', () => {
@@ -447,6 +492,7 @@ function setupEventListeners() {
             Storage.clearDudosas();
             updateDudosasBadge();
             renderDudosasList();
+            scheduleSync();
             showToast('Dudosas vaciadas ✓');
         }
     });
@@ -454,6 +500,7 @@ function setupEventListeners() {
         if (confirm('¿Vaciar todas las preguntas falladas?')) {
             Storage.clearFailures();
             UI.updateFailureBadge(0);
+            scheduleSync();
             showProgress(); // re-render inmediato de las listas y stats
             showToast('Fallos vaciados ✓');
         }
@@ -540,6 +587,7 @@ function setupEventListeners() {
             btn.textContent = marcada ? '🔖 Marcada' : '☆ Marcar dudosa';
         }
         updateDudosasBadge();
+        scheduleSync();
         showToast(marcada ? 'Marcada como dudosa 🔖' : 'Desmarcada');
     });
     on('btn-dudosas', 'click', () => {
@@ -789,6 +837,7 @@ function clearFailuresAndRefresh(goToMenu) {
         UI.toggleEl('btn-clear-failures', false);
     }
     checkAndInjectSessionButton();
+    scheduleSync(); // persistir el borrado en el servidor (no se restaura al recargar)
 
     // Refresco reactivo: si el usuario está viendo Mi Progreso, vaciar sus listas
     // (fallos, acierto por fuente) al instante, sin recargar.

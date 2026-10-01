@@ -81,6 +81,7 @@ async function loadGame({ mode = 'training', answers = {}, failed: initialFailed
         isDudosa: () => false,
         incrementAnswered: () => {},
         addAttempt: () => {},
+        registerDailyTest: () => {},
         saveSuspendedSession: () => {},
         clearSuspendedSession: () => {},
         getSuspendedSession: () => null

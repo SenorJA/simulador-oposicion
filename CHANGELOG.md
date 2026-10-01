@@ -5,6 +5,20 @@ formato de [Keep a Changelog](https://keepachangelog.com/es/1.0.0/) y versionado
 semántico (`MAJOR.MINOR.PATCH`). La fuente única de la versión es
 `CONFIG.APP_VERSION` en `src/js/modules/config.js`.
 
+## [1.35.0] — 2026-10-01
+### Corregido
+- **Persistencia al borrar fallos/dudosas**: la sincronización ya no restaura los
+  borrados (fallos y dudosas pasan a “gana el último estado enviado”), y se envía
+  al servidor **en cuanto borras**, así **no reaparecen al recargar (F5)**.
+### Añadido
+- **Micro-interacciones**: tarjetas y opciones con elevación y brillo turquesa al
+  pasar el ratón.
+- **Frase motivacional** aleatoria bajo el título principal.
+- **Confeti** (`canvas-confetti`) al sacar un **10/100%** o un simulacro con
+  nota **≥ 9**.
+- **Meta diaria**: anillo de progreso (3 tests/día) junto a la racha; se registra
+  al terminar cada test.
+
 ## [1.34.1] — 2026-10-01
 ### Corregido
 - **Reactividad al vaciar los fallos**: ahora el borrado refresca **al instante**

@@ -136,6 +136,16 @@ h1 {
     font-size: 1rem;
 }
 
+/* Frase motivacional aleatoria */
+.motivational {
+    text-align: center;
+    color: var(--primary);
+    font-weight: 600;
+    font-size: 0.95rem;
+    margin: 0 0 0.75rem;
+    min-height: 1.4em;
+}
+
 /* ── 5. LAYOUT DE REJILLA ──────────────────────────────────────────────── */
 .menu-grid,
 .topics-wrapper,
@@ -211,9 +221,9 @@ h1 {
 .btn-topic:hover,
 .btn-mode:hover {
     transform: translateY(-5px);
-    border-color: var(--border-strong);
+    border-color: var(--primary);
     background: #2c3346;
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 15px 30px rgba(var(--primary-rgb), 0.28), 0 4px 12px rgba(0, 0, 0, 0.30);
 }
 
 .btn-topic:hover {
@@ -637,10 +647,10 @@ h1 {
 }
 
 .btn-option:hover {
-    border-color: var(--border-strong);
-    background: #2c3346;
+    border-color: var(--primary);
+    background: #f3f4f6;
     transform: translateY(-4px);
-    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.18);
+    box-shadow: 0 12px 25px rgba(var(--primary-rgb), 0.25);
 }
 
 .btn-option:disabled {
@@ -1556,7 +1566,6 @@ h1 {
 
 /* Chip de racha en el menú */
 .streak-chip {
-    margin-left: auto;
     background: rgba(250, 204, 21, 0.20);
     color: #fde68a;
     border: 1px solid rgba(250, 204, 21, 0.4);
@@ -1565,6 +1574,53 @@ h1 {
     font-size: 0.85rem;
     font-weight: 700;
     white-space: nowrap;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-left: auto;
+}
+
+/* Anillo de meta diaria */
+.daily-goal {
+    position: relative;
+    width: 34px;
+    height: 34px;
+    flex-shrink: 0;
+}
+
+.daily-goal svg {
+    display: block;
+    transform: rotate(-90deg);
+}
+
+.daily-bg {
+    fill: none;
+    stroke: var(--border);
+    stroke-width: 3;
+}
+
+.daily-fill {
+    fill: none;
+    stroke: var(--primary);
+    stroke-width: 3;
+    stroke-linecap: round;
+    stroke-dasharray: 94.25;
+    stroke-dashoffset: 94.25;
+    transition: stroke-dashoffset 0.5s ease;
+}
+
+.daily-count {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.72rem;
+    font-weight: 800;
+    color: var(--app-text);
 }
 
 :root[data-theme="light"] .streak-chip {

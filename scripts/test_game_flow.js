@@ -89,6 +89,7 @@ async function loadGame() {
         isDudosa: () => false,
         incrementAnswered: () => {},
         addAttempt: () => {},
+        registerDailyTest: () => {},
         saveSuspendedSession: () => {},
         clearSuspendedSession: () => {},
         getSuspendedSession: () => null,

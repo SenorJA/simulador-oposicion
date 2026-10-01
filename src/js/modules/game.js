@@ -470,6 +470,7 @@ function handleAnswer(selected, q) {
 function finishGame() {
     stopTimer(); // Limpiar timer antes de mostrar resultados
     Storage.clearSuspendedSession();
+    if (state.currentMode !== 'review') Storage.registerDailyTest(); // meta diaria
     const total = state.currentQuestions.length;
     let aciertos = 0, fallos = 0, blancos = 0;
 
@@ -579,6 +580,11 @@ function finishGame() {
         pctEl.className = 'texto-peligro-rojo';
         txtEl.className = 'texto-peligro-rojo';
         txtEl.textContent = 'Duro golpe, pero es solo un simulacro. ¡A seguir estudiando! ☕';
+    }
+
+    // Confeti de recompensa: solo con 100% de aciertos o simulacro con muy buena nota
+    if ((percentage === 100 || (state.currentMode === 'exam' && notaFinalFeed >= 9)) && typeof confetti === 'function') {
+        try { confetti({ particleCount: 130, spread: 85, origin: { y: 0.6 } }); } catch { /* ignore */ }
     }
 
     // Review buttons

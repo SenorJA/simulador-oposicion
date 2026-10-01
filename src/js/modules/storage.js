@@ -92,6 +92,31 @@ export function getStreak() {
     return parseInt(localStorage.getItem(streakKey()) || '0', 10);
 }
 
+// ── Meta diaria (tests completados hoy) ──────────────────────────────────────
+
+const dailyKey = () => userPrefix() + 'ope_daily';
+
+export function getDailyCount() {
+    try {
+        const raw = JSON.parse(localStorage.getItem(dailyKey()));
+        const hoy = new Date().toISOString().slice(0, 10);
+        if (raw && raw.date === hoy) return raw.count || 0;
+    } catch { /* ignore */ }
+    return 0;
+}
+
+export function registerDailyTest() {
+    const hoy = new Date().toISOString().slice(0, 10);
+    let count = 0;
+    try {
+        const raw = JSON.parse(localStorage.getItem(dailyKey()));
+        if (raw && raw.date === hoy) count = raw.count || 0;
+    } catch { /* ignore */ }
+    count += 1;
+    localStorage.setItem(dailyKey(), JSON.stringify({ date: hoy, count }));
+    return count;
+}
+
 // ── Preguntas marcadas como dudosas ──────────────────────────────────────────
 
 export function getDudosas() {

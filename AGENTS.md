@@ -39,9 +39,17 @@ This file provides high-signal context for future OpenCode/AI agent sessions to 
 - When adding a new user-scoped key: add it to `KEYS`, list it in `pk()`, and migrate any legacy unprefixed key lazily inside its getter (adopt the old value into the prefixed key, then delete the old one).
 - Switching roles must refresh any role-scoped UI: call `Storage.setRole(role)` then re-render records/progress/failures.
 
+## 🎨 CSS Structure (single tokenized stylesheet)
+- Everything lives in `css/style-v31.css`, organized by layers: tokens → reset → layout → components → responsive → accessibility.
+- All colors, radii and shadows come from the `:root` token block. Do NOT hardcode a hex that already has a token, and do NOT leave a token defined-but-unused: `verify_refs.js` fails on both (`var(--x)` used but not defined, and defined-but-dead tokens).
+- Never define the same selector twice in the same context (media queries count as a context). Duplicated blocks silently override each other; `verify_refs.js` fails if they reappear.
+- Typography: `Inter` is loaded from Google Fonts in `index.html`. If you change the weights used in CSS, update the font URL too.
+- Accessibility floor (must keep): `:focus-visible` styles for keyboard, `@media (prefers-reduced-motion: reduce)` to calm animations, and **no global `user-select: none`**.
+- The stylesheet is cache-busted as `css/style-v31.css?v=<version>` in `index.html`; bump it with `CONFIG.APP_VERSION`.
+
 ## 🧪 Verification Scripts (run before committing)
 There is no build step, so correctness is checked with these Node scripts (from the repo root):
-- `node scripts/verify_refs.js` — static checks: dead exports, `getElementById` targets present in `index.html`, orphan HTML ids, broken paths, resolved imports, forbidden `?v=` on imports, JSON validity, global ID uniqueness, mojibake, version consistency, and that local `data/*.json` match `BANKS`.
+- `node scripts/verify_refs.js` — static checks: dead exports, `getElementById` targets present in `index.html`, orphan HTML ids, broken paths, resolved imports, forbidden `?v=` on imports, JSON validity, global ID uniqueness, mojibake, version consistency, that local `data/*.json` match `BANKS`, and CSS health (duplicate selectors, undefined/unused tokens, literal escape garbage, reduced-motion and focus-visible present).
 - `node scripts/test_storage.js` — functional test of localStorage isolation between users and roles (needs no deps).
 - `node scripts/test_fullview.js` — functional test of the continuous full view in its 3 modes (loads the real `state.js`, mocks `ui.js`/`storage.js`).
 - `node scripts/test_data_loader.js` — functional test of the loader: mocks `get-bank`, checks the 17 banks, a failing bank, a truncated bank, 5 kinds of invalid question, that the dataset is byte-identical to the recorded SHA-256, and that the license never travels in the URL.

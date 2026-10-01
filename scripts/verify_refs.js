@@ -152,5 +152,62 @@ ok(/function resetFullView\(\)/.test(game) && /resetFullView\(\);\s*\n\s*\n\s*\/
 ok(/if \(fallos > 0\)/.test(game), '"Solo Fallos" solo con fallos reales');
 ok(/secs % 5 === 0/.test(game), 'la sesión se persiste cada 5 s, no cada tick');
 
+console.log('=== 15. CSS: tokens, duplicados y accesibilidad ===');
+// Recorre el CSS llevando la profundidad de llaves para saber el contexto (@media)
+// y detectar selectores repetidos en el MISMO contexto.
+function analizarCss(texto) {
+    const sinComentarios = texto.replace(/\/\*[\s\S]*?\*\//g, '');
+    const porContexto = {};
+    let profundidad = 0;
+    let contexto = '';
+    let buffer = '';
+    const contextos = [];
+    for (let i = 0; i < sinComentarios.length; i++) {
+        const c = sinComentarios[i];
+        if (c === '{') {
+            const preludio = buffer.replace(/\s+/g, ' ').trim();
+            contextos[profundidad] = preludio;
+            if (preludio.startsWith('@')) {
+                contexto = preludio;
+            } else if (preludio) {
+                (porContexto[contexto] = porContexto[contexto] || []).push(preludio);
+            }
+            profundidad++;
+            buffer = '';
+        } else if (c === '}') {
+            profundidad--;
+            contexto = profundidad > 0 ? (contextos[profundidad - 1] || '') : '';
+            if (contexto && !contexto.startsWith('@')) contexto = '';
+            buffer = '';
+        } else {
+            buffer += c;
+        }
+    }
+    return porContexto;
+}
+const cssTexto = r('css/style-v31.css');
+const porContexto = analizarCss(cssTexto);
+const duplicados = [];
+for (const [ctx, lista] of Object.entries(porContexto)) {
+    const cuenta = {};
+    lista.forEach(s => { cuenta[s] = (cuenta[s] || 0) + 1; });
+    Object.entries(cuenta).filter(([, n]) => n > 1).forEach(([s]) => duplicados.push((ctx ? ctx + ' → ' : '') + s));
+}
+ok(duplicados.length === 0, 'sin selectores duplicados en el mismo contexto' + (duplicados.length ? ': ' + duplicados.join(' | ') : ''));
+
+const definidas = new Set([...cssTexto.matchAll(/--([\w-]+)\s*:/g)].map(m => m[1]));
+const usadas = new Set([...cssTexto.matchAll(/var\(--([\w-]+)/g)].map(m => m[1]));
+const sinDefinir = [...usadas].filter(v => !definidas.has(v));
+ok(sinDefinir.length === 0, 'toda var(--x) usada está definida' + (sinDefinir.length ? ': ' + sinDefinir.join(', ') : ''));
+const noUsadas = [...definidas].filter(v => !usadas.has(v));
+ok(noUsadas.length === 0, 'sin tokens definidos y muertos' + (noUsadas.length ? ': ' + noUsadas.join(', ') : ''));
+
+ok(!/\\n/.test(cssTexto), 'sin la secuencia literal \\n suelta');
+ok(!/[ÃÂâ]/.test(cssTexto), 'CSS sin mojibake');
+ok(/prefers-reduced-motion/.test(cssTexto), 'respeta prefers-reduced-motion');
+ok(/:focus-visible/.test(cssTexto), 'foco visible para teclado');
+ok(!/user-select:\s*none/.test(cssTexto), 'no bloquea la selección de texto');
+ok(!/<body[^>]*style=/.test(html), 'el <body> no lleva estilos inline');
+
 console.log('\n' + (fails === 0 ? '✅ TODAS LAS COMPROBACIONES OK' : `❌ ${fails} COMPROBACIONES FALLIDAS`));
 process.exit(fails ? 1 : 0);

@@ -1,4 +1,4 @@
-# 🩺 Simulador Oposiciones SESCAM (v1.19.x)
+# 🩺 Simulador Oposiciones SESCAM (v1.22.x)
 
 Aplicación web avanzada y gamificada para preparar las oposiciones del **SESCAM**
 (Ayudante de Cocina / Pinche, Celador y otras categorías). Diseño *Mobile-First*
@@ -22,6 +22,9 @@ motor de evaluación en tiempo real.
 - **Atajos de teclado**: `1`–`4` para responder, `←`/`→` para navegar.
 - **PWA instalable** (manifest + iconos propios) con arranque offline del shell.
 - **Export/import del progreso** (JSON) para no perderlo al cambiar de navegador.
+- **Acceso seguro**: usuario + contraseña validados **en el servidor**; la
+  licencia (2 dispositivos) y el panel de administración funcionan con **RLS
+  activo** (el navegador no accede a las tablas).
 
 ---
 
@@ -81,7 +84,7 @@ python -m http.server 8000      # o Live Server
 Con un `.env` en la raíz (`SUPABASE_URL` + `SUPABASE_SERVICE_ROLE_KEY`):
 
 ```bash
-node scripts/deploy_backend.js    # sube los bancos y despliega login + get-bank
+node scripts/deploy_backend.js    # sube los bancos y despliega login + get-bank + admin-logs
 node scripts/set_password.js ANA2026 "su-contraseña" --name "Ana"   # alta de usuario
 ```
 
@@ -91,8 +94,12 @@ O por separado:
 node scripts/upload_banks.js      # data/*.json → bucket privado
 supabase functions deploy login --no-verify-jwt --project-ref <ref>
 supabase functions deploy get-bank --no-verify-jwt --project-ref <ref>
+supabase functions deploy admin-logs --no-verify-jwt --project-ref <ref>
 node scripts/download_banks.js    # bucket privado → data/ (clon limpio)
 ```
+
+El SQL de seguridad (contraseñas, tabla de dispositivos y RLS) está en
+`supabase/sql/` y hay que ejecutarlo una vez en el SQL Editor de Supabase.
 
 ### Comprobaciones antes de subir cambios
 
@@ -112,20 +119,21 @@ node scripts/test_game_flow.js     # flujo normal de test (nota, récords…)
 |-----------|-----------|
 | [`CHANGELOG.md`](CHANGELOG.md) | Historial de versiones versionado semánticamente. |
 | [`AGENTS.md`](AGENTS.md) | Instrucciones para agentes/IA: reglas, arquitectura y prevención de regresiones. |
-| [`LICENCIAS.md`](LICENCIAS.md) | Límite de dispositivos, riesgos, RPC no aplicada, rotación de claves y bancos por Supabase. |
+| [`LICENCIAS.md`](LICENCIAS.md) | Límite de dispositivos (RPC atómica), RLS, login con contraseña, rotación de claves y bancos por Supabase. |
 | [`AUDITORIA.md`](AUDITORIA.md) | Estado de la auditoría y correcciones aplicadas. |
 
 ---
 
 ## 🔒 Reglas de oro (seguridad y sincronización)
 
-1. **Validación de dispositivo obligatoria:** no ocultar `#access-overlay` hasta
-   que `Auth.checkAuth` devuelva `onSuccess`.
+1. **Sesión obligatoria:** no ocultar `#access-overlay` hasta que el login
+   (o `Auth.checkAuth` con token) devuelva `onSuccess`.
 2. **Aislamiento de progreso:** las claves de `localStorage` para resultados
    siguen el patrón `{prefijo}_{tema}_{bloque}` para que el progreso en cascada
    funcione por agregación de prefijos.
-3. **La `service_role` nunca toca el frontend:** vive solo en la Edge Function y
-   en el `.env` local de los scripts.
+3. **La `service_role` nunca toca el frontend**, y con **RLS activo** el
+   navegador no lee ni escribe las tablas; solo habla con `login`, `get-bank` y
+   `admin-logs`.
 
 ---
 

@@ -67,6 +67,7 @@ function deployFunction(fn) {
 
 let deploy = deployFunction('login');
 if (deploy.status === 0) deploy = deployFunction('get-bank');
+if (deploy.status === 0) deploy = deployFunction('admin-logs');
 
 if (deploy.status !== 0) {
     console.error('\n✗ No se pudo desplegar la función.');

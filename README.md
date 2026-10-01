@@ -25,6 +25,10 @@ motor de evaluación en tiempo real.
 - **Acceso seguro**: usuario + contraseña validados **en el servidor**; la
   licencia (2 dispositivos) y el panel de administración funcionan con **RLS
   activo** (el navegador no accede a las tablas).
+- **Progreso sincronizado entre dispositivos** (fallos, dudosas, récords e
+  historial) y **tema claro/oscuro** conmutable.
+- **Marcar preguntas dudosas**, **estadísticas de actividad** (respondidas,
+  racha, evolución) y **límite de intentos** de login.
 
 ---
 

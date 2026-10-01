@@ -5,6 +5,13 @@ formato de [Keep a Changelog](https://keepachangelog.com/es/1.0.0/) y versionado
 semántico (`MAJOR.MINOR.PATCH`). La fuente única de la versión es
 `CONFIG.APP_VERSION` en `src/js/modules/config.js`.
 
+## [1.28.0] — 2026-10-01
+### Añadido
+- **Sincronización del progreso entre dispositivos**: fallos, dudosas, récords,
+  historial, respondidas y racha se guardan por usuario en Supabase (tabla
+  `progreso` con RLS) y se **fusionan** (unión / máximo) al entrar y cada minuto.
+  Probado por HTTP.
+
 ## [1.27.0] — 2026-10-01
 ### Añadido
 - **Botón de tema claro/oscuro** (🌓 Tema) en la pantalla de inicio, con paleta

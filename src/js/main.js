@@ -15,6 +15,10 @@ document.addEventListener('DOMContentLoaded', () => {
     // ── Tema (claro/oscuro) recordado en el navegador ──────────────────────
     initTheme();
 
+    // ── Sincronización periódica del progreso (si hay sesión) ──────────────
+    setInterval(() => { syncProgress(); }, 60000);
+    window.addEventListener('pagehide', () => { syncProgress(); });
+
     // ── Diálogos accesibles: Escape cierra, Tab queda atrapado dentro ──────
     setupDialogA11y();
 
@@ -57,6 +61,29 @@ function initTheme() {
     let saved = null;
     try { saved = localStorage.getItem('ope_theme'); } catch { /* ignore */ }
     document.documentElement.dataset.theme = saved === 'light' ? 'light' : 'dark';
+}
+
+/** Sincroniza el progreso con el servidor (la fusión la hace el servidor). */
+async function syncProgress() {
+    const token = Storage.getToken();
+    if (!token) return;
+    try {
+        const res = await fetch(`${CONFIG.SUPABASE_URL}/functions/v1/sync-progress`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                apikey: CONFIG.SUPABASE_KEY,
+                Authorization: `Bearer ${CONFIG.SUPABASE_KEY}`
+            },
+            body: JSON.stringify({ token, data: Storage.exportUserData() })
+        });
+        const j = await res.json().catch(() => ({}));
+        if (!res.ok || j.ok !== true || !j.data) return;
+        Storage.importUserData(j.data);
+        UI.updateFailureBadge(Storage.getFailedIds().length);
+        updateDudosasBadge();
+        UI.renderizarRecordsMenu();
+    } catch { /* offline: se reintentará */ }
 }
 
 /**
@@ -123,6 +150,7 @@ function handleAuthSuccess(_userData, _currentDevices, _maxDevices) {
         UI.renderizarProgresoExamenes();
         Storage.touchStreak();
         setupEventListeners();
+        syncProgress();
 
         const lastRole = Storage.getLastRole();
         if (lastRole === 'pinche' || lastRole === 'celador') {

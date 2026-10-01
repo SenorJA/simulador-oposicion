@@ -12,11 +12,8 @@ import { state } from './modules/state.js';
 import { CONFIG } from './modules/config.js';
 
 document.addEventListener('DOMContentLoaded', () => {
-    // ── Anti-copy protections ──────────────────────────────────────────────
-    document.addEventListener('contextmenu', e => e.preventDefault());
-    document.addEventListener('keydown', e => {
-        if (e.ctrlKey && ['c', 'x', 'p', 'a', 's'].includes(e.key)) e.preventDefault();
-    });
+    // ── Diálogos accesibles: Escape cierra, Tab queda atrapado dentro ──────
+    setupDialogA11y();
 
     // ── Auth flow ──────────────────────────────────────────────────────────
     setupAccessRetry();
@@ -79,6 +76,64 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // ── Helpers ────────────────────────────────────────────────────────────────
+
+/**
+ * Accesibilidad de los modales: al abrirse mueve el foco dentro de ellos y lo
+ * mantiene atrapado (Tab/Shift+Tab); al cerrarse lo devuelve a donde estaba.
+ * Escape cierra el diálogo visible usando su propio botón de cierre.
+ */
+function setupDialogA11y() {
+    const DIALOGS = ['admin-modal', 'nav-grid-overlay'];
+    const FOCALIZABLES = 'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])';
+    const focoPrevio = new WeakMap();
+
+    const dialogoVisible = () => DIALOGS
+        .map(id => document.getElementById(id))
+        .find(el => el && !el.classList.contains('hidden'));
+
+    for (const id of DIALOGS) {
+        const el = document.getElementById(id);
+        if (!el) continue;
+        new MutationObserver(() => {
+            const abierto = !el.classList.contains('hidden');
+            if (abierto && !focoPrevio.has(el)) {
+                focoPrevio.set(el, document.activeElement);
+                const foco = el.querySelector(FOCALIZABLES);
+                if (foco) foco.focus();
+            } else if (!abierto && focoPrevio.has(el)) {
+                const prev = focoPrevio.get(el);
+                focoPrevio.delete(el);
+                if (prev && typeof prev.focus === 'function') prev.focus();
+            }
+        }).observe(el, { attributes: true, attributeFilter: ['class'] });
+    }
+
+    document.addEventListener('keydown', e => {
+        const dlg = dialogoVisible();
+        if (!dlg) return;
+
+        if (e.key === 'Escape') {
+            e.preventDefault();
+            const cerrar = dlg.querySelector('#btn-close-admin, #btn-close-grid');
+            if (cerrar) cerrar.click();
+            return;
+        }
+
+        if (e.key === 'Tab') {
+            const focos = [...dlg.querySelectorAll(FOCALIZABLES)].filter(el => !el.disabled);
+            if (!focos.length) return;
+            const primero = focos[0];
+            const ultimo = focos[focos.length - 1];
+            if (e.shiftKey && document.activeElement === primero) {
+                e.preventDefault();
+                ultimo.focus();
+            } else if (!e.shiftKey && document.activeElement === ultimo) {
+                e.preventDefault();
+                primero.focus();
+            }
+        }
+    });
+}
 
 /**
  * Error irrecuperable de carga: no hay ninguna pregunta con la que arrancar.

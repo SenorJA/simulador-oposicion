@@ -407,6 +407,20 @@ function setupEventListeners() {
     // ── Admin ──
     on('btn-admin-panel', 'click', loadAdminLogs);
     setupAdminActions();
+    on('btn-admin-new', 'click', async () => {
+        const id = (prompt('Código de usuario (letras/números, sin espacios):') || '').trim();
+        if (!id) return;
+        const nombre = prompt('Nombre (opcional):') || id;
+        const password = prompt('Contraseña (mínimo 6 caracteres):');
+        if (!password) return;
+        if (password.length < 6) { alert('La contraseña debe tener al menos 6 caracteres.'); return; }
+        try {
+            renderAdminTable(await callAdmin({ action: 'create', id_acceso: id, nombre, password }));
+            showToast('Usuario creado ✓');
+        } catch (e) {
+            alert('Error: ' + e.message);
+        }
+    });
     on('btn-close-admin', 'click', () => UI.toggleEl('admin-modal', false));
     on('btn-close-onboarding', 'click', closeOnboarding);
     on('btn-onboarding-ok', 'click', closeOnboarding);

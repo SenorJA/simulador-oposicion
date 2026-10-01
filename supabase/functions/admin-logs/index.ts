@@ -54,7 +54,7 @@ Deno.serve(async (req: Request) => {
     if (req.method === 'OPTIONS') return new Response('ok', { headers: CORS });
     if (req.method !== 'POST') return json({ error: 'Método no permitido' }, 405);
 
-    let body: { token?: unknown; action?: unknown; id_acceso?: unknown; password?: unknown; bloqueado?: unknown };
+    let body: { token?: unknown; action?: unknown; id_acceso?: unknown; password?: unknown; bloqueado?: unknown; nombre?: unknown };
     try {
         body = await req.json();
     } catch {
@@ -77,7 +77,24 @@ Deno.serve(async (req: Request) => {
     if (action) {
         if (!id) return json({ error: 'Falta el usuario' }, 400);
 
-        if (action === 'block' || action === 'unblock') {
+        if (action === 'create') {
+            if (!id || id.length > 64 || /[^A-Za-z0-9._@-]/.test(id)) return json({ error: 'Usuario no válido' }, 400);
+            const password = String(body.password ?? '');
+            if (password.length < 6) return json({ error: 'La contraseña es muy corta (mínimo 6)' }, 400);
+            const password_hash = await hashPassword(password);
+            const res = await fetch(`${SUPABASE_URL}/rest/v1/usuarios_acceso`, {
+                method: 'POST',
+                headers: { ...headers, 'Content-Type': 'application/json', Prefer: 'return=minimal' },
+                body: JSON.stringify({
+                    id_acceso: id,
+                    nombre: String(body.nombre || id),
+                    bloqueado: false,
+                    dispositivos_usados: 0,
+                    password_hash
+                })
+            });
+            if (!res.ok) return json({ error: 'No se pudo crear (¿ya existe?)' }, 409);
+        } else if (action === 'block' || action === 'unblock') {
             const res = await fetch(`${SUPABASE_URL}/rest/v1/usuarios_acceso?id_acceso=eq.${encodeURIComponent(id)}`, {
                 method: 'PATCH',
                 headers: { ...headers, 'Content-Type': 'application/json', Prefer: 'return=minimal' },

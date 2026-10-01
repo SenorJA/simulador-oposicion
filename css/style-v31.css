@@ -869,9 +869,14 @@ h1 {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 10px;
     border-bottom: 2px solid var(--border-soft);
     padding-bottom: 15px;
     margin-bottom: 15px;
+}
+
+.modal-header .admin-btn {
+    margin-left: auto;
 }
 
 .table-container {

@@ -5,6 +5,14 @@ formato de [Keep a Changelog](https://keepachangelog.com/es/1.0.0/) y versionado
 semántico (`MAJOR.MINOR.PATCH`). La fuente única de la versión es
 `CONFIG.APP_VERSION` en `src/js/modules/config.js`.
 
+## [1.29.0] — 2026-10-01
+### Añadido
+- **Crear usuarios desde el panel de administración** (código, nombre y
+  contraseña), sin pasar por la línea de comandos. Probado.
+### Cambiado
+- Bienvenida actualizada (dudosas, sincronización entre dispositivos, tema).
+- Test de aislamiento de **dudosas y estadísticas** (usuario+rol) y de la racha.
+
 ## [1.28.0] — 2026-10-01
 ### Añadido
 - **Sincronización del progreso entre dispositivos**: fallos, dudosas, récords,

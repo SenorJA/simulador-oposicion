@@ -5,6 +5,11 @@ formato de [Keep a Changelog](https://keepachangelog.com/es/1.0.0/) y versionado
 semántico (`MAJOR.MINOR.PATCH`). La fuente única de la versión es
 `CONFIG.APP_VERSION` en `src/js/modules/config.js`.
 
+## [1.31.1] — 2026-10-01
+### Añadido
+- Botón **“Vaciar dudosas”** en Mi Progreso (además de quitar las dudosas de una
+  en una con “Quitar”).
+
 ## [1.31.0] — 2026-10-01
 ### Cambiado
 - **“Exportar resultados (PDF)”** sustituye al export JSON: genera un informe de

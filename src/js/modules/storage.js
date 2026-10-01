@@ -107,6 +107,11 @@ export function toggleDudosa(id) {
     return set.has(id);
 }
 
+/** Vacía por completo la lista de dudosas del usuario+rol actual. */
+export function clearDudosas() {
+    localStorage.removeItem(pk(KEYS.DUDOSAS));
+}
+
 // ── Failures ─────────────────────────────────────────────────────────────────
 
 export function getFailedIds() {

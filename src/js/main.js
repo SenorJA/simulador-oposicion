@@ -422,6 +422,14 @@ function setupEventListeners() {
             renderDudosasList();
         });
     }
+    on('btn-clear-dudosas', 'click', () => {
+        if (confirm('¿Vaciar todas las preguntas marcadas como dudosas?')) {
+            Storage.clearDudosas();
+            updateDudosasBadge();
+            renderDudosasList();
+            showToast('Dudosas vaciadas ✓');
+        }
+    });
     on('btn-admin-new', 'click', async () => {
         const id = (prompt('Código de usuario (letras/números, sin espacios):') || '').trim();
         if (!id) return;
@@ -949,6 +957,8 @@ function renderDudosasList() {
     if (!cont) return;
     const ids = new Set(Storage.getDudosas());
     const items = state.allQuestions.filter(q => ids.has(q.id));
+    const btn = document.getElementById('btn-clear-dudosas');
+    if (btn) btn.classList.toggle('hidden', items.length === 0);
     if (items.length === 0) {
         cont.innerHTML = '<p class="setting-hint">No tienes preguntas marcadas. Usa “☆ Marcar dudosa” dentro de un test.</p>';
         return;

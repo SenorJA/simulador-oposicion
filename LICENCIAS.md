@@ -354,3 +354,21 @@ app (navegador)  --POST {bank,user}-->  Edge Function get-bank
   (§7.1). No hay copia local de respaldo, por diseño.
 - Endurecimiento futuro (no aplicado): rate limit por código en la función,
   comprobar el límite de dispositivos dentro de `get-bank` y firmar las URLs.
+
+### ⚠️ Riesgo residual: el historial de Git
+
+Sacar `data/` de la rama `main` **no borra** los bancos del repo. Están en cada
+commit anterior a `31583e4`. Verificado: la URL cruda de un commit antiguo
+sigue devolviendo el JSON completo (`HTTP 200`, ~1,8 MB) sin autenticación.
+
+Mientras el repo siga siendo **público**, cualquiera puede recuperarlos del
+historial. Opciones para cerrarlo de verdad:
+
+| Opción | Qué hace | Coste |
+|---|---|---|
+| **Repo privado** (recomendado) | Deja de servir el historial sin login. La app aún no está publicada, así que no rompe nada. | Un clic en Settings; luego revisar si el hosting necesita el repo público |
+| Reescribir historia | `git filter-repo --path data/ --invert-paths` + force-push. Borra los objetos alcanzables. | Rompe clones; GitHub puede conservar objetos hasta su GC |
+| Borrar y recrear el repo | Limpio del todo. | Se pierde el historial de commits |
+
+El `data/` que ahora está en `.gitignore` solo protege los commits **futuros**.
+La decisión de privatizar el repo es del titular.
